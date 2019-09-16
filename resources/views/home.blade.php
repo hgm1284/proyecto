@@ -50,7 +50,7 @@
                         </div>
                     @endif
 
-                    Bienvenido!
+                    Bienvenid@!
         </div>
       </li>
     </ul>
