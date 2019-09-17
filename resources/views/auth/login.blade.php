@@ -1,18 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="login-form">
-
-
-                    <form method="POST" action="{{ route('login') }}">
+<!-- main -->
+<div class="main-w3layouts wrapper">
+  <h1>Iniciar Sesión</h1>
+  <div class="main-agileinfo">
+    <div class="agileits-top">
+      <form method="POST" action="{{ route('login') }}">
                         @csrf
-<div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
-<h4 class="modal-title">Login to Your Account</h4>
 
-<div class="form-group">
-                            <label for="email" class="form-control">{{ __('Dirección de E-Mail') }}</label>
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-white text-md-right">{{ __('Correo Electrónico') }}</label>
 
-                            <div class="form-group">
+                            <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
@@ -23,10 +23,10 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="password"class="form-control">{{ __('Contraseña') }}</label>
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-white text-md-right">{{ __('Contraseña') }}</label>
 
-                            <div class="form-group">
+                            <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
@@ -37,34 +37,34 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="form-control">
-                                    <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label for="remember">
-                                        {{ __('Recordarme') }}
-                                    </label>
-
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="form-control">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-dark">
+                                    {{ __('Entrar') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="forgot-link" href="{{ route('password.request') }}">
-                                        {{ __('Olvido su contraseña?') }}
+                                    <a class="text-white" href="{{ route('password.request') }}">
+                                        {{ __('Olvidaste tu contraseña?') }}
                                     </a>
                                 @endif
                             </div>
                         </div>
                     </form>
-                </div>
-            </div>
-        </div>
     </div>
+  </div>
+
+  <ul class="colorlib-bubbles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
 </div>
 @endsection
