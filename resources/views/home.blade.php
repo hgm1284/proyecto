@@ -44,10 +44,10 @@
 
 
     </div>
+    <a class="nav-link" href="/registrar">Registrar Usuario</a>
   </li>
   <li class="nav-item">
-  <a class="nav-link" href="{{ route('register') }}">Registrar Usuario</a>
-  </li>
+</li>
   <li class="nav-item">
     <a class="nav-link" href="#">Link</a>
   </li>

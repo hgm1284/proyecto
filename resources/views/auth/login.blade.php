@@ -8,7 +8,7 @@
 
       <!-- Font Icon -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-            rel="stylesheet">
+      rel="stylesheet">
 
       <!-- Main css -->
       <link rel="stylesheet" href="css/style.css">
