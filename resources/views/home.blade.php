@@ -46,7 +46,8 @@
     </div>
   </li>
   <li class="nav-item">
-  <a class="nav-link" href="{{ route('register') }}">Registrar Usuario</a>
+
+    <a href="{{ route('register') }}">Register</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#">Link</a>

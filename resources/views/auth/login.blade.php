@@ -4,7 +4,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>Sign Up Form by Colorlib</title>
+      <title>Control Roles</title>
 
       <!-- Font Icon -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -60,7 +60,6 @@
                                 <div class="form-group form-button">
                                 <input type="submit" name="signin" id="signin" class="form-submit" value="Iniciar"/>
                             </div>
-
                                   @if (Route::has('password.request'))
                                       <a class="text-white" href="{{ route('password.request') }}">
                                           {{ __('Olvidaste tu contraseña?') }}
@@ -72,7 +71,7 @@
       </div>
       <div class="signup-image">
                           <figure><img src="images/signin-image.jpg" alt="sing up image"></figure>
-                      </div>
+    </div>
     </div>
     <!-- JS -->
     <script src="vendor/jquery/jquery.min.js"></script>
