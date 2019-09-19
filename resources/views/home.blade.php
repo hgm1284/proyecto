@@ -44,6 +44,7 @@
 
 
     </div>
+    <a class="nav-link" href="/registrar">Registrar Usuario</a>
   </li>
   <li class="nav-item">
 

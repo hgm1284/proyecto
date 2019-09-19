@@ -7,9 +7,7 @@
       <title>Control Roles</title>
 
       <!-- Font Icon -->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-            rel="stylesheet">
-
+      <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
       <!-- Main css -->
       <link rel="stylesheet" href="css/style.css">
   </head>
@@ -28,7 +26,7 @@
                           @csrf
 
                           <div class="form-group">
-                              <label for="email" <i class="material-icons">face</i></label>
+                              <label for="email" <i class="zmdi zmdi-account material-icons-name"</i></label>
 
                               <div class="col-md-6">
                                   <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"  placeholder="Tu Correo Electrónico" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -42,7 +40,7 @@
                           </div>
 
                           <div class="form-group">
-                              <label for="password" <i class="material-icons">lock</i></label>
+                              <label for="password" <i class="zmdi zmdi-lock"</i></label>
 
                               <div class="col-md-6">
                                   <input id="password" type="password"  placeholder="Tu Contraseña" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
