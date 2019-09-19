@@ -8,6 +8,7 @@
 
   <!-- Font Icon -->
   <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
   <!-- Main css -->
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -28,7 +29,7 @@
                         @csrf
 
 <div class="form-group">
-  <label for="name" <i class="zmdi zmdi-account material-icons-name"></i></label>
+  <label for="name" <i class="fa fa-users" aria-hidden="true"></i></label>
 
 
                             <div class="col-md-6">
@@ -43,7 +44,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="email" <i class="zmdi zmdi-email"></i></label>
+                            <label for="email" <i class="fa fa-envelope" aria-hidden="true"></i></label>
 
                             <div class="col-md-6">
                                 <input id="email" placeholder="Tu Correo Electrónico" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -57,7 +58,7 @@
                         </div>
 
                         <div class="form-group">
-                          <label for="password" <i class="zmdi zmdi-lock"</i></label>
+                          <label for="password" <i class="fa fa-unlock-alt" aria-hidden="true"></i></label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" placeholder="Tu Contraseña" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -71,7 +72,7 @@
                         </div>
 
                         <div class="form-group">
-                          <label for="password" <i class="zmdi zmdi-lock-outline"</i></label>
+                          <label for="password" <i class="fa fa-check-square" aria-hidden="true"></i></label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" placeholder="Confirmar Contraseña" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
