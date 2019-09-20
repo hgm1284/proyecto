@@ -19,6 +19,9 @@
         <section class="signup">
             <div class="container">
                 <div class="signup-content">
+                <div class="signin-image">
+                <figure><img src="images/log.jpg" alt="sing up image"></figure>
+                    </div>
                     <div class="signup-form">
                       <h4 class="form-title">Gestión de Roles | Dirección de Enfermería</h4>
                         <h4 class="form-title">Iniciar Sesión</h4>
@@ -59,18 +62,10 @@
                                 <div class="form-group form-button">
                                 <input type="submit" name="signin" id="signin" class="form-submit" value="Iniciar"/>
                             </div>
-                                  @if (Route::has('password.request'))
-                                      <a class="text-white" href="{{ route('password.request') }}">
-                                          {{ __('Olvidaste tu contraseña?') }}
-                                      </a>
-                                  @endif
-                              </div>
+                         </div>
                           </div>
                       </form>
       </div>
-      <div class="signup-image">
-                          <figure><img src="images/signin-image.jpg" alt="sing up image"></figure>
-    </div>
     </div>
     <!-- JS -->
     <script src="vendor/jquery/jquery.min.js"></script>
