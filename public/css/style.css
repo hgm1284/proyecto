@@ -166,7 +166,8 @@ input[type=radio] {
 
 img {
   max-width: 100%;
-  height: auto; }
+  height: auto; 
+  opacity: 1;}
 
 figure {
   margin: 0; }
@@ -195,7 +196,8 @@ body {
   font-size: 13px;
   line-height: 1.8;
   font-weight: 400;
-  background-image: url('../images/signin3.jpg');
+  background-image: url('../images/origen4.jpg');
+  background-image:100%;
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -203,7 +205,8 @@ body {
   font-family: Poppins; }
 
 .container {
-  width: 800px;
+  width: 650px;
+  height: 350px;
   background: #fff;
   opacity: 0.95;
   margin: 0 auto;
@@ -255,35 +258,38 @@ body {
 
 
 .signup {
-  margin-bottom: 30px; }
+  margin-bottom: 15px; }
 
 .signup-content {
-  padding: 30px 0; }
+  padding: 15px 0; }
 
 .signup-form, .signup-image, .signin-form, .signin-image {
-  width: 40%;
+  width: 30%;
   overflow: hidden; }
 
 .signup-image {
-  margin: 0 55px; }
+  margin: 0 55px;
+ }
 
 .form-title {
   margin-bottom: 33px; }
 
 .signup-image {
-  margin-top: 45px; }
+  margin-top: 25px; 
+}
 
 figure {
-  margin-bottom: 50px;
-  text-align: center; }
+  margin-bottom: 40px;
+  text-align: center; 
+  padding: 50px 0;}
 
 .form-submit {
   display: inline-block;
   background: #6dabe4;
-  color: #fff;
+  color: #ffff;
   border-bottom: none;
   width: auto;
-  padding: 15px 39px;
+  padding: 10px 15px;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -308,8 +314,8 @@ figure {
   color: #222; }
 
 .signup-form {
-  margin-left: 75px;
-  margin-right: 75px;
+  margin-left: 15px;
+  margin-right: 9px;
   padding-left: 34px; }
 
 .register-form {
@@ -320,34 +326,16 @@ figure {
   margin-bottom: 25px;
   overflow: hidden; }
   .form-group:last-child {
-    margin-bottom: 0px; }
+    margin-bottom: 0px; 
+    padding-right: 9px;}
 
 input {
-  width: 100%;
-  display: block;
+  width: 110%;
   border: none;
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid #fff;
   padding: 6px 30px;
   font-family: Poppins;
   box-sizing: border-box; }
-  input::-webkit-input-placeholder {
-    color: #999; }
-  input::-moz-placeholder {
-    color: #999; }
-  input:-ms-input-placeholder {
-    color: #999; }
-  input:-moz-placeholder {
-    color: #999; }
-  input:focus {
-    border-bottom: 1px solid #222; }
-    input:focus::-webkit-input-placeholder {
-      color: #222; }
-    input:focus::-moz-placeholder {
-      color: #222; }
-    input:focus:-ms-input-placeholder {
-      color: #222; }
-    input:focus:-moz-placeholder {
-      color: #222; }
 
 input[type=checkbox]:not(old) {
   width: 2em;
@@ -373,7 +361,7 @@ input[type=checkbox]:not(old) + label > span {
   -webkit-border-radius: 2px;
   -o-border-radius: 2px;
   -ms-border-radius: 2px;
-  background: white;
+  background: #fff;
   background-image: -moz-linear-gradient(white, white);
   background-image: -ms-linear-gradient(white, white);
   background-image: -o-linear-gradient(white, white);
@@ -516,7 +504,7 @@ label.valid {
   margin-left: 80px; }
 
 .signin-image {
-  margin-left: 110px;
+  margin-left: 75px;
   margin-right: 20px;
   margin-top: 10px; }
 
@@ -541,11 +529,11 @@ label.valid {
     -ms-justify-content: center; }
 
   .signup-form {
-    margin-left: 0px;
-    margin-right: 0px;
-    padding-left: 0px;
+    margin-left: 9px;
+    margin-right: 15px;
+    padding-left: 14px;
     /* box-sizing: border-box; */
-    padding: 0 30px; }
+    padding: 0 15px; }
 
   .signin-image {
     margin-left: 0px;
