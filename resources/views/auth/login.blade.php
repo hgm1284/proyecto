@@ -20,20 +20,21 @@
             <div class="container">
                 <div class="signup-content">
                 <div class="signin-image">
-                <figure><img src="images/log.jpg" alt="sing up image"></figure>
+                <figure>
+                    <img src="images/hospital3.png" alt="sing up image">
+                </figure>
                     </div>
                     <div class="signup-form">
-                      <h4 class="form-title">Gestión de Roles | Dirección de Enfermería</h4>
-                        <h4 class="form-title">Iniciar Sesión</h4>
+                      <h3 class="form-title">Gestión de Roles | Dirección de Enfermería</h3>
 
-        <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('login') }}">
                           @csrf
 
                           <div class="form-group">
-                              <label for="email" <i class="zmdi zmdi-account material-icons-name"</i></label>
+                              <label for="email" <i class="zmdi zmdi-account material-icons-name"> </i></label>
 
                               <div class="col-md-6">
-                                  <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"  placeholder="Tu Correo Electrónico" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                  <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"  placeholder="Correo Electrónico" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                   @error('email')
                                       <span class="invalid-feedback" role="alert">
@@ -47,7 +48,7 @@
                               <label for="password" <i class="zmdi zmdi-lock"</i></label>
 
                               <div class="col-md-6">
-                                  <input id="password" type="password"  placeholder="Tu Contraseña" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                  <input id="password" type="password"  placeholder="Contraseña" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                   @error('password')
                                       <span class="invalid-feedback" role="alert">
@@ -60,7 +61,7 @@
                           <div class="form-group row mb-0">
                               <div class="col-md-8 offset-md-4">
                                 <div class="form-group form-button">
-                                <input type="submit" name="signin" id="signin" class="form-submit" value="Iniciar"/>
+                                <input type="submit" name="signin" id="signin" class="form-submit" value="Inicio de sesión"/>
                             </div>
                          </div>
                           </div>
