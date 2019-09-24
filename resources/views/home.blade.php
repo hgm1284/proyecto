@@ -11,6 +11,7 @@
                     {{ session('status') }}
                 </div>
             @endif
+            <h3 class="row justify-content-center">Gestión de Roles | Dirección de Enfermería</h3>
             <h4 class="m-0 text-dark">Bienvenido(a)!</h4>
             <br>
           </div><!-- /.container-fluid -->
@@ -21,7 +22,7 @@
   <div class="row">
   <div class="col-12">
     <div class="callout callout-info">
-      <h5><i class="fas fa-info"></i> Nota:</h5>
+      <h5><i class="fas fa-info"></i>Nota:</h5>
       Este menú le permite acceder de manera ágil a los módulos más importantes de la plataforma.
     </div>
   </div>
