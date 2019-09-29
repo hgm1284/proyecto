@@ -12,7 +12,7 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="adminlte/css/adminlte.min.css">
 
-    
+
     <title>Gestión de Roles | Dirección de Enfermería</title>
   </head>
   <body>
@@ -48,7 +48,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="index3.html" class="brand-link">
+      <a href="" class="brand-link">
         <img src="adminlte/img/hospital.png" alt="AdminLTE Logo"class="brand-image  elevation-3"
              style="opacity: .8">
         <span class="brand-text font-weight-light">Gestión de Roles</span>
@@ -80,7 +80,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="/registrar" class="nav-link active">
+                  <a href="/usuarios/create" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Registrar</p>
                   </a>

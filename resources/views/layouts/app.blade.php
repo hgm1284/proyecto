@@ -9,6 +9,13 @@
 
     <title>Gestión de Roles | Dirección de Enfermería</title>
 
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="adminlte/plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="adminlte/css/adminlte.min.css">
+    
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
