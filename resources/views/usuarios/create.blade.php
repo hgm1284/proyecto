@@ -64,7 +64,7 @@
 
         <div class="input-group mb-3">
           <select id="privilegio"  name="id_rolusuario" class="form-control">
-                        <option value="" selected disabled>Seleccione Tipo Usuario</option>
+                        <option value="0" selected disabled>Seleccione Tipo Usuario</option>
                         <option value="1">Administrador</option>
                         <option value="2">Supervisor</option>
                         <option value="3">Invitado</option>

@@ -4,7 +4,6 @@
 @section('content')
 
 <div class="card-body">
-  dd{{$users}}
                 <table class="table table-striped">
                   <thead>
                     <tr>
@@ -17,7 +16,6 @@
                   <tbody>
                      @foreach ($users as $user)
                      <tr>
-                       <td>{{ $user->id }}</td>
                        <td>{{ $user->name }}</td>
                        <td>{{ $user->email }}</td>
                        <td>{{ $user->id_rolusuario }}</td>
@@ -29,5 +27,6 @@
                       @endforeach
                   </tbody>
                 </table>
+                {!! $users->render()!!}
               </div>
 @endsection
