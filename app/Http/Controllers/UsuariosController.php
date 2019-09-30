@@ -62,7 +62,8 @@ class UsuariosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('usuarios.edit')->with('user', $user);
     }
 
     /**
@@ -87,7 +88,7 @@ class UsuariosController extends Controller
     {
         $user = User::find($id);
         $user->delete();
-        
+
         return redirect()->route('usuarios.index');
 
     }
