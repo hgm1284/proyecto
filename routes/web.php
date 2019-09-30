@@ -20,3 +20,7 @@ Route::get('registrar', ['as' => 'registrar', 'uses' => 'Auth\RegisterController
 Route::post('registrar', ['as' => 'registrar.post', 'uses' => 'Auth\RegisterController@register']);
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/usuarios','UsuariosController');
+Route::get('usuarios/{id}/destroy', [
+    'uses'=> 'UsuariosController@destroy',
+    'as'  =>'usuarios.destroy'
+]);
