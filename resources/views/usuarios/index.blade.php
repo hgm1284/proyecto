@@ -37,6 +37,7 @@
                       @endforeach
                   </tbody>
                 </table>
+                <br>
                 {!! $users->render()!!}
               </div>
 

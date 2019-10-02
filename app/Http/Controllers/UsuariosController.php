@@ -60,12 +60,12 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        $user = User::find($id);
-        return view('usuarios.edit')->with('user', $user);
-    }
+     public function edit($id)
+     {
+         $user = User::find($id);
+         return view('usuarios.edit')->with('user', $user);
 
+     }
     /**
      * Update the specified resource in storage.
      *
@@ -73,10 +73,25 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+     public function update(Request $request, $id)
+     {
+         {
+         $validatedData = $request->validate([
+             'name' => 'required',
+             'email' => 'required',
+             'password' => 'required',
+         ]);
+
+         $user = User::find($id);
+         $user->name = $request->name;
+         $user->email = $request->email;
+         $user->id_rolusuario = $request->privilegio;
+         $user->password = bcrypt($request->password);
+         $user->save();
+         return redirect()->route('usuarios.index');
+
+         }
+     }
 
     /**
      * Remove the specified resource from storage.

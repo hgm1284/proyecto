@@ -2,17 +2,17 @@
 
 @section('content')
 
-
 <div class="row justify-content-center">
 <div class="col-6">
   <div class="card">
     <div class="card-body register-card-body">
-      <p class="login-box-msg">Modificación de Usuario</p>
-      <form method="PUT" action="{{ route('usuarios.update') }}">
-                  @csrf
+      <p class="login-box-msg">Registro de nuevo Usuario</p>
+      <form method="post" action="{{ route('usuarios.update', $user->id) }}">
+		@csrf
+		@method('PATCH')
         <div class="input-group mb-1">
-          <input id="name"  placeholder="Nombre" type="text"
-          class="form-control @error('name') is-invalid @enderror" name="name" value="{{ <?php $user->name  ?> }}" required autocomplete="name" autofocus>
+		  <input type="text" name="name" value="{{ $user->name }}" required autocomplete="name" autofocus
+		   placeholder="Nombre"   class="form-control input-lg" />
           @error('name')
               <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
@@ -25,8 +25,8 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input id="email" placeholder="Correo Electrónico" type="email"
-          class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+		  <input type="email" placeholder="Correo Electrónico" name="email" value="{{ $user->email }}"
+		  class="form-control input-lg" required autocomplete="email" />
           @error('email')
               <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
@@ -39,8 +39,8 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input id="password" type="password" placeholder="Contraseña"
-          class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+		  <input type="password" name="password" value="{{ $user->password }}"
+		  class="form-control input-lg" required autocomplete="new-password" placeholder=" Contraseña"/>
           @error('password')
               <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
@@ -53,17 +53,16 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input id="password-confirm" placeholder="Confirmar Contraseña" type="password"
-          class="form-control" name="password_confirmation" required autocomplete="new-password">
+		  <input type="password" name="password-confirm" value="{{ $user->password }}"
+		  class="form-control input-lg" required autocomplete="new-password" placeholder="Confirmar Contraseña"/>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
-
         <div class="input-group mb-3">
-          <select id="privilegio"  name="id_rolusuario" class="form-control">
+          <select id="privilegio"  name="privilegio" class="form-control">
                         <option value="0" selected disabled>Seleccione Tipo Usuario</option>
                         <option value="1">Administrador</option>
                         <option value="2">Supervisor</option>
@@ -79,7 +78,7 @@
         <div class="row justify-content-center">
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Registrar Usuario</button>
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Modificar Usuario</button>
           </div>
           <!-- /.col -->
         </div>
