@@ -24,3 +24,8 @@ Route::get('usuarios/{id}/destroy', [
     'uses'=> 'UsuariosController@destroy',
     'as'  =>'usuarios.destroy'
 ]);
+Route::resource('/servicios','ServiciosController');
+Route::get('servicios/{id}/destroy', [
+    'uses'=> 'ServiciosController@destroy',
+    'as'  =>'servicios.destroy'
+]);

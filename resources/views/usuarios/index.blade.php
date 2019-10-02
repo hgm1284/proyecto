@@ -28,7 +28,7 @@
                         @endif
                       </td>
                      <td colspan="2">
-                       <a href="{{ route('usuarios.edit', $user->id ) }}" class="btn btn-success"> <i class="fas fa-pencil-alt"></i> </a>
+                       <a href="{{ route('usuarios.edit', $user->id ) }}" class="btn btn-primary"> <i class="fas fa-pencil-alt"></i> </a>
                        <a href="{{ route('usuarios.destroy', $user->id ) }}" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">
                           <i class="fas fa-trash-alt"></i>
                         </a>

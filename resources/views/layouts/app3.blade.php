@@ -67,6 +67,7 @@
                   <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                       <!-- pestaña 1 -->
+
                       <li class="nav-item has-treeview">
                         <a href="#" class="nav-link active">
                           <i class="nav-icon fas fa-user-md"></i>
@@ -101,15 +102,15 @@
                         </a>
                         <ul class="nav nav-treeview">
                           <li class="nav-item">
-                            <a href="#" class="nav-link active">
+                            <a href="/servicios/create" class="nav-link active">
                               <i class="far fa-circle nav-icon"></i>
-                              <p>Active Page</p>
+                              <p>Agregar Servicio</p>
                             </a>
                           </li>
                           <li class="nav-item">
                             <a href="#" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
-                              <p>Inactive Page</p>
+                              <p>Listado Servicios</p>
                             </a>
                           </li>
                         </ul>
@@ -262,8 +263,7 @@
                       </li>
                       <!-- pestaña 9 -->
                       <li class="nav-item ">
-
-                        <a href="{{ route('logout') }}" class="nav-link inactive"
+                        <a href="{{ route('logout') }}" class="nav-link active"
                         onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">
                                  <i class="nav-icon fas fa-power-off"></i>
