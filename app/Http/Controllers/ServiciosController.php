@@ -13,7 +13,8 @@ class ServiciosController extends Controller
      */
     public function index()
     {
-        //
+        $servicio = Servicio::orderBy('id','ASC')->paginate(5);
+        return view('servicios.index')->with('servicios', $servicio);
     }
 
     /**
@@ -58,7 +59,8 @@ class ServiciosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $servicio = Servicio::find($id);
+        return view('servicios.edit')->with('servicio', $servicio);
     }
 
     /**
@@ -70,7 +72,19 @@ class ServiciosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        {
+            $validatedData = $request->validate([
+                'nombre' => 'required',
+                'descripcion' => 'required',
+            ]);
+   
+            $servicio = Servicio::find($id);
+            $servicio->nombre = $request->nombre;
+            $servicio->descripcion = $request->descripcion;
+            $servicio->save();
+            return redirect()->route('servicios.index');
+   
+            }
     }
 
     /**
@@ -81,6 +95,9 @@ class ServiciosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $servicio = Servicio::find($id);
+        $servicio->delete();
+
+        return redirect()->route('servicios.index');
     }
 }
