@@ -29,3 +29,8 @@ Route::get('servicios/{id}/destroy', [
     'uses'=> 'ServiciosController@destroy',
     'as'  =>'servicios.destroy'
 ]);
+Route::resource('/profiles','ProfilesController');
+Route::get('profiles/{id}/destroy', [
+    'uses'=> 'ProfilesController@destroy',
+    'as'  =>'profiles.destroy'
+]);

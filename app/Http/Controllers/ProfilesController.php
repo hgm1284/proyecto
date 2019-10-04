@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Servicio;
+use App\Profile;
 
-class ServiciosController extends Controller
+
+class ProfilesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class ServiciosController extends Controller
      */
     public function index()
     {
-        $servicio = Servicio::orderBy('id','ASC')->paginate(5);
-        return view('servicios.index')->with('servicios', $servicio);
+      $profile = Profile::orderBy('id','ASC')->paginate(5);
+      return view('profiles.index')->with('profiles', $profile);
     }
 
     /**
@@ -25,7 +26,7 @@ class ServiciosController extends Controller
      */
     public function create()
     {
-        return view('servicios.create');
+      return view('profiles.create');
     }
 
     /**
@@ -36,9 +37,9 @@ class ServiciosController extends Controller
      */
     public function store(Request $request)
     {
-      $servicio = new Servicio($request->all());
-      $servicio->save();
-      return redirect()->route('servicios.index');
+      $profile = new Profile($request->all());
+      $profile->save();
+      return redirect()->route('profiles.index');
     }
 
     /**
@@ -60,8 +61,8 @@ class ServiciosController extends Controller
      */
     public function edit($id)
     {
-        $servicio = Servicio::find($id);
-        return view('servicios.edit')->with('servicio', $servicio);
+      $profile = Profile::find($id);
+      return view('profiles.edit')->with('profile', $profile);
     }
 
     /**
@@ -73,19 +74,19 @@ class ServiciosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        {
-            $validatedData = $request->validate([
-                'nombre' => 'required',
-                'descripcion' => 'required',
-            ]);
+      {
+          $validatedData = $request->validate([
+              'nombre' => 'required',
+              'descripcion' => 'required',
+          ]);
 
-            $servicio = Servicio::find($id);
-            $servicio->nombre = $request->nombre;
-            $servicio->descripcion = $request->descripcion;
-            $servicio->save();
-            return redirect()->route('servicios.index');
+          $profile = Profile::find($id);
+          $profile->nombre = $request->nombre;
+          $profile->descripcion = $request->descripcion;
+          $profile->save();
+          return redirect()->route('profiles.index');
 
-            }
+          }
     }
 
     /**
@@ -96,8 +97,8 @@ class ServiciosController extends Controller
      */
     public function destroy($id)
     {
-        $servicio = Servicio::find($id);
-        $servicio->delete();
-        return redirect()->route('servicios.index');
+      $profile = Profile::find($id);
+      $profile->delete();
+      return redirect()->route('profiles.index');
     }
 }

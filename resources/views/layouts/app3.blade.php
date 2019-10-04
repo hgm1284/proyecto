@@ -175,15 +175,15 @@
                       </a>
                       <ul class="nav nav-treeview">
                         <li class="nav-item">
-                          <a href="#" class="nav-link active">
+                          <a href="/profiles/create" class="nav-link active">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Active Page</p>
+                            <p>Agregar Perfil</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="#" class="nav-link">
+                          <a href="/profiles" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Inactive Page</p>
+                            <p>Listado de Perfiles</p>
                           </a>
                         </li>
                       </ul>
