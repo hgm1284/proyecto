@@ -73,6 +73,14 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     public function destroy(Request $request, $id)
+     {
+         $user = User::find($id);
+         $user->delete();
+         return redirect()->route('usuarios.index');
+     }
+
      public function update(Request $request, $id)
      {
          {
@@ -99,12 +107,5 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        $user = User::find($id);
-        $user->delete();
 
-        return redirect()->route('usuarios.index');
-
-    }
 }

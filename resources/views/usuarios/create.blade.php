@@ -78,8 +78,8 @@
 
         <div class="row justify-content-center">
           <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Registrar Usuario</button>
+          <div class="col-5">
+            <button type="submit" class="btn btn-block btn-primary btn-lg">Registrar Usuario</button>
           </div>
           <!-- /.col -->
         </div>
