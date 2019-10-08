@@ -64,10 +64,11 @@
 
         <div class="input-group mb-3">
           <select id="privilegio"  name="id_rolusuario" class="form-control">
-                        <option value="0" selected disabled>Seleccione Tipo Usuario</option>
-                        <option value="1">Administrador</option>
-                        <option value="2">Supervisor</option>
-                        <option value="3">Invitado</option>
+            <option value="">Seleccione Privilegio de Usuario
+          </option>
+            @foreach ($privilegios as $privilegio)
+              <option value="{{$privilegio['id']}}">{{$privilegio['tipo_privilegio']}}</option>
+            @endforeach
                       </select>
           <div class="input-group-append">
             <div class="input-group-text">

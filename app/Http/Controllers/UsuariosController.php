@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Privilegio;
 
 class UsuariosController extends Controller
 {
@@ -25,7 +26,8 @@ class UsuariosController extends Controller
      */
     public function create()
     {
-        return view('usuarios.create');
+        $privilegios = Privilegio::all();
+        return view('usuarios.create', compact('privilegios'));
     }
 
     /**
@@ -62,8 +64,9 @@ class UsuariosController extends Controller
      */
      public function edit($id)
      {
+         $privilegios = Privilegio::all();
          $user = User::find($id);
-         return view('usuarios.edit')->with('user', $user);
+         return view('usuarios.edit', compact('privilegios'))->with('user', $user);
 
      }
     /**
@@ -88,12 +91,14 @@ class UsuariosController extends Controller
              'name' => 'required',
              'email' => 'required',
              'password' => 'required',
+             'id_rolusuario' => 'required',
+
          ]);
 
          $user = User::find($id);
          $user->name = $request->name;
          $user->email = $request->email;
-         $user->id_rolusuario = $request->privilegio;
+         $user->id_rolusuario = $request->id_rolusuario;
          $user->password = bcrypt($request->password);
          $user->save();
          return redirect()->route('usuarios.index');

@@ -18,15 +18,7 @@
                      <tr>
                        <td>{{ $user->name }}</td>
                        <td>{{ $user->email }}</td>
-                       <td>
-                         @if ($user->id_rolusuario == 1)
-                         <span class="label label-danger"> {{"Administrador" }} </span>
-                         @elseif  ($user->id_rolusuario == 2)
-                         <span class="label label-danger"> {{"Supervisor" }} </span>
-                        @elseif  ($user->id_rolusuario == 3)
-                         <span class="label label-danger"> {{"Invitado" }} </span>
-                        @endif
-                      </td>
+                       <td>{{ $user->id_rolusuario }}</td>
                      <td colspan="2">
                        <a href="{{ route('usuarios.edit', $user->id ) }}" class="btn btn-primary"> <i class="fas fa-pencil-alt"></i> </a>
                        <a href="javascript:;" class="btn btn-danger" data-toggle="modal" onclick="deleteData({{$user->id}})"
