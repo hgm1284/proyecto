@@ -18,7 +18,11 @@
                      <tr>
                        <td>{{ $user->name }}</td>
                        <td>{{ $user->email }}</td>
-                       <td>{{ $user->id_rolusuario }}</td>
+                       @foreach ($privilegios as $privilegio)
+                        @if ($user->id_rolusuario == $privilegio['id'] )
+                          <td>{{$privilegio['tipo_privilegio']}}</td>
+                        @endif
+                       @endforeach
                      <td colspan="2">
                        <a href="{{ route('usuarios.edit', $user->id ) }}" class="btn btn-primary"> <i class="fas fa-pencil-alt"></i> </a>
                        <a href="javascript:;" class="btn btn-danger" data-toggle="modal" onclick="deleteData({{$user->id}})"
@@ -50,9 +54,9 @@
                         <p class="text-center">Realmente desea eliminar?</p>
                       </div>
                       <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Cancel </button>
-                        <button type="submit" name="" class="btn btn-success" data-dismiss="modal"
-                        onclick="formSubmit()">Sí, Eliminar</button>
+                        <button type="button" class="btn btn-info" data-dismiss="modal">Cancel </button>
+                        <button type="submit" name="" class="btn btn-info" data-dismiss="modal"
+                        onclick="formSubmit()">Aceptar</button>
                       </div>
                     </div>
                     </form>

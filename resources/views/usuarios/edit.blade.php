@@ -65,9 +65,14 @@
           <select id="privilegio"  name="id_rolusuario" class="form-control">
             <option value="">Seleccione Privilegio de Usuario</option>
             @foreach ($privilegios as $privilegio)
+            @if ($user->id_rolusuario == $privilegio['id'] )
+              <option value="{{$privilegio['id']}}" selected>{{$privilegio['tipo_privilegio']}}</option>
+            @else
               <option value="{{$privilegio['id']}}">{{$privilegio['tipo_privilegio']}}</option>
+            @endif
+
             @endforeach
-                      </select>
+            </select>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-users-cog"></span>
