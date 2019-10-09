@@ -94,7 +94,7 @@ class ServiciosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $servicio = Servicio::find($id);
         $servicio->delete();

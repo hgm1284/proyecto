@@ -38,6 +38,12 @@
             </div>
           </div>
         </div>
+        <br>
+        <div class="form-group">
+        <input type="date" id="fecha_ingreso" name="fecha_ingreso" min="1000-01-01"
+          max="3000-12-31" class="form-control" placeholder="Fecha de Ingreso">
+       </div>
+       
         <div class="input-group mb-3">
           <select id="servicio"  name="id_servicio" class="form-control">
             <option value="">Seleccione Servicio de Enfermer@</option>

@@ -38,23 +38,11 @@
             </div>
           </div>
         </div>
-        <div class="container">
-  <div class="row">
-    Date formats: yyyy-mm-dd, yyyymmdd, dd-mm-yyyy, dd/mm/yyyy, ddmmyyyyy
-  </div>
-  <br />
-    <div class="row">
-        <div class='col-sm-3'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+        <br>
+        <div class="form-group">
+        <input type="date" id="fecha_ingreso" name="fecha_ingreso" min="1000-01-01"
+          max="3000-12-31" class="form-control" placeholder="Fecha de Ingreso">
+       </div>
 
 <div class="input-group mb-3">
   <select id="servicio"  name="id_servicio" class="form-control">

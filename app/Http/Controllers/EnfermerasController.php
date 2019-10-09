@@ -103,7 +103,7 @@ class EnfermerasController extends Controller
       $enfermera->id_servicio = $request->id_servicio;
       $enfermera->id_profile = $request->id_profile;
       $enfermera->id_role = $request->id_role;
-      $user->save();
+      $enfermera->save();
       return redirect()->route('enfermeras.index');
 
       }

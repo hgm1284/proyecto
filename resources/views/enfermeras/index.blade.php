@@ -21,7 +21,7 @@
                      <tr>
                        <td>{{ $enfermera->name }}</td>
                        <td>{{ $enfermera->lastname }}</td>
-                       <td>{{ $enfermera->fecha_ingreso }}</td>
+                       <td>{{ date('d-m-Y',strtotime($enfermera->fecha_ingreso))  }}</td>
                        @foreach ($servicios as $servicio)
                         @if ($enfermera->id_servicio == $servicio['id'] )
                           <td>{{$servicio['nombre']}}</td>

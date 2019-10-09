@@ -25,22 +25,22 @@ Route::post('usuarios/{id}/destroy', [
     'as'  =>'usuarios.destroy'
 ]);
 Route::resource('/servicios','ServiciosController');
-Route::get('servicios/{id}/destroy', [
+Route::post('servicios/{id}/destroy', [
     'uses'=> 'ServiciosController@destroy',
     'as'  =>'servicios.destroy'
 ]);
 Route::resource('/profiles','ProfilesController');
-Route::get('profiles/{id}/destroy', [
+Route::post('profiles/{id}/destroy', [
     'uses'=> 'ProfilesController@destroy',
     'as'  =>'profiles.destroy'
 ]);
 Route::resource('/roles','RolesController');
-Route::get('roles/{id}/destroy', [
+Route::post('roles/{id}/destroy', [
     'uses'=> 'RolesController@destroy',
     'as'  =>'roles.destroy'
 ]);
 Route::resource('/enfermeras','EnfermerasController');
-Route::get('enfermeras/{id}/destroy', [
+Route::post('enfermeras/{id}/destroy', [
     'uses'=> 'EnfermerasController@destroy',
     'as'  =>'enfermeras.destroy'
 ]);
