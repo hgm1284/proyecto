@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Role;
 use Illuminate\Http\Request;
-use App\Profile;
 
-
-class ProfilesController extends Controller
+class RolesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class ProfilesController extends Controller
      */
     public function index()
     {
-      $profile = Profile::orderBy('id','ASC')->paginate(5);
-      return view('profiles.index')->with('profiles', $profile);
+      $role = Role::orderBy('id','ASC')->paginate(5);
+      return view('roles.index')->with('roles', $role);
     }
 
     /**
@@ -26,7 +25,7 @@ class ProfilesController extends Controller
      */
     public function create()
     {
-      return view('profiles.create');
+      return view('roles.create');
     }
 
     /**
@@ -37,18 +36,18 @@ class ProfilesController extends Controller
      */
     public function store(Request $request)
     {
-      $profile = new Profile($request->all());
-      $profile->save();
-      return redirect()->route('profiles.index');
+      $role = new Role($request->all());
+      $role->save();
+      return redirect()->route('roles.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Role $role)
     {
         //
     }
@@ -56,49 +55,49 @@ class ProfilesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-      $profile = Profile::find($id);
-      return view('profiles.edit')->with('profile', $profile);
+      $role = Role::find($id);
+      return view('roles.edit')->with('role', $role);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-         {
-          $validatedData = $request->validate([
-              'nombre' => 'required',
-              'descripcion' => 'required',
-          ]);
+      {
+       $validatedData = $request->validate([
+           'nomenclatura' => 'required',
+           'detalle' => 'required',
+       ]);
 
-          $profile = Profile::find($id);
-          $profile->nombre = $request->nombre;
-          $profile->descripcion = $request->descripcion;
-          $profile->save();
-          return redirect()->route('profiles.index');
+       $role = Role::find($id);
+       $role->nomenclatura = $request->nomenclatura;
+       $role->detalle = $request->detalle;
+       $role->save();
+       return redirect()->route('roles.index');
 
-          }
+       }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-      $profile = Profile::find($id);
-      $profile->delete();
-      return redirect()->route('profiles.index');
+      $role = Role::find($id);
+      $role->delete();
+      return redirect()->route('roles.index');
     }
 }

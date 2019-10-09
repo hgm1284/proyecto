@@ -6,14 +6,14 @@
 <div class="col-6">
   <div class="card">
     <div class="card-body register-card-body">
-      <p class="login-box-msg">Editar Servicio</p>
-      <form method="post" action="{{ route('servicios.update', $servicio->id) }}">
+      <p class="login-box-msg">Editar Nomenclatura del Rol</p>
+      <form method="post" action="{{ route('roles.update', $role->id) }}">
 		@csrf
 		@method('PATCH')
         <div class="input-group mb-1">
-		  <input type="text" name="nombre" value="{{ $servicio->nombre }}" required autocomplete="nombre" autofocus
-		   placeholder="Nombre del Servicio"   class="form-control input-lg" />
-          @error('nombre')
+		  <input type="text" name="nomenclatura" value="{{ $role->nomenclatura }}" required autocomplete="nomenclatura" autofocus
+		   placeholder="Nomenclatura del Rol"   class="form-control input-lg" />
+          @error('nomenclatura')
               <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
               </span>
@@ -25,7 +25,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-		  <input type="text" placeholder="Descripción del Servicio" name="descripcion" value="{{ $servicio->descripcion }}"
+		  <input type="text" placeholder="Detalle del Rol" name="detalle" value="{{ $role->detalle }}"
 		  class="form-control input-lg" required autocomplete="descripcion" />
           @error('email')
               <span class="invalid-feedback" role="alert">
@@ -42,7 +42,7 @@
         <div class="row justify-content-center">
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Modificar Servicio</button>
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Modificar Rol</button>
           </div>
           <!-- /.col -->
         </div>

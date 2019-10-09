@@ -34,3 +34,13 @@ Route::get('profiles/{id}/destroy', [
     'uses'=> 'ProfilesController@destroy',
     'as'  =>'profiles.destroy'
 ]);
+Route::resource('/roles','RolesController');
+Route::get('roles/{id}/destroy', [
+    'uses'=> 'RolesController@destroy',
+    'as'  =>'roles.destroy'
+]);
+Route::resource('/enfermeras','EnfermerasController');
+Route::get('enfermeras/{id}/destroy', [
+    'uses'=> 'EnfermerasController@destroy',
+    'as'  =>'enfermeras.destroy'
+]);

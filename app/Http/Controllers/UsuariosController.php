@@ -43,7 +43,6 @@ class UsuariosController extends Controller
         $user-> password = bcrypt($request->password);
         $user->save();
         return redirect()->route('usuarios.index');
-
     }
 
     /**
@@ -68,16 +67,14 @@ class UsuariosController extends Controller
          $privilegios = Privilegio::all();
          $user = User::find($id);
          return view('usuarios.edit', compact('privilegios'))->with('user', $user);
-
      }
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
 
+     /**
+      * Remove the specified resource from storage.
+      *
+      * @param  int  $id
+      * @return \Illuminate\Http\Response
+      */
      public function destroy(Request $request, $id)
      {
          $user = User::find($id);
@@ -85,6 +82,13 @@ class UsuariosController extends Controller
          return redirect()->route('usuarios.index');
      }
 
+     /**
+      * Update the specified resource in storage.
+      *
+      * @param  \Illuminate\Http\Request  $request
+      * @param  int  $id
+      * @return \Illuminate\Http\Response
+      */
      public function update(Request $request, $id)
      {
          {
@@ -93,7 +97,6 @@ class UsuariosController extends Controller
              'email' => 'required',
              'password' => 'required',
              'id_rolusuario' => 'required',
-
          ]);
 
          $user = User::find($id);
@@ -106,12 +109,4 @@ class UsuariosController extends Controller
 
          }
      }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-
 }
