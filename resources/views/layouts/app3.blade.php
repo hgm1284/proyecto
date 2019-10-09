@@ -1,24 +1,21 @@
-          <!doctype html>
-          <html lang="en">
-            <head>
-              <!-- Required meta tags -->
-              <meta charset="utf-8">
-              <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
-              <!-- Bootstrap CSS -->
+<!doctype html>
+  <html lang="en">
+    <head>
+          <!-- Required meta tags -->
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          <!-- Bootstrap CSS -->
               <link href=" {{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
               <link rel="stylesheet" href="../../bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
               <!-- Font Awesome Icons -->
               <link href=" {{ asset('adminlte/plugins/fontawesome-free/css/all.min.css') }} " rel="stylesheet" >
               <!-- Theme style -->
               <link href=" {{ asset('adminlte/css/adminlte.min.css') }} " rel="stylesheet" >
-
               <title>Gestión de Roles | Dirección de Enfermería</title>
-            </head>
-            <body>
-              <body class="hold-transition sidebar-mini">
-            <div class="wrapper">
+   </head>
+          <body>
+            <body class="hold-transition sidebar-mini">
+              <div class="wrapper">
 
               <!-- Navbar -->
               <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -127,15 +124,15 @@
                         </a>
                         <ul class="nav nav-treeview">
                           <li class="nav-item">
-                            <a href="#" class="nav-link active">
+                            <a href="/roles" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
-                              <p>Active Page</p>
+                              <p>Lista de Roles</p>
                             </a>
                           </li>
                           <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/roles/create" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
-                              <p>Inactive Page</p>
+                              <p>Crear Nuevo Rol</p>
                             </a>
                           </li>
                         </ul>
@@ -206,15 +203,9 @@
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a href="/roles" class="nav-link">
+                        <a href="#" class="nav-link">
                           <i class="far fa-circle nav-icon"></i>
-                          <p>Lista de Roles</p>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="/roles/create" class="nav-link">
-                          <i class="far fa-circle nav-icon"></i>
-                          <p>Crear Nuevo Rol</p>
+                          <p>Inactive Page</p>
                         </a>
                       </li>
                       </ul>
@@ -338,4 +329,4 @@
 
       <script src="../../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
       </body>
-    </html>
+ </html>
