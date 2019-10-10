@@ -1,8 +1,6 @@
-@extends('layouts.app3')
+@extends('layouts.app4')
 
 @section('content')
-
-
 <div class="row justify-content-center">
 <div class="col-6">
   <div class="card">

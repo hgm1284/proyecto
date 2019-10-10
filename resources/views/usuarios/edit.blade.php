@@ -1,4 +1,4 @@
-@extends('layouts.app3')
+@extends('layouts.app4')
 
 @section('content')
 
@@ -6,7 +6,7 @@
 <div class="col-6">
   <div class="card">
     <div class="card-body register-card-body">
-      <p class="login-box-msg">Registro de nuevo Usuario</p>
+      <p class="login-box-msg">Actualización de  Usuario</p>
       <form method="post" action="{{ route('usuarios.update', $user->id) }}">
 		@csrf
 		@method('PATCH')

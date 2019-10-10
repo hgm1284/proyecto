@@ -1,7 +1,18 @@
-@extends('layouts.app3')
+@extends('layouts.app4')
 
 @section('content')
-<div class="container">
+<section class="content-header" id="contentheader">
+      <h1>
+        Inicio
+        <small>Menú Rapido</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-home"></i> Inicio</a></li>
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        <li><a href="#">Menú Rapido</a></li>
+      </ol>
+</section>
+<section class="content">
     <div class="row justify-content-center">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -11,79 +22,75 @@
                     {{ session('status') }}
                 </div>
             @endif
-            <h3 class="row justify-content-center">Gestión de Roles | Dirección de Enfermería</h3>
-            <h4 class="m-0 text-dark">Bienvenido(a)!</h4>
-            <br>
-          </div><!-- /.container-fluid -->
+            <h3 class="row justify-content-center">Gestión de Roles Enfermería | Hospital San Carlos</h3>
+          <br>
+          </div>
         </div>
             </div>
 
-              <div class="container-fluid">
-  <div class="row">
-  <div class="col-12">
-    <div class="callout callout-info">
-      <h5><i class="fas fa-info"></i>Nota:</h5>
-      Este menú le permite acceder de manera ágil a los módulos más importantes de la plataforma.
-    </div>
-  </div>
-  </div>
-</div>
+              <br>
+              <br>
 
-              <br>
-              <br>
-              <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-info">
-                              <div class="inner">
-                                <p>Dist. Roles</p>
-                              </div>
-                              <div class="icon">
-                                <i class="ion ion-person-add"></i>
-                              </div>
-                              <a href="#" class="small-box-footer">Acceder <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                          </div>
-                    <!-- ./col -->
-              <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-success">
-                              <div class="inner">
-                                <p>Mod. Enfermeras(os)</p>
-                              </div>
-                              <div class="icon">
-                                <i class="ion ion-stats-bars"></i>
-                              </div>
-                              <a href="#" class="small-box-footer">Acceder <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                          </div>
-                  <!-- ./col -->
-              <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-warning">
-                              <div class="inner">
-                                <p>Mod. Reportes</p>
-                              </div>
-                              <div class="icon">
-                                <i class="ion ion-person-add"></i>
-                              </div>
-                              <a href="#" class="small-box-footer">Acceder <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                          </div>
-                              <!-- ./col -->
-              <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-danger">
-                              <div class="inner">
-                                <p>Vacaciones</p>
-                              </div>
-                              <div class="icon">
-                                <i class="ion ion-pie-graph"></i>
-                              </div>
-                              <a href="#" class="small-box-footer">Acceder <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                          </div>
+      <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h4>Dist. Roles</h4>
+              <p>Asignar nuevo rol</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+            </div>
+            <a href="#" class="small-box-footer">Acceder <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h4>Enfermería</h4>
+              <p>Administración de Personal</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-stethoscope" aria-hidden="true"></i>
+            </div>
+            <a href="#" class="small-box-footer">Acceder <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h4>Reportes</h4>
+              <p>Listado de Reportes</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-file-text" aria-hidden="true"></i>
+            </div>
+            <a href="#" class="small-box-footer">Acceder <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h4>Vacaciones</h4>
+              <p>Administración de Vacaciones</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-plane" aria-hidden="true"></i>
+            </div>
+            <a href="#" class="small-box-footer">Acceder <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
     <!-- ./col -->
 </div><!-- /.col -->
-</div><!-- /.col -->
+</section><!-- /.col -->
 
 @endsection
