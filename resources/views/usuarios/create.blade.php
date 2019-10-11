@@ -1,92 +1,82 @@
 @extends('layouts.app4')
 
 @section('content')
-<div class="row justify-content-center">
-<div class="col-6">
-  <div class="card">
-    <div class="card-body register-card-body">
-      <p class="login-box-msg">Registro de nuevo Usuario</p>
-      <form method="POST" action="{{ route('usuarios.store') }}">
-                  @csrf
-        <div class="input-group mb-1">
-          <input id="name"  placeholder="Nombre" type="text"
-          class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-          @error('name')
-              <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-              </span>
-          @enderror
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
+<section class="content-header" id="contentheader">
+      <h1>
+        Módulo de usuarios
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/home"><i class="fa fa-home"></i> Inicio</a></li>
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        <li>Registrar</li>
+      </ol>
+</section>
+<br>
+<div class="row">
+<div class="col-md-8">
+  <div class="box box-primary" >
+            <form method="POST" action="{{ route('usuarios.store') }}">
+            <div class="box-header with-border">
+              <div class="row">
+                  <div class="col-md-10"><h3 class="box-title">Registro de Usuario</h3></div>
+                  <div class="col-md-2" style="float: right; ">
+                    <button type="submit" aling"left" class="btn btn-block btn-success">Registrar</button>
+                  </div>
+              </div>
             </div>
+                        @csrf
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="exampleInputname">Nombre</label>
+                  <input id="name"  placeholder="Nombre de usuario" type="text"
+                  class="form-control @error('name') is-invalid @enderror"
+                  name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                  @error('name')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Correo Electrónico</label>
+                  <input id="email" placeholder="Correo Electrónico" type="email"
+                  class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                  @error('email')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Contraseña</label>
+                  <input id="password" type="password" placeholder="Contraseña"
+                  class="form-control @error('password') is-invalid @enderror"
+                  name="password" required autocomplete="new-password">
+                  @error('password')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword2">Confirmar Contraseña</label>
+                  <input id="password-confirm" placeholder="Confirmar Contraseña" type="password"
+                  class="form-control" name="password_confirmation"
+                  required autocomplete="new-password">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputSelect">Tipo de Usuario</label>
+                  <select id="privilegio"  name="id_rolusuario" class="form-control">
+                    <option value="">Seleccione Privilegio de Usuario
+                  </option>
+                    @foreach ($privilegios as $privilegio)
+                      <option value="{{$privilegio['id']}}">{{$privilegio['tipo_privilegio']}}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
+            </form>
           </div>
-        </div>
-        <div class="input-group mb-3">
-          <input id="email" placeholder="Correo Electrónico" type="email"
-          class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-          @error('email')
-              <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-              </span>
-          @enderror
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <input id="password" type="password" placeholder="Contraseña"
-          class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-          @error('password')
-              <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-              </span>
-          @enderror
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <input id="password-confirm" placeholder="Confirmar Contraseña" type="password"
-          class="form-control" name="password_confirmation" required autocomplete="new-password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="input-group mb-3">
-          <select id="privilegio"  name="id_rolusuario" class="form-control">
-            <option value="">Seleccione Privilegio de Usuario
-          </option>
-            @foreach ($privilegios as $privilegio)
-              <option value="{{$privilegio['id']}}">{{$privilegio['tipo_privilegio']}}</option>
-            @endforeach
-                      </select>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-users-cog"></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="row justify-content-center">
-          <!-- /.col -->
-          <div class="col-5">
-            <button type="submit" class="btn btn-block btn-primary btn-lg">Registrar Usuario</button>
-          </div>
-          <!-- /.col -->
-        </div>
-      </form>
-    <!-- /.form-box -->
-  </div><!-- /.card -->
-</div>
-
 </div>
 </div>
 @endsection

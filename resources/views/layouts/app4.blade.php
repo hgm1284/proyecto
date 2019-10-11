@@ -26,7 +26,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>H</b>SC</span>
       <!-- logo for regular state and mobile devices -->
@@ -47,6 +47,7 @@
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
+                <a href="/home"></a>
                 <img src="{{asset('adminlte/img/User_23096.png')}}" class="img-circle" alt="User Image">
                 <p>
                    {{ Auth::user()->name }}

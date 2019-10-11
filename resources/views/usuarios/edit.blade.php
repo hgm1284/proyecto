@@ -1,97 +1,87 @@
 @extends('layouts.app4')
 
 @section('content')
+<section class="content-header" id="contentheader">
+      <h1>
+        Módulo de usuarios
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/home"><i class="fa fa-home"></i> Inicio</a></li>
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        <li>Modificar Usuario</li>
+      </ol>
+</section>
+<br>
+<div class="row " >
+<div class="col-md-8">
+  <div class="box box-primary" >
+            <form method="post" action="{{ route('usuarios.update', $user->id) }}">
+            <div class="box-header with-border">
+              <div class="row">
+                  <div class="col-md-10"><h3 class="box-title">Modificar Usuario</h3></div>
+                  <div class="col-md-2" style="float: right; ">
+                    <button type="submit" aling"left" class="btn btn-block btn-success">Guardar</button>
+                  </div>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
 
-<div class="row justify-content-center">
-<div class="col-6">
-  <div class="card">
-    <div class="card-body register-card-body">
-      <p class="login-box-msg">Actualización de  Usuario</p>
-      <form method="post" action="{{ route('usuarios.update', $user->id) }}">
-		@csrf
-		@method('PATCH')
-        <div class="input-group mb-1">
-		  <input type="text" name="name" value="{{ $user->name }}" required autocomplete="name" autofocus
-		   placeholder="Nombre"   class="form-control input-lg" />
-          @error('name')
-              <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-              </span>
-          @enderror
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
-            </div>
+              @csrf
+              @method('PATCH')
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="exampleInputname">Nombre</label>
+                  <input id="name"  value="{{ $user->name }}" placeholder="Nombre de usuario" type="text"
+                  class="form-control @error('name') is-invalid @enderror"
+                  name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                  @error('name')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Correo Electrónico</label>
+                  <input id="email" value="{{ $user->email }}" placeholder="Correo Electrónico" type="email"
+                  class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                  @error('email')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Contraseña</label>
+                  <input id="password" value="{{ $user->password }}" type="password" placeholder="Contraseña"
+                  class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                  @error('password')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword2">Confirmar Contraseña</label>
+                  <input id="password-confirm" value="{{ $user->password }}" placeholder="Confirmar Contraseña" type="password"
+                  class="form-control" name="password_confirmation" required autocomplete="new-password">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputSelect">Tipo de Usuario</label>
+                  <select id="privilegio"  name="id_rolusuario" class="form-control">
+                    <option value="">Seleccione Privilegio de Usuario</option>
+                    @foreach ($privilegios as $privilegio)
+                    @if ($user->id_rolusuario == $privilegio['id'] )
+                      <option value="{{$privilegio['id']}}" selected>{{$privilegio['tipo_privilegio']}}</option>
+                    @else
+                      <option value="{{$privilegio['id']}}">{{$privilegio['tipo_privilegio']}}</option>
+                    @endif
+                    @endforeach
+                    </select>
+                </div>
+              </div>
+            </form>
           </div>
-        </div>
-        <div class="input-group mb-3">
-		  <input type="email" placeholder="Correo Electrónico" name="email" value="{{ $user->email }}"
-		  class="form-control input-lg" required autocomplete="email" />
-          @error('email')
-              <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-              </span>
-          @enderror
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-		  <input type="password" name="password" value="{{ $user->password }}"
-		  class="form-control input-lg" required autocomplete="new-password" placeholder=" Contraseña"/>
-          @error('password')
-              <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-              </span>
-          @enderror
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-		  <input type="password" name="password-confirm" value="{{ $user->password }}"
-		  class="form-control input-lg" required autocomplete="new-password" placeholder="Confirmar Contraseña"/>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <select id="privilegio"  name="id_rolusuario" class="form-control">
-            <option value="">Seleccione Privilegio de Usuario</option>
-            @foreach ($privilegios as $privilegio)
-            @if ($user->id_rolusuario == $privilegio['id'] )
-              <option value="{{$privilegio['id']}}" selected>{{$privilegio['tipo_privilegio']}}</option>
-            @else
-              <option value="{{$privilegio['id']}}">{{$privilegio['tipo_privilegio']}}</option>
-            @endif
-
-            @endforeach
-            </select>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-users-cog"></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="row justify-content-center">
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Modificar Usuario</button>
-          </div>
-          <!-- /.col -->
-        </div>
-      </form>
-    <!-- /.form-box -->
-  </div><!-- /.card -->
-</div>
-
 </div>
 </div>
 @endsection
