@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Enfermera;
 use App\Profile;
 use App\Servicio;
-use App\Role;
 
 use Illuminate\Http\Request;
 
@@ -21,8 +20,7 @@ class EnfermerasController extends Controller
       $enfermera = Enfermera::orderBy('id','ASC')->paginate(5);
       $profiles = Profile::all();
       $servicios = Servicio::all();
-      $roles = Role::all();
-      return view('enfermeras.index', compact('profiles', 'servicios', 'roles'))->with('enfermeras', $enfermera);
+      return view('enfermeras.index', compact('profiles', 'servicios'))->with('enfermeras', $enfermera);
     }
 
     /**
@@ -34,8 +32,7 @@ class EnfermerasController extends Controller
     {
       $profiles = Profile::all();
       $servicios = Servicio::all();
-      $roles = Role::all();
-      return view('enfermeras.create', compact('profiles', 'servicios', 'roles'));
+      return view('enfermeras.create', compact('profiles', 'servicios'));
     }
 
     /**
@@ -72,9 +69,8 @@ class EnfermerasController extends Controller
     {
       $profiles = Profile::all();
       $servicios = Servicio::all();
-      $roles = Role::all();
       $enfermera = Enfermera::find($id);
-      return view('enfermeras.edit', compact('profiles', 'servicios', 'roles'))->with('enfermera', $enfermera);
+      return view('enfermeras.edit', compact('profiles', 'servicios'))->with('enfermera', $enfermera);
     }
 
     /**
@@ -93,7 +89,6 @@ class EnfermerasController extends Controller
           'fecha_ingreso' => 'required',
           'id_servicio' => 'required',
           'id_profile' => 'required',
-          'id_role' => 'required',
       ]);
 
       $enfermera = Enfermera::find($id);
@@ -102,7 +97,6 @@ class EnfermerasController extends Controller
       $enfermera->fecha_ingreso = $request->fecha_ingreso;
       $enfermera->id_servicio = $request->id_servicio;
       $enfermera->id_profile = $request->id_profile;
-      $enfermera->id_role = $request->id_role;
       $enfermera->save();
       return redirect()->route('enfermeras.index');
 

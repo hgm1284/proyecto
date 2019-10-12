@@ -22,8 +22,6 @@ class CreateEnfermerasTable extends Migration
             $table->foreign('id_servicio')->references('id')->on('servicios');
             $table->bigInteger('id_profile')->unsigned();
             $table->foreign('id_profile')->references('id')->on('profiles');
-            $table->bigInteger('id_role')->unsigned();
-            $table->foreign('id_role')->references('id')->on('roles');
         });
     }
 

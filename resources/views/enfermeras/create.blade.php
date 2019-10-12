@@ -1,103 +1,84 @@
 @extends('layouts.app4')
 
 @section('content')
-
-
-<div class="row justify-content-center">
-<div class="col-6">
-  <div class="card">
-    <div class="card-body register-card-body">
-      <p class="login-box-msg">Registro de nueva Enfermer@</p>
-      <form method="POST" action="{{ route('enfermeras.store') }}">
-                  @csrf
-        <div class="input-group mb-1">
-          <input id="name"  placeholder="Nombre" type="text"
-          class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-          @error('name')
-              <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-              </span>
-          @enderror
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
+<section class="content-header" id="contentheader">
+      <h1>
+        Módulo de Enfermeras(os)
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/home"><i class="fa fa-home"></i> Inicio</a></li>
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        <li>Registrar</li>
+      </ol>
+</section>
+<br>
+<div class="row">
+<div class="col-md-8">
+  <div class="box box-primary" >
+            <form method="POST" action="{{ route('enfermeras.store') }}">
+            <div class="box-header with-border">
+              <div class="row">
+                  <div class="col-md-10"><h3 class="box-title">Registro de enfermera(o)</h3></div>
+                  <div class="col-md-2" style="float: right; ">
+                    <button type="submit" aling"left" class="btn btn-block btn-success">Registrar</button>
+                  </div>
+              </div>
             </div>
+                        @csrf
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="exampleInputname">Nombre</label>
+                  <input id="name"  placeholder="Nombre" type="text"
+                  class="form-control @error('name') is-invalid @enderror" name="name"
+                  value="{{ old('name') }}" required autocomplete="name" autofocus>
+                  @error('name')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Apellidos</label>
+                  <input id="lastname"  placeholder="Apellidos" type="text"
+                  class="form-control @error('lastname') is-invalid @enderror" name="lastname"
+                  value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
+                  @error('lastname')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Fecha de Ingreso(CCSS)</label>
+                  <input type="date" id="fecha_ingreso" name="fecha_ingreso" min="1000-01-01"
+                    max="3000-12-31" class="form-control" placeholder="Fecha de Ingreso">
+                  @error('fecha_ingreso')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword2">Servicio Asignado</label>
+                  <select id="servicio"  name="id_servicio" class="form-control">
+                    <option value="">Seleccione Servicio</option>
+                    @foreach ($servicios as $servicio)
+                      <option value="{{$servicio['id']}}">{{$servicio['nombre']}}</option>
+                    @endforeach
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputSelect">Perfil de Enfermera(o)</label>
+                  <select id="profile"  name="id_profile" class="form-control">
+                    <option value="">Seleccione Perfil de Usuario</option>
+                    @foreach ($profiles as $profile)
+                      <option value="{{$profile['id']}}">{{$profile['nombre']}}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
+            </form>
           </div>
-        </div>
-        <div class="input-group mb-1">
-          <input id="lastname"  placeholder="Apellidos" type="text"
-          class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
-          @error('lastname')
-              <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-              </span>
-          @enderror
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
-            </div>
-          </div>
-        </div>
-        <br>
-        <div class="form-group">
-        <input type="date" id="fecha_ingreso" name="fecha_ingreso" min="1000-01-01"
-          max="3000-12-31" class="form-control" placeholder="Fecha de Ingreso">
-       </div>
-
-<div class="input-group mb-3">
-  <select id="servicio"  name="id_servicio" class="form-control">
-    <option value="">Seleccione Servicio</option>
-    @foreach ($servicios as $servicio)
-      <option value="{{$servicio['id']}}">{{$servicio['nombre']}}</option>
-    @endforeach
-              </select>
-  <div class="input-group-append">
-    <div class="input-group-text">
-      <span class="fas fa-info-circle"></span>
-    </div>
-  </div>
-</div>
-
-        <div class="input-group mb-3">
-          <select id="profile"  name="id_profile" class="form-control">
-            <option value="">Seleccione Perfil de Usuario</option>
-            @foreach ($profiles as $profile)
-              <option value="{{$profile['id']}}">{{$profile['nombre']}}</option>
-            @endforeach
-                      </select>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="far fa-id-card"></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="input-group mb-3">
-          <select id="role"  name="id_role" class="form-control">
-            <option value="">Seleccione Rol</option>
-            @foreach ($roles as $role)
-              <option value="{{$role['id']}}">{{$role['nomenclatura']}}</option>
-            @endforeach
-                      </select>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-info-circle"></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="row justify-content-center">
-          <!-- /.col -->
-          <div class="col-5">
-            <button type="submit" class="btn btn-block btn-primary btn-lg">Registrar Enfermer@</button>
-          </div>
-          <!-- /.col -->
-        </div>
-      </form>
-    <!-- /.form-box -->
-  </div><!-- /.card -->
-</div>
-
 </div>
 </div>
 @endsection

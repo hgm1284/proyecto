@@ -2,13 +2,25 @@
 
 
 @section('content')
-
+<section class="content-header" id="contentheader">
+      <h1>
+        Módulo de Perfiles
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/home"><i class="fa fa-home"></i> Inicio</a></li>
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        <li>Administración</li>
+      </ol>
+</section>
+<br>
+<br>
 <div class="card-body">
                 <table class="table table-striped">
                   <thead>
                     <tr>
                       <th>Nombre del Perfil</th>
                       <th>Descripción del Perfil</th>
+                      <th>Opciones</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -31,30 +43,30 @@
                 <style>
                   .link { color: #FFFFFF; } /* CSS link color (red) */
                 </style>
-                <div class="modal fade" id="DeleteModal" style="display: none;" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <form action="" id="deleteForm" method="post">
-                    <div class="modal-content bg-danger">
-                      <div class="modal-header">
-                        <h4 class="modal-title">Eliminar usuario</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-                          <span aria-hidden="true">×</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        {{ csrf_field() }}
-                        {{ method_field('post') }}
-                        <p class="text-center">Realmente desea eliminar?</p>
-                      </div>
-                      <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-info" data-dismiss="modal">Cancel </button>
-                        <button type="submit" name="" class="btn btn-info" data-dismiss="modal"
-                        onclick="formSubmit()">Aceptar</button>
-                      </div>
+                <div class="modal modal-danger fade in" id="DeleteModal" style="display: none;">
+                <div class="modal-dialog">
+                  <form action="" id="deleteForm" method="post">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                      <h4 class="modal-title">Eliminar Perfil</h4>
                     </div>
-                    </form>
+                    <div class="modal-body">
+                      {{ csrf_field() }}
+                      {{ method_field('post') }}
+                      <p>Realmente desea eliminar el Perfil ???</p>
                     </div>
-                   </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
+                      <button type="button" class="btn btn-outline" onclick="formSubmit()">Aceptar</button>
+                    </div>
+                  </div>
+                  <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+              </div>
+        <!--fin MODAL -->
         <!--fin MODAL -->
                 {!! $profiles->render()!!}
               </div>

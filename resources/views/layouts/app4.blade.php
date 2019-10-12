@@ -134,33 +134,33 @@
           </ul>
         </li>
           <!-- pestaña 4 -->
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-medkit" aria-hidden="true"></i>
-            <span>Módulo Enfermeras(os)</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="/enfermeras/create"><i class="fa fa-plus" aria-hidden="true"></i>Agregar Personal</a></li>
-            <li><a href="/enfermeras"><i class="fa fa-list" aria-hidden="true"></i> Administración de Personal</a></li>
-          </ul>
-        </li>
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-user-md" aria-hidden="true"></i>
+              <span>Módulo Perfiles </span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="/profiles/create"><i class="fa fa-plus" aria-hidden="true"></i>Crear Perfil</a></li>
+              <li><a href="/profiles"><i class="fa fa-list" aria-hidden="true"></i> Administración de Perfiles</a></li>
+            </ul>
+          </li>
           <!-- pestaña 5 -->
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-user-md" aria-hidden="true"></i>
-            <span>Módulo Perfiles </span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="/profiles/create"><i class="fa fa-plus" aria-hidden="true"></i>Crear Perfil</a></li>
-            <li><a href="/profiles"><i class="fa fa-list" aria-hidden="true"></i> Administración de Perfiles</a></li>
-          </ul>
-        </li>
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-medkit" aria-hidden="true"></i>
+              <span>Módulo Enfermeras(os)</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="/enfermeras/create"><i class="fa fa-plus" aria-hidden="true"></i>Agregar Personal</a></li>
+              <li><a href="/enfermeras"><i class="fa fa-list" aria-hidden="true"></i> Administración de Personal</a></li>
+            </ul>
+          </li>
         <!-- pestaña 6 -->
       <li class="treeview">
         <a href="#">

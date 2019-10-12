@@ -42,7 +42,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Detalle del Rol</label>
-                  <textarea class="form-control" placeholder="Descripción del Servicio"
+                  <textarea class="form-control" placeholder="Descripción del Rol"
                   id="detalle" name="detalle" rows="3" >{{ $role->detalle }}
                 </textarea>
                   @error('descripcion')
