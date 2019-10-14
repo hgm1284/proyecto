@@ -5,9 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Privilegio;
+use App\Http\Controllers\Controller;
+
 
 class UsuariosController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -19,6 +23,7 @@ class UsuariosController extends Controller
       $privilegios = Privilegio::all();
       return view('usuarios.index', compact('privilegios'))->with('users', $user);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -39,6 +44,13 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
+      $validatedData = $request->validate([
+          'name' => 'required',
+          'email' => 'required|email|max:255|unique:users',
+          'password' => 'required|confirmed|min:6',
+          'id_rolusuario' => 'required',
+      ]);
+
         $user = new User($request->all());
         $user-> password = bcrypt($request->password);
         $user->save();
@@ -95,7 +107,7 @@ class UsuariosController extends Controller
          $validatedData = $request->validate([
              'name' => 'required',
              'email' => 'required',
-             'password' => 'required',
+             'password' => 'required|confirmed|min:6',
              'id_rolusuario' => 'required',
          ]);
 
