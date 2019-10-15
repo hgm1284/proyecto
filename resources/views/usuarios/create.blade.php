@@ -32,7 +32,7 @@
                   class="form-control @error('name') is-invalid @enderror"
                   name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                   @error('name')
-                      <span class="invalid-feedback" role="alert">
+                      <span style="color: #E33510" class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
                       </span>
                   @enderror
@@ -42,7 +42,7 @@
                   <input id="email" placeholder="Correo Electrónico" type="email"
                   class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                   @error('email')
-                      <span class="invalid-feedback" role="alert">
+                      <span style="color: #E33510" class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
                       </span>
                   @enderror
@@ -53,7 +53,7 @@
                   class="form-control @error('password') is-invalid @enderror"
                   name="password" required autocomplete="new-password">
                   @error('password')
-                      <span class="invalid-feedback" role="alert">
+                      <span  style="color: #E33510" class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
                       </span>
                   @enderror
@@ -73,6 +73,11 @@
                       <option value="{{$privilegio['id']}}">{{$privilegio['tipo_privilegio']}}</option>
                     @endforeach
                   </select>
+                  @error('privilegio')
+                      <span  style="color: #E33510" class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
                 </div>
               </div>
             </form>
