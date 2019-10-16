@@ -44,3 +44,8 @@ Route::post('enfermeras/{id}/destroy', [
     'uses'=> 'EnfermerasController@destroy',
     'as'  =>'enfermeras.destroy'
 ]);
+Route::resource('/vacaciones','VacacionesController');
+Route::post('vacaciones/{id}/destroy', [
+    'uses'=> 'VacacionesController@destroy',
+    'as'  =>'vacaciones.destroy'
+]);
