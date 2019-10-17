@@ -43,6 +43,13 @@ class EnfermerasController extends Controller
      */
     public function store(Request $request)
     {
+      $validatedData = $request->validate([
+          'name' => 'required',
+          'lastname' => 'required|max:255|' ,
+          'fecha_ingreso' => 'required|date_format:Y-m-d',
+
+      ]);
+      
       $enfermera = new Enfermera($request->all());
       $enfermera->save();
       return redirect()->route('enfermeras.index');
