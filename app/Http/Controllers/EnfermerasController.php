@@ -49,7 +49,7 @@ class EnfermerasController extends Controller
           'fecha_ingreso' => 'required|date_format:Y-m-d',
 
       ]);
-      
+
       $enfermera = new Enfermera($request->all());
       $enfermera->save();
       return redirect()->route('enfermeras.index');
@@ -93,7 +93,7 @@ class EnfermerasController extends Controller
       $validatedData = $request->validate([
           'name' => 'required',
           'lastname' => 'required',
-          'fecha_ingreso' => 'required',
+          'fecha_ingreso' => 'required|date_format:Y-m-d',
           'id_servicio' => 'required',
           'id_profile' => 'required',
       ]);
