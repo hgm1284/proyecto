@@ -46,7 +46,10 @@ class EnfermerasController extends Controller
       $validatedData = $request->validate([
           'name' => 'required',
           'lastname' => 'required|max:255|' ,
+          'cedula' => 'required',
           'fecha_ingreso' => 'required|date_format:Y-m-d',
+          'id_servicio' => 'required',
+          'id_profile' => 'required',
 
       ]);
 
@@ -93,6 +96,7 @@ class EnfermerasController extends Controller
       $validatedData = $request->validate([
           'name' => 'required',
           'lastname' => 'required',
+          'cedula' => 'required',
           'fecha_ingreso' => 'required|date_format:Y-m-d',
           'id_servicio' => 'required',
           'id_profile' => 'required',
@@ -101,6 +105,7 @@ class EnfermerasController extends Controller
       $enfermera = Enfermera::find($id);
       $enfermera->name = $request->name;
       $enfermera->lastname = $request->lastname;
+      $enfermera->cedula = $request->cedula;
       $enfermera->fecha_ingreso = $request->fecha_ingreso;
       $enfermera->id_servicio = $request->id_servicio;
       $enfermera->id_profile = $request->id_profile;

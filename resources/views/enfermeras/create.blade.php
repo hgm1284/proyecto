@@ -49,8 +49,20 @@
                   @enderror
                 </div>
                 <div class="form-group">
+                  <label for="exampleInputname">Cédula</label>
+                  <input id="cedula"  placeholder="Cédula de identidad" type="text"
+                  class="form-control @error('name') is-invalid @enderror" name="cedula"
+                  value="{{ old('cedula') }}"
+                  required autocomplete="name" autofocus/>
+                  @error('cedula')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
+                </div>
+                <div class="form-group">
                   <label for="exampleInputPassword1">Fecha de Ingreso(CCSS)</label>
-                  <input type="date" id="fecha_ingreso" name="fecha_ingreso" min="1000-01-01"
+                  <input type="date" id="fecha_ingreso" name="fecha_ingreso" min="1930-01-01"
                     max="3000-12-31" class="form-control" placeholder="Fecha de Ingreso">
                   @error('fecha_ingreso')
                       <span class="invalid-feedback" role="alert">
@@ -60,21 +72,31 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword2">Servicio Asignado</label>
-                  <select id="servicio"  name="id_servicio" class="form-control">
+                  <select id="id_servicio"  name="id_servicio" class="form-control">
                     <option value="">Seleccione Servicio</option>
                     @foreach ($servicios as $servicio)
                       <option value="{{$servicio['id']}}">{{$servicio['nombre']}}</option>
                     @endforeach
                   </select>
+                  @error('id_servicio')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
                 </div>
                 <div class="form-group">
                   <label for="exampleInputSelect">Perfil de Enfermera(o)</label>
-                  <select id="profile"  name="id_profile" class="form-control">
+                  <select id="id_profile"  name="id_profile" class="form-control">
                     <option value="">Seleccione Perfil de Usuario</option>
                     @foreach ($profiles as $profile)
                       <option value="{{$profile['id']}}">{{$profile['nombre']}}</option>
                     @endforeach
                   </select>
+                  @error('id_profile')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
                 </div>
               </div>
             </form>
@@ -82,3 +104,15 @@
 </div>
 </div>
 @endsection
+<script>
+onload = function(){
+  var ele = document.querySelectorAll('#cedula')[0];
+  ele.onkeypress = function(e) {
+     if(isNaN(this.value+String.fromCharCode(e.charCode)))
+        return false;
+  }
+  ele.onpaste = function(e){
+     e.preventDefault();
+  }
+}
+</script>

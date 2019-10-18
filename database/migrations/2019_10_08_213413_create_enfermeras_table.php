@@ -17,6 +17,7 @@ class CreateEnfermerasTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('lastname');
+            $table->string('cedula')->unique();
             $table->datetime('fecha_ingreso');
             $table->bigInteger('id_servicio')->unsigned();
             $table->foreign('id_servicio')->references('id')->on('servicios');

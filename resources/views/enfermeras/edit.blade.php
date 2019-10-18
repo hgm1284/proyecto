@@ -31,7 +31,7 @@
                   <label for="exampleInputname">Nombre</label>
                   <input type="text" name="name" value="{{ $enfermera->name }}"
                   required autocomplete="name" autofocus
-            		  placeholder="Nombre"   class="form-control input-lg" />
+            		  placeholder="Nombre"   class="form-control" />
                   @error('name')
                       <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
@@ -42,7 +42,7 @@
                   <label for="exampleInputEmail1">Apellidos</label>
                   <input type="text" name="lastname" value="{{ $enfermera->lastname }}"
                   required autocomplete="lastname" autofocus
-            		  placeholder="Apellidos"   class="form-control input-lg" />
+            		  placeholder="Apellidos"   class="form-control" />
                   @error('lastname')
                       <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
@@ -50,8 +50,20 @@
                   @enderror
                 </div>
                 <div class="form-group">
+                  <label for="exampleInputEmail1">Cédula</label>
+                  <input type="text" name="cedula" value="{{ $enfermera->cedula }}"
+                  required autocomplete="cedula" autofocus
+                  placeholder="Cédula de Identidad"
+                  class="form-control" />
+                  @error('cedula')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
+                </div>
+                <div class="form-group">
                   <label for="exampleInputPassword1">Fecha de Ingreso(CCSS)</label>
-                  <input type="date" id="fecha_ingreso" name="fecha_ingreso" min="1000-01-01"
+                  <input type="date" id="fecha_ingreso" name="fecha_ingreso" min="1930-01-01"
                     max="3000-12-31" class="form-control"
                     value="{{ date($enfermera->fecha_ingreso->format('Y-m-d')) }}" >
                   @error('fecha_ingreso')
@@ -92,3 +104,16 @@
 </div>
 </div>
 @endsection
+<script>
+function validaNumericos(){
+var inputtxt = document.getElementById('cedula');
+var valor = inputtxt.value;
+  for(i=0;i<valor.length;i++){
+     var code=valor.charCodeAt(i);
+         if(code<=48 || code>=57){
+           inputtxt.value="";
+           return;
+         }
+  }
+}
+</script>

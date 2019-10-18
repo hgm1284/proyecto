@@ -38,7 +38,7 @@
                        <td>{{ date('d-m-Y',strtotime($vacacione->fecha_final))}}</td>
 
                      <td colspan="2">
-                       <a href="{{ route('vacaciones.edit', $vacacione->id ) }}" class="btn btn-primary"> <i class="fas fa-pencil-alt"></i> </a>
+                       <a href="{{ route('vacaciones.edit', $vacacione->id ) }}" class="btn btn-primary"> <i class="fa fa-pencil"></i> </a>
                        <a href="javascript:;" class="btn btn-danger" data-toggle="modal" onclick="deleteData({{$vacacione->id}})"
                          data-target="#DeleteModal"><i class="fa fa-trash"></i> </a>
                      </td>

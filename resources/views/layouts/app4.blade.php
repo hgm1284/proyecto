@@ -186,8 +186,8 @@
         </span>
       </a>
       <ul class="treeview-menu">
-        <li><a href=""><i class="fa fa-plus" aria-hidden="true"></i>Asignar Vacaciones</a></li>
-        <li><a href=""><i class="fa fa-list" aria-hidden="true"></i> Administración de Vacaciones</a></li>
+        <li><a href="/vacaciones/create"><i class="fa fa-plus" aria-hidden="true"></i>Asignar Vacaciones</a></li>
+        <li><a href="/vacaciones"><i class="fa fa-list" aria-hidden="true"></i> Administración de Vacaciones</a></li>
       </ul>
     </li>
     <!-- pestaña 8 -->

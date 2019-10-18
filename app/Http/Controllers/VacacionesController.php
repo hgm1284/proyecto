@@ -15,6 +15,7 @@ class VacacionesController extends Controller
      */
     public function index()
     {
+      
       $vacacione = Vacacione::orderBy('id','ASC')->paginate(5);
       $enfermeras = Enfermera::all();
       return view('vacaciones.index', compact('enfermeras'))->with('vacaciones', $vacacione);

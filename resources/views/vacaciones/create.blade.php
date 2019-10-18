@@ -30,7 +30,7 @@
                           <select id="enfermera"  name="id_enfermera" class="form-control">
                             <option value="">Seleccione Enfermera(o)</option>
                             @foreach ($enfermeras as $enfermera)
-                              <option value="{{$enfermera['id']}}">{{$enfermera['name']}}, {{$enfermera['lastname']}}</option>
+                              <option value="{{$enfermera['id']}}">{{$enfermera['name']}}  {{$enfermera['lastname']}}</option>
                             @endforeach
                           </select>
                         </div>
