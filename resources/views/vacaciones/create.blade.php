@@ -37,7 +37,7 @@
 
                         <div class="form-group">
                           <label for="exampleInputPassword1">Fecha de Inicio</label>
-                          <input type="date" id="fecha_inicio" name="fecha_inicio" min="1000-01-01"
+                          <input type="date" id="fecha_inicio" name="fecha_inicio" min="1930-01-01"
                             max="3000-12-31" class="form-control">
                           @error('fecha_inicio')
                               <span class="invalid-feedback" role="alert">

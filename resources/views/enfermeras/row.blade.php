@@ -12,9 +12,9 @@
      <td>{{$profile['nombre']}}</td>
    @endif
   @endforeach
-<td colspan="2">
-  <a href="{{ route('enfermeras.edit', $enfermera->id ) }}" class="btn btn-primary"> <i class="fa fa-pencil"></i> </a>
-  <a href="javascript:;" class="btn btn-danger" data-toggle="modal" onclick="deleteData({{$enfermera->id}})"
-    data-target="#DeleteModal"><i class="fa fa-trash"></i> </a>
-</td>
+  <td colspan="2">
+    <a href="{{ route('enfermeras.edit', $enfermera->id  ) }}" title="Editar Enfermera(0)" class="btn btn-primary"> <i class="fa fa-pencil"></i> </a>
+    <a href="javascript:;" class="btn btn-danger" title="Eliminar Enfermera(0)" data-toggle="modal" onclick="deleteData({{$enfermera->id}})"
+      data-target="#DeleteModal"><i class="fa fa-trash"></i> </a>
+  </td>
 </tr>

@@ -27,12 +27,12 @@
                      <tr>
                        <td>{{ $servicio->nombre }}</td>
                        <td>{{ $servicio->descripcion }}</td>
-                     <td colspan="2">
-                       <a href="{{ route('servicios.edit', $servicio->id ) }}" title="Editar" class="btn btn-primary"> <i class="fas fa-pencil-alt"></i> </a>
-                       <a href="javascript:;" title="Eliminar" class="btn btn-danger" data-toggle="modal" onclick="deleteData({{$servicio->id}})"
-                         data-target="#DeleteModal"><i class="fa fa-trash"></i> </a>
-                        </a>
-                     </td>
+
+                       <td colspan="2">
+                         <a href="{{ route('servicios.edit', $servicio->id  ) }}" title="Editar Servicio" class="btn btn-primary"> <i class="fa fa-pencil"></i> </a>
+                         <a href="javascript:;" class="btn btn-danger" title="Eliminar Servicio" data-toggle="modal" onclick="deleteData({{$servicio->id}})"
+                           data-target="#DeleteModal"><i class="fa fa-trash"></i> </a>
+                       </td>
                      </tr>
                       @endforeach
                   </tbody>

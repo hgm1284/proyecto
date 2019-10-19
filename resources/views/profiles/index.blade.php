@@ -28,12 +28,11 @@
                      <tr>
                        <td>{{ $profile->nombre }}</td>
                        <td>{{ $profile->descripcion }}</td>
-                     <td colspan="2">
-                       <a href="{{ route('profiles.edit', $profile->id ) }}" class="btn btn-primary"> <i class="fas fa-pencil-alt"></i> </a>
-                       <a href="javascript:;" class="btn btn-danger" data-toggle="modal" onclick="deleteData({{$profile->id}})"
-                         data-target="#DeleteModal"><i class="fa fa-trash"></i> </a>
-                        </a>
-                     </td>
+                       <td colspan="2">
+                         <a href="{{ route('profiles.edit', $profile->id  ) }}" title="Editar Perfil" class="btn btn-primary"> <i class="fa fa-pencil"></i> </a>
+                         <a href="javascript:;" class="btn btn-danger" title="Eliminar Perfil" data-toggle="modal" onclick="deleteData({{$profile->id}})"
+                           data-target="#DeleteModal"><i class="fa fa-trash"></i> </a>
+                       </td>
                      </tr>
                       @endforeach
                   </tbody>

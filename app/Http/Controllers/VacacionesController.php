@@ -15,7 +15,7 @@ class VacacionesController extends Controller
      */
     public function index()
     {
-      
+
       $vacacione = Vacacione::orderBy('id','ASC')->paginate(5);
       $enfermeras = Enfermera::all();
       return view('vacaciones.index', compact('enfermeras'))->with('vacaciones', $vacacione);
@@ -40,6 +40,13 @@ class VacacionesController extends Controller
      */
     public function store(Request $request)
     {
+      $validatedData = $request->validate([
+          'id_enfermera' => 'required',
+          'fecha_inicio' => 'required|date_format:Y-m-d',
+          'fecha_final' => 'required|date_format:Y-m-d',
+
+      ]);
+
       $vacacione = new Vacacione($request->all());
       $vacacione->save();
       return redirect()->route('vacaciones.index');

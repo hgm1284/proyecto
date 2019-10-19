@@ -33,7 +33,7 @@
                         @endif
                        @endforeach
                      <td colspan="2">
-                       <a href="{{ route('usuarios.edit', $user->id ) }}" title="Editar usuario" class="btn btn-primary"> <i class="fas fa-pencil-alt"></i> </a>
+                       <a href="{{ route('usuarios.edit', $user->id ) }}" title="Editar usuario" class="btn btn-primary"> <i class="fa fa-pencil"></i> </a>
                        <a href="javascript:;" class="btn btn-danger" title="Eliminar usuario" data-toggle="modal" onclick="deleteData({{$user->id}})"
                          data-target="#DeleteModal"><i class="fa fa-trash"></i> </a>
                      </td>

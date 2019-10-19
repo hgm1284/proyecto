@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Enfermera;
 use App\Profile;
 use App\Servicio;
+use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 
@@ -47,13 +48,14 @@ class EnfermerasController extends Controller
           'name' => 'required',
           'lastname' => 'required|max:255|' ,
           'cedula' => 'required',
-          'fecha_ingreso' => 'required|date_format:Y-m-d',
+          'fecha_ingreso' => 'required',
           'id_servicio' => 'required',
           'id_profile' => 'required',
 
       ]);
 
       $enfermera = new Enfermera($request->all());
+      $enfermera-> fecha_ingreso = Carbon::createFromFormat('Y-m-d', $request->fecha_ingreso);
       $enfermera->save();
       return redirect()->route('enfermeras.index');
     }
@@ -97,7 +99,7 @@ class EnfermerasController extends Controller
           'name' => 'required',
           'lastname' => 'required',
           'cedula' => 'required',
-          'fecha_ingreso' => 'required|date_format:Y-m-d',
+          'fecha_ingreso' => 'required',
           'id_servicio' => 'required',
           'id_profile' => 'required',
       ]);
@@ -106,6 +108,7 @@ class EnfermerasController extends Controller
       $enfermera->name = $request->name;
       $enfermera->lastname = $request->lastname;
       $enfermera->cedula = $request->cedula;
+      $enfermera->fecha_ingreso = Carbon::createFromFormat('Y-m-d', $request->fecha_ingreso);
       $enfermera->fecha_ingreso = $request->fecha_ingreso;
       $enfermera->id_servicio = $request->id_servicio;
       $enfermera->id_profile = $request->id_profile;
