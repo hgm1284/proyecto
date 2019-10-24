@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Privilegio;
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests\UsuarioRequest;
+use App\Http\Requests;
+use Illuminate\Routing\Route;
 
 class UsuariosController extends Controller
 {
@@ -17,9 +19,9 @@ class UsuariosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-      $user = User::orderBy('id','ASC')->paginate(5);
+      $user = User::name($request->get('name'))->orderBy('id','ASC')->paginate(5);
       $privilegios = Privilegio::all();
       return view('usuarios.index', compact('privilegios'))->with('users', $user);
     }
