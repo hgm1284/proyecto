@@ -4,7 +4,7 @@
 @section('content')
 <section class="content-header" id="contentheader">
       <h1>
-        Módulo de Enfermeras(os) A hARVEY NO LE SIRVE LA FECHA
+        Módulo de Enfermeras(os) 
       </h1>
       <ol class="breadcrumb">
         <li><a href="/home"><i class="fa fa-home"></i> Inicio</a></li>
@@ -15,6 +15,14 @@
 <br>
 <br>
 <div class="card-body">
+                {!! Form::open(['route' => 'enfermeras.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
+                    <div class="input-group">
+                        {!! Form:: text('name', null, ['class'=> 'form-control', 'placeholder' => 'Buscar Enfermera(o)']) !!}
+                        <span class="input-group-addon">
+                                    <i class="fa fa-search"></i>
+                        </span>
+                    </div>
+                {!! Form::close() !!}
                 <table class="table table-striped">
                   <thead>
                     <tr>

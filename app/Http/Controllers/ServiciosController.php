@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Servicio;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\ServicioRequest;
+use App\Http\Requests;
+use Illuminate\Routing\Route;
 
 class ServiciosController extends Controller
 {
@@ -12,9 +16,9 @@ class ServiciosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $servicio = Servicio::orderBy('id','ASC')->paginate(5);
+        $servicio = Servicio::name($request->get('name'))->orderBy('id','ASC')->paginate(5);
         return view('servicios.index')->with('servicios', $servicio);
     }
 

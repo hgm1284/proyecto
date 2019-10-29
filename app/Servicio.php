@@ -12,4 +12,13 @@ class Servicio extends Model
 
 public $timestamps = false;
 
+  /* Query Scope*/
+  public function scopeName($query, $name)
+  {
+    if (trim($name) != ""){
+      $query->where('nombre', 'LIKE' ,"%$name%");
+    }
+
+  }
+
 }

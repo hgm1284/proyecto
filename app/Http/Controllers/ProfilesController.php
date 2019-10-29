@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Profile;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\ProfileRequest;
+use App\Http\Requests;
+use Illuminate\Routing\Route;
 
 
 class ProfilesController extends Controller
@@ -13,9 +17,9 @@ class ProfilesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-      $profile = Profile::orderBy('id','ASC')->paginate(5);
+      $profile = Profile::name($request->get('name'))->orderBy('id','ASC')->paginate(5);
       return view('profiles.index')->with('profiles', $profile);
     }
 

@@ -6,7 +6,10 @@ use App\Enfermera;
 use App\Profile;
 use App\Servicio;
 use Carbon\Carbon;
-
+use App\Http\Controllers\Controller;
+use App\Http\Requests\EnfermeraRequest;
+use App\Http\Requests;
+use Illuminate\Routing\Route;
 use Illuminate\Http\Request;
 
 class EnfermerasController extends Controller
@@ -16,9 +19,9 @@ class EnfermerasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-      $enfermera = Enfermera::orderBy('id','ASC')->paginate(5);
+      $enfermera = Enfermera::name($request->get('name'))->orderBy('id','ASC')->paginate(5);
       $profiles = Profile::all();
       $servicios = Servicio::all();
       return view('enfermeras.index', compact('profiles', 'servicios'))->with('enfermeras', $enfermera);

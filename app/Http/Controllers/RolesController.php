@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Role;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\RoleRequest;
+use App\Http\Requests;
+use Illuminate\Routing\Route;
+
 
 class RolesController extends Controller
 {
@@ -12,9 +17,9 @@ class RolesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-      $role = Role::orderBy('id','ASC')->paginate(5);
+      $role = Role::name($request->get('name'))->orderBy('id','ASC')->paginate(5);
       return view('roles.index')->with('roles', $role);
     }
 
