@@ -8,7 +8,7 @@
       <ol class="breadcrumb">
         <li><a href="/home"><i class="fa fa-home"></i> Inicio</a></li>
         <i class="fa fa-arrow-right" aria-hidden="true"></i>
-        <li>Registrar</li>
+        <li>Registrar Usuario</li>
       </ol>
 </section>
 <br>
