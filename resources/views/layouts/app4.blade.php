@@ -11,9 +11,11 @@
   <!-- Font Awesome Icons -->
   <link href=" {{ asset('adminlte/plugins/fontawesome-free/css/all.min.css') }} " rel="stylesheet" >
   <!-- Bootstrap 3.3.7 -->
-  <link href=" {{ asset('adminlte3/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href=" {{ asset('adminlte3/bootstrap/dist/css/bootstrap.css') }}" rel="stylesheet">
   <!-- Theme style -->
   <link href=" {{ asset('adminlte3/dist/css/AdminLTE.css') }}" rel="stylesheet">
+  <!-- Selectpicker -->
+  <link href=" {{ asset('adminlte3/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
 
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
@@ -242,6 +244,8 @@
 <script src="{{ asset('adminlte3/fastclick/lib/fastclick.js') }}" defer></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('adminlte3/dist/js/adminlte.min.js') }}" defer></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('adminlte3/dist/js/bootstrap-select.min.js') }}" defer></script>
 
 </body>
 </html>

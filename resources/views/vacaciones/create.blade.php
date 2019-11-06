@@ -27,26 +27,40 @@
             <br>
                         @csrf
           <div class="row">
-            <div class="col-md-1">
-            </div>
-            <div class="col-md-6">
+            <div class="col-md-5">
             <div class="box box-info">
               <div class="form-group">
               <label for="exampleInputPassword3">Enfermera(o) Asignado</label>
-                  <select id="enfermera"  name="id_enfermera" class="form-control">
-                     <option value="">Seleccione Enfermera(o)</option>
-                    @foreach ($enfermeras as $enfermera)
-                     <option value="{{$enfermera['id']}}">{{$enfermera['name']}}  {{$enfermera['lastname']}}</option>
-                    @endforeach
-                 </select>                         
+              <select class="form-control selectpicker" id="enfermera" name="id_enfermera" data-live-search="true" >
+                  <option value="">Seleccione Enfermera(o)</option>
+                  @foreach ($enfermeras as $enfermera)
+                   <option value="{{$enfermera['id']}}" data-tokens="{{$enfermera['name']}} {{$enfermera['lastname']}}">{{$enfermera['name']}}  {{$enfermera['lastname']}}</option>
+                   $fecha= $enfermera['fecha_ingreso'];
+                @endforeach
+            </select>
               </div>
             </div>
-            </div>        
+            </div>
+            <div class="col-md-5">
+            <div class="box box-info">
+              <div class="form-group">
+                <label for="exampleInputPassword1">Fecha de Ingreso(CCSS)</label>
+                <input type="date" id="fecha_ingreso" name="fecha_ingreso" min="1930-01-01"
+                  max="3000-12-31"  value="{{ date($enfermera->fecha_ingreso->format('Y-m-d')) }}"
+                  class="form-control" placeholder="Fecha de Ingreso" disabled="disable">
+                @error('fecha_ingreso')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+              </div>
+            </div>
+            </div>
           </div>
           <div class="row">
               <div class="col-md-1">
               </div>
-              <div class="col-md-4">        
+              <div class="col-md-4">
                 <div class="box box-success">
                     <div class="box-header with-border">
                       <h5 class="box-title">Fecha Inicio</h5>
@@ -66,9 +80,9 @@
                       </div>
                   </div>
                 </div>
-                <div class="col-md-2">   
+                <div class="col-md-2">
                 </div>
-                <div class="col-md-4">        
+                <div class="col-md-4">
                 <div class="box box-info">
                     <div class="box-header with-border">
                       <h5 class="box-title">Fecha Final</h5>
@@ -88,8 +102,6 @@
                       </div>
                   </div>
                 </div>
-          </div>
-          <div class="col-md-1">   
           </div>
         </div>
       </form>

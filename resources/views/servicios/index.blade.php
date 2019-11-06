@@ -25,18 +25,17 @@
                 <table class="table table-striped">
                   <thead>
                     <tr>
-                      <th>Nombre del Servicio</th>
-                      <th>Descripción del Servicio</th>
-                      <th>Opciones</th>
+                      <th colspan="6">Nombre del Servicio</th>
+                      <th colspan="6">Descripción del Servicio</th>
+                      <th colspan="2">Opciones</th>
                     </tr>
                   </thead>
                   <tbody>
                      @foreach ($servicios as $servicio)
                      <tr>
-                       <td>{{ $servicio->nombre }}</td>
-                       <td>{{ $servicio->descripcion }}</td>
-
-                       <td colspan="2">
+                       <td colspan="6" class="nowrap">{{ $servicio->nombre }}</td>
+                       <td colspan="6" class="nowrap"> {{ $servicio->descripcion }}</td>
+                       <td colspan="2" class="nowrap">
                          <a href="{{ route('servicios.edit', $servicio->id  ) }}" title="Editar Servicio" class="btn btn-primary"> <i class="fa fa-pencil"></i> </a>
                          <a href="javascript:;" class="btn btn-danger" title="Eliminar Servicio" data-toggle="modal" onclick="deleteData({{$servicio->id}})"
                            data-target="#DeleteModal"><i class="fa fa-trash"></i> </a>
@@ -87,4 +86,9 @@
     function formSubmit() {
       $("#deleteForm").submit();
     }
+</script>
+<script type="text/javascript">
+$(function() {
+  $('.selectpicker').selectpicker();
+});
 </script>

@@ -4,7 +4,7 @@
 @section('content')
 <section class="content-header" id="contentheader">
       <h1>
-        Módulo de Enfermeras(os) 
+        Módulo de Enfermeras(os)
       </h1>
       <ol class="breadcrumb">
         <li><a href="/home"><i class="fa fa-home"></i> Inicio</a></li>
