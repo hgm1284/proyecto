@@ -123,4 +123,46 @@ class UsuariosController extends Controller
 
          }
      }
+     /**
+      * Update the specified resource in storage.
+      *
+      * @param  \Illuminate\Http\Request  $request
+      * @param  int  $id
+      * @return \Illuminate\Http\Response
+      */
+     public function updateProfile(Request $request, $id)
+     {
+         {
+         $validatedData = $request->validate([
+             'name' => 'required',
+             'email' => 'required'
+         ]);
+
+         $user = User::find($id);
+         $user->name = $request->name;
+         $user->email = $request->email;
+         $user->save();
+         return redirect()->route('perfil');
+
+         }
+     }
+     /**
+      * Update the specified resource in storage.
+      *
+      * @param  \Illuminate\Http\Request  $request
+      * @param  int  $id
+      * @return \Illuminate\Http\Response
+      */
+     public function updatePass(Request $request, $id)
+     {
+
+
+       $user = User::find($id);
+       $user->password = bcrypt($request->password);
+       $user->save();
+       return redirect()->route('perfil');
+
+
+     }
+
 }

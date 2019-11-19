@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Vacacione;
 use App\Enfermera;
+use App\Periodo;
+use App\DiaVaciones;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class VacacionesController extends Controller
 {
@@ -29,7 +33,8 @@ class VacacionesController extends Controller
     public function create()
     {
       $enfermeras = Enfermera::all();
-      return view('vacaciones.create', compact('enfermeras'));
+      $periodos = Periodo::all();
+      return view('vacaciones.create', compact('enfermeras','periodos'));
     }
 
     /**
@@ -41,14 +46,22 @@ class VacacionesController extends Controller
     public function store(Request $request)
     {
       $validatedData = $request->validate([
-          'id_enfermera' => 'required',
-          'fecha_inicio' => 'required|date_format:Y-m-d',
-          'fecha_final' => 'required|date_format:Y-m-d',
-
+          'id_enfermera' => 'required'
       ]);
 
-      $vacacione = new Vacacione($request->all());
+      $vacacione = new Vacacione;
+      $vacacione->id_enfermera = $request->id_enfermera;
+      $vacacione->id_periodo = $request->id_periodo;
       $vacacione->save();
+
+
+      $arrayVacaciones = explode(',',$request->diasVaciones);
+
+      foreach ($arrayVacaciones as &$value) {
+          DB::table('dias_vacaciones')->insert(
+              ['id_vacaciones' => $vacacione->id, 'fecha' => Carbon::parse($value)]
+          );
+      }
       return redirect()->route('vacaciones.index');
     }
 
@@ -60,8 +73,52 @@ class VacacionesController extends Controller
      */
     public function show(Vacacione $vacacione)
     {
-        //
+        return view('vacaciones.show');
     }
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Vacacione  $vacacione
+     * @return \Illuminate\Http\Response
+     */
+    public function history($id)
+    {
+      $periodos = Periodo::all();
+      $vacaciones = Vacacione::where('id_enfermera', 0)->get();
+      $enfermeras = DB::table('enfermeras')
+                    ->select('enfermeras.name', 'enfermeras.lastname')
+                    ->where('enfermeras.id', '=', $id)
+                    ->get();
+
+      //$data = Vacacione::with('dias')->where('id_enfermera',$id)->get();
+      return view('vacaciones.history',compact('periodos','vacaciones','enfermeras'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Vacacione  $vacacione
+     * @return \Illuminate\Http\Response
+     */
+
+    public function historyVacationsRequested($user, $periodo)
+    {
+      $vacaciones = Vacacione::where('id_enfermera', $user)->where('id_periodo',$periodo)->get();
+      return $vacaciones;
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Vacacione  $vacacione
+     * @return \Illuminate\Http\Response
+     */
+    public function days($id)
+    {
+      $vacaciones = DiaVaciones::where('id_vacaciones', $id)->get();
+      return $vacaciones;
+    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -114,4 +171,54 @@ class VacacionesController extends Controller
       $vacacione->delete();
       return redirect()->route('vacaciones.index');
     }
+
+
+    public function index2($id)
+    {
+          $flight = Vacacione::with('dias')->where('id_enfermera',$id)->get();
+          $array = array();
+          foreach ($flight as &$value) {
+            foreach ($value->dias as &$dia) {
+              $object = new  \stdClass();
+              $object->title = 'Vacaciones';
+              $object->start = $dia['fecha'];
+              $object->id = $dia['id'];
+              array_push($array,$object);
+            }
+          }
+      return $array;
+
+
+    }
+
+
+    public function create2(Request $request)
+    {
+        $insertArr = [ 'title' => $request->title,
+                       'start' => $request->start,
+                       'end' => $request->end
+                    ];
+        $event = Event::insert($insertArr);
+        return Response::json($event);
+    }
+
+
+    public function update2(Request $request)
+    {
+        $where = array('id' => $request->id);
+        $updateArr = ['title' => $request->title,'start' => $request->start, 'end' => $request->end];
+        $event  = Event::where($where)->update($updateArr);
+
+        return Response::json($event);
+    }
+
+
+    public function destroy2(Request $request)
+    {
+        $event = Event::where('id',$request->id)->delete();
+
+        return Response::json($event);
+    }
+
+
 }

@@ -31,8 +31,8 @@
             <div class="box box-info">
               <div class="form-group">
               <label for="exampleInputPassword3">Enfermera(o) Asignado</label>
-              <select class="form-control selectpicker" id="enfermera" name="id_enfermera" data-live-search="true" >
-                  <option value="">Seleccione Enfermera(o)</option>
+              <select class="form-control selectpicker" id="enfermera" name="id_enfermera" data-live-search="true" required>
+                  <option disabled selected value>Seleccione Enfermera(o)</option>
                   @foreach ($enfermeras as $enfermera)
                    <option value="{{$enfermera['id']}}" data-tokens="{{$enfermera['name']}} {{$enfermera['lastname']}}">{{$enfermera['name']}}  {{$enfermera['lastname']}}</option>
                    $fecha= $enfermera['fecha_ingreso'];
@@ -57,55 +57,56 @@
             </div>
             </div>
           </div>
+
           <div class="row">
-              <div class="col-md-1">
+            <div class="col-md-5">
+            <div class="box box-info">
+              <div class="form-group">
+                <label for="exampleInputPassword1">Días de vacaciones</label>
+	               <input type="text" class="form-control date" placeholder="Selecciones los dias" required  name="diasVaciones">
               </div>
-              <div class="col-md-4">
-                <div class="box box-success">
-                    <div class="box-header with-border">
-                      <h5 class="box-title">Fecha Inicio</h5>
-                    </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-                      <div class="box-body">
-                        <div class="form-group">
-                                  <input type="date" id="fecha_inicio" name="fecha_inicio" min="1930-01-01"
-                                    max="3000-12-31" class="form-control">
-                                  @error('fecha_inicio')
-                                      <span class="invalid-feedback" role="alert">
-                                          <strong>{{ $message }}</strong>
-                                      </span>
-                                  @enderror
-                        </div>
-                      </div>
-                  </div>
-                </div>
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-4">
-                <div class="box box-info">
-                    <div class="box-header with-border">
-                      <h5 class="box-title">Fecha Final</h5>
-                    </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-                      <div class="box-body">
-                        <div class="form-group">
-                                  <input type="date" id="fecha_final" name="fecha_final" min="1930-01-01"
-                                    max="3000-12-31" class="form-control">
-                                  @error('fecha_final')
-                                      <span class="invalid-feedback" role="alert">
-                                          <strong>{{ $message }}</strong>
-                                      </span>
-                                  @enderror
-                        </div>
-                      </div>
-                  </div>
-                </div>
+            </div>
+            </div>
+            <div class="col-md-5">
+            <div class="box box-info">
+              <div class="form-group">
+              <label for="exampleInputPassword3">Periodo</label>
+              <select class="form-control selectpicker" id="enfermera" name="id_periodo" data-live-search="true" required >
+                  <option disabled selected value> -- Seleccione un periodo -- </option>
+                  @foreach ($periodos as $periodo)
+                   <option value="{{$periodo['id']}}" data-tokens="{{$periodo['periodo']}}">{{$periodo['periodo']}} </option>
+                   $fecha= $periodo['fecha_ingreso'];
+                @endforeach
+            </select>
+              </div>
+            </div>
+            </div>
           </div>
+
+
+        <div class="row">
+          <div class="col-md-2">
+            <div class="box box-success">
+              <div class="box-header with-border">
+                <label for="exampleInputPassword1">Años Laborados</label>
+              </div>
+              <div class="box-body">
+                <input type="text" id="annos" name="annos" class="form-control" disabled="disabled">
+                @error('annos')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+              </div>
+            </div>
+          </div>
+        </div>
+
         </div>
       </form>
     </div>
 </div>
 </div>
+
+
 @endsection

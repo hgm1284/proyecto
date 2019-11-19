@@ -12,5 +12,13 @@ class Vacacione extends Model
 
   protected $dates = ['fecha_inicio', 'fecha_final'];
 
-  public $timestamps = false;
+
+  /**
+   * obtiene los dias que pertenecen a las vaciones
+   */
+  public function dias()
+  {
+      return $this->hasMany('App\DiaVaciones','id_vacaciones','id');
+  }
+
 }

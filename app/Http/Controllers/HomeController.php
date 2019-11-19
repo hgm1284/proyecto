@@ -25,4 +25,16 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+
+    /**
+     * Show the application perfil.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function perfil()
+    {
+        return view('profile');
+    }
+
 }

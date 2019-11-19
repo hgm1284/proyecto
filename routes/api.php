@@ -13,6 +13,12 @@ use Illuminate\Http\Request;
 |
 */
 
+
+Route::get('/enfermeras/{id}/datos', 'EnfermerasController@datosEnfermero');
+Route::get('/vacaciones/{id}/info', 'VacacionesController@calcularDiasVacaciones');
+
+
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

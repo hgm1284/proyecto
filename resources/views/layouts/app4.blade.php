@@ -5,7 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Gestión de Roles | H.SC</title>
 
-
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Font Awesome Icons -->
@@ -22,6 +21,19 @@
   <link href=" {{ asset('adminlte3/dist/css/skins/skin-blue.min.css') }}" rel="stylesheet">
   <!-- Font Awesome -->
   <link href=" {{ asset('adminlte3/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="/bootstrap-datepicker/css/bootstrap-datepicker.css">
+
+
+
+  <link href='/fullcalendar/core/main.css' rel='stylesheet' />
+  <link href='/fullcalendar/daygrid/main.css' rel='stylesheet' />
+
+  <script src='/fullcalendar/core/main.js'></script>
+  <script src='/fullcalendar/daygrid/main.js'></script>
+
+
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -50,28 +62,37 @@
               <!-- User image -->
               <li class="user-header">
                 <a href="/home"></a>
-                <img src="{{asset('adminlte/img/User_23096.png')}}" class="img-circle" alt="User Image">
+                <img src="{{asset('adminlte3/img/User_23096.png')}}" class="img-circle" alt="User Image">
                 <p>
                    {{ Auth::user()->name }}
                 </p>
               </li>
+
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="/perfil" class="btn btn-default btn-flat">Perfil</a>
+                </div>
+                <div class="pull-right">
+                  <a href="{{ route('logout') }}" class="btn btn-default btn-flat"
+                  onclick="event.preventDefault();
+                           document.getElementById('logout-form').submit();">
+                           <i class="fa fa-power-off" aria-hidden="true"></i>
+                           {{ __('Cerrar Sesión') }}
+                    <p>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                      </form>
+                      @if (session('status'))
+                              <div class="alert alert-success" role="alert">
+                                  {{ session('status') }}
+                              </div>
+                      @endif
+                    </p>
+                  </a>
+                </div>
+              </li>
               <!-- Menu Footer-->
-                    <a href="{{ route('logout') }}" class="btn btn-block btn-primary btn-sm"
-                    onclick="event.preventDefault();
-                             document.getElementById('logout-form').submit();">
-                             <i class="fa fa-power-off" aria-hidden="true"></i>
-                             {{ __('Cerrar Sesión') }}
-                      <p>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                          @csrf
-                        </form>
-                        @if (session('status'))
-                                <div class="alert alert-success" role="alert">
-                                    {{ session('status') }}
-                                </div>
-                        @endif
-                      </p>
-                    </a>
+
             </ul>
           </li>
         </ul>
@@ -94,118 +115,169 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Menú de Opciones</li>
-        <!-- pestaña 1 -->
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-users"></i> <span>Módulo Usuarios</span>
-            <span class="pull-right-container">
-              <i class=" fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="/usuarios/create"><i class="fa fa-user-plus" aria-hidden="true"></i> Registrar</a></li>
-            <li><a href="/usuarios"><i class="fa fa-user"></i> Administración</a></li>
-          </ul>
-        </li>
-        <!-- pestaña 2 -->
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-hospital-o" aria-hidden="true"></i>
-            <span>Módulo Servicios</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="/servicios/create"><i class="fa fa-plus" aria-hidden="true"></i> Agregar Servicio</a></li>
-            <li><a href="/servicios"><i class="fa fa-list" aria-hidden="true"></i> Administración de Servicios</a></li>
-          </ul>
-        </li>
-        <!-- pestaña 3 -->
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-calendar" aria-hidden="true"></i>
-            <span>Módulo Roles</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="/roles/create"><i class="fa fa-plus" aria-hidden="true"></i>Crear Rol</a></li>
-            <li><a href="/roles"><i class="fa fa-list" aria-hidden="true"></i> Administración de Roles</a></li>
-          </ul>
-        </li>
-          <!-- pestaña 4 -->
+
+    <?php $perfil = Auth::user()->id_rolusuario ?>
+
+        @switch($perfil)
+            @case('1')
+
+                    <!-- pestaña 1 -->
+                    <li class="treeview">
+                      <a href="#">
+                        <i class="fa fa-users"></i> <span>Módulo Usuarios</span>
+                        <span class="pull-right-container">
+                          <i class=" fa fa-angle-left pull-right"></i>
+                        </span>
+                      </a>
+                      <ul class="treeview-menu">
+                        <li><a href="/usuarios/create"><i class="fa fa-user-plus" aria-hidden="true"></i> Registrar</a></li>
+                        <li><a href="/usuarios"><i class="fa fa-user"></i> Administración</a></li>
+                      </ul>
+                    </li>
+                    <!-- pestaña 2 -->
+                    <li class="treeview">
+                      <a href="#">
+                        <i class="fa fa-hospital-o" aria-hidden="true"></i>
+                        <span>Módulo Servicios</span>
+                        <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                      </a>
+                      <ul class="treeview-menu">
+                        <li><a href="/servicios/create"><i class="fa fa-plus" aria-hidden="true"></i> Agregar Servicio</a></li>
+                        <li><a href="/servicios"><i class="fa fa-list" aria-hidden="true"></i> Administración de Servicios</a></li>
+                      </ul>
+                    </li>
+                    <!-- pestaña 3 -->
+                    <li class="treeview">
+                      <a href="#">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        <span>Módulo Roles</span>
+                        <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                      </a>
+                      <ul class="treeview-menu">
+                        <li><a href="/roles/create"><i class="fa fa-plus" aria-hidden="true"></i>Crear Rol</a></li>
+                        <li><a href="/roles"><i class="fa fa-list" aria-hidden="true"></i> Administración de Roles</a></li>
+                      </ul>
+                    </li>
+                      <!-- pestaña 4 -->
+                      <li class="treeview">
+                        <a href="#">
+                          <i class="fa fa-user-md" aria-hidden="true"></i>
+                          <span>Módulo Perfiles </span>
+                          <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                          </span>
+                        </a>
+                        <ul class="treeview-menu">
+                          <li><a href="/profiles/create"><i class="fa fa-plus" aria-hidden="true"></i>Crear Perfil</a></li>
+                          <li><a href="/profiles"><i class="fa fa-list" aria-hidden="true"></i> Administración de Perfiles</a></li>
+                        </ul>
+                      </li>
+                      <!-- pestaña 5 -->
+                      <li class="treeview">
+                        <a href="#">
+                          <i class="fa fa-medkit" aria-hidden="true"></i>
+                          <span>Módulo Enfermeras(os)</span>
+                          <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                          </span>
+                        </a>
+                        <ul class="treeview-menu">
+                          <li><a href="/enfermeras/create"><i class="fa fa-plus" aria-hidden="true"></i>Agregar Personal</a></li>
+                          <li><a href="/enfermeras"><i class="fa fa-list" aria-hidden="true"></i> Administración de Personal</a></li>
+                        </ul>
+                      </li>
+                    <!-- pestaña 6 -->
+                  <li class="treeview">
+                    <a href="#">
+                      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                      <span>Módulo Dist Roles </span>
+                      <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                      </span>
+                    </a>
+                    <ul class="treeview-menu">
+                      <li><a href=""><i class="fa fa-plus" aria-hidden="true"></i>Asignar Nuevo Rol</a></li>
+                      <li><a href=""><i class="fa fa-list" aria-hidden="true"></i>Roles por Servicio</a></li>
+                      <li><a href=""><i class="fa fa-list" aria-hidden="true"></i>Roles por Enfermero</a></li>
+                    </ul>
+                  </li>
+                  <!-- pestaña 7 -->
+                <li class="treeview">
+                  <a href="#">
+                    <i class="fa fa-plane" aria-hidden="true"></i>
+                    <span>Módulo Vacaciones </span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="/vacaciones/create"><i class="fa fa-plus" aria-hidden="true"></i>Asignar Vacaciones</a></li>
+                    <li><a href="/vacaciones"><i class="fa fa-list" aria-hidden="true"></i> Administración de Vacaciones</a></li>
+                  </ul>
+                </li>
+
+                <!-- pestaña 8 -->
+              <li class="treeview">
+                <a href="#">
+                  <i class="fa fa-file-text" aria-hidden="true"></i>
+                  <span>Reportes</span>
+                  <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+                </a>
+                <ul class="treeview-menu">
+                  <li><a href="/profiles/create"><i class="fa fa-plus" aria-hidden="true"></i>Crear Perfil</a></li>
+                  <li><a href="/profiles"><i class="fa fa-list" aria-hidden="true"></i> Administración de Perfiles</a></li>
+                </ul>
+              </li>
+                @break
+
+            @case('2')
+            <!-- pestaña 6 -->
           <li class="treeview">
             <a href="#">
-              <i class="fa fa-user-md" aria-hidden="true"></i>
-              <span>Módulo Perfiles </span>
+              <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+              <span>Módulo Dist Roles </span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="/profiles/create"><i class="fa fa-plus" aria-hidden="true"></i>Crear Perfil</a></li>
-              <li><a href="/profiles"><i class="fa fa-list" aria-hidden="true"></i> Administración de Perfiles</a></li>
+              <li><a href=""><i class="fa fa-plus" aria-hidden="true"></i>Asignar Nuevo Rol</a></li>
+              <li><a href=""><i class="fa fa-list" aria-hidden="true"></i>Roles por Servicio</a></li>
+              <li><a href=""><i class="fa fa-list" aria-hidden="true"></i>Roles por Enfermero</a></li>
             </ul>
           </li>
-          <!-- pestaña 5 -->
-          <li class="treeview">
-            <a href="#">
-              <i class="fa fa-medkit" aria-hidden="true"></i>
-              <span>Módulo Enfermeras(os)</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li><a href="/enfermeras/create"><i class="fa fa-plus" aria-hidden="true"></i>Agregar Personal</a></li>
-              <li><a href="/enfermeras"><i class="fa fa-list" aria-hidden="true"></i> Administración de Personal</a></li>
-            </ul>
-          </li>
-        <!-- pestaña 6 -->
-      <li class="treeview">
-        <a href="#">
-          <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-          <span>Módulo Dist Roles </span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href=""><i class="fa fa-plus" aria-hidden="true"></i>Asignar Nuevo Rol</a></li>
-          <li><a href=""><i class="fa fa-list" aria-hidden="true"></i>Roles por Servicio</a></li>
-          <li><a href=""><i class="fa fa-list" aria-hidden="true"></i>Roles por Enfermero</a></li>
-        </ul>
-      </li>
-      <!-- pestaña 7 -->
-    <li class="treeview">
-      <a href="#">
-        <i class="fa fa-plane" aria-hidden="true"></i>
-        <span>Módulo Vacaciones </span>
-        <span class="pull-right-container">
-          <i class="fa fa-angle-left pull-right"></i>
-        </span>
-      </a>
-      <ul class="treeview-menu">
-        <li><a href="/vacaciones/create"><i class="fa fa-plus" aria-hidden="true"></i>Asignar Vacaciones</a></li>
-        <li><a href="/vacaciones"><i class="fa fa-list" aria-hidden="true"></i> Administración de Vacaciones</a></li>
-      </ul>
-    </li>
-    <!-- pestaña 8 -->
-  <li class="treeview">
-    <a href="#">
-      <i class="fa fa-file-text" aria-hidden="true"></i>
-      <span>Reportes</span>
-      <span class="pull-right-container">
-        <i class="fa fa-angle-left pull-right"></i>
-      </span>
-    </a>
-    <ul class="treeview-menu">
-      <li><a href="/profiles/create"><i class="fa fa-plus" aria-hidden="true"></i>Crear Perfil</a></li>
-      <li><a href="/profiles"><i class="fa fa-list" aria-hidden="true"></i> Administración de Perfiles</a></li>
-    </ul>
-  </li>
+
+                @break
+
+                @case('3')
+
+                <!-- pestaña 8 -->
+              <li class="treeview">
+                <a href="#">
+                  <i class="fa fa-file-text" aria-hidden="true"></i>
+                  <span>Reportes</span>
+                  <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+                </a>
+                <ul class="treeview-menu">
+                  <li><a href="/profiles/create"><i class="fa fa-plus" aria-hidden="true"></i>Crear Perfil</a></li>
+                  <li><a href="/profiles"><i class="fa fa-list" aria-hidden="true"></i> Administración de Perfiles</a></li>
+                </ul>
+              </li>
+
+                @break
+            @default
+
+        @endswitch
+
+
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -237,7 +309,10 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-<script src="{{ asset('adminlte3/jquery/dist/jquery.min.js') }}" defer></script>
+<!-- <script src="{{ asset('/adminlte3/jquery/dist/jquery.min.js') }}" defer></script> -->
+
+<script src="/js/jquery.js"></script>
+
 <!-- Bootstrap 3.3.7 -->
 <script src="{{ asset('adminlte3/bootstrap/dist/js/bootstrap.min.js') }}" defer></script>
 <!-- FastClick -->
@@ -246,6 +321,18 @@
 <script src="{{ asset('adminlte3/dist/js/adminlte.min.js') }}" defer></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('adminlte3/dist/js/bootstrap-select.min.js') }}" defer></script>
+
+<script src="https://uicdn.toast.com/tui.code-snippet/latest/tui-code-snippet.js"></script>
+<script src="https://uicdn.toast.com/tui.dom/v3.0.0/tui-dom.js"></script>
+<script src="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.min.js"></script>
+<script src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.min.js"></script>
+<script src="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.js"></script>
+
+<script src="{{ asset('adminlte3/js/moment.js') }}"></script>
+
+<script src="/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="/js/main.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
 
 </body>
 </html>

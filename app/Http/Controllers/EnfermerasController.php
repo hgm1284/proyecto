@@ -133,4 +133,10 @@ class EnfermerasController extends Controller
       $enfermera->delete();
       return redirect()->route('enfermeras.index');
     }
+
+    //funcion para cargar la fecha de ingreso en vacaciones
+    public function datosEnfermero($id){
+      return Enfermera::where('id',$id)->get();
+    }
+
 }

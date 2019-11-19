@@ -26,27 +26,26 @@
                     </tr>
                   </thead>
                   <tbody>
-                     @foreach ($vacaciones as $vacacione)
+                     @foreach ($enfermeras as $enfermera)
                      <tr>
-                       @foreach ($enfermeras as $enfermera)
-                        @if ($vacacione->id_enfermera == $enfermera['id'])
+
                           <td>{{$enfermera['name']}}</td>
                           <td>{{$enfermera['lastname']}}</td>
-                        @endif
-                       @endforeach
-                       <td>{{ date('d-m-Y',strtotime($vacacione->fecha_inicio))}}</td>
-                       <td>{{ date('d-m-Y',strtotime($vacacione->fecha_final))}}</td>
+
+                       <td>Le queda de tarea</td>
+                       <td>Le queda de tarea</td>
 
                      <td colspan="2">
-                       <a href="{{ route('vacaciones.edit', $vacacione->id ) }}" class="btn btn-primary"> <i class="fa fa-pencil"></i> </a>
-                       <a href="javascript:;" class="btn btn-danger" data-toggle="modal" onclick="deleteData({{$vacacione->id}})"
-                         data-target="#DeleteModal"><i class="fa fa-trash"></i> </a>
+                       <a href="{{ route('vacaciones.calendar', $enfermera->id ) }}" class="btn btn-primary"> <i class="fa fa-calendar"></i> </a>
+
+                      <a href="{{ route('vacaciones.history', $enfermera->id ) }}" class="btn btn-info"> <i class="fa fa-history"></i> </a>
                      </td>
                      </tr>
                       @endforeach
                   </tbody>
                 </table>
                 <br>
+
 
                 <!-- MODAL -->
                 <style>
@@ -75,7 +74,7 @@
                 </div>
                 <!-- /.modal-dialog -->
               </div>
-        <!--fin MODAL -->
+            <!--fin MODAL -->
                 {!! $vacaciones->render()!!}
               </div>
 @endsection

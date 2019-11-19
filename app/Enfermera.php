@@ -12,14 +12,23 @@ class Enfermera extends Model
 
   protected $dates = ['fecha_ingreso', 'fecha_final'];
 
-  public $timestamps = false;
        /* Query Scope*/
   public function scopeName($query, $name)
   {
        if (trim($name) != ""){
          $query->where('name', 'LIKE' ,"%$name%");
        }
-   
+
   }
+
+  /**
+   * obtiene las vacaciones del enfermero
+   */
+  public function vacaciones()
+  {
+      return $this->hasMany('App\Vacacione','id_enfermera','id');
+  }
+
+
 
 }
