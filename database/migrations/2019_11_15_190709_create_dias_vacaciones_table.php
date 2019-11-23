@@ -17,7 +17,7 @@ class CreateDiasVacacionesTable extends Migration
       $table->bigIncrements('id');
       $table->bigInteger('id_vacaciones')->unsigned();
       $table->foreign('id_vacaciones')->references('id')->on('vacaciones');
-      $table->date('fecha');
+      $table->date('fecha'); //día exacto
       $table->bigInteger('delete_by')->unsigned()->nullable();
       $table->foreign('delete_by')->references('id')->on('users');
       $table->timestamps();

@@ -170,20 +170,26 @@ class VacacionesController extends Controller
 
   public function index2($id)
   {
+    $hoy = Carbon::today();
     $flight = Vacacione::with('dias')->where('id_enfermera',$id)->get();
     $array = array();
     foreach ($flight as &$value) {
       foreach ($value->dias as &$dia) {
-        $object = new  \stdClass();
-        $object->title = 'Vacaciones';
-        $object->start = $dia['fecha'];
-        $object->id = $dia['id'];
-        array_push($array,$object);
+
+        $box = Carbon::parse($dia['fecha']);
+        if ($box >= $hoy) {
+
+          $object = new  \stdClass();
+          $object->title = 'Vacaciones';
+          $object->start = $dia['fecha'];
+          $object->id = $dia['id'];
+          array_push($array,$object);
+
+        }
       }
     }
     return $array;
-
-  }
+}
 
   public function create2(Request $request)
   {
