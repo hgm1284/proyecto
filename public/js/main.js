@@ -1,6 +1,23 @@
 // A $( document ).ready() block.
 $(function(){
   $('#enfermera').on('change', selectEnfermera);
+
+  
+$(document).ready( function () {
+  $('#tablaVacaciones').DataTable(
+   
+  );
+
+
+  $('#tablaCambios').DataTable(
+   
+    );
+} );
+
+
+
+
+
 });
 
 //Selecciona al enfermero y carga su fecha de ingreso
@@ -136,3 +153,4 @@ $( document ).ready(function() {
 function eliminarVaciones(id) {
 
 }
+
