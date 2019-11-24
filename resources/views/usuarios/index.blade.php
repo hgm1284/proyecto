@@ -13,15 +13,7 @@
 </section>
 <br>
 <div class="card-body">
-      {!! Form::open(['route' => 'usuarios.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
-        <div class="input-group">
-            {!! Form:: text('name', null, ['class'=> 'form-control', 'placeholder' => 'Buscar usuarios']) !!}
-            <span class="input-group-addon">
-                        <i class="fa fa-search"></i>
-            </span>
-        </div>
-      {!! Form::close() !!}
-                <table class="table table-striped">
+      <table class="table table-hover" id="tablaUsuarios">
                   <thead>
                     <tr>
                       <th>Nombre</th>
