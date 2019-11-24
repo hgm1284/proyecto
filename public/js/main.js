@@ -1,21 +1,6 @@
 // A $( document ).ready() block.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 $(document).ready( function () {
   $('#tablaVacaciones').DataTable({
     language: {
@@ -109,7 +94,7 @@ $('#tablaCambios').DataTable({
             }
         },
       });
-      
+
       $('#tablaPerfiles').DataTable({
 
         language: {
@@ -138,7 +123,7 @@ $('#tablaCambios').DataTable({
 $(function(){
 
   $('#enfermera').on('change', selectEnfermera);
-  
+
 } );
 
 });
@@ -234,7 +219,7 @@ $("#btnFiltrarCambios").click(function() {
         $.each(response.servicios, function(keyServicio, itemServicio) {
 
          if( itemServicio.id == response.data[key].cambio.id_servicio){
-     
+
           servicio = itemServicio.nombre
 
          }
@@ -242,7 +227,7 @@ $("#btnFiltrarCambios").click(function() {
         });
 
         $.each(response.roles, function(keyRol, itemRol) {
-          
+
           if(keyRol.id = response.data[key].cambio.id_rol){
             role = itemRol.nomenclatura
           }
@@ -270,10 +255,9 @@ $( document ).ready(function() {
     format: 'dd-mm-yyyy'
   });
   cargarSolicitudes();
-  
+
 })
 
 function eliminarVaciones(id) {
 
 }
-
