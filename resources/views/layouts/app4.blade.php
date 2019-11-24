@@ -202,6 +202,8 @@
             <li><a href=""><i class="fa fa-list" aria-hidden="true"></i>Roles por Servicio</a></li>
             <li><a href=""><i class="fa fa-list" aria-hidden="true"></i>Roles por Enfermero</a></li>
             <li><a href="/cambios"><i class="fa fa-list" aria-hidden="true"></i>Boleta de Cambios</a></li>
+            <li><a href="/cambios/create"><i class="fa fa-list" aria-hidden="true"></i>Crear Cambios</a></li>
+
           </ul>
         </li>
 
@@ -307,12 +309,9 @@
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-
 <!-- jQuery 3 -->
 <!-- <script src="{{ asset('/adminlte3/jquery/dist/jquery.min.js') }}" defer></script> -->
-
 <script src="/js/jquery.js"></script>
-
 <!-- Bootstrap 3.3.7 -->
 <script src="{{ asset('adminlte3/bootstrap/dist/js/bootstrap.min.js') }}" defer></script>
 <!-- FastClick -->

@@ -71,7 +71,7 @@
       </div>
       <!--fin MODAL -->
       {!! $vacaciones->render()!!}
-    </div>
+   </div>
     @endsection
     <script type="text/javascript">
     function deleteData(id) {
@@ -82,4 +82,4 @@
       function formSubmit() {
         $("#deleteForm").submit();
       }
-      </script>
+    </script>

@@ -35,7 +35,6 @@ class CambiosController extends Controller
       $enfermeras = Enfermera::all();
       $servicios = Servicio::all();
       $roles = Role::all();
-
       return view('cambios.create', compact('enfermeras','servicios', 'roles'));
     }
 
@@ -51,7 +50,6 @@ class CambiosController extends Controller
         'id_enfermera' => 'required',
         'id_servicio' => 'required',
         'id_rol' => 'required'
-
       ]);
 
       $cambio = new Cambio;
@@ -66,24 +64,24 @@ class CambiosController extends Controller
         );
       }
       return redirect()->route('cambios.index');
-
     }
-
 
     public function history($id)
     {
-
       $cambios = Cambio::where('id_enfermera', '=', $id)->get();
+      $enfermeras = DB::table('enfermeras')
+      ->select('enfermeras.name', 'enfermeras.lastname')
+      ->where('enfermeras.id', '=', $id)
+      ->get();
 
       //$data = Vacacione::with('dias')->where('id_enfermera',$id)->get();
-      return view('cambios.history',compact('cambios'));
+      return view('cambios.history',compact('cambios', 'enfermeras'));
     }
 
     public function days($id)
     {
       $servicios = Servicio::all();
       $roles = Role::all();
-
       $cambios = DiaCambios::withTrashed()->with('cambio')->where('id_cambio', $id)->get();
 
       return response()->json([
@@ -91,6 +89,6 @@ class CambiosController extends Controller
         'roles' => $roles,
         'data' => $cambios
     ]);
+
     }
-    
 }
