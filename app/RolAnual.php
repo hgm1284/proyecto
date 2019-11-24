@@ -8,6 +8,6 @@ class RolAnual extends Model
 {
   protected $fillable = [
      'id_enfermera', 'id_servicio', 'id_rol'
-];
+  ];
 
 }

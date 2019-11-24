@@ -63,6 +63,7 @@ class RolAnualController extends Controller
         'id_enfermera' => 'required',
         'id_servicio' => 'required',
       ]);
+        dd($request);
         $rol_anual = new RolAnual;
         $rol_anual->id_enfermera = $request->enfermera;
         $rol_anual->id_servicio = $request->servicio;
