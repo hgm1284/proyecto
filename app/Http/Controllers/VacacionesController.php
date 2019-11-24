@@ -12,6 +12,17 @@ use Carbon\Carbon;
 
 class VacacionesController extends Controller
 {
+
+      /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
   /**
   * Display a listing of the resource.
   *
@@ -45,7 +56,8 @@ class VacacionesController extends Controller
   public function store(Request $request)
   {
     $validatedData = $request->validate([
-      'id_enfermera' => 'required'
+      'id_enfermera' => 'required',
+    
     ]);
 
     $vacacione = new Vacacione;

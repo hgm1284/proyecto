@@ -198,6 +198,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
+            <li><a href="/rol_anual/create"><i class="fa fa-plus" aria-hidden="true"></i>Crear Rol Anual</a></li>
             <li><a href=""><i class="fa fa-plus" aria-hidden="true"></i>Asignar Nuevo Rol</a></li>
             <li><a href=""><i class="fa fa-list" aria-hidden="true"></i>Roles por Servicio</a></li>
             <li><a href=""><i class="fa fa-list" aria-hidden="true"></i>Roles por Enfermero</a></li>

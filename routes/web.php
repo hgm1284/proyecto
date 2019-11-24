@@ -71,5 +71,12 @@ Route::resource('/cambios','CambiosController');
 Route::get('cambios/history/{id}', ['as' => 'cambios.history', 'uses' => 'CambiosController@history']);
 Route::get('cambios/request/{id}', ['as' => 'cambios.days', 'uses' => 'CambiosController@days']);
 
+Route::resource('/rol_anual','RolAnualController');
+Route::post('rol_anual/{id}/destroy', [
+    'uses'=> 'RolAnualController@destroy',
+    'as'  =>'rol_anual.destroy'
+]);
+
+
 //fullcalender
 Route::get('vacaciones/days/{id}','VacacionesController@index2');
