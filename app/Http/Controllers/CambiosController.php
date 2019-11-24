@@ -81,8 +81,16 @@ class CambiosController extends Controller
 
     public function days($id)
     {
-      $cambios = DiaCambios::withTrashed()->where('id_cambio', $id)->get();
-      return $cambios;
-    }
+      $servicios = Servicio::all();
+      $roles = Role::all();
 
+      $cambios = DiaCambios::withTrashed()->with('cambio')->where('id_cambio', $id)->get();
+
+      return response()->json([
+        'servicios' =>  $servicios,
+        'roles' => $roles,
+        'data' => $cambios
+    ]);
+    }
+    
 }

@@ -201,6 +201,7 @@
             <li><a href=""><i class="fa fa-plus" aria-hidden="true"></i>Asignar Nuevo Rol</a></li>
             <li><a href=""><i class="fa fa-list" aria-hidden="true"></i>Roles por Servicio</a></li>
             <li><a href=""><i class="fa fa-list" aria-hidden="true"></i>Roles por Enfermero</a></li>
+            <li><a href="/cambios"><i class="fa fa-list" aria-hidden="true"></i>Boleta de Cambios</a></li>
           </ul>
         </li>
 
@@ -208,7 +209,7 @@
         <li class="treeview">
           <a href="#">
             <i class="fa fa-plane" aria-hidden="true"></i>
-            <span>Módulo Vacaciones </span>
+            <span>Módulo Vacaciones</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>

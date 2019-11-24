@@ -184,12 +184,10 @@ class VacacionesController extends Controller
           $object->start = $dia['fecha'];
           $object->id = $dia['id'];
           array_push($array,$object);
-
+          
         }
       }
     }
     return $array;
-}
-
-
+ }
 }

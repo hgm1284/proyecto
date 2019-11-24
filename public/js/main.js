@@ -86,7 +86,25 @@ $("#btnFiltrarCambios").click(function() {
     var options= '';
     $.getJSON("/cambios/request/"+cambios_id)
     .done(function(response) {
-      $.each(response, function(key, item) {
+
+      $.each(response.data, function(key, item) {
+        var servicio = '';
+        var role ='';
+
+        $.each(response.servicios, function(keyServicio, itemServicio) {
+         if(itemServicio.id = response.data[key].cambio.id_servicio){
+          servicio = itemServicio.nombre
+         }
+        });
+
+        $.each(response.roles, function(keyRol, itemRol) {
+          if(keyRol.id = response.data[key].cambio.id_rol){
+            role = itemRol.nomenclatura
+          }
+         });
+
+         options = "<tr>  <td>"+ item.id+ "</td>" +"<td>"+item.fecha+"</td> <td>"+servicio+"</td><td>"+ role +"</td> </tr>";
+         $("#datosCambios > tbody").append(options);
 
       });
     })
@@ -107,8 +125,7 @@ $( document ).ready(function() {
     format: 'dd-mm-yyyy'
   });
   cargarSolicitudes();
-
-
+  
 })
 
 function eliminarVaciones(id) {
