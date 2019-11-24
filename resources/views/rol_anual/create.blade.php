@@ -74,20 +74,6 @@
                 </div>
               </div>
            </div>
-           <div class= "col-md-2">
-             <div class="box box-success">
-                 <div class="box-header-success">
-                   <label for="exampleInputPassword3">Mes</label>
-                 </div>
-               <div class="box-body">
-                 <select class="form-control selectpicker" id="anno" name="anno" required>
-                   @foreach ($meses as $messanno)
-                     <option value="{{$messanno['mes']}}">{{$messanno['mes']}}</option>
-                   @endforeach
-                </select>
-               </div>
-             </div>
-          </div>
             <div class="col-md-2">
               <button type="submit" aling="left" class="btn btn-block btn-warning">Asignar al Rol</button>
             </div>
