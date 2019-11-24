@@ -18,8 +18,10 @@ class CreateRolAnualTable extends Migration
             $table->foreign('id_enfermera')->references('id')->on('enfermeras');
             $table->bigInteger('id_servicio')->unsigned();
             $table->foreign('id_servicio')->references('id')->on('servicios');
-            $table->bigInteger('id_rol')->unsigned();
+            $table->bigInteger('id_rol')->unsigned()->nullable();
             $table->foreign('id_rol')->references('id')->on('roles');
+            $table->String('mes')->nullable();
+            $table->year('anno')->nullable();
             $table->timestamps();
         });
     }

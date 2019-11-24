@@ -20,7 +20,7 @@ class RolAnualController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -28,7 +28,6 @@ class RolAnualController extends Controller
      */
     public function index()
     {
-
       $enfermera = Enfermera::name($request->get('name'));
       $roles = Role::all();
       $servicios = Servicio::all();
@@ -70,14 +69,13 @@ class RolAnualController extends Controller
      */
     public function store(Request $request)
     {
+    
       $validatedData = $request->validate([
         'id_enfermera' => 'required',
         'id_servicio' => 'required',
+        'anno' =>'required',
       ]);
-        dd($request);
-        $rol_anual = new RolAnual;
-        $rol_anual->id_enfermera = $request->enfermera;
-        $rol_anual->id_servicio = $request->servicio;
+        $rol_anual = new RolAnual($request->all());
         $rol_anual->save();
         return redirect()->route('rol_anual.create', compact('$rol_anual'));
     }

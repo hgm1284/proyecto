@@ -15,7 +15,7 @@
 <div class="row">
 <div class="col-md-12">
   <div class="box box-primary" style="text-align:center">
-            <form method="POST" action="{{ route('rol_anual.store') }}">
+        <form method="POST" action="{{ route('rol_anual.store') }}">
             <div class="box-header with-border">
               <div class="row">
                   <div class="col-md-10"><h3 class="box-title">Asignacion Anual</h3></div>
@@ -31,7 +31,7 @@
                 <label for="exampleInputPassword3">Servicio Asignado</label>
               </div>
               <div class="box-body">
-                <select class="form-control selectpicker" id="servicio" name="servicio" data-live-search="true" required>
+                <select class="form-control selectpicker" id="id_servicio" name="id_servicio" data-live-search="true" required>
                     <option disabled selected value>Servicio</option>
                     @foreach ($servicios as $servicio)
                       <option value="{{$servicio['id']}}" data-tokens="{{$servicio['nombre']}}">{{$servicio['nombre']}}</option>
@@ -46,7 +46,7 @@
                   <label for="exampleInputPassword3">Enfermera(o) Asignado</label>
                 </div>
                 <div class="box-body">
-                  <select class="form-control selectpicker" id="enfermera" name="id_enfermera" data-live-search="true" required>
+                  <select class="form-control selectpicker" id="id_enfermera" name="id_enfermera" data-live-search="true" required>
                       <option disabled selected value>Seleccione Enfermera(o)</option>
                       @foreach ($enfermeras as $enfermera)
                        <option value="{{$enfermera['id']}}" data-tokens="{{$enfermera['name']}} {{$enfermera['lastname']}}">{{$enfermera['name']}}  {{$enfermera['lastname']}}</option>
@@ -86,16 +86,21 @@
                 <table class="table">
                   <thead class="thead-dark">
                     <tr>
-                      <th scope="col">Enfermera(o)</th>
                       @foreach ($meses as $messanno)
                         <th scope="col">{{$messanno['mes']}}</th>
                       @endforeach
                     </tr>
+                    <tr>                  
+                      <td>
+                        <select class="form-control selectpicker" id="anno+'$i'" name="anno" required>
+                              <option value="10081"><?php echo "I"; ?></option>
+                              <option value="10083"><?php echo "II"; ?></option>
+                              <option value="10085"><?php echo "III"; ?></option>
+                        </select>
+                      </td>
+                    </tr>
                   </thead>
                   <tbody>
-                    <tr>
-
-                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -109,3 +114,11 @@
 </div>
 </div>
 @endsection
+<script type="text/javascript">
+  $('#id_enfermera').change(function() {
+    alert("entro");
+  if( $(this).val() != "" ) {
+    $('#id_enfermera').prop( "disabled", false );
+  }
+  });
+</script>
