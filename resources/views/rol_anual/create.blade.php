@@ -14,7 +14,7 @@
 <br>
 <div class="row">
 <div class="col-md-12">
-  <div class="box box-primary" >
+  <div class="box box-primary" style="text-align:center">
             <form method="POST" action="{{ route('rol_anual.store') }}">
             <div class="box-header with-border">
               <div class="row">
@@ -26,7 +26,7 @@
           <section class="content">
           <div class="row">
             <div class="col-md-4">
-            <div class="box box-info">
+            <div class="box box-success" style="text-align:center">
               <div class="box-header-success">
                 <label for="exampleInputPassword3">Servicio Asignado</label>
               </div>
@@ -41,7 +41,7 @@
             </div>
             </div>
             <div class="col-md-4">
-              <div class="box box-success">
+              <div class="box box-primary" style="text-align:center">
                 <div class="box-header-success">
                   <label for="exampleInputPassword3">Enfermera(o) Asignado</label>
                 </div>
@@ -56,10 +56,43 @@
                 </div>
               </div>
             </div>
+            <div class= "col-md-2">
+              <div class="box box-success">
+                  <div class="box-header-success">
+                    <label for="exampleInputPassword3">Año</label>
+                  </div>
+                <div class="box-body">
+                      <?php
+                        $cont = date('Y');
+                        $cont++;
+                      ?>
+                  <select class="form-control selectpicker" id="anno" name="anno" required>
+                      <?php while ($cont >= 2018) { ?>
+                          <option value="<?php echo($cont); ?>"><?php echo($cont); ?></option>
+                      <?php $cont = ($cont-1); } ?>
+                 </select>
+                </div>
+              </div>
+           </div>
+           <div class= "col-md-2">
+             <div class="box box-success">
+                 <div class="box-header-success">
+                   <label for="exampleInputPassword3">Mes</label>
+                 </div>
+               <div class="box-body">
+                 <select class="form-control selectpicker" id="anno" name="anno" required>
+                   @foreach ($meses as $messanno)
+                     <option value="{{$messanno['mes']}}">{{$messanno['mes']}}</option>
+                   @endforeach
+                </select>
+               </div>
+             </div>
+          </div>
             <div class="col-md-2">
               <button type="submit" aling="left" class="btn btn-block btn-warning">Asignar al Rol</button>
             </div>
-            <div class="col-md-12">
+
+           <div class="col-md-12">
               <div class="box box-success">
                 <div class="box-header-success">
                   <label for="exampleInputPassword3">Tabla Rol Anual</label>
@@ -75,15 +108,10 @@
                   </thead>
                   <tbody>
                     <tr>
-                      @foreach ($enfermeras as $enfermera)
-                        @if ($enfermera->id == $rol_anual['id_enfermera'] )
-                            <td> {{ $enfermera['name'] }} " "{{enfermera['lastname']}} </td>
-                        @endif
-                      @endforeach
+
                     </tr>
                   </tbody>
                 </table>
-
               </div>
             </div>
             </div>
