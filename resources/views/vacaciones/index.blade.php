@@ -13,11 +13,10 @@
 </section>
 <br>
 <br>
-
 <div class="card-body">
   <table class="table table-hover" id="tablaVacaciones">
     <thead>
-      <tr>  
+      <tr>
         <th>Cedúla</th>
         <th>Nombre</th>
         <th>Apellidos</th>
@@ -39,6 +38,4 @@
     </tbody>
   </table>
   <br>
-
-  
     @endsection

@@ -12,6 +12,7 @@
       </ol>
 </section>
 <br>
+<br>
 <div class="card-body">
       <table class="table table-hover" id="tablaUsuarios">
                   <thead>
@@ -42,7 +43,6 @@
                   </tbody>
                 </table>
                 <br>
-
                 <!-- MODAL -->
                 <style>
                   .link { color: #FFFFFF; } /* CSS link color (red) */
@@ -68,10 +68,8 @@
                   <!-- /.modal-content -->
                 </div>
                 <!-- /.modal-dialog -->
-              </div>
-
-                {!! $users->render()!!}
-              </div>
+             </div>
+            </div>
 @endsection
 
 <script type="text/javascript">

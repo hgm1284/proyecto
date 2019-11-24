@@ -1,6 +1,5 @@
 @extends('layouts.app4')
 
-
 @section('content')
 <section class="content-header" id="contentheader">
       <h1>
@@ -13,17 +12,8 @@
       </ol>
 </section>
 <br>
-<br>
 <div class="card-body">
-                {!! Form::open(['route' => 'roles.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
-                    <div class="input-group">
-                        {!! Form:: text('name', null, ['class'=> 'form-control', 'placeholder' => 'Buscar Rol']) !!}
-                        <span class="input-group-addon">
-                                    <i class="fa fa-search"></i>
-                        </span>
-                    </div>
-                {!! Form::close() !!}
-                <table class="table table-striped">
+      <table class="table table-hover" id="tablaRoles">
                   <thead>
                     <tr>
                       <th>Nomenclatura del Rol</th>
@@ -74,8 +64,7 @@
                 <!-- /.modal-dialog -->
               </div>
         <!--fin MODAL -->
-                {!! $roles->render()!!}
-              </div>
+            </div>
 
 @endsection
 <script type="text/javascript">

@@ -23,7 +23,7 @@ class EnfermerasController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -31,10 +31,10 @@ class EnfermerasController extends Controller
      */
     public function index(Request $request)
     {
-      $enfermera = Enfermera::name($request->get('name'))->orderBy('id','ASC')->paginate(5);
+      $enfermeras = Enfermera::all();
       $profiles = Profile::all();
       $servicios = Servicio::all();
-      return view('enfermeras.index', compact('profiles', 'servicios'))->with('enfermeras', $enfermera);
+      return view('enfermeras.index', compact('profiles', 'servicios', 'enfermeras'));
     }
 
     /**
@@ -148,5 +148,4 @@ class EnfermerasController extends Controller
     public function datosEnfermero($id){
       return Enfermera::where('id',$id)->get();
     }
-
 }

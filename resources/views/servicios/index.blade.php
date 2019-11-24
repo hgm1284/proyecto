@@ -11,8 +11,18 @@
         <li>Administración</li>
       </ol>
 </section>
-
-      <table class="table table-hover" id="tablaServicios">
+<br>
+<br>
+        <div class="card-body">
+        {!! Form::open(['route' => 'servicios.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
+        <div class="input-group">
+            {!! Form:: text('name', null, ['class'=> 'form-control', 'placeholder' => 'Buscar Servicio']) !!}
+            <span class="input-group-addon">
+                        <i class="fa fa-search"></i>
+            </span>
+        </div>
+      {!! Form::close() !!}
+                <table class="table table-striped">
                   <thead>
                     <tr>
                       <th colspan="6">Nombre del Servicio</th>
@@ -51,7 +61,7 @@
                     <div class="modal-body">
                       {{ csrf_field() }}
                       {{ method_field('post') }}
-                      <p>¿Realmente desea eliminar a enfermera(o)?</p>
+                      <p>Realmente desea eliminar el servicio???</p>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>

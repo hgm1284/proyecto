@@ -1,11 +1,8 @@
 @extends('layouts.app4')
 
-
 @section('content')
 <section class="content-header" id="contentheader">
-      <h1>
-        Módulo de Perfiles
-      </h1>
+      <h1>Módulo de Perfiles</h1>
       <ol class="breadcrumb">
         <li><a href="/home"><i class="fa fa-home"></i> Inicio</a></li>
         <i class="fa fa-arrow-right" aria-hidden="true"></i>
@@ -15,7 +12,6 @@
 <br>
 <br>
 <div class="card-body">
-  
                 <table class="table table-hover" id="tablaPerfiles">
                   <thead>
                     <tr>
@@ -68,9 +64,7 @@
               </div>
         <!--fin MODAL -->
         <!--fin MODAL -->
-             
               </div>
-
 @endsection
 
 <script type="text/javascript">
