@@ -11,6 +11,7 @@ class Enfermera extends Model
   ];
 
   protected $dates = ['fecha_ingreso', 'fecha_final'];
+  public $timestamps = false;
 
        /* Query Scope*/
   public function scopeName($query, $name)
@@ -28,7 +29,5 @@ class Enfermera extends Model
   {
       return $this->hasMany('App\Vacacione','id_enfermera','id');
   }
-
-
 
 }

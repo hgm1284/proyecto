@@ -1,6 +1,131 @@
 // A $( document ).ready() block.
+
+
+$(document).ready( function () {
+  $('#tablaVacaciones').DataTable({
+    language: {
+        "decimal": "",
+        "emptyTable": "No hay información",
+        "info": "Mostrando START a END de TOTAL Entradas",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+        "infoFiltered": "(Filtrado de MAX total entradas)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar MENU Entradas",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+        }
+    },
+});
+
+$('#tablaCambios').DataTable({
+    language: {
+        "decimal": "",
+        "emptyTable": "No hay información",
+        "info": "Mostrando START a END de TOTAL Entradas",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+        "infoFiltered": "(Filtrado de MAX total entradas)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar MENU Entradas",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+        }
+    },
+  });
+
+
+    $('#tablaUsuarios').DataTable({
+        language: {
+            "decimal": "",
+            "emptyTable": "No hay información",
+            "info": "Mostrando START a END de TOTAL Entradas",
+            "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+            "infoFiltered": "(Filtrado de MAX total entradas)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": "Mostrar MENU Entradas",
+            "loadingRecords": "Cargando...",
+            "processing": "Procesando...",
+            "search": "Buscar:",
+            "zeroRecords": "Sin resultados encontrados",
+            "paginate": {
+                "first": "Primero",
+                "last": "Ultimo",
+                "next": "Siguiente",
+                "previous": "Anterior"
+            }
+        },
+      });
+
+      $('#tablaServicios').DataTable({
+        language: {
+            "decimal": "",
+            "emptyTable": "No hay información",
+            "info": "Mostrando START a END de TOTAL Entradas",
+            "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+            "infoFiltered": "(Filtrado de MAX total entradas)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": "Mostrar MENU Entradas",
+            "loadingRecords": "Cargando...",
+            "processing": "Procesando...",
+            "search": "Buscar:",
+            "zeroRecords": "Sin resultados encontrados",
+            "paginate": {
+                "first": "Primero",
+                "last": "Ultimo",
+                "next": "Siguiente",
+                "previous": "Anterior"
+            }
+        },
+      });
+
+      $('#tablaPerfiles').DataTable({
+
+        language: {
+          "decimal": "",
+          "emptyTable": "No hay información",
+          "info": "Mostrando START a END de TOTAL Entradas",
+          "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+          "infoFiltered": "(Filtrado de MAX total entradas)",
+          "infoPostFix": "",
+          "thousands": ",",
+          "lengthMenu": "Mostrar MENU Entradas",
+          "loadingRecords": "Cargando...",
+          "processing": "Procesando...",
+          "search": "Buscar:",
+          "zeroRecords": "Sin resultados encontrados",
+          "paginate": {
+              "first": "Primero",
+              "last": "Ultimo",
+              "next": "Siguiente",
+              "previous": "Anterior"
+          }
+      },
+      });
+
+
 $(function(){
+
   $('#enfermera').on('change', selectEnfermera);
+
+} );
+
 });
 
 //Selecciona al enfermero y carga su fecha de ingreso
@@ -94,7 +219,7 @@ $("#btnFiltrarCambios").click(function() {
         $.each(response.servicios, function(keyServicio, itemServicio) {
 
          if( itemServicio.id == response.data[key].cambio.id_servicio){
-     
+
           servicio = itemServicio.nombre
 
          }
@@ -102,7 +227,7 @@ $("#btnFiltrarCambios").click(function() {
         });
 
         $.each(response.roles, function(keyRol, itemRol) {
-          
+
           if(keyRol.id = response.data[key].cambio.id_rol){
             role = itemRol.nomenclatura
           }
@@ -130,7 +255,7 @@ $( document ).ready(function() {
     format: 'dd-mm-yyyy'
   });
   cargarSolicitudes();
-  
+
 })
 
 function eliminarVaciones(id) {

@@ -15,15 +15,8 @@
 <br>
 <br>
 <div class="card-body">
-                  {!! Form::open(['route' => 'profiles.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
-                    <div class="input-group">
-                        {!! Form:: text('name', null, ['class'=> 'form-control', 'placeholder' => 'Buscar Perfiles']) !!}
-                        <span class="input-group-addon">
-                                    <i class="fa fa-search"></i>
-                        </span>
-                    </div>
-                {!! Form::close() !!}
-                <table class="table table-striped">
+  
+                <table class="table table-hover" id="tablaPerfiles">
                   <thead>
                     <tr>
                       <th>Nombre del Perfil</th>
@@ -62,7 +55,7 @@
                     <div class="modal-body">
                       {{ csrf_field() }}
                       {{ method_field('post') }}
-                      <p>Realmente desea eliminar el Perfil ???</p>
+                      <p>¿Realmente desea eliminar a enfermera(o)?</p>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
@@ -75,7 +68,7 @@
               </div>
         <!--fin MODAL -->
         <!--fin MODAL -->
-                {!! $profiles->render()!!}
+             
               </div>
 
 @endsection

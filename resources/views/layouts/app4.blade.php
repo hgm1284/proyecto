@@ -24,6 +24,9 @@
   <link href='/fullcalendar/daygrid/main.css' rel='stylesheet' />
   <script src='/fullcalendar/core/main.js'></script>
   <script src='/fullcalendar/daygrid/main.js'></script>
+  
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css"/>
+ 
 
 </head>
 <meta name="csrf-token" content="{{ csrf_token() }}" />
@@ -204,7 +207,6 @@
             <li><a href=""><i class="fa fa-list" aria-hidden="true"></i>Roles por Enfermero</a></li>
             <li><a href="/cambios"><i class="fa fa-list" aria-hidden="true"></i>Boleta de Cambios</a></li>
             <li><a href="/cambios/create"><i class="fa fa-list" aria-hidden="true"></i>Crear Cambios</a></li>
-
           </ul>
         </li>
 

@@ -55,7 +55,9 @@
                 <br>
                 <div class="form-group">
                   <button id="buscar" class="btn btn-success" type="button" name="button">Filtrar</button>
+                  <a href="/vacaciones"><button id="buscar" class="btn btn-info" type="button" name="button">Regresar</button></a>
                 </div>
+                
               </div>
             </div>
           </div>

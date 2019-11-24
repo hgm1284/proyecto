@@ -29,8 +29,8 @@ class ProfilesController extends Controller
      */
     public function index(Request $request)
     {
-      $profile = Profile::name($request->get('name'))->orderBy('id','ASC')->paginate(5);
-      return view('profiles.index')->with('profiles', $profile);
+      $profiles = Profile::all();
+      return view('profiles.index', compact('profiles'));
     }
 
     /**
@@ -77,6 +77,7 @@ class ProfilesController extends Controller
     {
       $profile = Profile::find($id);
       return view('profiles.edit')->with('profile', $profile);
+      
     }
 
     /**
