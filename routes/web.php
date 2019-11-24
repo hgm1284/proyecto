@@ -67,6 +67,11 @@ Route::post('vacaciones/{id}/destroy', [
   'as'  =>'vacaciones.destroy'
 ]);
 
+Route::resource('/rol_anual','RolAnualController');
+Route::post('rol_anual/{id}/destroy', [
+    'uses'=> 'RolAnualController@destroy',
+    'as'  =>'rol_anual.destroy'
+]);
 //fullcalender
 Route::get('vacaciones/days/{id}','VacacionesController@index2');
 Route::post('fullcalendar/create','VacacionesController@create2');

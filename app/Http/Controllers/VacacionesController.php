@@ -45,7 +45,8 @@ class VacacionesController extends Controller
   public function store(Request $request)
   {
     $validatedData = $request->validate([
-      'id_enfermera' => 'required'
+      'id_enfermera' => 'required',
+    
     ]);
 
     $vacacione = new Vacacione;
