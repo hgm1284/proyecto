@@ -1,6 +1,5 @@
 @extends('layouts.app4')
 
-
 @section('content')
 <section class="content-header" id="contentheader">
       <h1>
@@ -15,15 +14,7 @@
 <br>
 <br>
 <div class="card-body">
-                {!! Form::open(['route' => 'enfermeras.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
-                    <div class="input-group">
-                        {!! Form:: text('name', null, ['class'=> 'form-control', 'placeholder' => 'Buscar Enfermera(o)']) !!}
-                        <span class="input-group-addon">
-                                    <i class="fa fa-search"></i>
-                        </span>
-                    </div>
-                {!! Form::close() !!}
-                <table class="table table-striped">
+      <table class="table table-hover" id="tablaEnfermeras">
                   <thead>
                     <tr>
                       <th>Nombre</th>
@@ -41,7 +32,6 @@
                   </tbody>
                 </table>
                 <br>
-
                 <!-- MODAL -->
                 <style>
                   .link { color: #FFFFFF; } /* CSS link color (red) */
@@ -70,7 +60,6 @@
                 <!-- /.modal-dialog -->
               </div>
         <!--fin MODAL -->
-                {!! $enfermeras->render()!!}
               </div>
 @endsection
 
