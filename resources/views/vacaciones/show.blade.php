@@ -1,6 +1,7 @@
 @extends('layouts.app4')
 
 @section('content')
+
 <input id="ds" type="hidden" value="{{ Request()->id }}">
 
 <script>

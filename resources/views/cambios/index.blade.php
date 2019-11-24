@@ -28,7 +28,9 @@
       <tr>
         <td>{{$enfermera['name']}}</td>
         <td>{{$enfermera['lastname']}}</td>
-        <!-- -->
+        <td colspan="2">
+          <a href="{{ route('cambios.history', $enfermera->id ) }}" class="btn btn-info"> <i class="fa fa-history"></i> </a>
+        </td>
       </tr>
       @endforeach
     </tbody>

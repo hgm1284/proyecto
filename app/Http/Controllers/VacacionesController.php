@@ -55,7 +55,6 @@ class VacacionesController extends Controller
     $vacacione->save();
 
     $arrayVacaciones = explode(',',$request->diasVaciones);
-
     foreach ($arrayVacaciones as &$value) {
       DB::table('dias_vacaciones')->insert(
         ['id_vacaciones' => $vacacione->id, 'fecha' => Carbon::parse($value)]
@@ -190,7 +189,5 @@ class VacacionesController extends Controller
       }
     }
     return $array;
-}
-
-
+ }
 }

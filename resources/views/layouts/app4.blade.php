@@ -201,6 +201,9 @@
             <li><a href=""><i class="fa fa-plus" aria-hidden="true"></i>Asignar Nuevo Rol</a></li>
             <li><a href=""><i class="fa fa-list" aria-hidden="true"></i>Roles por Servicio</a></li>
             <li><a href=""><i class="fa fa-list" aria-hidden="true"></i>Roles por Enfermero</a></li>
+            <li><a href="/cambios"><i class="fa fa-list" aria-hidden="true"></i>Boleta de Cambios</a></li>
+            <li><a href="/cambios/create"><i class="fa fa-list" aria-hidden="true"></i>Crear Cambios</a></li>
+
           </ul>
         </li>
 
@@ -208,7 +211,7 @@
         <li class="treeview">
           <a href="#">
             <i class="fa fa-plane" aria-hidden="true"></i>
-            <span>Módulo Vacaciones </span>
+            <span>Módulo Vacaciones</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -306,12 +309,9 @@
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-
 <!-- jQuery 3 -->
 <!-- <script src="{{ asset('/adminlte3/jquery/dist/jquery.min.js') }}" defer></script> -->
-
 <script src="/js/jquery.js"></script>
-
 <!-- Bootstrap 3.3.7 -->
 <script src="{{ asset('adminlte3/bootstrap/dist/js/bootstrap.min.js') }}" defer></script>
 <!-- FastClick -->

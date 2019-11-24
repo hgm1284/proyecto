@@ -15,6 +15,14 @@ class DiaCambios extends Model
   */
   protected $table = 'dias_cambios';
 
-  protected $fillable = ['fecha'];
+  protected $fillable = ['id_cambio','fecha','delete_by'];
+
+    /**
+     * Get the post that owns the comment.
+     */
+    public function cambio()
+    {
+        return $this->belongsTo('App\Cambio','id_cambio');
+    }
 
 }

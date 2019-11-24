@@ -23,7 +23,7 @@
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Detalles</h3>
+          <h3 class="box-title">Detalle vacaciones de: </h3>
           @foreach($enfermeras as $info)
           <h3 class="box-title">{{$info->name.' '.$info->lastname }}</h3>
           @endforeach
