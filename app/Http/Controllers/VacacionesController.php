@@ -171,43 +171,26 @@ class VacacionesController extends Controller
 
   public function index2($id)
   {
+    $hoy = Carbon::today();
     $flight = Vacacione::with('dias')->where('id_enfermera',$id)->get();
     $array = array();
     foreach ($flight as &$value) {
       foreach ($value->dias as &$dia) {
-        $object = new  \stdClass();
-        $object->title = 'Vacaciones';
-        $object->start = $dia['fecha'];
-        $object->id = $dia['id'];
-        array_push($array,$object);
+
+        $box = Carbon::parse($dia['fecha']);
+        if ($box >= $hoy) {
+
+          $object = new  \stdClass();
+          $object->title = 'Vacaciones';
+          $object->start = $dia['fecha'];
+          $object->id = $dia['id'];
+          array_push($array,$object);
+
+        }
       }
     }
     return $array;
-
-  }
-
-  public function create2(Request $request)
-  {
-    $insertArr = [ 'title' => $request->title,
-    'start' => $request->start,
-    'end' => $request->end
-  ];
-  $event = Event::insert($insertArr);
-  return Response::json($event);
 }
 
-public function update2(Request $request)
-{
-  $where = array('id' => $request->id);
-  $updateArr = ['title' => $request->title,'start' => $request->start, 'end' => $request->end];
-  $event  = Event::where($where)->update($updateArr);
 
-  return Response::json($event);
-}
-
-public function destroy2(Request $request)
-{
-  $event = Event::where('id',$request->id)->delete();
-  return Response::json($event);
-}
 }

@@ -79,6 +79,27 @@ $("#buscar").click(function() {
 
 });
 
+$("#btnFiltrarCambios").click(function() {
+  var cambios_id = $("#id_cambio").val();
+  if (cambios_id) {
+    $('#tb').empty();
+    var options= '';
+    $.getJSON("/cambios/request/"+cambios_id)
+    .done(function(response) {
+      $.each(response, function(key, item) {
+
+      });
+    })
+    .fail(function(error) {
+      console.log( error);
+    });
+
+  } else {
+    alert("No hay opciones para filtar");
+  }
+
+});
+
 $( document ).ready(function() {
   console.log( "ready!" );
   $('.date').datepicker({
@@ -87,7 +108,6 @@ $( document ).ready(function() {
   });
   cargarSolicitudes();
 
-  $('#example').DataTable();
 
 })
 
