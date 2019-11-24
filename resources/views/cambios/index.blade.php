@@ -15,17 +15,19 @@
 <br>
 
 <div class="card-body">
-  <table class="table table-striped">
+<table class="table table-hover" id="tablaCambios">
     <thead>
       <tr>
-        <th>Nombre Enfermera(o)</th>
-        <th>Apellidos Enfermera(o)</th>
-        <th>Opciones</th>
+      <th>Cedúla</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
       @foreach ($enfermeras as $enfermera)
       <tr>
+      <td>{{$enfermera['cedula']}}</td>
         <td>{{$enfermera['name']}}</td>
         <td>{{$enfermera['lastname']}}</td>
         <td colspan="2">
