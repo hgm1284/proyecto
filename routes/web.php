@@ -67,8 +67,10 @@ Route::post('vacaciones/{id}/destroy', [
   'as'  =>'vacaciones.destroy'
 ]);
 
+Route::resource('/cambios','CambiosController');
+Route::get('cambios/history/{id}', ['as' => 'cambios.history', 'uses' => 'CambiosController@history']);
+Route::get('cambios/request/{id}', ['as' => 'cambios.days', 'uses' => 'CambiosController@days']);
+
+
 //fullcalender
 Route::get('vacaciones/days/{id}','VacacionesController@index2');
-Route::post('fullcalendar/create','VacacionesController@create2');
-Route::post('fullcalendar/update','VacacionesController@update2');
-Route::post('fullcalendar/delete','VacacionesController@destroy2');
