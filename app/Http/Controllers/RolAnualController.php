@@ -42,18 +42,18 @@ class RolAnualController extends Controller
     public function create()
     {
       $meses = [
-          ['mes' => 'Enero'],
-          ['mes' => 'Febrero'],
-          ['mes' => 'Marzo'],
-          ['mes' => 'Abril'],
-          ['mes' => 'Mayo'],
-          ['mes' => 'Junio'],
-          ['mes' => 'Julio'],
-          ['mes' => 'Agosto'],
-          ['mes' => 'Septiembre'],
-          ['mes' => 'Octubre'],
-          ['mes' => 'Noviembre'],
-          ['mes' => 'Diciembre'],
+          ['mes' => 'Enero','id'=>'1'],
+          ['mes' => 'Febrero','id'=>'2'],
+          ['mes' => 'Marzo','id'=>'3'],
+          ['mes' => 'Abril','id'=>'4'],
+          ['mes' => 'Mayo','id'=>'5'],
+          ['mes' => 'Junio','id'=>'6'],
+          ['mes' => 'Julio','id'=>'7'],
+          ['mes' => 'Agosto','id'=>'8'],
+          ['mes' => 'Septiembre','id'=>'9'],
+          ['mes' => 'Octubre','id'=>'10'],
+          ['mes' => 'Noviembre','id'=>'11'],
+          ['mes' => 'Diciembre','id'=>'12'],
         ];
       $enfermeras = Enfermera::all();
       $servicios = Servicio::all();
@@ -69,15 +69,38 @@ class RolAnualController extends Controller
      */
     public function store(Request $request)
     {
-    
+      $meses = [
+          ['mes' => 'Enero','id'=>'1'],
+          ['mes' => 'Febrero','id'=>'2'],
+          ['mes' => 'Marzo','id'=>'3'],
+          ['mes' => 'Abril','id'=>'4'],
+          ['mes' => 'Mayo','id'=>'5'],
+          ['mes' => 'Junio','id'=>'6'],
+          ['mes' => 'Julio','id'=>'7'],
+          ['mes' => 'Agosto','id'=>'8'],
+          ['mes' => 'Septiembre','id'=>'9'],
+          ['mes' => 'Octubre','id'=>'10'],
+          ['mes' => 'Noviembre','id'=>'11'],
+          ['mes' => 'Diciembre','id'=>'12'],
+        ];
+
       $validatedData = $request->validate([
         'id_enfermera' => 'required',
         'id_servicio' => 'required',
         'anno' =>'required',
       ]);
-        $rol_anual = new RolAnual($request->all());
+
+      $i=1;
+      foreach ($meses as $mes) {
+        $rol_anual = new RolAnual;
+        $rol_anual->id_enfermera = $request->id_enfermera;
+        $rol_anual->id_servicio = $request->id_servicio;
+        $rol_anual->id_rol= $request->mes&$i;
+        $rol_anual->mes= $mes['mes'];
         $rol_anual->save();
-        return redirect()->route('rol_anual.create', compact('$rol_anual'));
+        $i++;
+      }
+      return redirect()->route('rol_anual.create', compact('$rol_anual'));
     }
 
     /**
