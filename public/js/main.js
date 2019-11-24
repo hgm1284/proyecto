@@ -92,12 +92,17 @@ $("#btnFiltrarCambios").click(function() {
         var role ='';
 
         $.each(response.servicios, function(keyServicio, itemServicio) {
-         if(itemServicio.id = response.data[key].cambio.id_servicio){
+
+         if( itemServicio.id == response.data[key].cambio.id_servicio){
+     
           servicio = itemServicio.nombre
+
          }
+
         });
 
         $.each(response.roles, function(keyRol, itemRol) {
+          
           if(keyRol.id = response.data[key].cambio.id_rol){
             role = itemRol.nomenclatura
           }

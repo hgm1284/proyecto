@@ -37,7 +37,7 @@
               <select id="id_cambio"  name="id_cambio" class="form-control">
                 <option value="">Seleccione Número de Cambio</option>
                 @foreach ($cambios as $cambio)
-                <option value="{{$cambio['id']}}">{{$cambio['id']}}</option>
+                <option value="{{$cambio['id']}}">{{$cambio['created_at']}}</option>
                 @endforeach
               </select>
               @error('id')
