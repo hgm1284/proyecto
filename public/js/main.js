@@ -16,6 +16,8 @@ $(document).ready( function () {
 
 
 
+
+
 });
 
 //Selecciona al enfermero y carga su fecha de ingreso
