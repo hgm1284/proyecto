@@ -12,6 +12,12 @@
       </ol>
 </section>
 <br>
+
+@if(Session::has('message'))
+    <div class="alert alert-primary" role="alert">
+        {{ Session::get('message') }}
+    </div>
+@endif
 <div class="row">
 <div class="col-md-8">
   <div class="box box-primary" >
@@ -31,7 +37,7 @@
                   <input id="name"  placeholder="Nombre de usuario" type="text"
                   class="form-control @error('name') is-invalid @enderror"
                   name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-                  
+
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Correo Electrónico</label>

@@ -294,6 +294,8 @@
     <section class="content" >
       <div class="content">
         @include('flash-message')
+        @include('toast::messages')
+        @include('toast::messages-jquery')
         @yield('content')
       </div>
     </section>
@@ -306,7 +308,13 @@
     </div>
     <strong>Sistema de Gestión de Roles || Personal de Enfermería || Hospital San Carlos</strong>
   </footer>
-
+  <script type="text/javascript">
+  $(document).ready(function() {
+      setTimeout(function() {
+          $(".alert").fadeOut(1500);
+      },3000);
+  });
+  </script>
   <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
   immediately after the control sidebar -->
@@ -315,7 +323,7 @@
 <!-- ./wrapper -->
 <!-- jQuery 3 -->
 <!-- <script src="{{ asset('/adminlte3/jquery/dist/jquery.min.js') }}" defer></script> -->
-<script src="/js/jquery.js"></script>
+<script src="{{ asset('js/jquery.js') }}"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{ asset('adminlte3/bootstrap/dist/js/bootstrap.min.js') }}" defer></script>
 <!-- FastClick -->

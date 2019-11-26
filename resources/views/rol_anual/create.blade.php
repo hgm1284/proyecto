@@ -121,11 +121,3 @@
 </div>
 </div>
 @endsection
-<script type="text/javascript">
-  $('#id_enfermera').change(function() {
-    alert("entro");
-  if( $(this).val() != "" ) {
-    $('#id_enfermera').prop( "disabled", false );
-  }
-  });
-</script>
