@@ -2,26 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\RolAnual;
 use App\RolAnualEnfermeras;
+use App\RolAnual;
 use App\Enfermera;
 use App\Servicio;
 use App\Role;
+use Laracast\Flash\Flash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
-class RolAnualController extends Controller
+class RolAnualEnfermerasController extends Controller
 {
-
-      /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -29,10 +20,7 @@ class RolAnualController extends Controller
      */
     public function index()
     {
-      $enfermera = Enfermera::name($request->get('name'));
-      $roles = Role::all();
-      $servicios = Servicio::all();
-      return view('enfermeras.index', compact('roles', 'servicios'))->with('enfermeras', $enfermera);
+        //
     }
 
     /**
@@ -85,11 +73,18 @@ class RolAnualController extends Controller
           ['mes' => 'Diciembre','id'=>'12'],
         ];
 
+        $validator = Validator::make($request->all(), [
+            'id_enfermera' => 'required|unique:rolesanualenfermeras',
+            'anno' => 'required|unique:rolesanualenfermeras',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('rol_anual/create')
+                        ->withInput()
+                        ->with('error','El enfermero ya ha sido asignado a este servicio');;
+        }
 
         $rol_anualenfermeras = new RolAnualEnfermeras;
-        $rol_anualenfermeras = $request->validate([
-        'id_enfermera' => 'required|unique:rolesanualenfermeras',
-        ]);
         $rol_anualenfermeras->id_enfermera = $request->id_enfermera;
         $rol_anualenfermeras->anno = $request->anno;
         $rol_anualenfermeras->save();
@@ -190,19 +185,17 @@ class RolAnualController extends Controller
       $rol_anual->anno = $request->anno;
       $rol_anual->save();
 
-
-
-
-      return redirect()->route('rol_anual.create', compact('$rol_anual'));
+      return redirect()->route('rol_anual.create')
+       ->with('success','Rol anual asignado con exito!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\RolAnual  $rolAnual
+     * @param  \App\RolAnualEnfermeras  $rolAnualEnfermeras
      * @return \Illuminate\Http\Response
      */
-    public function show(RolAnual $rolAnual)
+    public function show(RolAnualEnfermeras $rolAnualEnfermeras)
     {
         //
     }
@@ -210,10 +203,10 @@ class RolAnualController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\RolAnual  $rolAnual
+     * @param  \App\RolAnualEnfermeras  $rolAnualEnfermeras
      * @return \Illuminate\Http\Response
      */
-    public function edit(RolAnual $rolAnual)
+    public function edit(RolAnualEnfermeras $rolAnualEnfermeras)
     {
         //
     }
@@ -222,10 +215,10 @@ class RolAnualController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\RolAnual  $rolAnual
+     * @param  \App\RolAnualEnfermeras  $rolAnualEnfermeras
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, RolAnual $rolAnual)
+    public function update(Request $request, RolAnualEnfermeras $rolAnualEnfermeras)
     {
         //
     }
@@ -233,12 +226,11 @@ class RolAnualController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\RolAnual  $rolAnual
+     * @param  \App\RolAnualEnfermeras  $rolAnualEnfermeras
      * @return \Illuminate\Http\Response
      */
-    public function destroy(RolAnual $rolAnual)
+    public function destroy(RolAnualEnfermeras $rolAnualEnfermeras)
     {
         //
     }
-
 }

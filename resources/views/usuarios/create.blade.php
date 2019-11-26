@@ -31,11 +31,7 @@
                   <input id="name"  placeholder="Nombre de usuario" type="text"
                   class="form-control @error('name') is-invalid @enderror"
                   name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-                  @error('name')
-                      <span style="color: #E33510" class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                      </span>
-                  @enderror
+                  
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Correo Electrónico</label>

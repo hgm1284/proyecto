@@ -53,6 +53,11 @@
                        $fecha= $enfermera['fecha_ingreso'];
                     @endforeach
                 </select>
+                @error('id_enfermera')
+                    <span style="color: #E33510" class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
                 </div>
               </div>
             </div>

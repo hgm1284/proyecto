@@ -24,9 +24,9 @@
   <link href='/fullcalendar/daygrid/main.css' rel='stylesheet' />
   <script src='/fullcalendar/core/main.js'></script>
   <script src='/fullcalendar/daygrid/main.js'></script>
-  
+
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css"/>
- 
+
 
 </head>
 <meta name="csrf-token" content="{{ csrf_token() }}" />
@@ -293,6 +293,7 @@
     <!-- Main content -->
     <section class="content" >
       <div class="content">
+        @include('flash-message')
         @yield('content')
       </div>
     </section>
