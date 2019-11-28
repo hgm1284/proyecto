@@ -52,7 +52,7 @@
                     <div class="modal-body">
                       {{ csrf_field() }}
                       {{ method_field('post') }}
-                      <p>¿Realmente desea eliminar a enfermera(o)?</p>
+                      <p>¿Realmente desea eliminar el rol?</p>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>

@@ -80,3 +80,6 @@ Route::post('rol_anual/{id}/destroy', [
 
 //fullcalender
 Route::get('vacaciones/days/{id}','VacacionesController@index2');
+
+Route::get('reporte/vacaciones', ['as' => 'reporte.mostrarreportevacaciones', 'uses' => 'VacacionesController@mostrarreportevacaciones']);
+Route::get('reporte/vacaciones/especialidad/{especialidad}/periodo/{periodo}', 'VacacionesController@reporteVacaciones');

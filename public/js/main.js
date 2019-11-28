@@ -244,6 +244,9 @@ $("#buscar").click(function() {
 
 });
 
+
+
+
 $("#btnFiltrarCambios").click(function() {
   var cambios_id = $("#id_cambio").val();
   if (cambios_id) {
@@ -298,6 +301,24 @@ $( document ).ready(function() {
 
 })
 
-function eliminarVaciones(id) {
 
-}
+
+$("#btnFiltrarVacaciones").click(function() {
+  var servicio = $("#id_servicio").val();
+  var periodo = $("#id_periodo").val();
+  //reporte/vacaciones/especialidad/{especialidad}/perido/{periodo}
+
+  $.getJSON("/reporte/vacaciones/especialidad/"+servicio +"/periodo/"+periodo)
+  .done(function(response) {
+
+    $.each(response.data, function(key, item) {
+      console.log(item);
+
+    });
+  })
+  .fail(function(error) {
+    console.log( error);
+  });
+
+
+});

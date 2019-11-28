@@ -274,7 +274,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/profiles/create"><i class="fa fa-plus" aria-hidden="true"></i>Crear Perfil</a></li>
+            <li><a href="/profiles/create"><i class="fa fa-plus" aria-hidden="true"></i>Reporte de Vacacionesl</a></li>
             <li><a href="/profiles"><i class="fa fa-list" aria-hidden="true"></i> Administración de Perfiles</a></li>
           </ul>
         </li>
