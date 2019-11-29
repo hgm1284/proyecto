@@ -189,10 +189,6 @@ class RolAnualController extends Controller
       $rol_anual->mes= "Diciembre";
       $rol_anual->anno = $request->anno;
       $rol_anual->save();
-
-
-
-
       return redirect()->route('rol_anual.create', compact('$rol_anual'));
     }
 

@@ -21,7 +21,7 @@ class RolAnualEnfermerasController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -29,6 +29,7 @@ class RolAnualEnfermerasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
       $meses = [
@@ -59,36 +60,14 @@ class RolAnualEnfermerasController extends Controller
      */
     public function store(Request $request)
     {
-      $meses = [
-          ['mes' => 'Enero','id'=>'1'],
-          ['mes' => 'Febrero','id'=>'2'],
-          ['mes' => 'Marzo','id'=>'3'],
-          ['mes' => 'Abril','id'=>'4'],
-          ['mes' => 'Mayo','id'=>'5'],
-          ['mes' => 'Junio','id'=>'6'],
-          ['mes' => 'Julio','id'=>'7'],
-          ['mes' => 'Agosto','id'=>'8'],
-          ['mes' => 'Septiembre','id'=>'9'],
-          ['mes' => 'Octubre','id'=>'10'],
-          ['mes' => 'Noviembre','id'=>'11'],
-          ['mes' => 'Diciembre','id'=>'12'],
-        ];
 
 
+        $rolanual = DB::table('rolesanualenfermeras')->where([
+          ['id_enfermera', '=', $request->id_enfermera],
+          ['id_servicio', '=', $request->id_servicio],
+          ['anno', '=', $request->anno],])->first();
 
-        $rolanual=null;
-        $rolanual = DB::table('rolesanualenfermeras')
-        ->select('rolesanualenfermeras.id_enfermera', 'rolesanualenfermeras.id_servicio', 'rolesanualenfermeras.anno')
-        ->where('rolesanualenfermeras.id_enfermera', '=', $request->id_enfermera,
-         'and', 'rolesanualenfermeras.id_servicio', '=', $request->id_servicio,
-         'and', 'rolesanualenfermeras.anno', '=', $request->anno)
-        ->get();
-        dd($rolanual);
-/*
-        if($rolanual){
-          return redirect()->route('rol_anual.create')
-           ->with('error','El enfermero ya se encuentra en el rol anual');
-        }else{
+        if ($rolanual == null){
           $rol_anualenfermeras = new RolAnualEnfermeras;
           $rol_anualenfermeras->id_enfermera = $request->id_enfermera;
           $rol_anualenfermeras->id_servicio = $request->id_servicio;
@@ -191,12 +170,25 @@ class RolAnualEnfermerasController extends Controller
         $rol_anual->anno = $request->anno;
         $rol_anual->save();
 
+
         return redirect()->route('rol_anual.create')
          ->with('success','Rol anual asignado con exito!');
-        }
-        */
-
-    }
+       }else if ($rolanual =! null){
+         //enfermera
+         $enfermeras = DB::table('enfermeras')
+         ->select('enfermeras.name', 'enfermeras.lastname')
+         ->where('enfermeras.id', '=', $request->id_enfermera)
+         ->first();
+         //servicio
+         $servicio = DB::table('servicios')
+         ->select('servicios.nombre')
+         ->where('servicios.id', '=', $request->id_servicio)
+         ->first();
+          return redirect()->route('rol_anual.create')
+           ->with('warning','Enfermera(o) '.$enfermeras->name.' '.$enfermeras->lastname.' ya se encuentra
+            en el rol anual en el servicio de '.$servicio->nombre.'');
+       }
+  }
 
     /**
      * Display the specified resource.
@@ -204,9 +196,30 @@ class RolAnualEnfermerasController extends Controller
      * @param  \App\RolAnualEnfermeras  $rolAnualEnfermeras
      * @return \Illuminate\Http\Response
      */
-    public function show(RolAnualEnfermeras $rolAnualEnfermeras)
+    public function show(Request $request)
     {
-        //
+      $meses = [
+          ['mes' => 'Enero','id'=>'1'],
+          ['mes' => 'Febrero','id'=>'2'],
+          ['mes' => 'Marzo','id'=>'3'],
+          ['mes' => 'Abril','id'=>'4'],
+          ['mes' => 'Mayo','id'=>'5'],
+          ['mes' => 'Junio','id'=>'6'],
+          ['mes' => 'Julio','id'=>'7'],
+          ['mes' => 'Agosto','id'=>'8'],
+          ['mes' => 'Septiembre','id'=>'9'],
+          ['mes' => 'Octubre','id'=>'10'],
+          ['mes' => 'Noviembre','id'=>'11'],
+          ['mes' => 'Diciembre','id'=>'12'],
+        ];
+
+      $servicios = Servicio::all();
+      $enfermera = Enfermera::all();
+      dd($request);
+      $rolanual = DB::table('rolesanualenfermeras')->where([
+        ['id_servicio', '=', $request->id_servicio],
+        ['anno', '=', $request->anno],])->get();
+      return view('rol_anual.show', compact('enfermera', 'servicios','rolanual','meses'));
     }
 
     /**
