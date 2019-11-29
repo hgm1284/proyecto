@@ -59,6 +59,15 @@ document.addEventListener('DOMContentLoaded', function() {
   <h1>
     Módulo de Vacaciones
   </h1>
+  <!-- general form elements -->
+  <div class="box box-primary">
+    <div class="box-header with-border">
+      <h3 class="box-title">Vacaciones de: </h3>
+      @foreach($enfermeras as $info)
+      <h3 class="box-title">{{$info->name.' '.$info->lastname }}</h3>
+      @endforeach
+    </div>
+    <!-- /.box-header -->
   <ol class="breadcrumb">
     <li><a href="/home"><i class="fa fa-home"></i>Inicio</a></li>
     <i class="fa fa-arrow-right" aria-hidden="true"></i>

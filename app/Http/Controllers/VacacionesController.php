@@ -6,6 +6,7 @@ use App\Vacacione;
 use App\Enfermera;
 use App\Periodo;
 use App\DiaVaciones;
+use App\Servicio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
@@ -13,16 +14,16 @@ use Carbon\Carbon;
 class VacacionesController extends Controller
 {
 
-      /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-    
+  /**
+  * Create a new controller instance.
+  *
+  * @return void
+  */
+  public function __construct()
+  {
+    $this->middleware('auth');
+  }
+  
   /**
   * Display a listing of the resource.
   *
@@ -57,7 +58,7 @@ class VacacionesController extends Controller
   {
     $validatedData = $request->validate([
       'id_enfermera' => 'required',
-    
+
     ]);
 
     $vacacione = new Vacacione;
@@ -80,9 +81,13 @@ class VacacionesController extends Controller
   * @param  \App\Vacacione  $vacacione
   * @return \Illuminate\Http\Response
   */
-  public function show(Vacacione $vacacione)
+  public function show($id)
   {
-    return view('vacaciones.show');
+    $enfermeras = DB::table('enfermeras')
+    ->select('enfermeras.name', 'enfermeras.lastname')
+    ->where('enfermeras.id', '=', $id)
+    ->get();
+    return view('vacaciones.show',compact('enfermeras'));
   }
   /**
   * Display the specified resource.
@@ -200,5 +205,20 @@ class VacacionesController extends Controller
       }
     }
     return $array;
- }
+  }
+
+  public function mostrarreportevacaciones(){
+    $enfermeras = Enfermera::all();
+    $periodos = Periodo::all();
+    $servicios = Servicio::all();
+    return view('reportes.reportevacaciones', compact('enfermeras','periodos','servicios'));
+  }
+
+  public function reporteVacaciones($especialidad, $periodo){
+
+    return Enfermera::with(['vacaciones' => function ($query) use ($periodo){
+      $query->where('id_periodo', '=', $periodo)->with('dias');
+    }])->where('id_servicio','=',$especialidad)->get();
+  }
+
 }

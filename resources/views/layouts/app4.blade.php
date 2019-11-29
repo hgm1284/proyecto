@@ -274,7 +274,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/profiles/create"><i class="fa fa-plus" aria-hidden="true"></i>Crear Perfil</a></li>
+            <li><a href="/profiles/create"><i class="fa fa-plus" aria-hidden="true"></i>Reporte de Vacacionesl</a></li>
             <li><a href="/profiles"><i class="fa fa-list" aria-hidden="true"></i> Administración de Perfiles</a></li>
           </ul>
         </li>
@@ -309,7 +309,6 @@
     </div>
     <strong>Sistema de Gestión de Roles || Personal de Enfermería || Hospital San Carlos</strong>
   </footer>
-
   <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
   immediately after the control sidebar -->

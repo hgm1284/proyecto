@@ -1,6 +1,8 @@
 // A $( document ).ready() block.
 
 $(document).ready( function () {
+
+
   $('#tablaVacaciones').DataTable({
     language: {
       "decimal": "",
@@ -244,6 +246,9 @@ $("#buscar").click(function() {
 
 });
 
+
+
+
 $("#btnFiltrarCambios").click(function() {
   var cambios_id = $("#id_cambio").val();
   if (cambios_id) {
@@ -298,6 +303,49 @@ $( document ).ready(function() {
 
 })
 
-function eliminarVaciones(id) {
 
-}
+
+$("#btnFiltrarVacaciones").click(function() {
+  var servicio = $("#id_servicio").val();
+  var periodo = $("#id_periodo").val();
+  //reporte/vacaciones/especialidad/{especialidad}/perido/{periodo}
+
+  $.getJSON("/reporte/vacaciones/especialidad/"+servicio +"/periodo/"+periodo)
+  .done(function(response) {
+
+    $.each(response, function(key, item) {
+
+
+
+      $.each(item.vacaciones, function(keyVacaciones, itemVacaciones) {
+
+        $.each(itemVacaciones.dias, function(keydias, itemdias) {
+
+          var  estado ='';
+          if (itemdias.deleted_at !=null) {
+            estado = 'Eliminado'
+          }else {
+            var ToDate = new Date();
+
+            if (new Date(item.fecha).getTime() <= ToDate.getTime()) {
+              estado = 'Tomadas';
+            }else {
+              estado = 'Pendiente';
+            }
+          }
+
+          options = "<tr>  <td>"+ item.name+ "</td>" +"<td>"+item.lastname+"</td> <td>"+itemdias.fecha+"</td><td>"+ estado +"</td> </tr>";
+          $("#reportevacaciones > tbody").append(options);
+
+          });
+        });
+
+      });
+
+  })
+  .fail(function(error) {
+    console.log( error);
+  });
+
+
+});
