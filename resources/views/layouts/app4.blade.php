@@ -297,6 +297,7 @@
         @include('toast::messages')
         @include('toast::messages-jquery')
         @yield('content')
+        @yield('scripts')
       </div>
     </section>
     <!-- /.content -->
@@ -308,13 +309,7 @@
     </div>
     <strong>Sistema de Gestión de Roles || Personal de Enfermería || Hospital San Carlos</strong>
   </footer>
-  <script type="text/javascript">
-  $(document).ready(function() {
-      setTimeout(function() {
-          $(".alert").fadeOut(1500);
-      },3000);
-  });
-  </script>
+
   <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
   immediately after the control sidebar -->

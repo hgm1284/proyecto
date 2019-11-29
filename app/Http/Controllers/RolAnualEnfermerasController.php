@@ -9,6 +9,7 @@ use App\Servicio;
 use App\Role;
 use Laracast\Flash\Flash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class RolAnualEnfermerasController extends Controller
@@ -73,120 +74,128 @@ class RolAnualEnfermerasController extends Controller
           ['mes' => 'Diciembre','id'=>'12'],
         ];
 
-        $validator = Validator::make($request->all(), [
-            'id_enfermera' => 'required|unique:rolesanualenfermeras',
-            'anno' => 'required|unique:rolesanualenfermeras',
-        ]);
 
-        if ($validator->fails()) {
-            return redirect('rol_anual/create')
-                        ->withInput()
-                        ->with('error','El enfermero ya ha sido asignado a este servicio');;
+
+        $rolanual=null;
+        $rolanual = DB::table('rolesanualenfermeras')
+        ->select('rolesanualenfermeras.id_enfermera', 'rolesanualenfermeras.id_servicio', 'rolesanualenfermeras.anno')
+        ->where('rolesanualenfermeras.id_enfermera', '=', $request->id_enfermera,
+         'and', 'rolesanualenfermeras.id_servicio', '=', $request->id_servicio,
+         'and', 'rolesanualenfermeras.anno', '=', $request->anno)
+        ->get();
+        dd($rolanual);
+/*
+        if($rolanual){
+          return redirect()->route('rol_anual.create')
+           ->with('error','El enfermero ya se encuentra en el rol anual');
+        }else{
+          $rol_anualenfermeras = new RolAnualEnfermeras;
+          $rol_anualenfermeras->id_enfermera = $request->id_enfermera;
+          $rol_anualenfermeras->id_servicio = $request->id_servicio;
+          $rol_anualenfermeras->anno = $request->anno;
+          $rol_anualenfermeras->save();
+
+        $rol_anual = new RolAnual;
+        $rol_anual->id_enfermera = $request->id_enfermera;
+        $rol_anual->id_servicio = $request->id_servicio;
+        $rol_anual->id_rol= $request->mes1;
+        $rol_anual->mes= "Enero";
+        $rol_anual->anno = $request->anno;
+        $rol_anual->save();
+
+        $rol_anual = new RolAnual;
+        $rol_anual->id_enfermera = $request->id_enfermera;
+        $rol_anual->id_servicio = $request->id_servicio;
+        $rol_anual->id_rol= $request->mes2;
+        $rol_anual->mes= "Febrero";
+        $rol_anual->anno = $request->anno;
+        $rol_anual->save();
+
+        $rol_anual = new RolAnual;
+        $rol_anual->id_enfermera = $request->id_enfermera;
+        $rol_anual->id_servicio = $request->id_servicio;
+        $rol_anual->id_rol= $request->mes3;
+        $rol_anual->mes= "Marzo";
+        $rol_anual->anno = $request->anno;
+        $rol_anual->save();
+
+        $rol_anual = new RolAnual;
+        $rol_anual->id_enfermera = $request->id_enfermera;
+        $rol_anual->id_servicio = $request->id_servicio;
+        $rol_anual->id_rol= $request->mes4;
+        $rol_anual->mes= "Abril";
+        $rol_anual->anno = $request->anno;
+        $rol_anual->save();
+
+        $rol_anual = new RolAnual;
+        $rol_anual->id_enfermera = $request->id_enfermera;
+        $rol_anual->id_servicio = $request->id_servicio;
+        $rol_anual->id_rol= $request->mes5;
+        $rol_anual->mes= "Mayo";
+        $rol_anual->anno = $request->anno;
+        $rol_anual->save();
+
+        $rol_anual = new RolAnual;
+        $rol_anual->id_enfermera = $request->id_enfermera;
+        $rol_anual->id_servicio = $request->id_servicio;
+        $rol_anual->id_rol= $request->mes6;
+        $rol_anual->mes= "Junio";
+        $rol_anual->anno = $request->anno;
+        $rol_anual->save();
+
+        $rol_anual = new RolAnual;
+        $rol_anual->id_enfermera = $request->id_enfermera;
+        $rol_anual->id_servicio = $request->id_servicio;
+        $rol_anual->id_rol= $request->mes7;
+        $rol_anual->mes= "Julio";
+        $rol_anual->anno = $request->anno;
+        $rol_anual->save();
+
+        $rol_anual = new RolAnual;
+        $rol_anual->id_enfermera = $request->id_enfermera;
+        $rol_anual->id_servicio = $request->id_servicio;
+        $rol_anual->id_rol= $request->mes8;
+        $rol_anual->mes= "Agosto";
+        $rol_anual->anno = $request->anno;
+        $rol_anual->save();
+
+        $rol_anual = new RolAnual;
+        $rol_anual->id_enfermera = $request->id_enfermera;
+        $rol_anual->id_servicio = $request->id_servicio;
+        $rol_anual->id_rol= $request->mes9;
+        $rol_anual->mes= "Septiembre";
+        $rol_anual->anno = $request->anno;
+        $rol_anual->save();
+
+        $rol_anual = new RolAnual;
+        $rol_anual->id_enfermera = $request->id_enfermera;
+        $rol_anual->id_servicio = $request->id_servicio;
+        $rol_anual->id_rol= $request->mes10;
+        $rol_anual->mes= "Octubre";
+        $rol_anual->anno = $request->anno;
+        $rol_anual->save();
+
+        $rol_anual = new RolAnual;
+        $rol_anual->id_enfermera = $request->id_enfermera;
+        $rol_anual->id_servicio = $request->id_servicio;
+        $rol_anual->id_rol= $request->mes11;
+        $rol_anual->mes= "Noviembre";
+        $rol_anual->anno = $request->anno;
+        $rol_anual->save();
+
+        $rol_anual = new RolAnual;
+        $rol_anual->id_enfermera = $request->id_enfermera;
+        $rol_anual->id_servicio = $request->id_servicio;
+        $rol_anual->id_rol= $request->mes12;
+        $rol_anual->mes= "Diciembre";
+        $rol_anual->anno = $request->anno;
+        $rol_anual->save();
+
+        return redirect()->route('rol_anual.create')
+         ->with('success','Rol anual asignado con exito!');
         }
+        */
 
-        $rol_anualenfermeras = new RolAnualEnfermeras;
-        $rol_anualenfermeras->id_enfermera = $request->id_enfermera;
-        $rol_anualenfermeras->anno = $request->anno;
-        $rol_anualenfermeras->save();
-
-      $rol_anual = new RolAnual;
-      $rol_anual->id_enfermera = $request->id_enfermera;
-      $rol_anual->id_servicio = $request->id_servicio;
-      $rol_anual->id_rol= $request->mes1;
-      $rol_anual->mes= "Enero";
-      $rol_anual->anno = $request->anno;
-      $rol_anual->save();
-
-      $rol_anual = new RolAnual;
-      $rol_anual->id_enfermera = $request->id_enfermera;
-      $rol_anual->id_servicio = $request->id_servicio;
-      $rol_anual->id_rol= $request->mes2;
-      $rol_anual->mes= "Febrero";
-      $rol_anual->anno = $request->anno;
-      $rol_anual->save();
-
-      $rol_anual = new RolAnual;
-      $rol_anual->id_enfermera = $request->id_enfermera;
-      $rol_anual->id_servicio = $request->id_servicio;
-      $rol_anual->id_rol= $request->mes3;
-      $rol_anual->mes= "Marzo";
-      $rol_anual->anno = $request->anno;
-      $rol_anual->save();
-
-      $rol_anual = new RolAnual;
-      $rol_anual->id_enfermera = $request->id_enfermera;
-      $rol_anual->id_servicio = $request->id_servicio;
-      $rol_anual->id_rol= $request->mes4;
-      $rol_anual->mes= "Abril";
-      $rol_anual->anno = $request->anno;
-      $rol_anual->save();
-
-      $rol_anual = new RolAnual;
-      $rol_anual->id_enfermera = $request->id_enfermera;
-      $rol_anual->id_servicio = $request->id_servicio;
-      $rol_anual->id_rol= $request->mes5;
-      $rol_anual->mes= "Mayo";
-      $rol_anual->anno = $request->anno;
-      $rol_anual->save();
-
-      $rol_anual = new RolAnual;
-      $rol_anual->id_enfermera = $request->id_enfermera;
-      $rol_anual->id_servicio = $request->id_servicio;
-      $rol_anual->id_rol= $request->mes6;
-      $rol_anual->mes= "Junio";
-      $rol_anual->anno = $request->anno;
-      $rol_anual->save();
-
-      $rol_anual = new RolAnual;
-      $rol_anual->id_enfermera = $request->id_enfermera;
-      $rol_anual->id_servicio = $request->id_servicio;
-      $rol_anual->id_rol= $request->mes7;
-      $rol_anual->mes= "Julio";
-      $rol_anual->anno = $request->anno;
-      $rol_anual->save();
-
-      $rol_anual = new RolAnual;
-      $rol_anual->id_enfermera = $request->id_enfermera;
-      $rol_anual->id_servicio = $request->id_servicio;
-      $rol_anual->id_rol= $request->mes8;
-      $rol_anual->mes= "Agosto";
-      $rol_anual->anno = $request->anno;
-      $rol_anual->save();
-
-      $rol_anual = new RolAnual;
-      $rol_anual->id_enfermera = $request->id_enfermera;
-      $rol_anual->id_servicio = $request->id_servicio;
-      $rol_anual->id_rol= $request->mes9;
-      $rol_anual->mes= "Septiembre";
-      $rol_anual->anno = $request->anno;
-      $rol_anual->save();
-
-      $rol_anual = new RolAnual;
-      $rol_anual->id_enfermera = $request->id_enfermera;
-      $rol_anual->id_servicio = $request->id_servicio;
-      $rol_anual->id_rol= $request->mes10;
-      $rol_anual->mes= "Octubre";
-      $rol_anual->anno = $request->anno;
-      $rol_anual->save();
-
-      $rol_anual = new RolAnual;
-      $rol_anual->id_enfermera = $request->id_enfermera;
-      $rol_anual->id_servicio = $request->id_servicio;
-      $rol_anual->id_rol= $request->mes11;
-      $rol_anual->mes= "Noviembre";
-      $rol_anual->anno = $request->anno;
-      $rol_anual->save();
-
-      $rol_anual = new RolAnual;
-      $rol_anual->id_enfermera = $request->id_enfermera;
-      $rol_anual->id_servicio = $request->id_servicio;
-      $rol_anual->id_rol= $request->mes12;
-      $rol_anual->mes= "Diciembre";
-      $rol_anual->anno = $request->anno;
-      $rol_anual->save();
-
-      return redirect()->route('rol_anual.create')
-       ->with('success','Rol anual asignado con exito!');
     }
 
     /**
