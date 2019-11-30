@@ -297,6 +297,7 @@
         @include('toast::messages')
         @include('toast::messages-jquery')
         @yield('content')
+        @yield('scripts')
       </div>
     </section>
     <!-- /.content -->

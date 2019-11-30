@@ -15,10 +15,10 @@
 <div class="row">
 <div class="col-md-12">
   <div class="box box-primary" style="text-align:center">
-        <form method="POST" action="{{ route('rol_anual.show') }}">
+        <form method="POST" action="{{ route('rol_anual.store') }}">
             <div class="box-header with-border">
               <div class="row">
-                  <div class="col-md-10"><h3 class="box-title">Asignacion Anual</h3></div>
+                  <div class="col-md-10"><h3 class="box-title">Buscar Distribución Anual</h3></div>
               </div>
             </div>
             <br>
@@ -28,7 +28,7 @@
             <div class="col-md-4">
             <div class="box box-success" style="text-align:center">
               <div class="box-header-success">
-                <label for="exampleInputPassword3">Servicio Asignado</label>
+                <label for="exampleInputPassword3">Servicio</label>
               </div>
               <div class="box-body">
                 <select class="form-control selectpicker" id="id_servicio" name="id_servicio" data-live-search="true" required>
@@ -40,29 +40,8 @@
               </div>
             </div>
             </div>
-            <div class="col-md-4">
-              <div class="box box-primary" style="text-align:center">
-                <div class="box-header-success">
-                  <label for="exampleInputPassword3">Enfermera(o) Asignado</label>
-                </div>
-                <div class="box-body">
-                  <select class="form-control selectpicker" id="id_enfermera" name="id_enfermera" data-live-search="true" required>
-                      <option disabled selected value>Seleccione Enfermera(o)</option>
-                      @foreach ($enfermeras as $enfermera)
-                       <option value="{{$enfermera['id']}}" data-tokens="{{$enfermera['name']}} {{$enfermera['lastname']}}">{{$enfermera['name']}}  {{$enfermera['lastname']}}</option>
-                       $fecha= $enfermera['fecha_ingreso'];
-                    @endforeach
-                </select>
-                @error('id_enfermera')
-                    <span style="color: #E33510" class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-                </div>
-              </div>
-            </div>
-            <div class= "col-md-2">
-              <div class="box box-success">
+            <div class= "col-md-3">
+              <div class="box box-primary">
                   <div class="box-header-success">
                     <label for="exampleInputPassword3">Año</label>
                   </div>
@@ -80,7 +59,7 @@
               </div>
            </div>
             <div class="col-md-2">
-              <button type="submit" aling="left" class="btn btn-block btn-warning">Asignar al Rol</button>
+              <button type="submit" aling="left" class="btn btn-block btn-warning">Buscar</button>
             </div>
 
            <div class="col-md-12">
@@ -91,18 +70,18 @@
                 <table class="table">
                   <thead class="thead-dark">
                     <tr>
+                        <th>Enfermero</th>
                       @foreach ($meses as $messanno)
                         <th scope="col">{{$messanno['mes']}}</th>
                       @endforeach
                     </tr>
                     <tr>
-                      @foreach ($meses as $messanno)
+                      @foreach ($rolanual as $roles)
                       <td>
-                        <select class="form-control selectpicker" id="mes" name="mes{{$messanno['id']}}" required>
-                              <option value="10081"><?php echo "I"; ?></option>
-                              <option value="10083"><?php echo "II"; ?></option>
-                              <option value="10085"><?php echo "III"; ?></option>
-                        </select>
+
+                      </td>
+                      <td>
+
                       </td>
                       @endforeach
                     </tr>
