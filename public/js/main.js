@@ -3,6 +3,8 @@
 $(document).ready( function () {
 
 
+
+
   $('#tablaVacaciones').DataTable({
     language: {
       "decimal": "",
@@ -315,8 +317,6 @@ $("#btnFiltrarVacaciones").click(function() {
 
     $.each(response, function(key, item) {
 
-
-
       $.each(item.vacaciones, function(keyVacaciones, itemVacaciones) {
 
         $.each(itemVacaciones.dias, function(keydias, itemdias) {
@@ -334,6 +334,7 @@ $("#btnFiltrarVacaciones").click(function() {
             }
           }
 
+
           options = "<tr>  <td>"+ item.name+ "</td>" +"<td>"+item.lastname+"</td> <td>"+itemdias.fecha+"</td><td>"+ estado +"</td> </tr>";
           $("#reportevacaciones > tbody").append(options);
 
@@ -342,10 +343,29 @@ $("#btnFiltrarVacaciones").click(function() {
 
       });
 
+      $('#reportevacaciones').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+          'copyHtml5',
+          'excelHtml5',
+          'csvHtml5',
+          'pdfHtml5'
+        ],
+     "columns": [
+         { "data": "name" },
+         { "data": "lastname" },
+         { "data": "fecha" },
+         { "data": "estado" }
+     ]
+ });
+
+
   })
   .fail(function(error) {
     console.log( error);
   });
+
+
 
 
 });
