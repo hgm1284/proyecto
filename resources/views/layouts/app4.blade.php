@@ -126,8 +126,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/usuarios/create"><i class="fa fa-user-plus" aria-hidden="true"></i> Registrar</a></li>
-            <li><a href="/usuarios"><i class="fa fa-user"></i> Administración</a></li>
+            <li><a href="/usuarios/create"><i class="fa fa-user-plus" aria-hidden="true"></i>Registrar</a></li>
+            <li><a href="/usuarios"><i class="fa fa-user"></i>Administración</a></li>
           </ul>
         </li>
 
@@ -141,8 +141,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/servicios/create"><i class="fa fa-plus" aria-hidden="true"></i> Agregar Servicio</a></li>
-            <li><a href="/servicios"><i class="fa fa-list" aria-hidden="true"></i> Administración de Servicios</a></li>
+            <li><a href="/servicios/create"><i class="fa fa-plus" aria-hidden="true"></i>Agregar Servicio</a></li>
+            <li><a href="/servicios"><i class="fa fa-list" aria-hidden="true"></i>Administración de Servicios</a></li>
           </ul>
         </li>
 
@@ -187,7 +187,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="/enfermeras/create"><i class="fa fa-plus" aria-hidden="true"></i>Agregar Personal</a></li>
-            <li><a href="/enfermeras"><i class="fa fa-list" aria-hidden="true"></i> Administración de Personal</a></li>
+            <li><a href="/enfermeras"><i class="fa fa-list" aria-hidden="true"></i>Administración de Personal</a></li>
           </ul>
         </li>
 
@@ -235,8 +235,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/profiles/create"><i class="fa fa-plus" aria-hidden="true"></i>Crear Perfil</a></li>
-            <li><a href="/profiles"><i class="fa fa-list" aria-hidden="true"></i> Administración de Perfiles</a></li>
+            <li><a href="/reporte/vacaciones"><i class="fa fa-plus" aria-hidden="true"></i>Reporte Vacaciones</a></li>
+            <li><a href="/reporte/perfiles"><i class="fa fa-list" aria-hidden="true"></i>Reporte Perfiles</a></li>
           </ul>
         </li>
 
@@ -274,7 +274,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/profiles/create"><i class="fa fa-plus" aria-hidden="true"></i>Reporte de Vacacionesl</a></li>
+            <li><a href="/profiles/create"><i class="fa fa-plus" aria-hidden="true"></i>Reporte de Vacaciones</a></li>
             <li><a href="/profiles"><i class="fa fa-list" aria-hidden="true"></i> Administración de Perfiles</a></li>
           </ul>
         </li>

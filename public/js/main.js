@@ -2,9 +2,6 @@
 
 $(document).ready( function () {
 
-
-
-
   $('#tablaVacaciones').DataTable({
     language: {
       "decimal": "",
@@ -248,9 +245,6 @@ $("#buscar").click(function() {
 
 });
 
-
-
-
 $("#btnFiltrarCambios").click(function() {
   var cambios_id = $("#id_cambio").val();
   if (cambios_id) {
@@ -306,7 +300,6 @@ $( document ).ready(function() {
 })
 
 
-
 $("#btnFiltrarVacaciones").click(function() {
   var servicio = $("#id_servicio").val();
   var periodo = $("#id_periodo").val();
@@ -344,6 +337,7 @@ $("#btnFiltrarVacaciones").click(function() {
       });
 
       $('#reportevacaciones').DataTable({
+        
         dom: 'Bfrtip',
         buttons: [
           'copyHtml5',
@@ -365,7 +359,24 @@ $("#btnFiltrarVacaciones").click(function() {
     console.log( error);
   });
 
+});
 
+$("#btnFiltrarPerfiles").click(function() {
+  var servicio = $("#id_servicio").val();
+  var perfil = $("#id_profile").val();
+  //reporte/vacaciones/especialidad/{especialidad}/perido/{periodo}
 
+  $.getJSON("/reporte/perfiles/profile/"+perfil +"/servicio/"+servicio)
+  .done(function(response) {
 
+  $.each(response, function(key, item) {
+
+    //Ingresa por cada item que contenga el array response.data
+    //key = posicion del array 0 , 1 ,2 ...
+    // item es lo que trae el cada item del array por ejemplo > "name": " CESAR LUIS" , "id": 522, ....
+    options = "<tr>  <td>"+ item.name+ "</td>" +"<td>"+item.lastname+"</td> <td>"+item.cedula+"</td><td>"+"</td> </tr>";
+    $("#reportePerfiles > tbody").append(options);
+
+  })
+});
 });

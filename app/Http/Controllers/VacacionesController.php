@@ -23,7 +23,7 @@ class VacacionesController extends Controller
   {
     $this->middleware('auth');
   }
-  
+
   /**
   * Display a listing of the resource.
   *
@@ -216,9 +216,9 @@ class VacacionesController extends Controller
 
   public function reporteVacaciones($especialidad, $periodo){
 
-    return Enfermera::with(['vacaciones' => function ($query) use ($periodo){
+      return Enfermera::with(['vacaciones' => function ($query) use ($periodo){
       $query->where('id_periodo', '=', $periodo)->with('dias');
-    }])->where('id_servicio','=',$especialidad)->get();
+      }])->where('id_servicio','=',$especialidad)->get();
   }
 
 }

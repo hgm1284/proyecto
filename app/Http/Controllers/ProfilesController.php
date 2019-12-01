@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Profile;
+use App\Servicio;
+use App\Enfermera;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileRequest;
 use App\Http\Requests;
@@ -19,9 +21,8 @@ class ProfilesController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -77,7 +78,7 @@ class ProfilesController extends Controller
     {
       $profile = Profile::find($id);
       return view('profiles.edit')->with('profile', $profile);
-      
+
     }
 
     /**
@@ -115,5 +116,19 @@ class ProfilesController extends Controller
       $profile = Profile::find($id);
       $profile->delete();
       return redirect()->route('profiles.index');
+    }
+
+    public function mostrarreporteperfiles(){
+      $enfermeras = Enfermera::all();
+      $profile = Profile::all();
+      $servicios = Servicio::all();
+      return view('reportes.reporteperfiles', compact('enfermeras','profile','servicios'));
+    }
+
+    public function reportePerfiles($profile, $servicio){
+
+      return Enfermera::where('id_profile', '=', $profile)
+                      ->where('id_servicio', '=', $servicio)
+                      ->get();
     }
 }
