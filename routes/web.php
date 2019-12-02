@@ -86,3 +86,5 @@ Route::get('vacaciones/days/{id}','VacacionesController@index2');
 
 Route::get('reporte/vacaciones', ['as' => 'reporte.mostrarreportevacaciones', 'uses' => 'VacacionesController@mostrarreportevacaciones']);
 Route::get('reporte/vacaciones/especialidad/{especialidad}/periodo/{periodo}', 'VacacionesController@reporteVacaciones');
+Route::get('reporte/perfiles', ['as' => 'reporte.mostrarreporteperfiles', 'uses' => 'ProfilesController@mostrarreporteperfiles']);
+Route::get('reporte/perfiles/profile/{profile}/servicio/{servicio}', 'ProfilesController@reportePerfiles');

@@ -30,4 +30,8 @@ class Enfermera extends Model
       return $this->hasMany('App\Vacacione','id_enfermera','id');
   }
 
+  public function perfiles()
+  {
+      return $this->hasOne('App\Profile','id_profile','id');
+  }
 }
