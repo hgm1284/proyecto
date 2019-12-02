@@ -76,14 +76,14 @@
                       @endforeach
                     </tr>
                     <tr>
-                      @foreach ($rolanual as $roles)
+
                       <td>
 
                       </td>
                       <td>
 
                       </td>
-                      @endforeach
+
                     </tr>
                   </thead>
                   <tbody>

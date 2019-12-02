@@ -15,10 +15,13 @@
 <div class="row">
 <div class="col-md-12">
   <div class="box box-primary" style="text-align:center">
-        <form method="POST" action="{{ route('rol_anual.show') }}">
+        <form method="POST" action="{{ route('rol_anual.store') }}">
             <div class="box-header with-border">
               <div class="row">
                   <div class="col-md-10"><h3 class="box-title">Asignacion Anual</h3></div>
+                  <div class="col-md-2">
+                    <button type="submit" aling="left" class="btn btn-block btn-warning">Asignar al Rol</button>
+                  </div>
               </div>
             </div>
             <br>
@@ -50,7 +53,6 @@
                       <option disabled selected value>Seleccione Enfermera(o)</option>
                       @foreach ($enfermeras as $enfermera)
                        <option value="{{$enfermera['id']}}" data-tokens="{{$enfermera['name']}} {{$enfermera['lastname']}}">{{$enfermera['name']}}  {{$enfermera['lastname']}}</option>
-                       $fecha= $enfermera['fecha_ingreso'];
                     @endforeach
                 </select>
                 @error('id_enfermera')
@@ -61,6 +63,26 @@
                 </div>
               </div>
             </div>
+            <div class="col-md-4">
+              <div class="box box-primary" style="text-align:center">
+                <div class="box-header-success">
+                  <label for="exampleInputPassword3">Perfil de Enfermera(o)</label>
+                </div>
+            <div class="box-body">
+              <select id="id_profile"  name="id_profile" class="form-control selectpicker" data-live-search="true" required>
+                <option value="">Seleccione Perfil de Enfermero</option>
+                @foreach ($profiles as $profile)
+                  <option value="{{$profile['id']}}">{{$profile['nombre']}}</option>
+                @endforeach
+              </select>
+              @error('id_profile')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+            </div>
+        </div>
+      </div>    
             <div class= "col-md-2">
               <div class="box box-success">
                   <div class="box-header-success">
@@ -79,10 +101,6 @@
                 </div>
               </div>
            </div>
-            <div class="col-md-2">
-              <button type="submit" aling="left" class="btn btn-block btn-warning">Asignar al Rol</button>
-            </div>
-
            <div class="col-md-12">
               <div class="box box-success">
                 <div class="box-header-success">

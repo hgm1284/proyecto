@@ -76,6 +76,9 @@ Route::post('rol_anual/{id}/destroy', [
     'uses'=> 'RolAnualEnfermerasController@destroy',
     'as'  =>'rol_anual.destroy'
 ]);
+Route::get('rol_anual/', ['as' => 'rol_anual.show', 'uses' => 'RolAnualEnfermerasController@mostrardistribucion']);
+Route::get('rol_anual/servicio/{servicio}/anno/{anno}', 'RolAnualEnfermerasController@rolservicio');
+
 
 
 //fullcalender

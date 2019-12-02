@@ -6,6 +6,7 @@ use App\RolAnualEnfermeras;
 use App\RolAnual;
 use App\Enfermera;
 use App\Servicio;
+use App\Profile;
 use App\Role;
 use Laracast\Flash\Flash;
 use Illuminate\Http\Request;
@@ -49,7 +50,8 @@ class RolAnualEnfermerasController extends Controller
       $enfermeras = Enfermera::all();
       $servicios = Servicio::all();
       $roles = Role::all();
-      return view('rol_anual.create', compact('enfermeras','servicios','roles','meses'));
+      $profiles = Profile::all();
+      return view('rol_anual.create', compact('enfermeras','servicios','roles','meses','profiles'));
     }
 
     /**
@@ -60,8 +62,6 @@ class RolAnualEnfermerasController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $rolanual = DB::table('rolesanualenfermeras')->where([
           ['id_enfermera', '=', $request->id_enfermera],
           ['id_servicio', '=', $request->id_servicio],
@@ -196,30 +196,9 @@ class RolAnualEnfermerasController extends Controller
      * @param  \App\RolAnualEnfermeras  $rolAnualEnfermeras
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show()
     {
-      $meses = [
-          ['mes' => 'Enero','id'=>'1'],
-          ['mes' => 'Febrero','id'=>'2'],
-          ['mes' => 'Marzo','id'=>'3'],
-          ['mes' => 'Abril','id'=>'4'],
-          ['mes' => 'Mayo','id'=>'5'],
-          ['mes' => 'Junio','id'=>'6'],
-          ['mes' => 'Julio','id'=>'7'],
-          ['mes' => 'Agosto','id'=>'8'],
-          ['mes' => 'Septiembre','id'=>'9'],
-          ['mes' => 'Octubre','id'=>'10'],
-          ['mes' => 'Noviembre','id'=>'11'],
-          ['mes' => 'Diciembre','id'=>'12'],
-        ];
 
-      $servicios = Servicio::all();
-      $enfermera = Enfermera::all();
-      dd($request);
-      $rolanual = DB::table('rolesanualenfermeras')->where([
-        ['id_servicio', '=', $request->id_servicio],
-        ['anno', '=', $request->anno],])->get();
-      return view('rol_anual.show', compact('enfermera', 'servicios','rolanual','meses'));
     }
 
     /**
@@ -254,5 +233,33 @@ class RolAnualEnfermerasController extends Controller
     public function destroy(RolAnualEnfermeras $rolAnualEnfermeras)
     {
         //
+    }
+
+    public function mostrardistribucion(){
+      $meses = [
+          ['mes' => 'Enero','id'=>'1'],
+          ['mes' => 'Febrero','id'=>'2'],
+          ['mes' => 'Marzo','id'=>'3'],
+          ['mes' => 'Abril','id'=>'4'],
+          ['mes' => 'Mayo','id'=>'5'],
+          ['mes' => 'Junio','id'=>'6'],
+          ['mes' => 'Julio','id'=>'7'],
+          ['mes' => 'Agosto','id'=>'8'],
+          ['mes' => 'Septiembre','id'=>'9'],
+          ['mes' => 'Octubre','id'=>'10'],
+          ['mes' => 'Noviembre','id'=>'11'],
+          ['mes' => 'Diciembre','id'=>'12'],
+        ];
+      $enfermeras = Enfermera::all();
+      $servicios = Servicio::all();
+      $roles = Role::all();
+      return view('rol_anual.show', compact('enfermeras','servicios','meses','roles'));
+    }
+
+    public function rolservicio($servicio, $anno){
+      return  $rolanual = DB::table('rolesanualenfermeras')->select('roles_anual.id_enfermera', 'roles_anual.id_servicio', 'roles_anual.id_rol')
+      ->where([
+        ['id_servicio', '=', $request->id_servicio],
+        ['anno', '=', $request->anno],])->get();
     }
 }

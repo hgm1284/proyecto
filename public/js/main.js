@@ -312,28 +312,20 @@ $("#btnFiltrarVacaciones").click(function() {
 
   $.getJSON("/reporte/vacaciones/especialidad/"+servicio +"/periodo/"+periodo)
   .done(function(response) {
-
     $.each(response, function(key, item) {
-
-
-
       $.each(item.vacaciones, function(keyVacaciones, itemVacaciones) {
-
         $.each(itemVacaciones.dias, function(keydias, itemdias) {
-
           var  estado ='';
           if (itemdias.deleted_at !=null) {
             estado = 'Eliminado'
           }else {
             var ToDate = new Date();
-
             if (new Date(item.fecha).getTime() <= ToDate.getTime()) {
               estado = 'Tomadas';
             }else {
               estado = 'Pendiente';
             }
           }
-
           options = "<tr>  <td>"+ item.name+ "</td>" +"<td>"+item.lastname+"</td> <td>"+itemdias.fecha+"</td><td>"+ estado +"</td> </tr>";
           $("#reportevacaciones > tbody").append(options);
 
