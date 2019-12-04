@@ -334,6 +334,28 @@ $("#btnFiltrarVacaciones").click(function() {
 
       });
 
+      $('#reportevacaciones').DataTable({
+
+        dom: 'Bfrtip',
+        buttons: [
+          'copyHtml5',
+          'excelHtml5',
+          'csvHtml5',
+          'pdfHtml5'
+        ],
+     "columns": [
+         { "data": "name" },
+         { "data": "lastname" },
+         { "data": "fecha" },
+         { "data": "estado" }
+     ],
+
+     fixedHeader:   {
+           header: true,
+           footer: true
+       }
+ });
+
   })
   .fail(function(error) {
     console.log( error);

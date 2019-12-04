@@ -14,7 +14,7 @@
 <br>
 <div class="row">
 <div class="col-md-12">
-  <div class="box box-primary" >
+  <div class="box box-primary">
             <div class="box-header with-border">
               <div class="row">
                   <div class="col-md-10"><h3 class="box-title">Reporte Perfil & Servicio</h3></div>
