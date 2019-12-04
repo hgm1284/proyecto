@@ -337,7 +337,7 @@ $("#btnFiltrarVacaciones").click(function() {
       });
 
       $('#reportevacaciones').DataTable({
-        
+
         dom: 'Bfrtip',
         buttons: [
           'copyHtml5',
@@ -350,9 +350,13 @@ $("#btnFiltrarVacaciones").click(function() {
          { "data": "lastname" },
          { "data": "fecha" },
          { "data": "estado" }
-     ]
- });
+     ],
 
+     fixedHeader:   {
+           header: true,
+           footer: true
+       }
+ });
 
   })
   .fail(function(error) {
