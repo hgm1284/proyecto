@@ -341,3 +341,40 @@ $("#btnFiltrarVacaciones").click(function() {
 
 
 });
+
+$("#buscarRolAnual").click(function() {
+  var servicio_id = document.getElementById("id_servicio");
+  var perfil_id = document.getElementById("id_profile");
+  var anno = document.getElementById("anno");
+  var selected = combo.options[combo.selectedIndex].text;
+  if (vacaciones_id) {
+    $('#tb').empty();
+    var options= '';
+    $.getJSON("/vacaciones/request/"+vacaciones_id)
+    .done(function(response) {
+      $.each(response, function(key, item) {
+        var  estado ='';
+        if (item.deleted_at !=null) {
+          estado = 'Eliminado'
+        }else {
+          var ToDate = new Date();
+
+          if (new Date(item.fecha).getTime() <= ToDate.getTime()) {
+            estado = 'Tomadas';
+          }else {
+            estado = 'Pendiente';
+          }
+        }
+        options = "<tr>  <td>"+ item.id_vacaciones+ "</td>" +"<td>"+selected+"</td> <td>"+item.fecha+"</td><td>"+ estado +"</td> </tr>";
+        $("#datos > tbody").append(options);
+      });
+    })
+    .fail(function(error) {
+      console.log( error);
+    });
+
+  } else {
+    alert("No hay opciones para filtar");
+  }
+
+});

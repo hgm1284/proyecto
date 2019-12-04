@@ -65,18 +65,21 @@ class RolAnualEnfermerasController extends Controller
         $rolanual = DB::table('rolesanualenfermeras')->where([
           ['id_enfermera', '=', $request->id_enfermera],
           ['id_servicio', '=', $request->id_servicio],
+          ['id_profile', '=', $request->id_profile],
           ['anno', '=', $request->anno],])->first();
 
         if ($rolanual == null){
           $rol_anualenfermeras = new RolAnualEnfermeras;
           $rol_anualenfermeras->id_enfermera = $request->id_enfermera;
           $rol_anualenfermeras->id_servicio = $request->id_servicio;
+          $rol_anualenfermeras->id_profile = $request->id_profile;
           $rol_anualenfermeras->anno = $request->anno;
           $rol_anualenfermeras->save();
 
         $rol_anual = new RolAnual;
         $rol_anual->id_enfermera = $request->id_enfermera;
         $rol_anual->id_servicio = $request->id_servicio;
+        $rol_anualenfermeras->id_profile = $request->id_profile;
         $rol_anual->id_rol= $request->mes1;
         $rol_anual->mes= "Enero";
         $rol_anual->anno = $request->anno;
@@ -85,6 +88,7 @@ class RolAnualEnfermerasController extends Controller
         $rol_anual = new RolAnual;
         $rol_anual->id_enfermera = $request->id_enfermera;
         $rol_anual->id_servicio = $request->id_servicio;
+        $rol_anualenfermeras->id_profile = $request->id_profile;
         $rol_anual->id_rol= $request->mes2;
         $rol_anual->mes= "Febrero";
         $rol_anual->anno = $request->anno;
@@ -93,6 +97,7 @@ class RolAnualEnfermerasController extends Controller
         $rol_anual = new RolAnual;
         $rol_anual->id_enfermera = $request->id_enfermera;
         $rol_anual->id_servicio = $request->id_servicio;
+        $rol_anualenfermeras->id_profile = $request->id_profile;
         $rol_anual->id_rol= $request->mes3;
         $rol_anual->mes= "Marzo";
         $rol_anual->anno = $request->anno;
@@ -101,6 +106,7 @@ class RolAnualEnfermerasController extends Controller
         $rol_anual = new RolAnual;
         $rol_anual->id_enfermera = $request->id_enfermera;
         $rol_anual->id_servicio = $request->id_servicio;
+        $rol_anualenfermeras->id_profile = $request->id_profile;
         $rol_anual->id_rol= $request->mes4;
         $rol_anual->mes= "Abril";
         $rol_anual->anno = $request->anno;
@@ -109,6 +115,7 @@ class RolAnualEnfermerasController extends Controller
         $rol_anual = new RolAnual;
         $rol_anual->id_enfermera = $request->id_enfermera;
         $rol_anual->id_servicio = $request->id_servicio;
+        $rol_anualenfermeras->id_profile = $request->id_profile;
         $rol_anual->id_rol= $request->mes5;
         $rol_anual->mes= "Mayo";
         $rol_anual->anno = $request->anno;
@@ -117,6 +124,7 @@ class RolAnualEnfermerasController extends Controller
         $rol_anual = new RolAnual;
         $rol_anual->id_enfermera = $request->id_enfermera;
         $rol_anual->id_servicio = $request->id_servicio;
+        $rol_anualenfermeras->id_profile = $request->id_profile;
         $rol_anual->id_rol= $request->mes6;
         $rol_anual->mes= "Junio";
         $rol_anual->anno = $request->anno;
@@ -125,6 +133,7 @@ class RolAnualEnfermerasController extends Controller
         $rol_anual = new RolAnual;
         $rol_anual->id_enfermera = $request->id_enfermera;
         $rol_anual->id_servicio = $request->id_servicio;
+        $rol_anualenfermeras->id_profile = $request->id_profile;
         $rol_anual->id_rol= $request->mes7;
         $rol_anual->mes= "Julio";
         $rol_anual->anno = $request->anno;
@@ -133,6 +142,7 @@ class RolAnualEnfermerasController extends Controller
         $rol_anual = new RolAnual;
         $rol_anual->id_enfermera = $request->id_enfermera;
         $rol_anual->id_servicio = $request->id_servicio;
+        $rol_anualenfermeras->id_profile = $request->id_profile;
         $rol_anual->id_rol= $request->mes8;
         $rol_anual->mes= "Agosto";
         $rol_anual->anno = $request->anno;
@@ -141,6 +151,7 @@ class RolAnualEnfermerasController extends Controller
         $rol_anual = new RolAnual;
         $rol_anual->id_enfermera = $request->id_enfermera;
         $rol_anual->id_servicio = $request->id_servicio;
+        $rol_anualenfermeras->id_profile = $request->id_profile;
         $rol_anual->id_rol= $request->mes9;
         $rol_anual->mes= "Septiembre";
         $rol_anual->anno = $request->anno;
@@ -149,6 +160,7 @@ class RolAnualEnfermerasController extends Controller
         $rol_anual = new RolAnual;
         $rol_anual->id_enfermera = $request->id_enfermera;
         $rol_anual->id_servicio = $request->id_servicio;
+        $rol_anualenfermeras->id_profile = $request->id_profile;
         $rol_anual->id_rol= $request->mes10;
         $rol_anual->mes= "Octubre";
         $rol_anual->anno = $request->anno;
@@ -157,6 +169,7 @@ class RolAnualEnfermerasController extends Controller
         $rol_anual = new RolAnual;
         $rol_anual->id_enfermera = $request->id_enfermera;
         $rol_anual->id_servicio = $request->id_servicio;
+        $rol_anualenfermeras->id_profile = $request->id_profile;
         $rol_anual->id_rol= $request->mes11;
         $rol_anual->mes= "Noviembre";
         $rol_anual->anno = $request->anno;
@@ -165,6 +178,7 @@ class RolAnualEnfermerasController extends Controller
         $rol_anual = new RolAnual;
         $rol_anual->id_enfermera = $request->id_enfermera;
         $rol_anual->id_servicio = $request->id_servicio;
+        $rol_anualenfermeras->id_profile = $request->id_profile;
         $rol_anual->id_rol= $request->mes12;
         $rol_anual->mes= "Diciembre";
         $rol_anual->anno = $request->anno;
@@ -198,6 +212,25 @@ class RolAnualEnfermerasController extends Controller
      */
     public function show()
     {
+      $meses = [
+          ['mes' => 'Enero','id'=>'1'],
+          ['mes' => 'Febrero','id'=>'2'],
+          ['mes' => 'Marzo','id'=>'3'],
+          ['mes' => 'Abril','id'=>'4'],
+          ['mes' => 'Mayo','id'=>'5'],
+          ['mes' => 'Junio','id'=>'6'],
+          ['mes' => 'Julio','id'=>'7'],
+          ['mes' => 'Agosto','id'=>'8'],
+          ['mes' => 'Septiembre','id'=>'9'],
+          ['mes' => 'Octubre','id'=>'10'],
+          ['mes' => 'Noviembre','id'=>'11'],
+          ['mes' => 'Diciembre','id'=>'12'],
+        ];
+      $enfermeras = Enfermera::all();
+      $servicios = Servicio::all();
+      $roles = Role::all();
+      $profiles = Profile::all();
+      return view('rol_anual.show', compact('enfermeras','servicios','roles','meses','profiles'));
 
     }
 

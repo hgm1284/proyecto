@@ -19,6 +19,8 @@ class CreateRolesanualenfermerasTable extends Migration
             $table->foreign('id_enfermera')->references('id')->on('enfermeras');
             $table->bigInteger('id_servicio')->unsigned();
             $table->foreign('id_servicio')->references('id')->on('servicios');
+            $table->bigInteger('id_profile')->unsigned();
+            $table->foreign('id_profile')->references('id')->on('profiles');
             $table->year('anno');
             $table->timestamps();
         });

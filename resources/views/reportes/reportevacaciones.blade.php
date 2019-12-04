@@ -20,7 +20,7 @@
                   <div class="col-md-10"><h3 class="box-title">Reporte de Vacaciones</h3></div>
               </div>
             </div>
-                        @csrf
+              @csrf
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputPassword2">Seleccione un Servicio</label>

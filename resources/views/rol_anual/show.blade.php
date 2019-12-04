@@ -1,6 +1,5 @@
 @extends('layouts.app4')
 @section('content')
-
 <section class="content-header" id="contentheader">
       <h1>
         Módulo de Distribucion Anual del Personal
@@ -15,7 +14,7 @@
 <div class="row">
 <div class="col-md-12">
   <div class="box box-primary" style="text-align:center">
-        <form method="POST" action="{{ route('rol_anual.store') }}">
+        <form method="POST" action="">
             <div class="box-header with-border">
               <div class="row">
                   <div class="col-md-10"><h3 class="box-title">Buscar Distribución Anual</h3></div>
@@ -25,7 +24,7 @@
           @csrf
           <section class="content">
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
             <div class="box box-success" style="text-align:center">
               <div class="box-header-success">
                 <label for="exampleInputPassword3">Servicio</label>
@@ -40,6 +39,26 @@
               </div>
             </div>
             </div>
+            <div class="col-md-4">
+              <div class="box box-primary" style="text-align:center">
+                <div class="box-header-success">
+                  <label for="exampleInputPassword3">Perfil de Enfermera(o)</label>
+                </div>
+                <div class="box-body">
+                  <select id="id_profile"  name="id_profile" class="form-control selectpicker" data-live-search="true" required>
+                    <option value="">Seleccione Perfil de Enfermero</option>
+                    @foreach ($profiles as $profile)
+                      <option value="{{$profile['id']}}">{{$profile['nombre']}}</option>
+                    @endforeach
+                  </select>
+                  @error('id_profile')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
+                </div>
+            </div>
+          </div>
             <div class= "col-md-3">
               <div class="box box-primary">
                   <div class="box-header-success">
@@ -58,6 +77,7 @@
                 </div>
               </div>
            </div>
+
             <div class="col-md-2">
               <button type="submit" aling="left" class="btn btn-block btn-warning">Buscar</button>
             </div>
