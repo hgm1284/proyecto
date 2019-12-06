@@ -126,8 +126,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/usuarios/create"><i class="fa fa-user-plus" aria-hidden="true"></i>Registrar</a></li>
-            <li><a href="/usuarios"><i class="fa fa-user"></i>Administración</a></li>
+            <li><a href="/usuarios/create"><i class="fa fa-user-plus" aria-hidden="true"></i>Registrar Usuarios</a></li>
+            <li><a href="/usuarios"><i class="fa fa-user"></i>Administración de Usuarios</a></li>
           </ul>
         </li>
 
@@ -236,7 +236,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="/reporte/vacaciones"><i class="fa fa-plus" aria-hidden="true"></i>Reporte Vacaciones</a></li>
-            <li><a href="/reporte/perfiles"><i class="fa fa-list" aria-hidden="true"></i>Reporte Perfiles</a></li>
+            <li><a href="/reporte/perfiles"><i class="fa fa-list" aria-hidden="true"></i>Reporte Servicios & Perfiles</a></li>
           </ul>
         </li>
 
@@ -278,15 +278,15 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="/reporte/vacaciones"><i class="fa fa-plus" aria-hidden="true"></i>Reporte Vacaciones</a></li>
-            <li><a href="/reporte/perfiles"><i class="fa fa-list" aria-hidden="true"></i>Reporte Perfiles</a></li>
+            <li><a href="/reporte/perfiles"><i class="fa fa-list" aria-hidden="true"></i>Reporte Servicios & Perfiles</a></li>
           </ul>
         </li>
-
-        @break
-        @default
-        @endswitch
-
       </ul>
+
+      @break
+      @default
+      @endswitch
+
     </section>
     <!-- /.sidebar -->
   </aside>

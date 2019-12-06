@@ -31,6 +31,11 @@
               <br>
               <br>
 
+              <?php $perfil = Auth::user()->id_rolusuario ?>
+
+              @switch($perfil)
+              @case('1')
+
       <div class="row">
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
@@ -60,6 +65,7 @@
           </div>
         </div>
         <!-- ./col -->
+
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-yellow">
@@ -74,6 +80,7 @@
           </div>
         </div>
         <!-- ./col -->
+
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-red">
@@ -89,8 +96,47 @@
         </div>
         <!-- ./col -->
       </div>
-    <!-- ./col -->
+      @break
+
+      @case('2')
+      <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h4>Dist. Roles</h4>
+              <p>Asignar nuevo rol</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+            </div>
+            <a href="#" class="small-box-footer">Acceder <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+      </div>
+      @break
+
+      @case('3')
+      <div class="row">
+      <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-yellow">
+          <div class="inner">
+            <h4>Reportes de Vacaciones</h4>
+            <p>Generar Reporte por Servicio</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-file-text" aria-hidden="true"></i>
+          </div>
+          <a href="/reporte/vacaciones" class="small-box-footer">Acceder <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+       </div>
+      </div>
+      <!-- ./col -->
 </div><!-- /.col -->
+@break
+@default
+@endswitch
 </section><!-- /.col -->
 
 @endsection
