@@ -12,7 +12,6 @@
       </ol>
 </section>
 <br>
-<br>
 <div class="card-body">
       <table class="table table-hover" id="tablaEnfermeras">
                   <thead>

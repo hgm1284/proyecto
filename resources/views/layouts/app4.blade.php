@@ -3,11 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Gestión de Roles | Departamento Enfermería</title>
+  <title>Gestión de Roles - Departamento Enfermería</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Font Awesome Icons -->
-  <link href=" {{ asset('adminlte/plugins/fontawesome-free/css/all.min.css') }} " rel="stylesheet" >
   <!-- Bootstrap 3.3.7 -->
   <link href=" {{ asset('adminlte3/bootstrap/dist/css/bootstrap.css') }}" rel="stylesheet">
   <!-- Theme style -->
@@ -37,11 +36,11 @@
 
     <header class="main-header">
       <!-- Logo -->
-      <a href="" class="logo">
+      <a href="/home" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>H</b>SC</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>Sis.</b>Roles</span>
+        <span class="logo-lg"><b>Gestión de Roles</b></span>
       </a>
       <!-- Header Navbar: style can be found in header.less -->
       <nav class="navbar navbar-static-top">
@@ -105,7 +104,7 @@
           <img src="{{asset('adminlte3/img/hospital.png')}}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Gestion de Roles</p>
+          <p>Hospital San Carlos</p>
         </div>
       </div>
 
@@ -255,9 +254,12 @@
             </span>
           </a>
           <ul class="treeview-menu">
+            <li><a href="/rol_anual/create"><i class="fa fa-plus" aria-hidden="true"></i>Crear Rol Anual</a></li>
             <li><a href=""><i class="fa fa-plus" aria-hidden="true"></i>Asignar Nuevo Rol</a></li>
             <li><a href=""><i class="fa fa-list" aria-hidden="true"></i>Roles por Servicio</a></li>
             <li><a href=""><i class="fa fa-list" aria-hidden="true"></i>Roles por Enfermero</a></li>
+            <li><a href="/cambios"><i class="fa fa-list" aria-hidden="true"></i>Boleta de Cambios</a></li>
+            <li><a href="/cambios/create"><i class="fa fa-list" aria-hidden="true"></i>Crear Cambios</a></li>
           </ul>
         </li>
 
@@ -275,8 +277,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/profiles/create"><i class="fa fa-plus" aria-hidden="true"></i>Reporte de Vacaciones</a></li>
-            <li><a href="/profiles"><i class="fa fa-list" aria-hidden="true"></i> Administración de Perfiles</a></li>
+            <li><a href="/reporte/vacaciones"><i class="fa fa-plus" aria-hidden="true"></i>Reporte Vacaciones</a></li>
+            <li><a href="/reporte/perfiles"><i class="fa fa-list" aria-hidden="true"></i>Reporte Perfiles</a></li>
           </ul>
         </li>
 
@@ -308,7 +310,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 1.0
     </div>
-    <strong>Sistema de Gestión de Roles || Personal de Enfermería || Hospital San Carlos</strong>
+    <strong>© <?php echo date("Y"); ?> Dirección de Enfermería | Hospital San Carlos.</strong>
   </footer>
   <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed

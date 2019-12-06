@@ -9,20 +9,20 @@
       <ol class="breadcrumb">
         <li><a href="/home"><i class="fa fa-home"></i> Inicio</a></li>
         <i class="fa fa-arrow-right" aria-hidden="true"></i>
-        <li><a href="#">Menú Rapido</a></li>
+        <li><a href="/home">Menú Rapido</a></li>
       </ol>
 </section>
 <section class="content">
     <div class="row justify-content-center">
             <div class="container-fluid">
                 <div class="row mb-2">
-          <div class="col-sm-6">
+          <div class="col-sm-12">
             @if (session('status'))
                 <div class="alert alert-success" role="alert">
                     {{ session('status') }}
                 </div>
             @endif
-            <h3 class="row justify-content-center">Gestión de Roles Enfermería | Hospital San Carlos</h3>
+            <h3 class="row justify-content-center"><strong>Sistema de Gestión de Roles || Dirección de Enfermería || Hospital San Carlos</strong></h3>
           <br>
           </div>
         </div>
@@ -56,7 +56,7 @@
             <div class="icon">
               <i class="fa fa-stethoscope" aria-hidden="true"></i>
             </div>
-            <a href="#" class="small-box-footer">Acceder <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="/enfermeras" class="small-box-footer">Acceder <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -64,13 +64,13 @@
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h4>Reportes</h4>
-              <p>Listado de Reportes</p>
+              <h4>Reportes de Vacaciones</h4>
+              <p>Generar Reporte por Servicio</p>
             </div>
             <div class="icon">
               <i class="fa fa-file-text" aria-hidden="true"></i>
             </div>
-            <a href="#" class="small-box-footer">Acceder <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="/reporte/vacaciones" class="small-box-footer">Acceder <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -84,7 +84,7 @@
             <div class="icon">
               <i class="fa fa-plane" aria-hidden="true"></i>
             </div>
-            <a href="#" class="small-box-footer">Acceder <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="/vacaciones" class="small-box-footer">Acceder <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->

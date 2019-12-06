@@ -17,156 +17,156 @@ $(document).ready( function () {
       "search": "Buscar:",
       "zeroRecords": "Sin resultados encontrados",
       "paginate": {
-      "first": "Primero",
-      "last": "Ultimo",
-      "next": "Siguiente",
-      "previous": "Anterior"
-        }
-    },
-});
-
-$('#tablaCambios').DataTable({
-  language: {
-    "decimal": "",
-    "emptyTable": "No hay información",
-    "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
-    "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
-    "infoFiltered": "(Filtrado de _MAX_ total entradas)",
-    "infoPostFix": "",
-    "thousands": ",",
-    "lengthMenu": "Mostrar _MENU_ Entradas",
-    "loadingRecords": "Cargando...",
-    "processing": "Procesando...",
-    "search": "Buscar:",
-    "zeroRecords": "Sin resultados encontrados",
-    "paginate": {
-    "first": "Primero",
-    "last": "Ultimo",
-    "next": "Siguiente",
-    "previous": "Anterior"
-        }
-    },
-  });
-
-    $('#tablaUsuarios').DataTable({
-      language: {
-        "decimal": "",
-        "emptyTable": "No hay información",
-        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
-        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
-        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
-        "infoPostFix": "",
-        "thousands": ",",
-        "lengthMenu": "Mostrar _MENU_ Entradas",
-        "loadingRecords": "Cargando...",
-        "processing": "Procesando...",
-        "search": "Buscar:",
-        "zeroRecords": "Sin resultados encontrados",
-        "paginate": {
         "first": "Primero",
         "last": "Ultimo",
         "next": "Siguiente",
         "previous": "Anterior"
-            }
-        },
-      });
+      }
+    },
+  });
 
-      $('#tablaServicios').DataTable({
-        language: {
-          "decimal": "",
-          "emptyTable": "No hay información",
-          "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
-          "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
-          "infoFiltered": "(Filtrado de _MAX_ total entradas)",
-          "infoPostFix": "",
-          "thousands": ",",
-          "lengthMenu": "Mostrar _MENU_ Entradas",
-          "loadingRecords": "Cargando...",
-          "processing": "Procesando...",
-          "search": "Buscar:",
-          "zeroRecords": "Sin resultados encontrados",
-          "paginate": {
-          "first": "Primero",
-          "last": "Ultimo",
-          "next": "Siguiente",
-          "previous": "Anterior"
-            }
-        },
-      });
+  $('#tablaCambios').DataTable({
+    language: {
+      "decimal": "",
+      "emptyTable": "No hay información",
+      "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+      "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+      "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+      "infoPostFix": "",
+      "thousands": ",",
+      "lengthMenu": "Mostrar _MENU_ Entradas",
+      "loadingRecords": "Cargando...",
+      "processing": "Procesando...",
+      "search": "Buscar:",
+      "zeroRecords": "Sin resultados encontrados",
+      "paginate": {
+        "first": "Primero",
+        "last": "Ultimo",
+        "next": "Siguiente",
+        "previous": "Anterior"
+      }
+    },
+  });
 
-      $('#tablaRoles').DataTable({
-        language: {
-          "decimal": "",
-          "emptyTable": "No hay información",
-          "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
-          "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
-          "infoFiltered": "(Filtrado de _MAX_ total entradas)",
-          "infoPostFix": "",
-          "thousands": ",",
-          "lengthMenu": "Mostrar _MENU_ Entradas",
-          "loadingRecords": "Cargando...",
-          "processing": "Procesando...",
-          "search": "Buscar:",
-          "zeroRecords": "Sin resultados encontrados",
-          "paginate": {
-          "first": "Primero",
-          "last": "Ultimo",
-          "next": "Siguiente",
-          "previous": "Anterior"
-            }
-        },
-      });
+  $('#tablaUsuarios').DataTable({
+    language: {
+      "decimal": "",
+      "emptyTable": "No hay información",
+      "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+      "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+      "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+      "infoPostFix": "",
+      "thousands": ",",
+      "lengthMenu": "Mostrar _MENU_ Entradas",
+      "loadingRecords": "Cargando...",
+      "processing": "Procesando...",
+      "search": "Buscar:",
+      "zeroRecords": "Sin resultados encontrados",
+      "paginate": {
+        "first": "Primero",
+        "last": "Ultimo",
+        "next": "Siguiente",
+        "previous": "Anterior"
+      }
+    },
+  });
 
-      $('#tablaEnfermeras').DataTable({
-        language: {
-          "decimal": "",
-          "emptyTable": "No hay información",
-          "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
-          "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
-          "infoFiltered": "(Filtrado de _MAX_ total entradas)",
-          "infoPostFix": "",
-          "thousands": ",",
-          "lengthMenu": "Mostrar _MENU_ Entradas",
-          "loadingRecords": "Cargando...",
-          "processing": "Procesando...",
-          "search": "Buscar:",
-          "zeroRecords": "Sin resultados encontrados",
-          "paginate": {
-          "first": "Primero",
-          "last": "Ultimo",
-          "next": "Siguiente",
-          "previous": "Anterior"
-            }
-        },
-      });
+  $('#tablaServicios').DataTable({
+    language: {
+      "decimal": "",
+      "emptyTable": "No hay información",
+      "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+      "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+      "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+      "infoPostFix": "",
+      "thousands": ",",
+      "lengthMenu": "Mostrar _MENU_ Entradas",
+      "loadingRecords": "Cargando...",
+      "processing": "Procesando...",
+      "search": "Buscar:",
+      "zeroRecords": "Sin resultados encontrados",
+      "paginate": {
+        "first": "Primero",
+        "last": "Ultimo",
+        "next": "Siguiente",
+        "previous": "Anterior"
+      }
+    },
+  });
 
-      $('#tablaPerfiles').DataTable({
-        language: {
-          "decimal": "",
-          "emptyTable": "No hay información",
-          "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
-          "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
-          "infoFiltered": "(Filtrado de _MAX_ total entradas)",
-          "infoPostFix": "",
-          "thousands": ",",
-          "lengthMenu": "Mostrar _MENU_ Entradas",
-          "loadingRecords": "Cargando...",
-          "processing": "Procesando...",
-          "search": "Buscar:",
-          "zeroRecords": "Sin resultados encontrados",
-          "paginate": {
-          "first": "Primero",
-          "last": "Ultimo",
-          "next": "Siguiente",
-          "previous": "Anterior"
-          }
-      },
-    });
+  $('#tablaRoles').DataTable({
+    language: {
+      "decimal": "",
+      "emptyTable": "No hay información",
+      "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+      "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+      "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+      "infoPostFix": "",
+      "thousands": ",",
+      "lengthMenu": "Mostrar _MENU_ Entradas",
+      "loadingRecords": "Cargando...",
+      "processing": "Procesando...",
+      "search": "Buscar:",
+      "zeroRecords": "Sin resultados encontrados",
+      "paginate": {
+        "first": "Primero",
+        "last": "Ultimo",
+        "next": "Siguiente",
+        "previous": "Anterior"
+      }
+    },
+  });
 
-$(function(){
-  $('#enfermera').on('change', selectEnfermera);
+  $('#tablaEnfermeras').DataTable({
+    language: {
+      "decimal": "",
+      "emptyTable": "No hay información",
+      "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+      "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+      "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+      "infoPostFix": "",
+      "thousands": ",",
+      "lengthMenu": "Mostrar _MENU_ Entradas",
+      "loadingRecords": "Cargando...",
+      "processing": "Procesando...",
+      "search": "Buscar:",
+      "zeroRecords": "Sin resultados encontrados",
+      "paginate": {
+        "first": "Primero",
+        "last": "Ultimo",
+        "next": "Siguiente",
+        "previous": "Anterior"
+      }
+    },
+  });
 
-} );
+  $('#tablaPerfiles').DataTable({
+    language: {
+      "decimal": "",
+      "emptyTable": "No hay información",
+      "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+      "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+      "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+      "infoPostFix": "",
+      "thousands": ",",
+      "lengthMenu": "Mostrar _MENU_ Entradas",
+      "loadingRecords": "Cargando...",
+      "processing": "Procesando...",
+      "search": "Buscar:",
+      "zeroRecords": "Sin resultados encontrados",
+      "paginate": {
+        "first": "Primero",
+        "last": "Ultimo",
+        "next": "Siguiente",
+        "previous": "Anterior"
+      }
+    },
+  });
+
+  $(function(){
+    $('#enfermera').on('change', selectEnfermera);
+
+  } );
 });
 
 //Selecciona al enfermero y carga su fecha de ingreso
@@ -259,23 +259,26 @@ $("#btnFiltrarCambios").click(function() {
 
         $.each(response.servicios, function(keyServicio, itemServicio) {
 
-         if( itemServicio.id == response.data[key].cambio.id_servicio){
+          if( itemServicio.id == response.data[key].cambio.id_servicio){
 
-          servicio = itemServicio.nombre
+            servicio = itemServicio.nombre
 
-         }
+          }
 
         });
 
         $.each(response.roles, function(keyRol, itemRol) {
 
-          if(keyRol.id = response.data[key].cambio.id_rol){
-            role = itemRol.nomenclatura
-          }
-         });
+          if(itemRol.id == response.data[key].cambio.id_rol){
 
-         options = "<tr>  <td>"+ item.id+ "</td>" +"<td>"+item.fecha+"</td> <td>"+servicio+"</td><td>"+ role +"</td> </tr>";
-         $("#datosCambios > tbody").append(options);
+            role = itemRol.nomenclatura
+
+          }
+
+        });
+
+        options = "<tr>  <td>"+ item.id+ "</td>" +"<td>"+item.fecha+"</td> <td>"+ servicio +"</td><td>"+ role +"</td> </tr>";
+        $("#datosCambios > tbody").append(options);
 
       });
     })
@@ -299,7 +302,6 @@ $( document ).ready(function() {
 
 })
 
-
 $("#btnFiltrarVacaciones").click(function() {
   var servicio = $("#id_servicio").val();
   var periodo = $("#id_periodo").val();
@@ -320,43 +322,63 @@ $("#btnFiltrarVacaciones").click(function() {
           }else {
             var ToDate = new Date();
 
-            if (new Date(item.fecha).getTime() <= ToDate.getTime()) {
+            if (new Date(itemdias.fecha).getTime() <= ToDate.getTime()) {
               estado = 'Tomadas';
             }else {
               estado = 'Pendiente';
             }
           }
 
-
           options = "<tr>  <td>"+ item.name+ "</td>" +"<td>"+item.lastname+"</td> <td>"+itemdias.fecha+"</td><td>"+ estado +"</td> </tr>";
           $("#reportevacaciones > tbody").append(options);
 
-          });
         });
-
       });
 
-      $('#reportevacaciones').DataTable({
+    });
 
-        dom: 'Bfrtip',
-        buttons: [
-          'copyHtml5',
-          'excelHtml5',
-          'csvHtml5',
-          'pdfHtml5'
-        ],
-     "columns": [
-         { "data": "name" },
-         { "data": "lastname" },
-         { "data": "fecha" },
-         { "data": "estado" }
-     ],
+    $('#reportevacaciones').DataTable({
 
-     fixedHeader:   {
-           header: true,
-           footer: true
-       }
- });
+      language: {
+        "decimal": "",
+        "emptyTable": "No hay información",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ Entradas",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+          "first": "Primero",
+          "last": "Ultimo",
+          "next": "Siguiente",
+          "previous": "Anterior"
+        }
+      },
+
+      dom: 'Bfrtip',
+      buttons: [
+        'copyHtml5',
+        'excelHtml5',
+        'csvHtml5',
+        'pdfHtml5'
+      ],
+      "columns": [
+        { "data": "name" },
+        { "data": "lastname" },
+        { "data": "fecha" },
+        { "data": "estado" }
+      ],
+
+      fixedHeader:   {
+        header: true,
+        footer: true
+      }
+    });
 
   })
   .fail(function(error) {
@@ -373,14 +395,60 @@ $("#btnFiltrarPerfiles").click(function() {
   $.getJSON("/reporte/perfiles/profile/"+perfil +"/servicio/"+servicio)
   .done(function(response) {
 
-  $.each(response, function(key, item) {
+    $.each(response, function(key, item) {
 
-    //Ingresa por cada item que contenga el array response.data
-    //key = posicion del array 0 , 1 ,2 ...
-    // item es lo que trae el cada item del array por ejemplo > "name": " CESAR LUIS" , "id": 522, ....
-    options = "<tr>  <td>"+ item.name+ "</td>" +"<td>"+item.lastname+"</td> <td>"+item.cedula+"</td><td>"+"</td> </tr>";
-    $("#reportePerfiles > tbody").append(options);
+      //Ingresa por cada item que contenga el array response.data
+      //key = posicion del array 0 , 1 ,2 ...
+      // item es lo que trae el cada item del array por ejemplo > "name": " CESAR LUIS" , "id": 522, ....
+      options = "<tr>  <td>"+ item.name+ "</td>" +"<td>"+item.lastname+"</td> <td>"+item.cedula+"</td><td> </tr>";
+      $("#reportePerfiles > tbody").append(options);
+
+    });
+    $('#reportePerfiles').DataTable({
+
+      language: {
+        "decimal": "",
+        "emptyTable": "No hay información",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ Entradas",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+          "first": "Primero",
+          "last": "Ultimo",
+          "next": "Siguiente",
+          "previous": "Anterior"
+        }
+      },
+
+      dom: 'Bfrtip',
+      buttons: [
+        'copyHtml5',
+        'excelHtml5',
+        'csvHtml5',
+        'pdfHtml5'
+      ],
+      "columns": [
+        { "data": "name" },
+        { "data": "lastname" },
+        { "data": "fecha" },
+        { "data": "estado" }
+      ],
+
+      fixedHeader:   {
+        header: true,
+        footer: true
+      }
+    });
 
   })
-});
+  .fail(function(error) {
+    console.log( error);
+  });
 });

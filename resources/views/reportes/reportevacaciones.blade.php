@@ -1,4 +1,5 @@
 @extends('layouts.app4')
+<title>Reporte de Vacaciones </title>
 
 @section('content')
 <section class="content-header" id="contentheader">
@@ -14,7 +15,7 @@
 <br>
 <div class="row">
 <div class="col-md-12">
-  <div class="box box-primary" >
+  <div class="box box-primary">
             <div class="box-header with-border">
               <div class="row">
                   <div class="col-md-10"><h3 class="box-title">Reporte de Vacaciones</h3></div>
@@ -54,13 +55,18 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
-              <table class="table table-hover" id="reportevacaciones">
+              <table class="display" style="width:100%" id="reportevacaciones">
+                <thead>
                 <tr>
                   <th>Nombre</th>
                   <th>Apellido</th>
                   <th>Fechas Disfrute</th>
                   <th>Estado</th>
                 </tr>
+              </thead>
+              <tbody>
+
+              </tbody>
               </table>
             </div>
             <!-- /.box-body -->
