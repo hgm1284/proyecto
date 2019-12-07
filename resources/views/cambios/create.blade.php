@@ -30,6 +30,7 @@
           <div class="col-md-5">
             <div class="box box-info">
               <div class="form-group">
+                <div class="box-body">
                 <label for="exampleInputPassword3">Enfermera(o) Asignado</label>
                 <select class="form-control selectpicker" id="enfermera" name="id_enfermera" data-live-search="true" required>
                   <option disabled selected value>Seleccione Enfermera(o)</option>
@@ -40,20 +41,20 @@
               </div>
             </div>
           </div>
-          <div class="col-md-5">
+          <div class="col-md-8">
             <div class="box box-info">
               <div class="form-group">
                 <label for="exampleInputPassword2">Servicio Asignado</label>
                 <select class="form-control selectpicker" id="servicio" name="id_servicio" data-live-search="true" required>
                   <option value="">Seleccione Servicio</option>
                   @foreach ($servicios as $servicio)
-                    <option value="{{$servicio['id']}}">{{$servicio['nombre']}}</option>
+                  <option value="{{$servicio['id']}}">{{$servicio['nombre']}}</option>
                   @endforeach
                 </select>
                 @error('id_servicio')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
                 @enderror
               </div>
             </div>
@@ -76,28 +77,10 @@
                 <select class="form-control selectpicker" id="rol" name="id_rol" data-live-search="true" required>
                   <option value="">Seleccione Rol</option>
                   @foreach ($roles as $rol)
-                    <option value="{{$rol['id']}}">{{$rol['nomenclatura']}}</option>
+                  <option value="{{$rol['id']}}">{{$rol['nomenclatura']}}</option>
                   @endforeach
                 </select>
                 @error('id_rol')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-2">
-            <div class="box box-success">
-              <div class="box-header with-border">
-                <label for="exampleInputPassword1">Años Laborados</label>
-              </div>
-              <div class="box-body">
-                <input type="text" id="annos" name="annos" class="form-control" disabled="disabled">
-                @error('annos')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
                 </span>
@@ -107,9 +90,10 @@
           </div>
         </div>
       </div>
-    </form>
+    </div>
+   </form>
   </div>
-</div>
+ </div>
 </div>
 
 @endsection

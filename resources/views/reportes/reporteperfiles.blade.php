@@ -1,6 +1,8 @@
 @extends('layouts.app4')
+<title>Reporte de Perfiles y Servicios </title>
 
 @section('content')
+
 <section class="content-header" id="contentheader">
       <h1>
         Módulo Reporte Perfil & Servicio
@@ -53,17 +55,22 @@
              </div>
             </div>
             <!-- /.box-header -->
-            <div class="box-body table-responsive no-padding">
-              <table class="table table-hover" id="reportePerfiles">
-                <tr>
-                  <th>Nombre</th>
-                  <th>Apellido</th>
-                  <th>Cédula</th>
-                </tr>
-              </table>
-            </div>
             <!-- /.box-body -->
            </div>
           </div>
+         </div>
+         <div class="box-body table-responsive no-padding">
+           <table class="display" style="width:100%" id="reportePerfiles">
+             <thead>
+             <tr>
+               <th>Nombre</th>
+               <th>Apellido</th>
+               <th>Cédula</th>
+             </tr>
+           </thead>
+           <tbody>
+
+           </tbody>
+           </table>
          </div>
 @endsection

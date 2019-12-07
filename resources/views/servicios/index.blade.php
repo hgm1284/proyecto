@@ -12,30 +12,24 @@
       </ol>
 </section>
 <br>
-<br>
         <div class="card-body">
         {!! Form::open(['route' => 'servicios.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
-        <div class="input-group">
-            {!! Form:: text('name', null, ['class'=> 'form-control', 'placeholder' => 'Buscar Servicio']) !!}
-            <span class="input-group-addon">
-                        <i class="fa fa-search"></i>
-            </span>
-        </div>
-      {!! Form::close() !!}
-                <table class="table table-striped">
+
+        {!! Form::close() !!}
+                <table class="table table-hover" id="tablaServicios">
                   <thead>
                     <tr>
-                      <th colspan="6">Nombre del Servicio</th>
-                      <th colspan="6">Descripción del Servicio</th>
-                      <th colspan="2">Opciones</th>
+                      <th>Nombre del Servicio</th>
+                      <th>Descripción del Servicio</th>
+                      <th>Opciones</th>
                     </tr>
                   </thead>
                   <tbody>
                      @foreach ($servicios as $servicio)
                      <tr>
-                       <td colspan="6" class="nowrap">{{ $servicio->nombre }}</td>
-                       <td colspan="6" class="nowrap"> {{ $servicio->descripcion }}</td>
-                       <td colspan="2" class="nowrap">
+                       <td>{{ $servicio->nombre }}</td>
+                       <td> {{ $servicio->descripcion }}</td>
+                       <td>
                          <a href="{{ route('servicios.edit', $servicio->id  ) }}" title="Editar Servicio" class="btn btn-primary"> <i class="fa fa-pencil"></i> </a>
                          <a href="javascript:;" class="btn btn-danger" title="Eliminar Servicio" data-toggle="modal" onclick="deleteData({{$servicio->id}})"
                            data-target="#DeleteModal"><i class="fa fa-trash"></i> </a>
@@ -73,8 +67,7 @@
                 <!-- /.modal-dialog -->
               </div>
                 <!--fin MODAL -->
-                {!! $servicios->render()!!}
-              </div>
+            </div>
 
 @endsection
 <script type="text/javascript">

@@ -3,7 +3,7 @@
 @section('content')
 <section class="content-header" id="contentheader">
       <h1>
-        Módulo de usuarios
+        Módulo de Usuarios
       </h1>
       <ol class="breadcrumb">
         <li><a href="/home"><i class="fa fa-home"></i> Inicio</a></li>
