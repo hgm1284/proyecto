@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // your event source
       {
-        url: 'http://proyecto.test/vacaciones/days/'+user_id, // use the `url` property
+        url: 'http://still-gorge-79424.herokuapp.com/vacaciones/days/'+user_id, // use the `url` property
         color: 'yellow',    // an option!
         textColor: 'black'  // an option!
       }
