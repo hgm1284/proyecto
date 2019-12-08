@@ -2,7 +2,6 @@
 
 $(document).ready( function () {
 
-
   $('#tablaVacaciones').DataTable({
     language: {
       "decimal": "",
@@ -246,9 +245,6 @@ $("#buscar").click(function() {
 
 });
 
-
-
-
 $("#btnFiltrarCambios").click(function() {
   var cambios_id = $("#id_cambio").val();
   if (cambios_id) {
@@ -313,9 +309,13 @@ $("#btnFiltrarVacaciones").click(function() {
 
   $.getJSON("/reporte/vacaciones/especialidad/"+servicio +"/periodo/"+periodo)
   .done(function(response) {
+
     $.each(response, function(key, item) {
+
       $.each(item.vacaciones, function(keyVacaciones, itemVacaciones) {
+
         $.each(itemVacaciones.dias, function(keydias, itemdias) {
+
           var  estado ='';
           if (itemdias.deleted_at !=null) {
             estado = 'Eliminado'
@@ -385,25 +385,15 @@ $("#btnFiltrarVacaciones").click(function() {
     console.log( error);
   });
 
-
 });
 
-$("#buscarRolAnual").click(function() {
-  var servicio_id = document.getElementById("id_servicio");
-  var perfil_id = document.getElementById("id_profile");
-  var anno = document.getElementById("anno");
-  var selected = combo.options[combo.selectedIndex].text;
-  if (vacaciones_id) {
-    $('#tb').empty();
-    var options= '';
-    $.getJSON("/vacaciones/request/"+vacaciones_id)
-    .done(function(response) {
-      $.each(response, function(key, item) {
-        var  estado ='';
-        if (item.deleted_at !=null) {
-          estado = 'Eliminado'
-        }else {
-          var ToDate = new Date();
+$("#btnFiltrarPerfiles").click(function() {
+  var servicio = $("#id_servicio").val();
+  var perfil = $("#id_profile").val();
+  //reporte/vacaciones/especialidad/{especialidad}/perido/{periodo}
+
+  $.getJSON("/reporte/perfiles/profile/"+perfil +"/servicio/"+servicio)
+  .done(function(response) {
 
     $.each(response, function(key, item) {
 

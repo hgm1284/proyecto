@@ -79,12 +79,14 @@ Route::post('rol_anual/{id}/destroy', [
 Route::get('rol_anual/', ['as' => 'rol_anual.show', 'uses' => 'RolAnualEnfermerasController@mostrardistribucion']);
 Route::get('rol_anual/servicio/{servicio}/anno/{anno}', 'RolAnualEnfermerasController@rolservicio');
 
-
+Route::get('rol/servicios', ['as' => 'rol.servicios', 'uses' => 'RolAnualEnfermerasController@mostrardistribucionAnual']);
+Route::get('rol/servicios/{servicio}/perfiles/{profile}', 'RolAnualEnfermerasController@distribucionAnual');
 
 //fullcalender
 Route::get('vacaciones/days/{id}','VacacionesController@index2');
 
 Route::get('reporte/vacaciones', ['as' => 'reporte.mostrarreportevacaciones', 'uses' => 'VacacionesController@mostrarreportevacaciones']);
 Route::get('reporte/vacaciones/especialidad/{especialidad}/periodo/{periodo}', 'VacacionesController@reporteVacaciones');
+
 Route::get('reporte/perfiles', ['as' => 'reporte.mostrarreporteperfiles', 'uses' => 'ProfilesController@mostrarreporteperfiles']);
 Route::get('reporte/perfiles/profile/{profile}/servicio/{servicio}', 'ProfilesController@reportePerfiles');

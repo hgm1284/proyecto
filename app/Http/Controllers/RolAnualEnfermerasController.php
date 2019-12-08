@@ -295,4 +295,17 @@ class RolAnualEnfermerasController extends Controller
         ['id_servicio', '=', $request->id_servicio],
         ['anno', '=', $request->anno],])->get();
     }
+
+    public function mostrardistribucionAnual(){
+      $enfermeras = Enfermera::all();
+      $profile = Profile::all();
+      $servicios = Servicio::all();
+      return view('reportes.reporteperfiles', compact('enfermeras','profile','servicios'));
+    }
+
+    public function distribucionAnual($profile, $servicio){
+      return Enfermera::where('id_profile', '=', $profile)
+                      ->where('id_servicio', '=', $servicio)
+                      ->get();
+    }
 }
