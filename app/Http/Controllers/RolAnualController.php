@@ -68,6 +68,7 @@ class RolAnualController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+     //guardar en tabla rol_anual
     public function store(Request $request)
     {
       $meses = [

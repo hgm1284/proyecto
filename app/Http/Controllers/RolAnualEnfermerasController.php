@@ -60,6 +60,7 @@ class RolAnualEnfermerasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+     //guardar en tabka rol anual
     public function store(Request $request)
     {
         $rolanual = DB::table('rolesanualenfermeras')->where([
