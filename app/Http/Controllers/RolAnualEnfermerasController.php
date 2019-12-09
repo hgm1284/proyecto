@@ -298,15 +298,31 @@ class RolAnualEnfermerasController extends Controller
     }
 
     public function mostrardistribucionAnual(){
+      $meses = [
+          ['mes' => 'Enero','id'=>'1'],
+          ['mes' => 'Febrero','id'=>'2'],
+          ['mes' => 'Marzo','id'=>'3'],
+          ['mes' => 'Abril','id'=>'4'],
+          ['mes' => 'Mayo','id'=>'5'],
+          ['mes' => 'Junio','id'=>'6'],
+          ['mes' => 'Julio','id'=>'7'],
+          ['mes' => 'Agosto','id'=>'8'],
+          ['mes' => 'Septiembre','id'=>'9'],
+          ['mes' => 'Octubre','id'=>'10'],
+          ['mes' => 'Noviembre','id'=>'11'],
+          ['mes' => 'Diciembre','id'=>'12'],
+        ];
       $enfermeras = Enfermera::all();
-      $profile = Profile::all();
+      $profiles = Profile::all();
       $servicios = Servicio::all();
-      return view('reportes.reporteperfiles', compact('enfermeras','profile','servicios'));
+      return view('rol_anual.ver_rolanual', compact('enfermeras','profiles','servicios','meses'));
     }
 
-    public function distribucionAnual($profile, $servicio){
-      return Enfermera::where('id_profile', '=', $profile)
-                      ->where('id_servicio', '=', $servicio)
-                      ->get();
+    public function distribucionAnual($profile, $servicio, $anno){
+      return RolAnual::with(['roles_anual' => function ($query) use ($profile){
+              $query->where('id_profile', '=', $profile)
+                    ->where('id_servicio', '=', $servicio)
+                    ->where('anno'       , '=', $anno);
+                    }])->get();
     }
 }

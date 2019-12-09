@@ -14,7 +14,6 @@
 <div class="row">
 <div class="col-md-12">
   <div class="box box-primary" style="text-align:center">
-        <form method="POST" action="">
             <div class="box-header with-border">
               <div class="row">
                   <div class="col-md-10"><h3 class="box-title">Buscar Distribución Anual</h3></div>
@@ -67,10 +66,12 @@
                 <div class="box-body">
                       <?php
                         $cont = date('Y');
-                        $cont++;
+                        $anno = date('Y');
+                        $cont   += 2;
+                        $anno++;
                       ?>
-                  <select class="form-control selectpicker" id="anno" name="anno" required>
-                      <?php while ($cont >= 2018) { ?>
+                  <select class="form-control selectpicker" id="id_anno" name="anno" required>
+                      <?php while ($cont >= $anno) { ?>
                           <option value="<?php echo($cont); ?>"><?php echo($cont); ?></option>
                       <?php $cont = ($cont-1); } ?>
                  </select>
@@ -79,7 +80,7 @@
            </div>
 
             <div class="col-md-2">
-              <button type="submit" aling="left" class="btn btn-block btn-warning">Buscar</button>
+              <button id="btnFiltrarRolAnual" type="button" aling"left" class="btn btn-block btn-warning">Buscar</button>
             </div>
 
            <div class="col-md-12">
@@ -87,7 +88,7 @@
                 <div class="box-header-success">
                   <label for="exampleInputPassword3">Tabla Rol Anual</label>
                 </div>
-                <table class="table">
+                <table lass="display" style="width:100%" id="rolanualServicios">
                   <thead class="thead-dark">
                     <tr>
                         <th>Enfermero</th>
@@ -115,7 +116,6 @@
           </div>
         </section>
         </div>
-      </form>
     </div>
 </div>
 </div>

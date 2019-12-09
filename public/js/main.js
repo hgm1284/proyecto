@@ -452,3 +452,70 @@ $("#btnFiltrarPerfiles").click(function() {
     console.log( error);
   });
 });
+//**********************************************
+//BUSCAR ROL ANUAL POR Servicios
+$("#btnFiltrarRolAnual").click(function() {
+  var servicio = $("#id_servicio").val();
+  var perfil =   $("#id_profile").val();
+  var anno    =   $("#id_anno").val();
+  //reporte/vacaciones/especialidad/{especialidad}/perido/{periodo}
+  $.getJSON("/rol/servicios/servicio/"+servicio+"/profile/"+perfil+"/anno/"+anno)
+  .done(function(response) {
+
+    $.each(response, function(key, item) {
+
+      //Ingresa por cada item que contenga el array response.data
+      //key = posicion del array 0 , 1 ,2 ...
+      // item es lo que trae el cada item del array por ejemplo > "name": " CESAR LUIS" , "id": 522, ....
+      options = "<tr>  <td>"+ item.name+item.lastname+ "</td>" +"<td>"+item.lastname+"</td> <td>"+item.nomenclatura+"</td> <td>"+item.mes+"</td><td> </tr>";
+      $("#reportePerfiles > tbody").append(options);
+
+    });
+    $('#rolanualServicios').DataTable({
+
+      language: {
+        "decimal": "",
+        "emptyTable": "No hay información",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ Entradas",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+          "first": "Primero",
+          "last": "Ultimo",
+          "next": "Siguiente",
+          "previous": "Anterior"
+        }
+      },
+
+      dom: 'Bfrtip',
+      buttons: [
+        'copyHtml5',
+        'excelHtml5',
+        'csvHtml5',
+        'pdfHtml5'
+      ],
+      "columns": [
+        { "data": "name" },
+        { "data": "lastname" },
+        { "data": "nomenclatura" },
+        { "data": "mes" }
+      ],
+
+      fixedHeader:   {
+        header: true,
+        footer: true
+      }
+    });
+
+  })
+  .fail(function(error) {
+    console.log( error);
+  });
+});

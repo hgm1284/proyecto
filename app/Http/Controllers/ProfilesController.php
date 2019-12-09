@@ -127,7 +127,6 @@ class ProfilesController extends Controller
     }
 
     public function reportePerfiles($profile, $servicio){
-
       return Enfermera::where('id_profile', '=', $profile)
                       ->where('id_servicio', '=', $servicio)
                       ->get();
