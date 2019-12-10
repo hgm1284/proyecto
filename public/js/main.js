@@ -452,3 +452,69 @@ $("#btnFiltrarPerfiles").click(function() {
     console.log( error);
   });
 });
+//**********************************************
+//BUSCAR ROL ANUAL POR Servicios
+$("#btnFiltrarRolAnual").click(function() {
+  var servicio = $("#id_servicio").val();
+  var perfil =   $("#id_profile").val();
+  var anno    =   $("#id_anno").val();
+  var meses = ['Enero', 'Febrero','Marzo', 'Abril','Mayo', 'Junio','Julio', 'Agosto','Septiembre', 'Octubre','Noviembre', 'Diciembre', ];
+  //reporte/vacaciones/especialidad/{especialidad}/perido/{periodo}
+  $.getJSON("/rol/servicios/servicio/"+servicio+"/profile/"+perfil+"/anno/"+anno)
+  .done(function(response) {
+    $.each(response, function(key, item) {
+      options = "<tr><td><small>"+ item.enfermero[0].name+"<br>"+item.enfermero[0].lastname+ "</small></td>"
+                   for (var i = 0; i < item.meses.length; i++) {
+                        options += "<td onclick='prueba()' style='cursor: pointer'>"+item.meses[i].rol[0].nomenclatura+"</td>"
+                   }
+               "</tr>";
+      $("#rolanualServicios > tbody").append(options);
+
+    });
+    $('#rolanualServicios').DataTable({
+
+      language: {
+        "decimal": "",
+        "emptyTable": "No hay información",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ Entradas",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+          "first": "Primero",
+          "last": "Ultimo",
+          "next": "Siguiente",
+          "previous": "Anterior"
+        }
+      },
+
+      dom: 'Bfrtip',
+      buttons: [
+        'copyHtml5',
+        'excelHtml5',
+        'csvHtml5',
+        'pdfHtml5'
+      ],
+      "columns": [
+        { "data": "name" },
+        { "data": "lastname" },
+        { "data": "nomenclatura" },
+        { "data": "mes" }
+      ],
+
+      fixedHeader:   {
+        header: true,
+        footer: true
+      }
+    });
+  })
+  .fail(function(error) {
+    console.log( error);
+  });
+});
