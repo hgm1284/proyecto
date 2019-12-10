@@ -458,17 +458,17 @@ $("#btnFiltrarRolAnual").click(function() {
   var servicio = $("#id_servicio").val();
   var perfil =   $("#id_profile").val();
   var anno    =   $("#id_anno").val();
+  var meses = ['Enero', 'Febrero','Marzo', 'Abril','Mayo', 'Junio','Julio', 'Agosto','Septiembre', 'Octubre','Noviembre', 'Diciembre', ];
   //reporte/vacaciones/especialidad/{especialidad}/perido/{periodo}
   $.getJSON("/rol/servicios/servicio/"+servicio+"/profile/"+perfil+"/anno/"+anno)
   .done(function(response) {
-
     $.each(response, function(key, item) {
-
-      //Ingresa por cada item que contenga el array response.data
-      //key = posicion del array 0 , 1 ,2 ...
-      // item es lo que trae el cada item del array por ejemplo > "name": " CESAR LUIS" , "id": 522, ....
-      options = "<tr>  <td>"+ item.name+item.lastname+ "</td>" +"<td>"+item.lastname+"</td> <td>"+item.nomenclatura+"</td> <td>"+item.mes+"</td><td> </tr>";
-      $("#reportePerfiles > tbody").append(options);
+      options = "<tr><td><small>"+ item.enfermero[0].name+"<br>"+item.enfermero[0].lastname+ "</small></td>"
+                   for (var i = 0; i < item.meses.length; i++) {
+                        options += "<td onclick='prueba()' style='cursor: pointer'>"+item.meses[i].rol[0].nomenclatura+"</td>"
+                   }
+               "</tr>";
+      $("#rolanualServicios > tbody").append(options);
 
     });
     $('#rolanualServicios').DataTable({
@@ -513,7 +513,6 @@ $("#btnFiltrarRolAnual").click(function() {
         footer: true
       }
     });
-
   })
   .fail(function(error) {
     console.log( error);

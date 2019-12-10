@@ -11,6 +11,11 @@
       </ol>
 </section>
 <br>
+<style>
+.sortable tr {
+  cursor: hand;
+}
+</style>
 <div class="row">
 <div class="col-md-12">
   <div class="box box-primary" style="text-align:center">
@@ -88,23 +93,14 @@
                 <div class="box-header-success">
                   <label for="exampleInputPassword3">Tabla Rol Anual</label>
                 </div>
-                <table lass="display" style="width:100%" id="rolanualServicios">
-                  <thead class="thead-dark">
+
+                <table class="display compact nowrap" id="rolanualServicios" style="width:100%">
+                  <thead>
                     <tr>
                         <th>Enfermero</th>
                       @foreach ($meses as $messanno)
                         <th scope="col">{{$messanno['mes']}}</th>
                       @endforeach
-                    </tr>
-                    <tr>
-
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-
                     </tr>
                   </thead>
                   <tbody>
@@ -127,5 +123,10 @@ window.setTimeout(function() {
       $(this).remove();
   });
 }, 3500);
+</script>
+<script type="text/javascript">
+  function prueba(){
+    alert("Entro");
+  }
 </script>
 @endsection

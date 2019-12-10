@@ -15,14 +15,11 @@ class CreateRolAnualTable extends Migration
     {
         Schema::create('roles_anual', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('id_enfermera')->unsigned();
-            $table->foreign('id_enfermera')->references('id')->on('enfermeras');
-            $table->bigInteger('id_servicio')->unsigned();
-            $table->foreign('id_servicio')->references('id')->on('servicios');
             $table->bigInteger('id_rol')->unsigned();
             $table->foreign('id_rol')->references('id')->on('roles');
+            $table->bigInteger('id_rolanual')->unsigned();
+            $table->foreign('id_rolanual')->references('id')->on('rolesanualenfermeras');
             $table->String('mes');
-            $table->year('anno');
             $table->timestamps();
         });
     }
