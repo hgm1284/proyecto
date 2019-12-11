@@ -21,6 +21,4 @@ class RolAnualEnfermeras extends Model
     return $this->hasMany('App\Enfermera','id','id_enfermera');
   }
 
-
-
 }

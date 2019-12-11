@@ -16,6 +16,15 @@ use Illuminate\Support\Facades\Validator;
 class RolAnualEnfermerasController extends Controller
 {
     /**
+      * Create a new controller instance.
+      *
+      * @return void
+      */
+      public function __construct()
+      {
+      }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -234,7 +243,6 @@ class RolAnualEnfermerasController extends Controller
         //
     }
 
-
     public function rolservicio($servicio, $anno){
       return  $rolanual = DB::table('rolesanualenfermeras')->select('roles_anual.id_enfermera', 'roles_anual.id_servicio', 'roles_anual.id_rol')
       ->where([
@@ -257,11 +265,13 @@ class RolAnualEnfermerasController extends Controller
           ['mes' => 'Noviembre','id'=>'11'],
           ['mes' => 'Diciembre','id'=>'12'],
         ];
+
       $enfermeras = Enfermera::all();
       $profiles = Profile::all();
       $servicios = Servicio::all();
       return view('rol_anual.ver_rolanual', compact('enfermeras','profiles','servicios','meses'));
     }
+
     public function distribucionAnual($servicio, $profile, $anno){
         return RolAnualEnfermeras::with(['meses.rol'])->
                                    with(['enfermero'])->
@@ -269,5 +279,31 @@ class RolAnualEnfermerasController extends Controller
                                                     ->where('id_profile','=',$profile)
                                                     ->where('anno','=',$anno)->get();
       }
+      public function mostrarrolanualenfermera(){
+        $meses = [
+            ['mes' => 'Enero','id'=>'1'],
+            ['mes' => 'Febrero','id'=>'2'],
+            ['mes' => 'Marzo','id'=>'3'],
+            ['mes' => 'Abril','id'=>'4'],
+            ['mes' => 'Mayo','id'=>'5'],
+            ['mes' => 'Junio','id'=>'6'],
+            ['mes' => 'Julio','id'=>'7'],
+            ['mes' => 'Agosto','id'=>'8'],
+            ['mes' => 'Septiembre','id'=>'9'],
+            ['mes' => 'Octubre','id'=>'10'],
+            ['mes' => 'Noviembre','id'=>'11'],
+            ['mes' => 'Diciembre','id'=>'12'],
+          ];
+
+        $enfermeras = Enfermera::all();
+        return view('rol_anual.ver_rolanual_enfermera', compact('enfermeras','meses'));
+      }
+
+      public function distribucionAnualEnfermera($enfermera, $anno){
+          return RolAnualEnfermeras::with(['meses.rol'])->
+                                     with(['enfermero'])->
+                                                          where('id_enfermera','=',$enfermera)
+                                                        ->where('anno','=',$anno)->get();
+        }
 
 }

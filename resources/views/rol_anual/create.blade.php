@@ -117,9 +117,9 @@
                       @foreach ($meses as $messanno)
                       <td>
                         <select class="form-control selectpicker" id="mes" name="mes{{$messanno['id']}}" required>
-                              <option value="10081"><?php echo "I"; ?></option>
-                              <option value="10083"><?php echo "II"; ?></option>
-                              <option value="10085"><?php echo "III"; ?></option>
+                              <option value="1"><?php echo "I"; ?></option>
+                              <option value="2"><?php echo "II"; ?></option>
+                              <option value="3"><?php echo "III"; ?></option>
                         </select>
                       </td>
                       @endforeach

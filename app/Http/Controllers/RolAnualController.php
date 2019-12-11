@@ -12,7 +12,6 @@ use Illuminate\Http\Request;
 
 class RolAnualController extends Controller
 {
-
       /**
      * Create a new controller instance.
      *
@@ -20,7 +19,7 @@ class RolAnualController extends Controller
      */
     public function __construct()
     {
-      //  $this->middleware('auth');
+      $this->middleware('auth');
     }
 
     /**
@@ -119,9 +118,5 @@ class RolAnualController extends Controller
     {
         //
     }
-
-
-
-
 
 }

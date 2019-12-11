@@ -83,6 +83,9 @@ Route::get('vacaciones/days/{id}','VacacionesController@index2');
 Route::get('rol/servicios', ['as' => 'rol.servicios', 'uses' => 'RolAnualEnfermerasController@mostrardistribucionAnual']);
 Route::get('rol/servicios/servicio/{servicio}/profile/{profile}/anno/{anno}', 'RolAnualEnfermerasController@distribucionAnual');
 
+Route::get('rol/enfermeras', ['as' => 'rol.enfermeras', 'uses' => 'RolAnualEnfermerasController@mostrarrolanualenfermera']);
+Route::get('rol/enfermeras/enfermera/{enfermera}/anno/{anno}', 'RolAnualEnfermerasController@distribucionAnualEnfermera');
+
 Route::get('reporte/vacaciones', ['as' => 'reporte.mostrarreportevacaciones', 'uses' => 'VacacionesController@mostrarreportevacaciones']);
 Route::get('reporte/vacaciones/especialidad/{especialidad}/periodo/{periodo}', 'VacacionesController@reporteVacaciones');
 

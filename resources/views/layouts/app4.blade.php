@@ -24,9 +24,6 @@
   <link href='/fullcalendar/daygrid/main.css' rel='stylesheet' />
   <script src='/fullcalendar/core/main.js'></script>
   <script src='/fullcalendar/daygrid/main.js'></script>
-  <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
-
-<script type="text/javascript" src="DataTables/datatables.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css"/>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-flash-1.6.1/b-html5-1.6.1/b-print-1.6.1/datatables.min.css"/>
@@ -209,7 +206,7 @@
             <li><a href="/rol_anual/create"><i class="fa fa-plus" aria-hidden="true"></i>Crear Rol Anual</a></li>
             <li><a href=""><i class="fa fa-plus" aria-hidden="true"></i>Asignar Nuevo Rol</a></li>
             <li><a href="/rol/servicios"><i class="fa fa-calendar-o" aria-hidden="true"></i>Ver Rol Anual-Servicio</a></li>
-            <li><a href=""><i class="fa fa-list" aria-hidden="true"></i>Roles por Enfermero</a></li>
+            <li><a href="/rol/enfermeras"><i class="fa fa-list" aria-hidden="true"></i>Roles por Enfermero</a></li>
             <li><a href="/cambios"><i class="fa fa-list" aria-hidden="true"></i>Boleta de Cambios</a></li>
             <li><a href="/cambios/create"><i class="fa fa-list" aria-hidden="true"></i>Crear Cambios</a></li>
           </ul>
