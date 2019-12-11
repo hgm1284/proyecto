@@ -115,6 +115,40 @@
     </div>
 </div>
 </div>
+
+<!-- MODAL -->
+<style>
+  .link { color: #FFFFFF; } /* CSS link color (red) */
+</style>
+<div class="modal modal-danger fade in" id="modal-default" style="display: none;">
+<div class="modal-dialog">
+  <form action="" id="updateForm" method="post">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">×</span></button>
+      <h4 class="modal-title">Editar Rol</h4>
+    </div>
+    <div class="modal-body">
+      {{ csrf_field() }}
+      {{ method_field('post') }}
+      <p>¿Realmente desea editar el rol a este enfermera(o)?</p>
+      <select class="form-control selectpicker" id="id_rolanual" name="id_rolanual" required>
+            <option value="10081"><?php echo "I"; ?></option>
+            <option value="10083"><?php echo "II"; ?></option>
+            <option value="10085"><?php echo "III"; ?></option>
+      </select>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
+      <button type="button" class="btn btn-outline" onclick="formSubmit()">Aceptar</button>
+    </div>
+  </div>
+  <!-- /.modal-content -->
+</div>
+<!-- /.modal-dialog -->
+</div>
+</div>
+
 @endsection
 @section('scripts')
 <script type="text/javascript">
@@ -124,9 +158,15 @@ window.setTimeout(function() {
   });
 }, 3500);
 </script>
+
 <script type="text/javascript">
-  function prueba(){
-    alert("Entro");
-  }
+    function updateData(id) {
+      var id = id;
+      var url = ' {{ route("rol_anual.update", ":id") }}';
+      url = url.replace(':id', id);
+      $("#updateForm").attr('action', url); }
+    function formSubmit() {
+      $("#updateForm").submit();
+    }
 </script>
 @endsection

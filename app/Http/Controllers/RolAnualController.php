@@ -106,7 +106,18 @@ class RolAnualController extends Controller
      */
     public function update(Request $request, RolAnual $rolAnual)
     {
-        //
+      {
+       $validatedData = $request->validate([
+           'id' => 'required',
+           'id_rol' => 'required',
+       ]);
+
+       $profile = Profile::find($id);
+       $profile->nombre = $request->nombre;
+       $profile->descripcion = $request->descripcion;
+       $profile->save();
+       return redirect()->route('profiles.index');
+       }
     }
 
     /**

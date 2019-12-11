@@ -102,7 +102,6 @@ class ProfilesController extends Controller
           $profile->descripcion = $request->descripcion;
           $profile->save();
           return redirect()->route('profiles.index');
-
           }
     }
 
