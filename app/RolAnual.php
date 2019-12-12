@@ -15,4 +15,5 @@ class RolAnual extends Model
   {
     return $this->hasMany('App\Role','id','id_rol');
   }
+  
 }

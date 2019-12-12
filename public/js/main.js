@@ -5,14 +5,10 @@ function updateData(id) {
 
  }
 
-
 function formSubmit() {
   $("#updateForm").submit();
 }
 $(document).ready( function () {
-
-
-
 
   $('#tablaVacaciones').DataTable({
     language: {

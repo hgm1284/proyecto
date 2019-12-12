@@ -9,7 +9,6 @@ use App\Http\Requests\RoleRequest;
 use App\Http\Requests;
 use Illuminate\Routing\Route;
 
-
 class RolesController extends Controller
 {
       /**
@@ -21,7 +20,7 @@ class RolesController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
   /**
   * Display a listing of the resource.
   *
@@ -101,6 +100,7 @@ class RolesController extends Controller
       return redirect()->route('roles.index');
 
     }
+
   }
 
   /**
@@ -115,4 +115,5 @@ class RolesController extends Controller
     $role->delete();
     return redirect()->route('roles.index');
   }
+
 }

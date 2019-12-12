@@ -12,7 +12,6 @@ use Illuminate\Routing\Route;
 
 class UsuariosController extends Controller
 {
-
     /**
      * Create a new controller instance.
      *
@@ -30,11 +29,10 @@ class UsuariosController extends Controller
      */
     public function index(Request $request)
     {
-      $user = User::name($request->get('name'))->orderBy('id','ASC')->paginate(5);
+      $users = User::all();
       $privilegios = Privilegio::all();
-      return view('usuarios.index', compact('privilegios'))->with('users', $user);
+      return view('usuarios.index', compact('privilegios', 'users'));
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -165,12 +163,10 @@ class UsuariosController extends Controller
      public function updatePass(Request $request, $id)
      {
 
-
        $user = User::find($id);
        $user->password = bcrypt($request->password);
        $user->save();
        return redirect()->route('perfil');
-
 
      }
 

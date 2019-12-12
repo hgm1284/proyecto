@@ -21,7 +21,7 @@ class ServiciosController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -29,8 +29,8 @@ class ServiciosController extends Controller
      */
     public function index(Request $request)
     {
-        $servicio = Servicio::name($request->get('name'))->orderBy('id','ASC')->paginate(5);
-        return view('servicios.index')->with('servicios', $servicio);
+        $servicios = Servicio::all();
+        return view('servicios.index', compact('servicios'));
     }
 
     /**

@@ -96,14 +96,12 @@
                       @endforeach
                     </tr>
                     <tr>
-
                       <td>
 
                       </td>
                       <td>
 
                       </td>
-
                     </tr>
                   </thead>
                   <tbody>
