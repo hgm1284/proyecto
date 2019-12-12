@@ -467,8 +467,7 @@ $("#btnFiltrarRolAnual").click(function() {
   var servicio = $("#id_servicio").val();
   var perfil =   $("#id_profile").val();
   var anno    =   $("#id_anno").val();
-  var meses = ['Enero', 'Febrero','Marzo', 'Abril','Mayo', 'Junio','Julio', 'Agosto','Septiembre', 'Octubre','Noviembre', 'Diciembre', ];
-  //reporte/vacaciones/especialidad/{especialidad}/perido/{periodo}
+
   $.getJSON("/rol/servicios/servicio/"+servicio+"/profile/"+perfil+"/anno/"+anno)
   .done(function(response) {
     $.each(response, function(key, item) {
