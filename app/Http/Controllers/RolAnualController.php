@@ -116,7 +116,6 @@ class RolAnualController extends Controller
        return redirect()->route('rol.servicios');
        }
     }
-
     /**
      * Remove the specified resource from storage.
      *
