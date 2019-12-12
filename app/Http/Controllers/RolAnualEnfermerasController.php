@@ -227,10 +227,19 @@ class RolAnualEnfermerasController extends Controller
      * @param  \App\RolAnualEnfermeras  $rolAnualEnfermeras
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, RolAnualEnfermeras $rolAnualEnfermeras)
-    {
-        //
-    }
+     public function update(Request $request, $id)
+     {
+       {
+        $validatedData = $request->validate([
+            'id_rolanual' => 'required',
+        ]);
+        dd($request);
+        $rol_anual = RolAnual::find($id);
+        $rol_anual->id_rol = $request->id_rolanual;
+        $rol_anual->save();
+        return redirect()->route('rol.servicios');
+        }
+     }
 
     /**
      * Remove the specified resource from storage.
