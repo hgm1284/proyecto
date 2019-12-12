@@ -76,7 +76,7 @@ Route::post('rol_anual/{id}/destroy', [
     'uses'=> 'RolAnualEnfermerasController@destroy',
     'as'  =>'rol_anual.destroy'
 ]);
-Route::put('rol_anual/update/{id}', [
+Route::post('rol_anual/update/{id}', [
     'uses'=> 'RolAnualController@update',
     'as'  =>'rol_anual.update'
 ]);

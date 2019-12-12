@@ -107,12 +107,11 @@ class RolAnualController extends Controller
     {
       {
        $validatedData = $request->validate([
-           'id' => 'required',
-           'id_rol' => 'required',
+           'id_rolanual' => 'required',
        ]);
-       dd($request);
+
        $rol_anual = RolAnual::find($id);
-       $rol_anual->id_rol = $request->id_rol;
+       $rol_anual->id_rol = $request->id_rolanual;
        $rol_anual->save();
        return redirect()->route('rol.servicios');
        }
