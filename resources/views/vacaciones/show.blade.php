@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
     plugins: [ 'dayGrid' ],
     eventSources: [
 
-      // your event source
+      /// Evento para pintar los días de vacaciones en el calentario
       {
-        url: 'http://proyecto.test/vacaciones/days/'+user_id, // use the `url` property
+        url: 'http://still-gorge-79424.herokuapp.com/vacaciones/days/'+user_id, // use the `url` property
         color: 'yellow',    // an option!
         textColor: 'black'  // an option!
       }
