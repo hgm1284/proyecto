@@ -46,6 +46,7 @@ Route::post('profiles/{id}/destroy', [
   'uses'=> 'ProfilesController@destroy',
   'as'  =>'profiles.destroy'
 ]);
+Route::resource('/periodos','PeriodosController');
 Route::resource('/roles','RolesController');
 Route::post('roles/{id}/destroy', [
   'uses'=> 'RolesController@destroy',

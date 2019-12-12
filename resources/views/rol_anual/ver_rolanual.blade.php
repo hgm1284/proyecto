@@ -101,7 +101,6 @@
                       @foreach ($meses as $messanno)
                         <th scope="col">{{$messanno['mes']}}</th>
                       @endforeach
-                    </tr>
                   </thead>
                   <tbody>
                   </tbody>

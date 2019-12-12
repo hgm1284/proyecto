@@ -6,13 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Periodo extends Model
 {
-  /**
-  * The table associated with the model.
-  *
-  * @var string
-  */
-  protected $table = 'periodos';
-  
-  protected $fillable = ['periodo'];
+  protected $fillable = [
+      'periodo'
+  ];
+
+  /* Query Scope*/
+ public function scopeName($query, $periodo)
+ {
+    if (trim($name) != ""){
+      $query->where('periodo', 'LIKE' ,"%$periodo");
+    }
+
+ }
 
 }

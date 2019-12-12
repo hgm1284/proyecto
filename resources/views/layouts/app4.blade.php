@@ -206,8 +206,8 @@
             <li><a href=""><i class="fa fa-plus" aria-hidden="true"></i>Asignar Nuevo Rol</a></li>
             <li><a href="/rol/servicios"><i class="fa fa-calendar-o" aria-hidden="true"></i>Ver Rol Anual-Servicio</a></li>
             <li><a href="/rol/enfermeras"><i class="fa fa-list" aria-hidden="true"></i>Roles por Enfermero</a></li>
+            <li><a href="/cambios/create"><i class="fa fa-plus" aria-hidden="true"></i>Crear Cambios</a></li>
             <li><a href="/cambios"><i class="fa fa-list" aria-hidden="true"></i>Boleta de Cambios</a></li>
-            <li><a href="/cambios/create"><i class="fa fa-list" aria-hidden="true"></i>Crear Cambios</a></li>
           </ul>
         </li>
 
@@ -236,8 +236,23 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/reporte/vacaciones"><i class="fa fa-plus" aria-hidden="true"></i>Reporte Vacaciones</a></li>
+            <li><a href="/reporte/vacaciones"><i class="fa fa-list" aria-hidden="true"></i>Reporte Vacaciones</a></li>
             <li><a href="/reporte/perfiles"><i class="fa fa-list" aria-hidden="true"></i>Reporte Servicios & Perfiles</a></li>
+          </ul>
+        </li>
+
+        <!-- pestaña 9 -->
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-file-text" aria-hidden="true"></i>
+            <span>Administración</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/periodos/create"><i class="fa fa-plus" aria-hidden="true"></i>Crear Periodo</a></li>
+            <li><a href="/periodos"><i class="fa fa-list" aria-hidden="true"></i>Ver Periodos</a></li>
           </ul>
         </li>
 
@@ -259,8 +274,8 @@
             <li><a href=""><i class="fa fa-plus" aria-hidden="true"></i>Asignar Nuevo Rol</a></li>
             <li><a href="/rol/servicios"><i class="fa fa-calendar-o" aria-hidden="true"></i>Ver Rol Anual-Servicio</a></li>
             <li><a href="/rol/enfermeras"><i class="fa fa-list" aria-hidden="true"></i>Roles por Enfermero</a></li>
+            <li><a href="/cambios/create"><i class="fa fa-plus" aria-hidden="true"></i>Crear Cambios</a></li>
             <li><a href="/cambios"><i class="fa fa-list" aria-hidden="true"></i>Boleta de Cambios</a></li>
-            <li><a href="/cambios/create"><i class="fa fa-list" aria-hidden="true"></i>Crear Cambios</a></li>
           </ul>
         </li>
 
@@ -278,7 +293,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/reporte/vacaciones"><i class="fa fa-plus" aria-hidden="true"></i>Reporte Vacaciones</a></li>
+            <li><a href="/reporte/vacaciones"><i class="fa fa-list" aria-hidden="true"></i>Reporte Vacaciones</a></li>
             <li><a href="/reporte/perfiles"><i class="fa fa-list" aria-hidden="true"></i>Reporte Servicios & Perfiles</a></li>
           </ul>
         </li>
