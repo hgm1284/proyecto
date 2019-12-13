@@ -64,7 +64,7 @@ class UsuariosController extends Controller
         $user = new User($request->all());
         $user-> password = bcrypt($request->password);
         $user->save();
-        return redirect()->route('usuarios.index');
+        return redirect()->route('usuarios.index')->with('success','Usuario creado con Exito!');
     }
 
     /**
@@ -101,7 +101,7 @@ class UsuariosController extends Controller
      {
          $user = User::find($id);
          $user->delete();
-         return redirect()->route('usuarios.index')->with('warning','Usuario Eliminado con Exito!');;
+         return redirect()->route('usuarios.index')->with('error','Usuario Eliminado con Exito!');
      }
 
      /**
@@ -125,7 +125,7 @@ class UsuariosController extends Controller
          $user->email = $request->email;
          $user->id_rolusuario = $request->id_rolusuario;
          $user->save();
-         return redirect()->route('usuarios.index');
+         return redirect()->route('usuarios.index')->with('warning','Usuario actualizado con Exito!');
 
      }
      /**
@@ -147,7 +147,7 @@ class UsuariosController extends Controller
          $user->name = $request->name;
          $user->email = $request->email;
          $user->save();
-         return redirect()->route('perfil');
+         return redirect()->route('perfil')->with('warning','Usuario actualizado con Exito!');;
 
          }
      }
@@ -164,7 +164,7 @@ class UsuariosController extends Controller
        $user = User::find($id);
        $user->password = bcrypt($request->password);
        $user->save();
-       return redirect()->route('perfil');
+       return redirect()->route('perfil')->with('warning','Usuario actualizado con Exito!');;
 
      }
      public function resetpassword(Request $request, $id)

@@ -31,8 +31,8 @@
                        <td> {{ $servicio->descripcion }}</td>
                        <td>
                          <a href="{{ route('servicios.edit', $servicio->id  ) }}" title="Editar Servicio" class="btn btn-primary"> <i class="fa fa-pencil"></i> </a>
-                         <a href="javascript:;" class="btn btn-danger" title="Eliminar Servicio" data-toggle="modal" onclick="deleteData({{$servicio->id}})"
-                           data-target="#DeleteModal"><i class="fa fa-trash"></i> </a>
+                         <a href="javascript:;" class="btn btn-danger" title="Eliminar Servicio" data-toggle="modal" onclick="deleteDataServicios({{$servicio->id}})"
+                           data-target="#deleteDataServicios"><i class="fa fa-trash"></i> </a>
                        </td>
                      </tr>
                       @endforeach
@@ -43,7 +43,7 @@
                 <style>
                   .link { color: #FFFFFF; } /* CSS link color (red) */
                 </style>
-                <div class="modal modal-danger fade in" id="DeleteModal" style="display: none;">
+                <div class="modal modal-danger fade in" id="deleteDataServicios" style="display: none;">
                 <div class="modal-dialog">
                   <form action="" id="deleteForm" method="post">
                   <div class="modal-content">
@@ -71,17 +71,16 @@
 
 @endsection
 <script type="text/javascript">
-    function deleteData(id) {
-      var id = id;
-      var url = ' {{ route("servicios.destroy", ":id") }}';
-      url = url.replace(':id', id);
-      $("#deleteForm").attr('action', url); }
-    function formSubmit() {
-      $("#deleteForm").submit();
-    }
-</script>
-<script type="text/javascript">
 $(function() {
   $('.selectpicker').selectpicker();
 });
 </script>
+@section('scripts')
+<script type="text/javascript">
+window.setTimeout(function() {
+  $(".alert").fadeTo(500, 0).slideUp(500, function(){
+      $(this).remove();
+  });
+}, 3500);
+</script>
+@endsection
