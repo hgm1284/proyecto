@@ -2,12 +2,21 @@
 function updateData(id) {
   var url = '/rol_anual/update/'+id;
   $("#updateForm").attr('action', url);
-
  }
 
 function formSubmit() {
   $("#updateForm").submit();
 }
+
+function deleteDataU(id) {
+  var url = '/usuarios/destroy/'+id;
+  $("#deleteForm").attr('action', url);
+ }
+
+ function formSubmit() {
+   $("#deleteForm").submit();
+ }
+
 $(document).ready( function () {
 
   $('#tablaVacaciones').DataTable({

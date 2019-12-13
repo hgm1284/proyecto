@@ -122,7 +122,6 @@
 <div class="modal fade fade in" id="modal-default" style="display: none;">
 <div class="modal-dialog">
   <form action="" id="updateForm" method="post">
-
     @csrf
   <div class="modal-content">
     <div class="modal-header">

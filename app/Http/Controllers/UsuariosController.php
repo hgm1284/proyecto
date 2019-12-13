@@ -100,7 +100,7 @@ class UsuariosController extends Controller
      {
          $user = User::find($id);
          $user->delete();
-         return redirect()->route('usuarios.index');
+         return redirect()->route('usuarios.index')->with('warning','Usuario Eliminado con Exito!');;
      }
 
      /**
