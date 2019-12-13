@@ -190,7 +190,7 @@ $(document).ready( function () {
   $(function(){
     $('#enfermera').on('change', selectEnfermera);
 
-  } );
+  });
 });
 
 //Selecciona al enfermero y carga su fecha de ingreso
@@ -323,7 +323,6 @@ $( document ).ready(function() {
     format: 'dd-mm-yyyy'
   });
   cargarSolicitudes();
-
 })
 
 $("#btnFiltrarVacaciones").click(function() {
@@ -358,7 +357,6 @@ $("#btnFiltrarVacaciones").click(function() {
 
         });
       });
-
     });
 
     $('#reportevacaciones').DataTable({
@@ -408,7 +406,6 @@ $("#btnFiltrarVacaciones").click(function() {
   .fail(function(error) {
     console.log( error);
   });
-
 });
 
 $("#btnFiltrarPerfiles").click(function() {
@@ -428,6 +425,7 @@ $("#btnFiltrarPerfiles").click(function() {
       $("#reportePerfiles > tbody").append(options);
 
     });
+
     $('#reportePerfiles').DataTable({
 
       language: {
@@ -495,6 +493,7 @@ $("#btnFiltrarRolAnual").click(function() {
       $("#rolanualServicios > tbody").append(options);
 
     });
+
     $('#rolanualServicios').DataTable({
 
       language: {
@@ -537,6 +536,7 @@ $("#btnFiltrarRolAnual").click(function() {
         footer: true
       }
     });
+
   })
   .fail(function(error) {
     console.log( error);
@@ -561,6 +561,7 @@ $("#btnFiltrarRolAnualEnfermera").click(function() {
       $("#RolAnualEnfermeras > tbody").append(options);
 
     });
+
     $('#RolAnualEnfermeras').DataTable({
 
       language: {
@@ -603,6 +604,7 @@ $("#btnFiltrarRolAnualEnfermera").click(function() {
         footer: true
       }
     });
+
   })
   .fail(function(error) {
     console.log( error);
