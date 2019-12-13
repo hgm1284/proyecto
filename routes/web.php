@@ -33,10 +33,6 @@ Route::POST('usuarios/updatePass/{id}', [
   'as'  =>'usuarios.updatePass'
 ]);
 Route::resource('/usuarios','UsuariosController');
-Route::post('rol_anual/update/{id}', [
-    'uses'=> 'RolAnualController@update',
-    'as'  =>'rol_anual.update'
-]);
 
 Route::post('usuarios/destroy/{id}', [
   'uses'=> 'UsuariosController@destroy',
