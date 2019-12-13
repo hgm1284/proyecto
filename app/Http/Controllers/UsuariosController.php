@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UsuarioRequest;
 use App\Http\Requests;
 use Illuminate\Routing\Route;
+use Redirect;
 
 class UsuariosController extends Controller
 {
@@ -63,7 +64,7 @@ class UsuariosController extends Controller
         $user = new User($request->all());
         $user-> password = bcrypt($request->password);
         $user->save();
-        return redirect()->route('usuarios.index');
+        return redirect()->route('usuarios.index')->with('success','Usuario creado con Exito!');
     }
 
     /**
@@ -100,7 +101,7 @@ class UsuariosController extends Controller
      {
          $user = User::find($id);
          $user->delete();
-         return redirect()->route('usuarios.index');
+         return redirect()->route('usuarios.index')->with('error','Usuario Eliminado con Exito!');
      }
 
      /**
@@ -112,23 +113,20 @@ class UsuariosController extends Controller
       */
      public function update(Request $request, $id)
      {
-         {
+
          $validatedData = $request->validate([
              'name' => 'required',
              'email' => 'required',
-             'password' => 'required|confirmed|min:6',
-             'id_rolusuario' => 'required',
+             'id_rolusuario' => 'required'
          ]);
 
          $user = User::find($id);
          $user->name = $request->name;
          $user->email = $request->email;
          $user->id_rolusuario = $request->id_rolusuario;
-         $user->password = bcrypt($request->password);
          $user->save();
-         return redirect()->route('usuarios.index');
+         return redirect()->route('usuarios.index')->with('warning','Usuario actualizado con Exito!');
 
-         }
      }
      /**
       * Update the specified resource in storage.
@@ -149,7 +147,7 @@ class UsuariosController extends Controller
          $user->name = $request->name;
          $user->email = $request->email;
          $user->save();
-         return redirect()->route('perfil');
+         return redirect()->route('perfil')->with('warning','Usuario actualizado con Exito!');;
 
          }
      }
@@ -166,7 +164,17 @@ class UsuariosController extends Controller
        $user = User::find($id);
        $user->password = bcrypt($request->password);
        $user->save();
-       return redirect()->route('perfil');
+       return redirect()->route('perfil')->with('warning','Usuario actualizado con Exito!');;
+
+     }
+     public function resetpassword(Request $request, $id)
+     {
+
+       $user = User::find($id);
+       $user->password = bcrypt('12345679');
+       $user->save();
+       return Redirect::back();
+
 
      }
 

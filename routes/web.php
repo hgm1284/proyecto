@@ -11,6 +11,11 @@
 |
 */
 
+Route::get('usuarios/resetpassword/{id}', [
+  'uses'=> 'UsuariosController@resetpassword',
+  'as'  =>'usuarios.resetpassword'
+]);
+
 Route::get('/', function () {
   return view('auth/login');
 });
@@ -33,13 +38,13 @@ Route::POST('usuarios/updatePass/{id}', [
   'as'  =>'usuarios.updatePass'
 ]);
 Route::resource('/usuarios','UsuariosController');
-Route::post('usuarios/{id}/destroy', [
+Route::post('usuarios/destroy/{id}', [
   'uses'=> 'UsuariosController@destroy',
   'as'  =>'usuarios.destroy'
 ]);
 
 Route::resource('/servicios','ServiciosController');
-Route::post('servicios/{id}/destroy', [
+Route::post('servicios/destroy/{id}', [
   'uses'=> 'ServiciosController@destroy',
   'as'  =>'servicios.destroy'
 ]);
