@@ -162,8 +162,8 @@ class RolAnualEnfermerasController extends Controller
 
 
         return redirect()->route('rol_anual.create')
-         ->with('success','Rol anual asignado con exito!');
-       }else if ($rolanual =! null){
+         ->with('success','Rol anual asignado con exito.');
+         }else if ($rolanual =! null){
          //enfermera
          $enfermeras = DB::table('enfermeras')
          ->select('enfermeras.name', 'enfermeras.lastname')
@@ -174,8 +174,8 @@ class RolAnualEnfermerasController extends Controller
          ->select('servicios.nombre')
          ->where('servicios.id', '=', $request->id_servicio)
          ->first();
-          return redirect()->route('rol_anual.create')
-           ->with('warning','Enfermera(o) '.$enfermeras->name.' '.$enfermeras->lastname.' ya se encuentra
+         return redirect()->route('rol_anual.create')
+         ->with('warning','Enfermera(o) '.$enfermeras->name.' '.$enfermeras->lastname.' ya se encuentra
             en el rol anual en el servicio de '.$servicio->nombre.'');
        }
   }

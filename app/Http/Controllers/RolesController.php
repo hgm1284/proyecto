@@ -11,15 +11,15 @@ use Illuminate\Routing\Route;
 
 class RolesController extends Controller
 {
-      /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+  /**
+  * Create a new controller instance.
+  *
+  * @return void
+  */
+  public function __construct()
+  {
+    $this->middleware('auth');
+  }
 
   /**
   * Display a listing of the resource.
@@ -28,8 +28,8 @@ class RolesController extends Controller
   */
   public function index(Request $request)
   {
-    $role = Role::name($request->get('name'))->orderBy('id','ASC')->paginate(5);
-    return view('roles.index')->with('roles', $role);
+    $roles = Role::all();
+    return view('roles.index', compact('roles'));
   }
 
   /**
@@ -52,7 +52,7 @@ class RolesController extends Controller
   {
     $role = new Role($request->all());
     $role->save();
-    return redirect()->route('roles.index');
+    return redirect()->route('roles.index')->with('success','Rol creado con éxito.');
   }
 
   /**
@@ -92,15 +92,12 @@ class RolesController extends Controller
         'nomenclatura' => 'required',
         'detalle' => 'required',
       ]);
-
       $role = Role::find($id);
       $role->nomenclatura = $request->nomenclatura;
       $role->detalle = $request->detalle;
       $role->save();
-      return redirect()->route('roles.index');
-
+      return redirect()->route('roles.index')->with('error','Rol actualizado con éxito.');
     }
-
   }
 
   /**
@@ -113,7 +110,6 @@ class RolesController extends Controller
   {
     $role = Role::find($id);
     $role->delete();
-    return redirect()->route('roles.index');
+    return redirect()->route('roles.index')->with('error','Rol eliminado con éxito.');
   }
-
 }

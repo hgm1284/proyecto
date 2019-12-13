@@ -1,13 +1,15 @@
 @extends('layouts.app4')
+
 @section('content')
+
 <section class="content-header" id="contentheader">
       <h1>
-        Módulo de Distribucion Anual del Personal
+        Ver Distribución Anual por Enfermera(o)
       </h1>
       <ol class="breadcrumb">
         <li><a href="/home"><i class="fa fa-home"></i>Inicio</a></li>
         <i class="fa fa-arrow-right" aria-hidden="true"></i>
-        <li>Dist. Anual</li>
+        <li>Ver Distribución Anual por Enfermera(o)</li>
       </ol>
 </section>
 <br>
@@ -21,7 +23,7 @@
   <div class="box box-primary" style="text-align:center">
             <div class="box-header with-border">
               <div class="row">
-                  <div class="col-md-10"><h3 class="box-title">Buscar Distribución Anual</h3></div>
+                  <div class="col-md-10"><h3 class="box-title">Buscar Distribución Anual por Enfermera(o)</h3></div>
               </div>
             </div>
             <br>

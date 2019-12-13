@@ -1,5 +1,5 @@
 // A $( document ).ready() block.
-//Funcion para actualizar rol anual desde el modal
+//Funcion para actualizar rol anual desde el modal.
 function updateData(id) {
   var url = '/rol_anual/update/'+id;
   $("#updateForm").attr('action', url);
@@ -7,7 +7,7 @@ function updateData(id) {
 function formSubmit() {
   $("#updateForm").submit();
 }
-//Funcion para eliminar usuarios desde el modal
+//Funcion para eliminar usuarios desde el modal.
 function deleteDataU(id) {
   var url = '/usuarios/destroy/'+id;
   $("#deleteForm").attr('action', url);
@@ -15,7 +15,7 @@ function deleteDataU(id) {
  function formSubmit() {
    $("#deleteForm").submit();
  }
-//Funcion para eliminar servicios desde el modal
+//Funcion para eliminar servicios desde el modal.
 function deleteDataServicios(id) {
   var url = '/servicios/destroy/'+id;
   $("#deleteForm").attr('action', url);
@@ -496,9 +496,6 @@ $("#btnFiltrarRolAnual").click(function() {
 
     });
     $('#rolanualServicios').DataTable({
-
-      retrieve: true,
-      paging: false
 
       language: {
         "decimal": "",

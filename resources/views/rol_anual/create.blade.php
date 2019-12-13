@@ -3,12 +3,12 @@
 
 <section class="content-header" id="contentheader">
       <h1>
-        Módulo de Distribucion Anual del Personal
+        Módulo Distribución Rol Anual del Enfermera(o)
       </h1>
       <ol class="breadcrumb">
         <li><a href="/home"><i class="fa fa-home"></i>Inicio</a></li>
         <i class="fa fa-arrow-right" aria-hidden="true"></i>
-        <li>Dist. Anual</li>
+        <li>Distribución Rol Anual del Enfermera(o)</li>
       </ol>
 </section>
 <br>
@@ -18,9 +18,9 @@
         <form method="POST" action="{{ route('rol_anual.store') }}">
             <div class="box-header with-border">
               <div class="row">
-                  <div class="col-md-10"><h3 class="box-title">Asignacion Anual</h3></div>
+                  <div class="col-md-10"><h3 class="box-title">Asignación Rol Anual</h3></div>
                   <div class="col-md-2">
-                    <button type="submit" aling="left" class="btn btn-block btn-warning">Asignar al Rol</button>
+                    <button type="submit" aling="left" class="btn btn-block btn-warning">Crear Rol</button>
                   </div>
               </div>
             </div>
@@ -35,7 +35,7 @@
               </div>
               <div class="box-body">
                 <select class="form-control selectpicker" id="id_servicio" name="id_servicio" data-live-search="true" required>
-                    <option disabled selected value>Servicio</option>
+                    <option disabled selected value>Seleccione Servicio</option>
                     @foreach ($servicios as $servicio)
                       <option value="{{$servicio['id']}}" data-tokens="{{$servicio['nombre']}}">{{$servicio['nombre']}}</option>
                     @endforeach
@@ -66,11 +66,11 @@
             <div class="col-md-6">
               <div class="box box-primary" style="text-align:center">
                 <div class="box-header-success">
-                  <label for="exampleInputPassword3">Perfil de Enfermera(o)</label>
+                  <label for="exampleInputPassword3">Perfil Asignado</label>
                 </div>
             <div class="box-body">
               <select id="id_profile"  name="id_profile" class="form-control selectpicker" data-live-search="true" required>
-                <option value="">Seleccione Perfil de Enfermero</option>
+                <option value="">Seleccione Perfil</option>
                 @foreach ($profiles as $profile)
                   <option value="{{$profile['id']}}">{{$profile['nombre']}}</option>
                 @endforeach
