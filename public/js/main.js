@@ -497,6 +497,9 @@ $("#btnFiltrarRolAnual").click(function() {
     });
     $('#rolanualServicios').DataTable({
 
+      retrieve: true,
+      paging: false
+
       language: {
         "decimal": "",
         "emptyTable": "No hay información",

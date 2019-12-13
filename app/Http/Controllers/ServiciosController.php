@@ -53,7 +53,7 @@ class ServiciosController extends Controller
     {
       $servicio = new Servicio($request->all());
       $servicio->save();
-      return redirect()->route('servicios.index')->with('success','Servicio creado con Exito!');
+      return redirect()->route('servicios.index')->with('success','Servicio creado con éxito.');
     }
 
     /**
@@ -98,7 +98,7 @@ class ServiciosController extends Controller
             $servicio->nombre = $request->nombre;
             $servicio->descripcion = $request->descripcion;
             $servicio->save();
-            return redirect()->route('servicios.index')->with('warning','El servicios se actualizo correctamatene!');
+            return redirect()->route('servicios.index')->with('warning','Servicio actualizado con éxito.');
         }
     }
 
@@ -113,11 +113,10 @@ class ServiciosController extends Controller
       try {
         $servicio = Servicio::find($id);
         $servicio->delete();
-        return redirect()->route('servicios.index')->with('error','Servicios eliminado con Exito!');
+        return redirect()->route('servicios.index')->with('error','Servicio eliminado con éxito.');
       } catch (\Exception $e) {
-        return redirect()->route('servicios.index')->with('error','El servicios no puede ser eliminado!');
+        return redirect()->route('servicios.index')->with('error','Servicio no puede ser eliminado.');
       }
-
 
     }
 }

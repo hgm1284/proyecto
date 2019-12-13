@@ -64,7 +64,7 @@ class UsuariosController extends Controller
         $user = new User($request->all());
         $user-> password = bcrypt($request->password);
         $user->save();
-        return redirect()->route('usuarios.index')->with('success','Usuario creado con Exito!');
+        return redirect()->route('usuarios.index')->with('success','Usuario creado con éxito.');
     }
 
     /**
@@ -101,7 +101,7 @@ class UsuariosController extends Controller
      {
          $user = User::find($id);
          $user->delete();
-         return redirect()->route('usuarios.index')->with('error','Usuario Eliminado con Exito!');
+         return redirect()->route('usuarios.index')->with('error','Usuario eliminado con éxito.');
      }
 
      /**
@@ -125,7 +125,7 @@ class UsuariosController extends Controller
          $user->email = $request->email;
          $user->id_rolusuario = $request->id_rolusuario;
          $user->save();
-         return redirect()->route('usuarios.index')->with('warning','Usuario actualizado con Exito!');
+         return redirect()->route('usuarios.index')->with('warning','Usuario actualizado con éxito');
 
      }
      /**
@@ -147,10 +147,10 @@ class UsuariosController extends Controller
          $user->name = $request->name;
          $user->email = $request->email;
          $user->save();
-         return redirect()->route('perfil')->with('warning','Usuario actualizado con Exito!');;
-
+         return redirect()->route('perfil')->with('warning','Usuario actualizado con éxito.');
          }
      }
+
      /**
       * Update the specified resource in storage.
       *
@@ -164,17 +164,17 @@ class UsuariosController extends Controller
        $user = User::find($id);
        $user->password = bcrypt($request->password);
        $user->save();
-       return redirect()->route('perfil')->with('warning','Usuario actualizado con Exito!');;
+       return redirect()->route('perfil')->with('warning','Contraseña actualizada con éxito.');
 
      }
+
      public function resetpassword(Request $request, $id)
      {
 
        $user = User::find($id);
-       $user->password = bcrypt('12345679');
+       $user->password = bcrypt('12345678');
        $user->save();
-       return Redirect::back();
-
+       return Redirect::back()->with('warning','Contraseña actualizada con éxito.');
 
      }
 

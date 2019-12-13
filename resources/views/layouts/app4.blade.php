@@ -25,9 +25,9 @@
   <script src='/fullcalendar/core/main.js'></script>
   <script src='/fullcalendar/daygrid/main.js'></script>
 
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css"/>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-flash-1.6.1/b-html5-1.6.1/b-print-1.6.1/datatables.min.css"/>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-flash-1.6.1/b-html5-1.6.1/b-print-1.6.1/datatables.min.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css"/>
 
 </head>
 <meta name="csrf-token" content="{{ csrf_token() }}" />
@@ -67,7 +67,10 @@
 
                 <li class="user-footer">
                   <div class="pull-left">
-                    <a href="/perfil" class="btn btn-default btn-flat">Perfil</a>
+                    <a href="/perfil" class="btn btn-default btn-flat">
+                      <i class="fa fa-id-badge" aria-hidden="true"></i>
+                      {{ __('Perfil') }}
+                    </a>
                   </div>
                   <div class="pull-right">
                     <a href="{{ route('logout') }}" class="btn btn-default btn-flat"
@@ -75,16 +78,14 @@
                     document.getElementById('logout-form').submit();">
                     <i class="fa fa-power-off" aria-hidden="true"></i>
                     {{ __('Cerrar Sesión') }}
-                    <p>
-                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                      </form>
-                      @if (session('status'))
-                      <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                      </div>
-                      @endif
-                    </p>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      @csrf
+                    </form>
+                    @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                      {{ session('status') }}
+                    </div>
+                    @endif
                   </a>
                 </div>
               </li>
@@ -205,7 +206,7 @@
             <li><a href="/rol_anual/create"><i class="fa fa-plus" aria-hidden="true"></i>Crear Rol Anual</a></li>
             <li><a href=""><i class="fa fa-plus" aria-hidden="true"></i>Asignar Nuevo Rol</a></li>
             <li><a href="/rol/servicios"><i class="fa fa-calendar-o" aria-hidden="true"></i>Ver Rol Anual-Servicio</a></li>
-            <li><a href="/rol/enfermeras"><i class="fa fa-list" aria-hidden="true"></i>Roles por Enfermero</a></li>
+            <li><a href="/rol/enfermeras"><i class="fa fa-list" aria-hidden="true"></i>Roles por Enfermera(o)</a></li>
             <li><a href="/cambios/create"><i class="fa fa-plus" aria-hidden="true"></i>Crear Cambios</a></li>
             <li><a href="/cambios"><i class="fa fa-list" aria-hidden="true"></i>Boleta de Cambios</a></li>
           </ul>
@@ -273,7 +274,7 @@
             <li><a href="/rol_anual/create"><i class="fa fa-plus" aria-hidden="true"></i>Crear Rol Anual</a></li>
             <li><a href=""><i class="fa fa-plus" aria-hidden="true"></i>Asignar Nuevo Rol</a></li>
             <li><a href="/rol/servicios"><i class="fa fa-calendar-o" aria-hidden="true"></i>Ver Rol Anual-Servicio</a></li>
-            <li><a href="/rol/enfermeras"><i class="fa fa-list" aria-hidden="true"></i>Roles por Enfermero</a></li>
+            <li><a href="/rol/enfermeras"><i class="fa fa-list" aria-hidden="true"></i>Roles por Enfermera(o)</a></li>
             <li><a href="/cambios/create"><i class="fa fa-plus" aria-hidden="true"></i>Crear Cambios</a></li>
             <li><a href="/cambios"><i class="fa fa-list" aria-hidden="true"></i>Boleta de Cambios</a></li>
           </ul>
@@ -324,7 +325,7 @@
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 1.0
+      <b>Version 1.0</b>
     </div>
     <strong>© <?php echo date("Y"); ?> Dirección de Enfermería | Hospital San Carlos.</strong>
   </footer>
