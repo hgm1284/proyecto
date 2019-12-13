@@ -51,6 +51,7 @@
                       </span>
                   @enderror
                 </div>
+<<<<<<< HEAD
                 <div class="form-group">
                   <label for="exampleInputPassword1">Contraseña</label>
                   <input id="password" value="{{(Crypt::decryptString($user->password))}}" type="text" placeholder="Contraseña"
@@ -66,6 +67,9 @@
                   <input id="password-confirm" value="{{ $user->password }}" placeholder="Confirmar Contraseña" type="password"
                   class="form-control" name="password_confirmation" required autocomplete="new-password">
                 </div>
+=======
+
+>>>>>>> 5ed2faafc2ee3ed156289678c123cfb81fa00c85
                 <div class="form-group">
                   <label for="exampleInputSelect">Tipo de Usuario</label>
                   <select id="privilegio"  name="id_rolusuario" class="form-control">

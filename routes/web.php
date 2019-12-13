@@ -11,6 +11,11 @@
 |
 */
 
+Route::get('usuarios/resetpassword/{id}', [
+  'uses'=> 'UsuariosController@resetpassword',
+  'as'  =>'usuarios.resetpassword'
+]);
+
 Route::get('/', function () {
   return view('auth/login');
 });
