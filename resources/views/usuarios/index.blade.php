@@ -36,7 +36,10 @@
                        <a href="{{ route('usuarios.edit', $user->id ) }}" title="Editar usuario" class="btn btn-primary"> <i class="fa fa-pencil"></i> </a>
                        <a href="javascript:;" class="btn btn-danger" title="Eliminar usuario" data-toggle="modal" onclick="deleteDataU({{$user->id}})"
                          data-target="#deleteDataU"><i class="fa fa-trash"></i> </a>
+
+                            <a href="{{ route('usuarios.resetpassword', $user->id ) }}" title="Reset password" class="btn btn-primary"> <i class="fa fa-wrench"></i> </a>
                      </td>
+
                      </tr>
                       @endforeach
                   </tbody>

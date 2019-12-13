@@ -51,21 +51,7 @@
                       </span>
                   @enderror
                 </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Contraseña</label>
-                  <input id="password" value="{{ $user->password }}" type="password" placeholder="Contraseña"
-                  class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-                  @error('password')
-                      <span style="color: #E33510" class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                      </span>
-                  @enderror
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword2">Confirmar Contraseña</label>
-                  <input id="password-confirm" value="{{ $user->password }}" placeholder="Confirmar Contraseña" type="password"
-                  class="form-control" name="password_confirmation" required autocomplete="new-password">
-                </div>
+
                 <div class="form-group">
                   <label for="exampleInputSelect">Tipo de Usuario</label>
                   <select id="privilegio"  name="id_rolusuario" class="form-control">

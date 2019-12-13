@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UsuarioRequest;
 use App\Http\Requests;
 use Illuminate\Routing\Route;
+use Redirect;
 
 class UsuariosController extends Controller
 {
@@ -112,23 +113,20 @@ class UsuariosController extends Controller
       */
      public function update(Request $request, $id)
      {
-         {
+
          $validatedData = $request->validate([
              'name' => 'required',
              'email' => 'required',
-             'password' => 'required|confirmed|min:6',
-             'id_rolusuario' => 'required',
+             'id_rolusuario' => 'required'
          ]);
 
          $user = User::find($id);
          $user->name = $request->name;
          $user->email = $request->email;
          $user->id_rolusuario = $request->id_rolusuario;
-         $user->password = bcrypt($request->password);
          $user->save();
          return redirect()->route('usuarios.index');
 
-         }
      }
      /**
       * Update the specified resource in storage.
@@ -167,6 +165,16 @@ class UsuariosController extends Controller
        $user->password = bcrypt($request->password);
        $user->save();
        return redirect()->route('perfil');
+
+     }
+     public function resetpassword(Request $request, $id)
+     {
+
+       $user = User::find($id);
+       $user->password = bcrypt('12345679');
+       $user->save();
+       return Redirect::back();
+
 
      }
 
