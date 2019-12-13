@@ -113,7 +113,7 @@ class RolAnualController extends Controller
        $rol_anual->id_rol = $request->id_rolanual;
        $rol_anual->save();
        return redirect()->route('rol.servicios')
-        ->with('error','Rol anual editado con exito.');
+        ->with('error','Rol anual actualizado con exito.');
        }
     }
     /**

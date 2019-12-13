@@ -4,7 +4,7 @@
 
 <section class="content-header" id="contentheader">
   <h1>
-    Módulo de Distribucion Anual del por Enfermera(o)
+    Módulo de Distribucion Anual por Enfermera(o)
   </h1>
   <ol class="breadcrumb">
     <li><a href="/home"><i class="fa fa-home"></i>Inicio</a></li>

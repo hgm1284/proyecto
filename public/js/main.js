@@ -3,7 +3,7 @@
 function updateData(id) {
   var url = '/rol_anual/update/'+id;
   $("#updateForm").attr('action', url);
- }
+}
 function formSubmit() {
   $("#updateForm").submit();
 }
@@ -11,18 +11,18 @@ function formSubmit() {
 function deleteDataU(id) {
   var url = '/usuarios/destroy/'+id;
   $("#deleteForm").attr('action', url);
- }
- function formSubmit() {
-   $("#deleteForm").submit();
- }
+}
+function formSubmit() {
+  $("#deleteForm").submit();
+}
 //Funcion para eliminar servicios desde el modal.
 function deleteDataServicios(id) {
   var url = '/servicios/destroy/'+id;
   $("#deleteForm").attr('action', url);
- }
- function formSubmit() {
-   $("#deleteForm").submit();
- }
+}
+function formSubmit() {
+  $("#deleteForm").submit();
+}
 
 $(document).ready( function () {
 
@@ -216,8 +216,10 @@ function cargarSolicitudes() {
     var periodo_id = $("#periodo").val();
     var user_id = $("#ds").val();
     if(periodo_id) {
+
       $.getJSON("/vacaciones/user/"+user_id+"/periodo/"+periodo_id)
       .done(function(response) {
+
         var options = '<option disabled selected value> -- Seleccione -- </option>';
         $.each(response, function(key, solictud) {
 
@@ -246,12 +248,11 @@ $("#buscar").click(function() {
         var  estado ='';
         if (item.deleted_at !=null) {
           estado = 'Eliminado'
-        }else {
+        } else {
           var ToDate = new Date();
-
           if (new Date(item.fecha).getTime() <= ToDate.getTime()) {
             estado = 'Tomadas';
-          }else {
+          } else {
             estado = 'Pendiente';
           }
         }
@@ -328,8 +329,8 @@ $( document ).ready(function() {
 $("#btnFiltrarVacaciones").click(function() {
   var servicio = $("#id_servicio").val();
   var periodo = $("#id_periodo").val();
-  //reporte/vacaciones/especialidad/{especialidad}/perido/{periodo}
 
+  //reporte/vacaciones/especialidad/{especialidad}/perido/{periodo}
   $.getJSON("/reporte/vacaciones/especialidad/"+servicio +"/periodo/"+periodo)
   .done(function(response) {
 
@@ -411,16 +412,11 @@ $("#btnFiltrarVacaciones").click(function() {
 $("#btnFiltrarPerfiles").click(function() {
   var servicio = $("#id_servicio").val();
   var perfil = $("#id_profile").val();
-  //reporte/vacaciones/especialidad/{especialidad}/perido/{periodo}
 
   $.getJSON("/reporte/perfiles/profile/"+perfil +"/servicio/"+servicio)
   .done(function(response) {
-
     $.each(response, function(key, item) {
 
-      //Ingresa por cada item que contenga el array response.data
-      //key = posicion del array 0 , 1 ,2 ...
-      // item es lo que trae el cada item del array por ejemplo > "name": " CESAR LUIS" , "id": 522, ....
       options = "<tr>  <td>"+ item.name+ "</td>" +"<td>"+item.lastname+"</td> <td>"+item.cedula+"</td><td> </tr>";
       $("#reportePerfiles > tbody").append(options);
 
@@ -476,7 +472,7 @@ $("#btnFiltrarPerfiles").click(function() {
 });
 
 //**********************************************
-//BUSCAR ROL ANUAL POR Servicios
+//BUSCAR ROL ANUAL POR SERVICIOS
 $("#btnFiltrarRolAnual").click(function() {
   var servicio = $("#id_servicio").val();
   var perfil =   $("#id_profile").val();
@@ -485,11 +481,12 @@ $("#btnFiltrarRolAnual").click(function() {
   $.getJSON("/rol/servicios/servicio/"+servicio+"/profile/"+perfil+"/anno/"+anno)
   .done(function(response) {
     $.each(response, function(key, item) {
+
       options = "<tr><td><small>"+ item.enfermero[0].name+"<br>"+item.enfermero[0].lastname+ "</small></td>"
-                   for (var i = 0; i < item.meses.length; i++) {
-                     options += "<td><a href='javascript:;' class='btn btn-block btn-default' title='Editar rol usuario' data-toggle='modal' onclick='updateData("+item.meses[i].id+")' data-target='#modal-default' style='cursor: hand'>"+item.meses[i].rol[0].nomenclatura+"</a></td>"
-                   }
-               "</tr>";
+      for (var i = 0; i < item.meses.length; i++) {
+        options += "<td><a href='javascript:;' class='btn btn-block btn-default' title='Editar rol usuario' data-toggle='modal' onclick='updateData("+item.meses[i].id+")' data-target='#modal-default' style='cursor: hand'>"+item.meses[i].rol[0].nomenclatura+"</a></td>"
+      }
+      "</tr>";
       $("#rolanualServicios > tbody").append(options);
 
     });
@@ -544,20 +541,21 @@ $("#btnFiltrarRolAnual").click(function() {
 });
 
 //**********************************************
-//BUSCAR ROL ANUAL POR Enfermera
+//BUSCAR ROL ANUAL POR ENFERMERA
 $("#btnFiltrarRolAnualEnfermera").click(function() {
   var enfermera = $("#id_enfermera").val();
   var anno    =   $("#id_anno").val();
   var meses = ['Enero', 'Febrero','Marzo', 'Abril','Mayo', 'Junio','Julio', 'Agosto','Septiembre', 'Octubre','Noviembre', 'Diciembre', ];
-  //reporte/vacaciones/especialidad/{especialidad}/perido/{periodo}
+
   $.getJSON("/rol/enfermeras/enfermera/"+enfermera+"/anno/"+anno)
   .done(function(response) {
+
     $.each(response, function(key, item) {
       options = "<tr><td><small>"+ item.enfermero[0].name+"<br>"+item.enfermero[0].lastname+ "</small></td>"
-                   for (var i = 0; i < item.meses.length; i++) {
-                        options += "<td onclick='prueba()' style='cursor: pointer'>"+item.meses[i].rol[0].nomenclatura+"</td>"
-                   }
-               "</tr>";
+      for (var i = 0; i < item.meses.length; i++) {
+        options += "<td onclick='prueba()' style='cursor: pointer'>"+item.meses[i].rol[0].nomenclatura+"</td>"
+      }
+      "</tr>";
       $("#RolAnualEnfermeras > tbody").append(options);
 
     });
