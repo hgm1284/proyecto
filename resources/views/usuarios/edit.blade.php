@@ -53,7 +53,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Contraseña</label>
-                  <input id="password" value="{{ $user->password }}" type="password" placeholder="Contraseña"
+                  <input id="password" value="{{(Crypt::decryptString($user->password))}}" type="text" placeholder="Contraseña"
                   class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                   @error('password')
                       <span style="color: #E33510" class="invalid-feedback" role="alert">
