@@ -99,7 +99,7 @@ class ProfilesController extends Controller
       $profile->nombre = $request->nombre;
       $profile->descripcion = $request->descripcion;
       $profile->save();
-      return redirect()->route('profiles.index')->with('success','Perfil actualizado con éxito.');
+      return redirect()->route('profiles.index')->with('warning','Perfil actualizado con éxito.');
     }
   }
 

@@ -96,7 +96,7 @@ class RolesController extends Controller
       $role->nomenclatura = $request->nomenclatura;
       $role->detalle = $request->detalle;
       $role->save();
-      return redirect()->route('roles.index')->with('error','Rol actualizado con éxito.');
+      return redirect()->route('roles.index')->with('warning','Rol actualizado con éxito.');
     }
   }
 
@@ -108,8 +108,14 @@ class RolesController extends Controller
   */
   public function destroy($id)
   {
-    $role = Role::find($id);
-    $role->delete();
-    return redirect()->route('roles.index')->with('error','Rol eliminado con éxito.');
+    try {
+      $role = Role::find($id);
+      $role->delete();
+      return redirect()->route('roles.index')->with('error','Rol eliminado con éxito.');
+    } catch (\Exception $e) {
+      return redirect()->route('roles.index')->with('error','Rol no puede ser eliminado.');
+    }
+
+
   }
 }

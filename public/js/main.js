@@ -23,6 +23,31 @@ function deleteDataServicios(id) {
 function formSubmitS() {
   $("#deleteForm").submit();
 }
+//Funcion para eliminar roles desde el modal.
+function deleteDataRol(id) {
+  var url = '/roles/destroy/'+id;
+  $("#deleteForm").attr('action', url);
+}
+function formSubmitR() {
+  $("#deleteForm").submit();
+}
+//Funcion para eliminar perfiles desde el modal.
+function deleteDataPerfil(id) {
+  var url = '/profiles/destroy/'+id;
+  $("#deleteForm").attr('action', url);
+}
+function formSubmitP() {
+  $("#deleteForm").submit();
+}
+//Funcion para eliminar perfiles desde el modal.
+function deleteDataEnfermera(id) {
+  var url = '/enfermeras/destroy/'+id;
+  $("#deleteForm").attr('action', url);
+}
+function formSubmitE() {
+  $("#deleteForm").submit();
+}
+
 
 $(document).ready( function () {
 

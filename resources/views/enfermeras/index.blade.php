@@ -35,7 +35,7 @@
                 <style>
                   .link { color: #FFFFFF; } /* CSS link color (red) */
                 </style>
-                <div class="modal modal-danger fade in" id="DeleteModal" style="display: none;">
+                <div class="modal modal-danger fade in" id="deleteDataEnfermera" style="display: none;">
                 <div class="modal-dialog">
                   <form action="" id="deleteForm" method="post">
                   <div class="modal-content">
@@ -51,7 +51,7 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
-                      <button type="button" class="btn btn-outline" onclick="formSubmit()">Aceptar</button>
+                      <button type="button" class="btn btn-outline" onclick="formSubmitE()">Aceptar</button>
                     </div>
                   </div>
                   <!-- /.modal-content -->
@@ -62,13 +62,12 @@
               </div>
 @endsection
 
+@section('scripts')
 <script type="text/javascript">
-    function deleteData(id) {
-      var id = id;
-      var url = ' {{ route("enfermeras.destroy", ":id") }}';
-      url = url.replace(':id', id);
-      $("#deleteForm").attr('action', url); }
-    function formSubmit() {
-      $("#deleteForm").submit();
-    }
+window.setTimeout(function() {
+  $(".alert").fadeTo(500, 0).slideUp(500, function(){
+    $(this).remove();
+  });
+}, 3500);
 </script>
+@endsection

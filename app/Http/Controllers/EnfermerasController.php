@@ -70,7 +70,7 @@ class EnfermerasController extends Controller
       $enfermera = new Enfermera($request->all());
       $enfermera-> fecha_ingreso = Carbon::createFromFormat('Y-m-d', $request->fecha_ingreso);
       $enfermera->save();
-      return redirect()->route('enfermeras.index');
+      return redirect()->route('enfermeras.index')->with('success','Enfermera(o) creado con éxito.');;
     }
 
     /**
@@ -126,7 +126,7 @@ class EnfermerasController extends Controller
       $enfermera->id_servicio = $request->id_servicio;
       $enfermera->id_profile = $request->id_profile;
       $enfermera->save();
-      return redirect()->route('enfermeras.index');
+      return redirect()->route('enfermeras.index')->with('warning','Enfermera(o) actualizado con éxito.');
 
       }
     }
@@ -139,9 +139,15 @@ class EnfermerasController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-      $enfermera = Enfermera::find($id);
-      $enfermera->delete();
-      return redirect()->route('enfermeras.index');
+      try {
+        $enfermera = Enfermera::find($id);
+        $enfermera->delete();
+        return redirect()->route('enfermeras.index')->with('error','Enfermera eliminada con éxito.');
+      } catch (\Exception $e) {
+        return redirect()->route('enfermeras.index')->with('error','Enfermera(o) no puede ser eliminada.');
+      }
+
+
     }
 
     //funcion para cargar la fecha de ingreso en vacaciones
