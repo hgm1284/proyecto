@@ -28,8 +28,8 @@
                        <td>{{ $role->detalle }}</td>
                        <td colspan="2">
                          <a href="{{ route('roles.edit', $role->id  ) }}" title="Editar Rol" class="btn btn-primary"> <i class="fa fa-pencil"></i> </a>
-                         <a href="javascript:;" class="btn btn-danger" title="Eliminar Rol" data-toggle="modal" onclick="deleteData({{$role->id}})"
-                           data-target="#DeleteModal"><i class="fa fa-trash"></i> </a>
+                         <a href="javascript:;" class="btn btn-danger" title="Eliminar Rol" data-toggle="modal" onclick="deleteDataRol({{$role->id}})"
+                           data-target="#deleteDataRol"><i class="fa fa-trash"></i> </a>
                        </td>
                      </tr>
                       @endforeach
@@ -40,7 +40,7 @@
                 <style>
                   .link { color: #FFFFFF; } /* CSS link color (red) */
                 </style>
-                <div class="modal modal-danger fade in" id="DeleteModal" style="display: none;">
+                <div class="modal modal-danger fade in" id="deleteDataRol" style="display: none;">
                 <div class="modal-dialog">
                   <form action="" id="deleteForm" method="post">
                   <div class="modal-content">
@@ -56,7 +56,7 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
-                      <button type="button" class="btn btn-outline" onclick="formSubmit()">Aceptar</button>
+                      <button type="button" class="btn btn-outline" onclick="formSubmitR()">Aceptar</button>
                     </div>
                   </div>
                   <!-- /.modal-content -->
@@ -67,13 +67,13 @@
             </div>
 
 @endsection
+
+@section('scripts')
 <script type="text/javascript">
-    function deleteData(id) {
-      var id = id;
-      var url = ' {{ route("roles.destroy", ":id") }}';
-      url = url.replace(':id', id);
-      $("#deleteForm").attr('action', url); }
-    function formSubmit() {
-      $("#deleteForm").submit();
-    }
+window.setTimeout(function() {
+  $(".alert").fadeTo(500, 0).slideUp(500, function(){
+    $(this).remove();
+  });
+}, 3500);
 </script>
+@endsection

@@ -38,7 +38,7 @@
                       </span>
                   @enderror
                   <label for="exampleInputPassword2">Seleccione un Perfil</label>
-                  <select id="id_profile"  name="id_periodo" class="form-control">
+                  <select id="id_profile"  name="id_profile" class="form-control">
                     <option value="">Seleccione Perfil</option>
                     @foreach ($profile as $perfil)
                       <option value="{{$perfil['id']}}">{{$perfil['nombre']}}</option>

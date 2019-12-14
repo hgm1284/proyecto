@@ -114,7 +114,7 @@ class ProfilesController extends Controller
     try {
       $profile = Profile::find($id);
       $profile->delete();
-      return redirect()->route('profiles.index')->with('error','Perfil eliminado con éxito.');
+      return redirect()->route('profiles.index')->with('warning','Perfil eliminado con éxito.');
     } catch (\Exception $e) {
       return redirect()->route('profiles.index')->with('error','Perfil no puede ser eliminado.');
     }

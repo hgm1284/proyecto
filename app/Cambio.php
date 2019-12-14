@@ -13,7 +13,6 @@ protected $fillable = [
   'id_enfermera', 'id_servicio', 'id_rol'
 ];
 
-
 /**
 * obtiene los dias que pertenecen al cambio
 */

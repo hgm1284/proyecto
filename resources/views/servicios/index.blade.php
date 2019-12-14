@@ -59,7 +59,7 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
-                      <button type="button" class="btn btn-outline" onclick="formSubmit()">Aceptar</button>
+                      <button type="button" class="btn btn-outline" onclick="formSubmitS()">Aceptar</button>
                     </div>
                   </div>
                   <!-- /.modal-content -->

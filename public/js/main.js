@@ -12,7 +12,7 @@ function deleteDataU(id) {
   var url = '/usuarios/destroy/'+id;
   $("#deleteForm").attr('action', url);
 }
-function formSubmit() {
+function formSubmitU() {
   $("#deleteForm").submit();
 }
 //Funcion para eliminar servicios desde el modal.
@@ -20,9 +20,34 @@ function deleteDataServicios(id) {
   var url = '/servicios/destroy/'+id;
   $("#deleteForm").attr('action', url);
 }
-function formSubmit() {
+function formSubmitS() {
   $("#deleteForm").submit();
 }
+//Funcion para eliminar roles desde el modal.
+function deleteDataRol(id) {
+  var url = '/roles/destroy/'+id;
+  $("#deleteForm").attr('action', url);
+}
+function formSubmitR() {
+  $("#deleteForm").submit();
+}
+//Funcion para eliminar perfiles desde el modal.
+function deleteDataPerfil(id) {
+  var url = '/profiles/destroy/'+id;
+  $("#deleteForm").attr('action', url);
+}
+function formSubmitP() {
+  $("#deleteForm").submit();
+}
+//Funcion para eliminar perfiles desde el modal.
+function deleteDataEnfermera(id) {
+  var url = '/enfermeras/destroy/'+id;
+  $("#deleteForm").attr('action', url);
+}
+function formSubmitE() {
+  $("#deleteForm").submit();
+}
+
 
 $(document).ready( function () {
 
@@ -496,7 +521,6 @@ $("#btnFiltrarRolAnual").click(function() {
       language: {
         "decimal": "",
         "emptyTable": "No hay información",
-        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
         "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
         "infoFiltered": "(Filtrado de _MAX_ total entradas)",
         "infoPostFix": "",
@@ -521,16 +545,11 @@ $("#btnFiltrarRolAnual").click(function() {
         'csvHtml5',
         'pdfHtml5'
       ],
-      "columns": [
-        { "data": "name" },
-        { "data": "lastname" },
-        { "data": "nomenclatura" },
-        { "data": "mes" }
-      ],
 
       fixedHeader:   {
         header: true,
         footer: true
+
       }
     });
 
@@ -553,7 +572,7 @@ $("#btnFiltrarRolAnualEnfermera").click(function() {
     $.each(response, function(key, item) {
       options = "<tr><td><small>"+ item.enfermero[0].name+"<br>"+item.enfermero[0].lastname+ "</small></td>"
       for (var i = 0; i < item.meses.length; i++) {
-        options += "<td onclick='prueba()' style='cursor: pointer'>"+item.meses[i].rol[0].nomenclatura+"</td>"
+        options += "<td><a href='javascript:;' class='btn btn-block btn-default' title='Editar rol usuario' data-toggle='modal' onclick='updateData("+item.meses[i].id+")' data-target='#modal-default' style='cursor: hand'>"+item.meses[i].rol[0].nomenclatura+"</a></td>"
       }
       "</tr>";
       $("#RolAnualEnfermeras > tbody").append(options);
@@ -589,12 +608,6 @@ $("#btnFiltrarRolAnualEnfermera").click(function() {
         'excelHtml5',
         'csvHtml5',
         'pdfHtml5'
-      ],
-      "columns": [
-        { "data": "name" },
-        { "data": "lastname" },
-        { "data": "nomenclatura" },
-        { "data": "mes" }
       ],
 
       fixedHeader:   {

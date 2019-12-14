@@ -50,7 +50,7 @@ Route::post('servicios/destroy/{id}', [
 ]);
 
 Route::resource('/profiles','ProfilesController');
-Route::post('profiles/{id}/destroy', [
+Route::post('profiles/destroy/{id}', [
   'uses'=> 'ProfilesController@destroy',
   'as'  =>'profiles.destroy'
 ]);
@@ -58,13 +58,13 @@ Route::post('profiles/{id}/destroy', [
 Route::resource('/periodos','PeriodosController');
 
 Route::resource('/roles','RolesController');
-Route::post('roles/{id}/destroy', [
+Route::post('roles/destroy/{id}', [
   'uses'=> 'RolesController@destroy',
   'as'  =>'roles.destroy'
 ]);
 
 Route::resource('/enfermeras','EnfermerasController');
-Route::post('enfermeras/{id}/destroy', [
+Route::post('enfermeras/destroy/{id}', [
   'uses'=> 'EnfermerasController@destroy',
   'as'  =>'enfermeras.destroy'
 ]);
