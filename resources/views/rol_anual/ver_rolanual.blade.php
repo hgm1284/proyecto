@@ -13,11 +13,6 @@
   </ol>
 </section>
 <br>
-<style>
-.sortable tr {
-  cursor: hand;
-}
-</style>
 <div class="row">
     <div class="box box-primary" style="text-align:center">
       <div class="box-header with-border">
@@ -72,11 +67,12 @@
               <div class="box-body">
                 <?php
                 $cont = date('Y');
-                $anno = date('Y');
-                $cont   += 2;
+                $anno = 2018;
+                $cont   += 1;
                 $anno++;
                 ?>
                 <select class="form-control selectpicker" id="id_anno" name="anno" required>
+                  <option value="">Seleccione un año</option>
                   <?php while ($cont >= $anno) { ?>
                     <option value="<?php echo($cont); ?>"><?php echo($cont); ?></option>
                     <?php $cont = ($cont-1); } ?>
@@ -97,8 +93,9 @@
                 </div>
 
               </div>
-              <table class="display compact nowrap" id="rolanualServicios" style="width:100%">
-                <thead>
+
+              <table  class="display compact nowrap" style="width:100%"  id="rolanualServicios">
+                <thead class="thead-dark">
                   <tr>
                     <th scope="col">Enfermero</th>
                     @foreach ($meses as $messanno)
