@@ -19,10 +19,18 @@
 }
 </style>
 <div class="row">
+<<<<<<< HEAD
   <div class="box box-primary" style="text-align:center">
     <div class="box-header with-border">
       <div class="row">
         <div class="col-md-10"><h3 class="box-title">Buscar Distribución Anual</h3></div>
+=======
+    <div class="box box-primary" style="text-align:center">
+      <div class="box-header with-border">
+        <div class="row">
+          <div class="col-md-10"><h3 class="box-title">Buscar Distribución Anual</h3></div>
+        </div>
+>>>>>>> 946075c2ccc652aeff22b1c2dd3b2207dc114fcb
       </div>
     </div>
     <br>
@@ -90,10 +98,55 @@
           <div class="col-md-12">
             <div class="box box-success">
               <div class="box-header-success">
+<<<<<<< HEAD
                 <label for="exampleInputPassword3">Tabla Rol Anual</label>
+=======
+                <label for="exampleInputPassword3">Año</label>
+              </div>
+              <div class="box-body">
+                <?php
+                $cont = date('Y');
+                $anno = date('Y');
+                $cont   += 2;
+                $anno++;
+                ?>
+                <select class="form-control selectpicker" id="id_anno" name="anno" required>
+                  <?php while ($cont >= $anno) { ?>
+                    <option value="<?php echo($cont); ?>"><?php echo($cont); ?></option>
+                    <?php $cont = ($cont-1); } ?>
+                  </select>
+                </div>
               </div>
             </div>
+
+            <div class="col-md-2">
+              <button id="btnFiltrarRolAnual" type="button" aling"left" class="btn btn-block btn-warning">Buscar</button>
+            </div>
+
+            <div class="col-md-12">
+              <div class="box box-success">
+                <div class="box-header-success">
+                  <label for="exampleInputPassword3">Tabla Rol Anual</label>
+                </div>
+                </div>
+
+>>>>>>> 946075c2ccc652aeff22b1c2dd3b2207dc114fcb
+              </div>
+              <table class="display compact nowrap" id="rolanualServicios" style="width:100%">
+                <thead>
+                  <tr>
+                    <th scope="col">Enfermero</th>
+                    @foreach ($meses as $messanno)
+                    <th scope="col">{{$messanno['mes']}}</th>
+                    @endforeach
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+            </div>
+
           </div>
+<<<<<<< HEAD
           <table class="display compact nowrap" id="rolanualServicios" style="width:100%">
             <thead>
               <tr>
@@ -108,9 +161,16 @@
           </div>
         </div>
       </section>
+=======
+
+        </section>
+
+>>>>>>> 946075c2ccc652aeff22b1c2dd3b2207dc114fcb
     </div>
   </div>
+
 </div>
+
 
 <!-- MODAL -->
 <style>

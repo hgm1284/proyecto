@@ -2,6 +2,7 @@
 @section('content')
 
 <section class="content-header" id="contentheader">
+<<<<<<< HEAD
   <h1>
     Módulo Distribución Rol Anual por Enfermera(o)
   </h1>
@@ -10,6 +11,16 @@
     <i class="fa fa-arrow-right" aria-hidden="true"></i>
     <li>Distribución Rol Anual por Enfermera(o)</li>
   </ol>
+=======
+      <h1>
+        Módulo Distribución Rol Anual por Enfermera(o)
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/home"><i class="fa fa-home"></i>Inicio</a></li>
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        <li>Distribución Rol Anual por Enfermera(o)</li>
+      </ol>
+>>>>>>> 946075c2ccc652aeff22b1c2dd3b2207dc114fcb
 </section>
 <br>
 <div class="row">

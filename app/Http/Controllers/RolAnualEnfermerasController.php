@@ -288,7 +288,11 @@ class RolAnualEnfermerasController extends Controller
         ->where('id_profile','=',$profile)
         ->where('anno','=',$anno)->get();
       }
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> 946075c2ccc652aeff22b1c2dd3b2207dc114fcb
       public function mostrarrolanualenfermera(){
         $meses = [
           ['mes' => 'Enero','id'=>'1'],
