@@ -12,7 +12,7 @@ function deleteDataU(id) {
   var url = '/usuarios/destroy/'+id;
   $("#deleteForm").attr('action', url);
 }
-function formSubmit() {
+function formSubmitU() {
   $("#deleteForm").submit();
 }
 //Funcion para eliminar servicios desde el modal.
@@ -20,7 +20,7 @@ function deleteDataServicios(id) {
   var url = '/servicios/destroy/'+id;
   $("#deleteForm").attr('action', url);
 }
-function formSubmit() {
+function formSubmitS() {
   $("#deleteForm").submit();
 }
 
