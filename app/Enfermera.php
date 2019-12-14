@@ -7,31 +7,30 @@ use Illuminate\Database\Eloquent\Model;
 class Enfermera extends Model
 {
   protected $fillable = [
-      'name', 'lastname', 'cedula', 'fecha_ingreso', 'id_rolusuario', 'id_servicio', 'id_profile'
+    'name', 'lastname', 'cedula', 'fecha_ingreso', 'id_rolusuario', 'id_servicio', 'id_profile'
   ];
 
   protected $dates = ['fecha_ingreso', 'fecha_final'];
   public $timestamps = false;
 
-       /* Query Scope*/
+  /* Query Scope*/
   public function scopeName($query, $name)
   {
-       if (trim($name) != ""){
-         $query->where('name', 'LIKE' ,"%$name%");
-       }
-
+    if (trim($name) != ""){
+      $query->where('name', 'LIKE' ,"%$name%");
+    }
   }
 
   /**
-   * obtiene las vacaciones del enfermero
-   */
+  * obtiene las vacaciones del enfermero
+  */
   public function vacaciones()
   {
-      return $this->hasMany('App\Vacacione','id_enfermera','id');
+    return $this->hasMany('App\Vacacione','id_enfermera','id');
   }
 
   public function perfiles()
   {
-      return $this->hasOne('App\Profile','id_profile','id');
+    return $this->hasOne('App\Profile','id_profile','id');
   }
 }

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class DiaVaciones extends Model
 {
+  
   use SoftDeletes;
 
   /**

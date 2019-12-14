@@ -113,7 +113,6 @@ class UsuariosController extends Controller
       */
      public function update(Request $request, $id)
      {
-
          $validatedData = $request->validate([
              'name' => 'required',
              'email' => 'required',
@@ -125,7 +124,7 @@ class UsuariosController extends Controller
          $user->email = $request->email;
          $user->id_rolusuario = $request->id_rolusuario;
          $user->save();
-         return redirect()->route('usuarios.index')->with('warning','Usuario actualizado con éxito');
+         return redirect()->route('usuarios.index')->with('success','Usuario actualizado con éxito');
 
      }
      /**
@@ -142,12 +141,11 @@ class UsuariosController extends Controller
              'name' => 'required',
              'email' => 'required'
          ]);
-
          $user = User::find($id);
          $user->name = $request->name;
          $user->email = $request->email;
          $user->save();
-         return redirect()->route('perfil')->with('warning','Usuario actualizado con éxito.');
+         return redirect()->route('perfil')->with('success','Usuario actualizado con éxito.');
          }
      }
 
@@ -164,7 +162,7 @@ class UsuariosController extends Controller
        $user = User::find($id);
        $user->password = bcrypt($request->password);
        $user->save();
-       return redirect()->route('perfil')->with('warning','Contraseña actualizada con éxito.');
+       return redirect()->route('perfil')->with('success','Contraseña actualizada con éxito.');
 
      }
 
@@ -174,8 +172,7 @@ class UsuariosController extends Controller
        $user = User::find($id);
        $user->password = bcrypt('12345678');
        $user->save();
-       return Redirect::back()->with('warning','Contraseña actualizada con éxito.');
-
+       return Redirect::back()->with('success','Contraseña actualizada con éxito.');
      }
-
+     
 }

@@ -3,12 +3,12 @@
 
 <section class="content-header" id="contentheader">
       <h1>
-        Módulo Distribución Rol Anual del Enfermera(o)
+        Módulo Distribución Rol Anual por Enfermera(o)
       </h1>
       <ol class="breadcrumb">
         <li><a href="/home"><i class="fa fa-home"></i>Inicio</a></li>
         <i class="fa fa-arrow-right" aria-hidden="true"></i>
-        <li>Distribución Rol Anual del Enfermera(o)</li>
+        <li>Distribución Rol Anual por Enfermera(o)</li>
       </ol>
 </section>
 <br>

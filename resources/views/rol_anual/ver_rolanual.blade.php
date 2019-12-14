@@ -19,7 +19,6 @@
 }
 </style>
 <div class="row">
-  <div class="col-md-12">
     <div class="box box-primary" style="text-align:center">
       <div class="box-header with-border">
         <div class="row">
@@ -95,27 +94,31 @@
                 <div class="box-header-success">
                   <label for="exampleInputPassword3">Tabla Rol Anual</label>
                 </div>
-
-                <table class="display compact nowrap" id="rolanualServicios" style="width:100%">
-                  <thead>
-                    <tr>
-                      <th>Enfermero</th>
-                      @foreach ($meses as $messanno)
-                      <th scope="col">{{$messanno['mes']}}</th>
-                      @endforeach
-                    </thead>
-                    <tbody>
-                    </tbody>
-                  </table>
                 </div>
+
               </div>
+              <table class="display compact nowrap" id="rolanualServicios" style="width:100%">
+                <thead>
+                  <tr>
+                    <th scope="col">Enfermero</th>
+                    @foreach ($meses as $messanno)
+                    <th scope="col">{{$messanno['mes']}}</th>
+                    @endforeach
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
             </div>
+
           </div>
+
         </section>
-      </div>
+
     </div>
   </div>
+
 </div>
+
 
 <!-- MODAL -->
 <style>

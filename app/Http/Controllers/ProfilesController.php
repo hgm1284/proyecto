@@ -99,7 +99,7 @@ class ProfilesController extends Controller
       $profile->nombre = $request->nombre;
       $profile->descripcion = $request->descripcion;
       $profile->save();
-      return redirect()->route('profiles.index')->with('warning','Perfil actualizado con éxito.');
+      return redirect()->route('profiles.index')->with('success','Perfil actualizado con éxito.');
     }
   }
 
@@ -114,7 +114,7 @@ class ProfilesController extends Controller
     try {
       $profile = Profile::find($id);
       $profile->delete();
-      return redirect()->route('profiles.index')->with('error','Perfil eliminado con éxito.');
+      return redirect()->route('profiles.index')->with('warning','Perfil eliminado con éxito.');
     } catch (\Exception $e) {
       return redirect()->route('profiles.index')->with('error','Perfil no puede ser eliminado.');
     }

@@ -234,7 +234,6 @@ class RolAnualEnfermerasController extends Controller
         $validatedData = $request->validate([
           'id_rolanual' => 'required',
         ]);
-        dd($request);
         $rol_anual = RolAnual::find($id);
         $rol_anual->id_rol = $request->id_rolanual;
         $rol_anual->save();
@@ -289,6 +288,7 @@ class RolAnualEnfermerasController extends Controller
         ->where('id_profile','=',$profile)
         ->where('anno','=',$anno)->get();
       }
+      
       public function mostrarrolanualenfermera(){
         $meses = [
           ['mes' => 'Enero','id'=>'1'],

@@ -521,7 +521,6 @@ $("#btnFiltrarRolAnual").click(function() {
       language: {
         "decimal": "",
         "emptyTable": "No hay información",
-        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
         "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
         "infoFiltered": "(Filtrado de _MAX_ total entradas)",
         "infoPostFix": "",
@@ -546,16 +545,11 @@ $("#btnFiltrarRolAnual").click(function() {
         'csvHtml5',
         'pdfHtml5'
       ],
-      "columns": [
-        { "data": "name" },
-        { "data": "lastname" },
-        { "data": "nomenclatura" },
-        { "data": "mes" }
-      ],
 
       fixedHeader:   {
         header: true,
         footer: true
+
       }
     });
 
@@ -578,7 +572,7 @@ $("#btnFiltrarRolAnualEnfermera").click(function() {
     $.each(response, function(key, item) {
       options = "<tr><td><small>"+ item.enfermero[0].name+"<br>"+item.enfermero[0].lastname+ "</small></td>"
       for (var i = 0; i < item.meses.length; i++) {
-        options += "<td onclick='prueba()' style='cursor: pointer'>"+item.meses[i].rol[0].nomenclatura+"</td>"
+        options += "<td><a href='javascript:;' class='btn btn-block btn-default' title='Editar rol usuario' data-toggle='modal' onclick='updateData("+item.meses[i].id+")' data-target='#modal-default' style='cursor: hand'>"+item.meses[i].rol[0].nomenclatura+"</a></td>"
       }
       "</tr>";
       $("#RolAnualEnfermeras > tbody").append(options);
@@ -614,12 +608,6 @@ $("#btnFiltrarRolAnualEnfermera").click(function() {
         'excelHtml5',
         'csvHtml5',
         'pdfHtml5'
-      ],
-      "columns": [
-        { "data": "name" },
-        { "data": "lastname" },
-        { "data": "nomenclatura" },
-        { "data": "mes" }
       ],
 
       fixedHeader:   {

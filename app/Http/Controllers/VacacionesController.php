@@ -191,33 +191,31 @@ class VacacionesController extends Controller
     $array = array();
     foreach ($flight as &$value) {
       foreach ($value->dias as &$dia) {
-
         $box = Carbon::parse($dia['fecha']);
         if ($box >= $hoy) {
-
           $object = new  \stdClass();
           $object->title = 'Vacaciones';
           $object->start = $dia['fecha'];
           $object->id = $dia['id'];
           array_push($array,$object);
-
         }
       }
     }
     return $array;
   }
 
-  public function mostrarreportevacaciones(){
+  public function mostrarreportevacaciones()
+  {
     $enfermeras = Enfermera::all();
     $periodos = Periodo::all();
     $servicios = Servicio::all();
     return view('reportes.reportevacaciones', compact('enfermeras','periodos','servicios'));
   }
 
-  public function reporteVacaciones($especialidad, $periodo){
+  public function reporteVacaciones($especialidad, $periodo)
+  {
     return Enfermera::with(['vacaciones' => function ($query) use ($periodo){
       $query->where('id_periodo', '=', $periodo)->with('dias');
     }])->where('id_servicio','=',$especialidad)->get();
   }
-
 }

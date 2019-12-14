@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Privilegio extends Model
 {
   protected $fillable = [
-      'tipo_privilegio', 'detalle'
+    'tipo_privilegio', 'detalle'
   ];
 
   public $timestamps = false;
-
+  
 }

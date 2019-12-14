@@ -11,112 +11,110 @@ use Illuminate\Routing\Route;
 
 class ServiciosController extends Controller
 {
+  /**
+  * Create a new controller instance.
+  *
+  * @return void
+  */
+  public function __construct()
+  {
+    $this->middleware('auth');
+  }
 
-        /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+  /**
+  * Display a listing of the resource.
+  *
+  * @return \Illuminate\Http\Response
+  */
+  public function index(Request $request)
+  {
+    $servicios = Servicio::all();
+    return view('servicios.index', compact('servicios'));
+  }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(Request $request)
-    {
-        $servicios = Servicio::all();
-        return view('servicios.index', compact('servicios'));
-    }
+  /**
+  * Show the form for creating a new resource.
+  *
+  * @return \Illuminate\Http\Response
+  */
+  public function create()
+  {
+    return view('servicios.create');
+  }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('servicios.create');
-    }
+  /**
+  * Store a newly created resource in storage.
+  *
+  * @param  \Illuminate\Http\Request  $request
+  * @return \Illuminate\Http\Response
+  */
+  public function store(Request $request)
+  {
+    $servicio = new Servicio($request->all());
+    $servicio->save();
+    return redirect()->route('servicios.index')->with('success','Servicio creado con éxito.');
+  }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+  /**
+  * Display the specified resource.
+  *
+  * @param  int  $id
+  * @return \Illuminate\Http\Response
+  */
+  public function show($id)
+  {
+    //
+  }
+
+  /**
+  * Show the form for editing the specified resource.
+  *
+  * @param  int  $id
+  * @return \Illuminate\Http\Response
+  */
+  public function edit($id)
+  {
+    $servicio = Servicio::find($id);
+    return view('servicios.edit')->with('servicio', $servicio);
+  }
+
+  /**
+  * Update the specified resource in storage.
+  *
+  * @param  \Illuminate\Http\Request  $request
+  * @param  int  $id
+  * @return \Illuminate\Http\Response
+  */
+  public function update(Request $request, $id)
+  {
     {
-      $servicio = new Servicio($request->all());
+      $validatedData = $request->validate([
+        'nombre' => 'required',
+        'descripcion' => 'required',
+      ]);
+
+      $servicio = Servicio::find($id);
+      $servicio->nombre = $request->nombre;
+      $servicio->descripcion = $request->descripcion;
       $servicio->save();
-      return redirect()->route('servicios.index')->with('success','Servicio creado con éxito.');
+      return redirect()->route('servicios.index')->with('success','Servicio actualizado con éxito.');
     }
+  }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+  /**
+  * Remove the specified resource from storage.
+  *
+  * @param  int  $id
+  * @return \Illuminate\Http\Response
+  */
+  public function destroy(Request $request, $id)
+  {
+    try {
+      $servicio = Servicio::find($id);
+      $servicio->delete();
+      return redirect()->route('servicios.index')->with('error','Servicio eliminado con éxito.');
+    } catch (\Exception $e) {
+      return redirect()->route('servicios.index')->with('warning','Servicio no puede ser eliminado.');
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $servicio = Servicio::find($id);
-        return view('servicios.edit')->with('servicio', $servicio);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        {
-            $validatedData = $request->validate([
-                'nombre' => 'required',
-                'descripcion' => 'required',
-            ]);
-
-            $servicio = Servicio::find($id);
-            $servicio->nombre = $request->nombre;
-            $servicio->descripcion = $request->descripcion;
-            $servicio->save();
-            return redirect()->route('servicios.index')->with('warning','Servicio actualizado con éxito.');
-        }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Request $request, $id)
-    {
-      try {
-        $servicio = Servicio::find($id);
-        $servicio->delete();
-        return redirect()->route('servicios.index')->with('error','Servicio eliminado con éxito.');
-      } catch (\Exception $e) {
-        return redirect()->route('servicios.index')->with('error','Servicio no puede ser eliminado.');
-      }
-
-    }
+  }
 }
