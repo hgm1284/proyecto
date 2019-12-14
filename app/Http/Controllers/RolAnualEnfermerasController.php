@@ -79,7 +79,24 @@ class RolAnualEnfermerasController extends Controller
       ['id_profile', '=', $request->id_profile],
       ['anno', '=', $request->anno],])->first();
 
-      if ($rolanual == null){
+      if ($rolanual != null){
+
+        //enfermera
+        $enfermeras = DB::table('enfermeras')
+        ->select('enfermeras.name', 'enfermeras.lastname')
+        ->where('enfermeras.id', '=', $request->id_enfermera)
+        ->first();
+        //servicio
+        $servicio = DB::table('servicios')
+        ->select('servicios.nombre')
+        ->where('servicios.id', '=', $request->id_servicio)
+        ->first();
+        return redirect()->route('rol_anual.create')
+        ->with('warning','Enfermera(o) '.$enfermeras->name.' '.$enfermeras->lastname.' ya se encuentra
+        en el rol anual en el servicio de '.$servicio->nombre.'');
+
+
+      }else if ($rolanual == null){
         $rol_anualenfermeras = new RolAnualEnfermeras;
         $rol_anualenfermeras->id_enfermera = $request->id_enfermera;
         $rol_anualenfermeras->id_servicio = $request->id_servicio;
@@ -160,24 +177,10 @@ class RolAnualEnfermerasController extends Controller
         $rol_anual->id_rolanual = $rol_anualenfermeras->id;
         $rol_anual->save();
 
-
         return redirect()->route('rol_anual.create')
         ->with('success','Rol anual asignado con exito.');
-      }else if ($rolanual =! null){
-        //enfermera
-        $enfermeras = DB::table('enfermeras')
-        ->select('enfermeras.name', 'enfermeras.lastname')
-        ->where('enfermeras.id', '=', $request->id_enfermera)
-        ->first();
-        //servicio
-        $servicio = DB::table('servicios')
-        ->select('servicios.nombre')
-        ->where('servicios.id', '=', $request->id_servicio)
-        ->first();
-        return redirect()->route('rol_anual.create')
-        ->with('warning','Enfermera(o) '.$enfermeras->name.' '.$enfermeras->lastname.' ya se encuentra
-        en el rol anual en el servicio de '.$servicio->nombre.'');
-      }
+
+}
     }
 
     /**
@@ -288,7 +291,7 @@ class RolAnualEnfermerasController extends Controller
         ->where('id_profile','=',$profile)
         ->where('anno','=',$anno)->get();
       }
-      
+
       public function mostrarrolanualenfermera(){
         $meses = [
           ['mes' => 'Enero','id'=>'1'],

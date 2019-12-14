@@ -97,21 +97,21 @@
                 </div>
 
               </div>
-              <table class="display compact nowrap" id="rolanualServicios" style="width:100%">
-                <thead>
-                  <tr>
-                    <th scope="col">Enfermero</th>
-                    @foreach ($meses as $messanno)
-                    <th scope="col">{{$messanno['mes']}}</th>
-                    @endforeach
-                  </thead>
-                  <tbody>
-                  </tbody>
-                </table>
+
             </div>
 
           </div>
-
+          <table class="display compact nowrap" id="rolanualServicios" style="width:100%">
+            <thead>
+              <tr>
+                <th scope="col">Enfermero</th>
+                @foreach ($meses as $messanno)
+                <th scope="col">{{$messanno['mes']}}</th>
+                @endforeach
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
         </section>
 
     </div>

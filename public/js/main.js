@@ -509,7 +509,7 @@ $("#btnFiltrarRolAnual").click(function() {
 
       options = "<tr><td><small>"+ item.enfermero[0].name+"<br>"+item.enfermero[0].lastname+ "</small></td>"
       for (var i = 0; i < item.meses.length; i++) {
-        options += "<td><a href='javascript:;' class='btn btn-block btn-default' title='Editar rol usuario' data-toggle='modal' onclick='updateData("+item.meses[i].id+")' data-target='#modal-default' style='cursor: hand'>"+item.meses[i].rol[0].nomenclatura+"</a></td>"
+        options += "<td><small><a href='javascript:;' class='btn btn-block btn-default' title='Editar rol usuario' data-toggle='modal' onclick='updateData("+item.meses[i].id+")' data-target='#modal-default' style='cursor: hand'>"+item.meses[i].rol[0].nomenclatura+"</small></td>"
       }
       "</tr>";
       $("#rolanualServicios > tbody").append(options);
