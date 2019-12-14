@@ -75,9 +75,8 @@ class RolAnualEnfermerasController extends Controller
   {
     $rolanual = DB::table('rolesanualenfermeras')->where([
       ['id_enfermera', '=', $request->id_enfermera],
-      ['id_servicio', '=', $request->id_servicio],
-      ['id_profile', '=', $request->id_profile],
       ['anno', '=', $request->anno],])->first();
+<<<<<<< HEAD
 
       if ($rolanual != null){
 
@@ -97,6 +96,9 @@ class RolAnualEnfermerasController extends Controller
 
 
       }else if ($rolanual == null){
+=======
+      if ($rolanual == null){
+>>>>>>> 1c13a8598f9eddfbaadd178b6b26b759f2e30f36
         $rol_anualenfermeras = new RolAnualEnfermeras;
         $rol_anualenfermeras->id_enfermera = $request->id_enfermera;
         $rol_anualenfermeras->id_servicio = $request->id_servicio;
@@ -179,8 +181,26 @@ class RolAnualEnfermerasController extends Controller
 
         return redirect()->route('rol_anual.create')
         ->with('success','Rol anual asignado con exito.');
+<<<<<<< HEAD
 
 }
+=======
+      }else{
+        //enfermera
+        $enfermeras = DB::table('enfermeras')
+        ->select('enfermeras.name', 'enfermeras.lastname')
+        ->where('enfermeras.id', '=', $request->id_enfermera)
+        ->first();
+        //servicio
+        $servicio = DB::table('servicios')
+        ->select('servicios.nombre')
+        ->where('servicios.id', '=', $request->id_servicio)
+        ->first();
+        return redirect()->route('rol_anual.create')
+        ->with('warning','Enfermera(o) '.$enfermeras->name.' '.$enfermeras->lastname.' ya se encuentra
+        en el rol anual ');
+      }
+>>>>>>> 1c13a8598f9eddfbaadd178b6b26b759f2e30f36
     }
 
     /**
@@ -264,20 +284,19 @@ class RolAnualEnfermerasController extends Controller
 
       public function mostrardistribucionAnual(){
         $meses = [
-          ['mes' => 'Enero','id'=>'1'],
-          ['mes' => 'Febrero','id'=>'2'],
-          ['mes' => 'Marzo','id'=>'3'],
-          ['mes' => 'Abril','id'=>'4'],
+          ['mes' => 'Ene','id'=>'1'],
+          ['mes' => 'Feb','id'=>'2'],
+          ['mes' => 'Mar','id'=>'3'],
+          ['mes' => 'Abr','id'=>'4'],
           ['mes' => 'Mayo','id'=>'5'],
           ['mes' => 'Junio','id'=>'6'],
           ['mes' => 'Julio','id'=>'7'],
-          ['mes' => 'Agosto','id'=>'8'],
-          ['mes' => 'Septiembre','id'=>'9'],
-          ['mes' => 'Octubre','id'=>'10'],
-          ['mes' => 'Noviembre','id'=>'11'],
-          ['mes' => 'Diciembre','id'=>'12'],
+          ['mes' => 'Agos','id'=>'8'],
+          ['mes' => 'Sept','id'=>'9'],
+          ['mes' => 'Oct','id'=>'10'],
+          ['mes' => 'Nov','id'=>'11'],
+          ['mes' => 'Dic','id'=>'12'],
         ];
-
         $enfermeras = Enfermera::all();
         $profiles = Profile::all();
         $servicios = Servicio::all();
