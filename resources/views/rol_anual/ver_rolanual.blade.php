@@ -30,7 +30,7 @@
               <label for="exampleInputPassword3">Servicio</label>
             </div>
             <div class="box-body">
-              <select class="form-control selectpicker" id="id_servicio" name="id_servicio" data-live-search="true" required>
+              <select class="form-control selectpicker" id="id_servicio" name="id_servicio" data-live-search="true" onchange="getComboServicio(this)" required>
                 <option disabled selected value>Servicio</option>
                 @foreach ($servicios as $servicio)
                 <option value="{{$servicio['id']}}" data-tokens="{{$servicio['nombre']}}">{{$servicio['nombre']}}</option>
@@ -45,7 +45,7 @@
               <label for="exampleInputPassword3">Perfil de Enfermera(o)</label>
             </div>
             <div class="box-body">
-              <select id="id_profile"  name="id_profile" class="form-control selectpicker" data-live-search="true" required>
+              <select id="id_profile"  name="id_profile" class="form-control selectpicker" data-live-search="true" onchange="getComboPerfil(this)" required>
                 <option value="">Seleccione Perfil de Enfermero</option>
                 @foreach ($profiles as $profile)
                 <option value="{{$profile['id']}}">{{$profile['nombre']}}</option>
@@ -71,7 +71,7 @@
               $cont   += 1;
               $anno++;
               ?>
-              <select class="form-control selectpicker" id="id_anno" name="anno" required>
+              <select class="form-control selectpicker" id="id_anno" name="anno" onchange="getComboAnno(this)" required>
                 <option value="">Seleccione un año</option>
                 <?php while ($cont >= $anno) { ?>
                   <option value="<?php echo($cont); ?>"><?php echo($cont); ?></option>
@@ -134,6 +134,9 @@
               <option value="2"><?php echo "II"; ?></option>
               <option value="3"><?php echo "III"; ?></option>
             </select>
+            <input type="text" name="id_servicio1" >
+            <input type="text" name="id_perfil1" >
+            <input type="text" name="anno1" >
             <div class="modal-footer">
               <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
               <button type="button" class="btn btn-primary" onclick="formSubmit()">Aceptar</button>
@@ -154,5 +157,22 @@
       $(this).remove();
     });
   }, 3500);
+</script>
+<script type="text/javascript">
+  function getComboServicio(selectObject) {
+    var servicio = selectObject.value;
+    $('#id_servicio1').val(servicio);
+    alert(servicio);
+  }
+  function getComboPerfil(selectObject) {
+    var perfil = selectObject.value;
+    $('#id_perfil1').val(perfil);
+    alert(perfil);
+  }
+  function getComboAnno(selectObject) {
+    var anno = selectObject.value;
+    alert(anno);
+    $('#anno1').val(anno);
+  }
 </script>
 @endsection

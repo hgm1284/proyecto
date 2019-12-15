@@ -20,6 +20,9 @@ class RolAnualEnfermerasController extends Controller
   *
   * @return void
   */
+  private $setservicio;
+  private $setperfil;
+  private $setanno;
   public function __construct()
   {
     $this->middleware('auth');
@@ -296,6 +299,9 @@ class RolAnualEnfermerasController extends Controller
       }
 
       public function distribucionAnual($servicio, $profile, $anno){
+        $setservicio = $servicio;
+        $setperfil = $profile
+        $setanno = $anno;
         return RolAnualEnfermeras::with(['meses.rol'])->
         with(['enfermero'])->
         where('id_servicio','=',$servicio)
