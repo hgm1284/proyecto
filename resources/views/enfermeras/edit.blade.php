@@ -75,7 +75,7 @@
                 <div class="form-group">
                   <label for="exampleInputPassword2">Servicio Asignado</label>
                   <select id="servicio"  name="id_servicio" class="form-control">
-                    <option value="">Seleccione Servicio de Enfermer@</option>
+                    <option value="">Seleccione Servicio</option>
                     @foreach ($servicios as $servicio)
                     @if ($enfermera->id_servicio == $servicio['id'] )
                       <option value="{{$servicio['id']}}" selected>{{$servicio['nombre']}}</option>

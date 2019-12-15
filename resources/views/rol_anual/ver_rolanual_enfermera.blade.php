@@ -1,4 +1,5 @@
 @extends('layouts.app4')
+<title>Roles Anual por Enfermera(o) </title>
 
 @section('content')
 
@@ -145,5 +146,18 @@
       $(this).remove();
     });
   }, 3500);
+</script>
+<script type="text/javascript">
+$(document).ready( function() {
+$( '#RolAnualEnfermeras' ).dataTable( {
+ "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
+   // Bold the grade for all 'A' grade browsers
+   if ( aData[4] == "A" )
+   {
+     $('td:eq(4)', nRow).html( '<b>A</b>' );
+   }
+ }
+} );
+} );
 </script>
 @endsection

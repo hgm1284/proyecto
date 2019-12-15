@@ -1,4 +1,6 @@
 @extends('layouts.app4')
+<title>Roles Anual por Perfil y Servicio </title>
+
 
 @section('content')
 
