@@ -32,7 +32,7 @@
               <label for="exampleInputPassword3">Servicio</label>
             </div>
             <div class="box-body">
-              <select class="form-control selectpicker" id="id_servicio" name="id_servicio" data-live-search="true" required>
+              <select class="form-control selectpicker" id="id_servicio" name="id_servicio" data-live-search="true" onchange="getComboServicio(this)" required>
                 <option disabled selected value>Servicio</option>
                 @foreach ($servicios as $servicio)
                 <option value="{{$servicio['id']}}" data-tokens="{{$servicio['nombre']}}">{{$servicio['nombre']}}</option>
@@ -47,7 +47,7 @@
               <label for="exampleInputPassword3">Perfil de Enfermera(o)</label>
             </div>
             <div class="box-body">
-              <select id="id_profile"  name="id_profile" class="form-control selectpicker" data-live-search="true" required>
+              <select id="id_profile"  name="id_profile" class="form-control selectpicker" data-live-search="true" onchange="getComboPerfil(this)" required>
                 <option value="">Seleccione Perfil de Enfermero</option>
                 @foreach ($profiles as $profile)
                 <option value="{{$profile['id']}}">{{$profile['nombre']}}</option>
@@ -73,7 +73,7 @@
               $cont   += 1;
               $anno++;
               ?>
-              <select class="form-control selectpicker" id="id_anno" name="anno" required>
+              <select class="form-control selectpicker" id="id_anno" name="anno" onchange="getComboAnno(this)" required>
                 <option value="">Seleccione un año</option>
                 <?php while ($cont >= $anno) { ?>
                   <option value="<?php echo($cont); ?>"><?php echo($cont); ?></option>
@@ -132,9 +132,12 @@
             {{ method_field('put') }}-->
             <p>Seleccione el nuevo rol que desea asignar</p>
             <select class="form-control selectpicker" id="id_rolanual" name="id_rolanual" required>
-              <option value="1"><?php echo "I"; ?></option>
+              <option value="10081"><?php echo "I"; ?></option>
+              <option value="10083"><?php echo "II"; ?></option>
+              <option value="10085"><?php echo "III"; ?></option>
+              <!-- <option value="1"><?php echo "I"; ?></option>
               <option value="2"><?php echo "II"; ?></option>
-              <option value="3"><?php echo "III"; ?></option>
+              <option value="3"><?php echo "III"; ?></option> -->
             </select>
             <div class="modal-footer">
               <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
@@ -157,4 +160,5 @@
     });
   }, 3500);
 </script>
+
 @endsection

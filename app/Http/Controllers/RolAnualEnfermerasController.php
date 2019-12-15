@@ -20,6 +20,9 @@ class RolAnualEnfermerasController extends Controller
   *
   * @return void
   */
+  private $setservicio;
+  private $setperfil;
+  private $setanno;
   public function __construct()
   {
     $this->middleware('auth');
@@ -246,13 +249,14 @@ class RolAnualEnfermerasController extends Controller
     public function update(Request $request, $id)
     {
       {
-        $validatedData = $request->validate([
-          'id_rolanual' => 'required',
-        ]);
-        $rol_anual = RolAnual::find($id);
-        $rol_anual->id_rol = $request->id_rolanual;
-        $rol_anual->save();
-        return redirect()->route('rol.servicios');
+        // $validatedData = $request->validate([
+        //   'id_rolanual' => 'required',
+        // ]);
+        // $rol_anual = RolAnual::find($id);
+        // $rol_anual->id_rol = $request->id_rolanual;
+        // $rol_anual->save();
+        //
+        // return redirect()->route('rol.servicios');
       }
     }
 
