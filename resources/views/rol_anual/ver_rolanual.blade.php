@@ -130,13 +130,13 @@
             {{ method_field('put') }}-->
             <p>Seleccione el nuevo rol que desea asignar</p>
             <select class="form-control selectpicker" id="id_rolanual" name="id_rolanual" required>
-              <option value="1"><?php echo "I"; ?></option>
+              <option value="10081"><?php echo "I"; ?></option>
+              <option value="10083"><?php echo "II"; ?></option>
+              <option value="10085"><?php echo "III"; ?></option>
+              <!-- <option value="1"><?php echo "I"; ?></option>
               <option value="2"><?php echo "II"; ?></option>
-              <option value="3"><?php echo "III"; ?></option>
+              <option value="3"><?php echo "III"; ?></option> -->
             </select>
-            <input type="text" name="id_servicio1" >
-            <input type="text" name="id_perfil1" >
-            <input type="text" name="anno1" >
             <div class="modal-footer">
               <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
               <button type="button" class="btn btn-primary" onclick="formSubmit()">Aceptar</button>
@@ -158,21 +158,5 @@
     });
   }, 3500);
 </script>
-<script type="text/javascript">
-  function getComboServicio(selectObject) {
-    var servicio = selectObject.value;
-    $('#id_servicio1').val(servicio);
-    alert(servicio);
-  }
-  function getComboPerfil(selectObject) {
-    var perfil = selectObject.value;
-    $('#id_perfil1').val(perfil);
-    alert(perfil);
-  }
-  function getComboAnno(selectObject) {
-    var anno = selectObject.value;
-    alert(anno);
-    $('#anno1').val(anno);
-  }
-</script>
+
 @endsection

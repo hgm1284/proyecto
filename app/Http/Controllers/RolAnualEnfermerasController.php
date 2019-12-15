@@ -249,13 +249,14 @@ class RolAnualEnfermerasController extends Controller
     public function update(Request $request, $id)
     {
       {
-        $validatedData = $request->validate([
-          'id_rolanual' => 'required',
-        ]);
-        $rol_anual = RolAnual::find($id);
-        $rol_anual->id_rol = $request->id_rolanual;
-        $rol_anual->save();
-        return redirect()->route('rol.servicios');
+        // $validatedData = $request->validate([
+        //   'id_rolanual' => 'required',
+        // ]);
+        // $rol_anual = RolAnual::find($id);
+        // $rol_anual->id_rol = $request->id_rolanual;
+        // $rol_anual->save();
+        //
+        // return redirect()->route('rol.servicios');
       }
     }
 
@@ -299,9 +300,6 @@ class RolAnualEnfermerasController extends Controller
       }
 
       public function distribucionAnual($servicio, $profile, $anno){
-        $setservicio = $servicio;
-        $setperfil = $profile
-        $setanno = $anno;
         return RolAnualEnfermeras::with(['meses.rol'])->
         with(['enfermero'])->
         where('id_servicio','=',$servicio)

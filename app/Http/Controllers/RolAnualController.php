@@ -9,7 +9,7 @@ use App\Servicio;
 use App\Role;
 use App\Profile;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class RolAnualController extends Controller
 {
   /**
@@ -105,13 +105,24 @@ class RolAnualController extends Controller
   */
   public function update(Request $request, $id)
   {
-    {
+
+        $rolanual = DB::table('roles_anual')->where([
+        ['id', '=', $id],])->first();
+
+          $recarga = DB::table('rolesanualenfermeras')
+          ->select('rolesanualenfermeras.id_servicio', 'rolesanualenfermeras.id_profile','rolesanualenfermeras.anno')
+          ->where('rolesanualenfermeras.id', '=', $rolanual->id_rolanual)
+          ->first();
+
+          dd($recarga);
       $validatedData = $request->validate([
         'id_rolanual' => 'required',
       ]);
       $rol_anual = RolAnual::find($id);
       $rol_anual->id_rol = $request->id_rolanual;
       $rol_anual->save();
+
+
       if ($request->validar_retorno=="regreso") {
         return redirect()->route('rol.enfermeras')
         ->with('success','Rol anual actualizado con éxito.');
@@ -119,7 +130,7 @@ class RolAnualController extends Controller
         return redirect()->route('rol.servicios')
         ->with('success','Rol anual actualizado con éxito.');
       }
-    }
+
   }
 
   /**
