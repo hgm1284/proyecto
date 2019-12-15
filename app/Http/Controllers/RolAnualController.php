@@ -112,8 +112,13 @@ class RolAnualController extends Controller
       $rol_anual = RolAnual::find($id);
       $rol_anual->id_rol = $request->id_rolanual;
       $rol_anual->save();
-      return redirect()->route('rol.servicios')
-      ->with('success','Rol anual actualizado con éxito.');
+      if ($request->validar_retorno=="regreso") {
+        return redirect()->route('rol.enfermeras')
+        ->with('success','Rol anual actualizado con éxito.');
+      } else {
+        return redirect()->route('rol.servicios')
+        ->with('success','Rol anual actualizado con éxito.');
+      }
     }
   }
 

@@ -124,6 +124,7 @@
               <option value="2"><?php echo "II"; ?></option>
               <option value="3"><?php echo "III"; ?></option>
             </select>
+            <input type="hidden" name="validar_retorno" value="regreso">
             <div class="modal-footer">
               <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
               <button type="button" class="btn btn-primary" onclick="formSubmit()">Aceptar</button>
