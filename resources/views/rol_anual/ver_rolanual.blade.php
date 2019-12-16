@@ -209,7 +209,7 @@
 
               }
             });
-            window.history.replaceState({},'','http://proyecto.test/rol/servicios');
+            window.history.replaceState({},'','http://still-gorge-79424.herokuapp.com/rol/servicios');
           })
           .fail(function(error) {
             console.log( error);
