@@ -303,7 +303,7 @@ class RolAnualEnfermerasController extends Controller
         with(['enfermero'])->
         where('id_servicio','=',$servicio)
         ->where('id_profile','=',$profile)
-        ->where('anno','=',$anno)->orderBy('id','ASC')->get();
+        ->where('anno','=',$anno)->orderBy('meses.id','ASC')->get();
       }
 
       public function mostrarrolanualenfermera(){
