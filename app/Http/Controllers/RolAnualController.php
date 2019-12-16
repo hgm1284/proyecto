@@ -124,6 +124,7 @@ class RolAnualController extends Controller
         ]);
 
       $rol_anual = RolAnual::find($id);
+  
       $rol_anual->id_rol = $request->id_rolanual;
       $rol_anual->save();
 
