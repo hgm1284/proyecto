@@ -132,9 +132,9 @@
             {{ method_field('put') }}-->
             <p>Seleccione el nuevo rol que desea asignar</p>
             <select class="form-control selectpicker" id="id_rolanual" name="id_rolanual" required>
-              <option value="10081"><?php echo "I"; ?></option>
-              <option value="10083"><?php echo "II"; ?></option>
-              <option value="10085"><?php echo "III"; ?></option>
+              <option value="1"><?php echo "I"; ?></option>
+              <option value="2"><?php echo "II"; ?></option>
+              <option value="3"><?php echo "III"; ?></option>
               <!-- <option value="1"><?php echo "I"; ?></option>
               <option value="2"><?php echo "II"; ?></option>
               <option value="3"><?php echo "III"; ?></option> -->

@@ -299,7 +299,8 @@ class RolAnualEnfermerasController extends Controller
         return view('rol_anual.ver_rolanual', compact('enfermeras','profiles','servicios','meses'));
       }
 
-      public function distribucionAnual($servicio, $profile, $anno){
+      public function distribucionAnual($servicio, $profile, $anno)
+      {
         return RolAnualEnfermeras::with(['meses.rol'])->
         with(['enfermero'])->
         where('id_servicio','=',$servicio)

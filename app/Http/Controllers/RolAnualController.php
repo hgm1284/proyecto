@@ -114,14 +114,13 @@ class RolAnualController extends Controller
           ->where('rolesanualenfermeras.id', '=', $rolanual->id_rolanual)
           ->first();
 
-          dd($recarga);
-      $validatedData = $request->validate([
+        $validatedData = $request->validate([
         'id_rolanual' => 'required',
-      ]);
+        ]);
+
       $rol_anual = RolAnual::find($id);
       $rol_anual->id_rol = $request->id_rolanual;
       $rol_anual->save();
-
 
       if ($request->validar_retorno=="regreso") {
         return redirect()->route('rol.enfermeras')
@@ -130,7 +129,6 @@ class RolAnualController extends Controller
         return redirect()->route('rol.servicios')
         ->with('success','Rol anual actualizado con éxito.');
       }
-
   }
 
   /**

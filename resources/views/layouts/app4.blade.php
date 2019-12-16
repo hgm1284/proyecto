@@ -203,7 +203,6 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="/rol_anual/create"><i class="fa fa-plus" aria-hidden="true"></i>Crear Rol Anual</a></li>
-            <li><a href=""><i class="fa fa-plus" aria-hidden="true"></i>Asignar Nuevo Rol</a></li>
             <li><a href="/rol/servicios"><i class="fa fa-calendar-o" aria-hidden="true"></i>Ver Rol Anual-Servicio</a></li>
             <li><a href="/rol/enfermeras"><i class="fa fa-list" aria-hidden="true"></i>Roles por Enfermera(o)</a></li>
             <li><a href="/cambios/create"><i class="fa fa-plus" aria-hidden="true"></i>Crear Cambios</a></li>
@@ -271,7 +270,6 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="/rol_anual/create"><i class="fa fa-plus" aria-hidden="true"></i>Crear Rol Anual</a></li>
-            <li><a href=""><i class="fa fa-plus" aria-hidden="true"></i>Asignar Nuevo Rol</a></li>
             <li><a href="/rol/servicios"><i class="fa fa-calendar-o" aria-hidden="true"></i>Ver Rol Anual-Servicio</a></li>
             <li><a href="/rol/enfermeras"><i class="fa fa-list" aria-hidden="true"></i>Roles por Enfermera(o)</a></li>
             <li><a href="/cambios/create"><i class="fa fa-plus" aria-hidden="true"></i>Crear Cambios</a></li>
