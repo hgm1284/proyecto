@@ -20,9 +20,7 @@ class RolAnualEnfermerasController extends Controller
   *
   * @return void
   */
-  private $setservicio;
-  private $setperfil;
-  private $setanno;
+
   public function __construct()
   {
     $this->middleware('auth');

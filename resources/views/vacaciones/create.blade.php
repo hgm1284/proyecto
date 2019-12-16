@@ -46,8 +46,8 @@
               <div class="box box-info">
                 <div class="form-group">
                   <label for="exampleInputPassword1">Fecha de Ingreso(CCSS)</label>
-                  <input type="date" id="fecha_ingreso" name="fecha_ingreso" min="1930-01-01"
-                  max="3000-12-31"  value="{{ date($enfermera->fecha_ingreso->format('Y-m-d')) }}"
+                  <input type="text" id="fecha_ingreso" name="fecha_ingreso" 
+                    value="{{ date($enfermera->fecha_ingreso->format('L')) }}"
                   class="form-control" placeholder="Fecha de Ingreso" disabled="disable">
                   @error('fecha_ingreso')
                   <span class="invalid-feedback" role="alert">

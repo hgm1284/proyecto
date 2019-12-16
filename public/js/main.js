@@ -226,7 +226,7 @@ function selectEnfermera(){
     for(var i=0; i<data.length; i++)
     var dateObj = new Date(data[i].fecha_ingreso);
     var momentObj = moment(dateObj);
-    var momentString = momentObj.format('DD/MM/YYYY');
+    var momentString = momentObj.format('L');
     $("#fecha_ingreso").val(momentString);
     var fechaActual = moment(new Date());
     var diasDiferencia = fechaActual.diff(momentObj, 'year');
