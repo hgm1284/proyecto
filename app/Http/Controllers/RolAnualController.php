@@ -114,7 +114,11 @@ class RolAnualController extends Controller
           ->where('rolesanualenfermeras.id', '=', $rolanual->id_rolanual)
           ->first();
 
-          dd($recarga);
+
+      $servicioret= $recarga->id_servicio;
+      $perfilret = $recarga->id_profile;
+      $annoret =   $recarga->anno;
+
       $validatedData = $request->validate([
         'id_rolanual' => 'required',
       ]);
@@ -127,7 +131,7 @@ class RolAnualController extends Controller
         return redirect()->route('rol.enfermeras')
         ->with('success','Rol anual actualizado con éxito.');
       } else {
-        return redirect()->route('rol.servicios')
+        return redirect()->route('rol.servicios' , compact('servicioret', 'perfilret', 'annoret'))
         ->with('success','Rol anual actualizado con éxito.');
       }
 
