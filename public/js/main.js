@@ -562,69 +562,6 @@ $("#btnFiltrarRolAnual").click(function() {
     console.log( error);
   });
 });
-//**********************************************
-//RECARGAR ROL ANUAL DESPUES DE MODIFICAR
-function cargarSolicitudes(servicio,perfil,anno) {
-  $.getJSON("/rol/servicios/servicio/"+servicio+"/profile/"+perfil+"/anno/"+anno)
-  .done(function(response) {
-    $.each(response, function(key, item) {
-
-      options = "<tr><td><small>"+ item.enfermero[0].name+"<br>"+item.enfermero[0].lastname+ "</small></td>"
-      for (var i = 0; i < item.meses.length; i++) {
-        options += "<td><small><a href='javascript:;' class='btn btn-block btn-default' title='Editar rol usuario' data-toggle='modal' onclick='updateData("+item.meses[i].id+")' data-target='#modal-default' style='cursor: hand'>"+item.meses[i].rol[0].nomenclatura+"</small></a></td>"
-      }
-      "</tr>";
-      $("#rolanualServicios > tbody").append(options);
-
-    });
-
-    $('#rolanualServicios').DataTable({
-
-      language: {
-        "decimal": "",
-        "emptyTable": "No hay información",
-        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
-        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
-        "infoPostFix": "",
-        "thousands": ",",
-        "lengthMenu": "Mostrar _MENU_ Entradas",
-        "loadingRecords": "Cargando...",
-        "processing": "Procesando...",
-        "search": "Buscar:",
-        "zeroRecords": "Sin resultados encontrados",
-        "paginate": {
-          "first": "Primero",
-          "last": "Ultimo",
-          "next": "Siguiente",
-          "previous": "Anterior"
-        }
-      },
-
-      dom: 'Bfrtip',
-      buttons: [
-        'copyHtml5',
-        'excelHtml5',
-        'csvHtml5',
-            {
-                extend: 'pdfHtml5',
-                orientation: 'landscape',
-                pageSize: 'LEGAL'
-            }
-      ],
-
-      fixedHeader:   {
-        header: true,
-        footer: true
-
-      }
-    });
-
-  })
-  .fail(function(error) {
-    console.log( error);
-  });
-}
-
 
 //**********************************************
 //BUSCAR ROL ANUAL POR ENFERMERA

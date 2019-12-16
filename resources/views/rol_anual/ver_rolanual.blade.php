@@ -1,4 +1,6 @@
 @extends('layouts.app4')
+<title>Roles Anual por Perfil y Servicio </title>
+
 
 @section('content')
 
@@ -127,9 +129,9 @@
           <div class="modal-body">
             <p>Seleccione el nuevo rol que desea asignar</p>
             <select class="form-control selectpicker" id="id_rolanual" name="id_rolanual" required>
-              <option value="10081"><?php echo "I"; ?></option>
-              <option value="10083"><?php echo "II"; ?></option>
-              <option value="10085"><?php echo "III"; ?></option>
+              <option value="1"><?php echo "I"; ?></option>
+              <option value="2"><?php echo "II"; ?></option>
+              <option value="2"><?php echo "III"; ?></option>
             </select>
             <div class="modal-footer">
               <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>

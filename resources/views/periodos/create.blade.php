@@ -28,7 +28,7 @@
                         @csrf
               <div class="box-body">
                 <div class="form-group">
-                  <label for="exampleInputname">Periodo (Formato 2000 - 2001)</label>
+                  <label for="exampleInputname">Crear Periodo</label>
                   <input id="periodo"  placeholder="Periodo (Formato 2000 - 2001)" type="text"
                   class="form-control @error('periodo') is-invalid @enderror" name="periodo"
                   value="{{ old('periodo') }}" required autocomplete="periodo" autofocus>
