@@ -58,11 +58,12 @@
             <div class="box-body">
               <?php
               $cont = date('Y');
-              $anno = date('Y');
-              $cont   += 2;
+              $anno = 2018;
+              $cont   += 1;
               $anno++;
               ?>
-              <select class="form-control selectpicker" id="id_anno" name="anno" required>
+              <select class="form-control selectpicker" id="id_anno" name="anno"  required>
+                <option value="">Seleccione un año</option>
                 <?php while ($cont >= $anno) { ?>
                   <option value="<?php echo($cont); ?>"><?php echo($cont); ?></option>
                   <?php $cont = ($cont-1); } ?>
