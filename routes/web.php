@@ -107,3 +107,10 @@ Route::get('reporte/vacaciones/especialidad/{especialidad}/periodo/{periodo}', '
 
 Route::get('reporte/perfiles', ['as' => 'reporte.mostrarreporteperfiles', 'uses' => 'ProfilesController@mostrarreporteperfiles']);
 Route::get('reporte/perfiles/profile/{profile}/servicio/{servicio}', 'ProfilesController@reportePerfiles');
+
+//DISTRIBUCION MENSUAL DE ROLES POR SERVICIO
+Route::get('rol/serviciosmes', ['as' => 'rol.serviciosmes', 'uses' => 'RolAnualEnfermerasController@mostrardistribucionAnual']);
+Route::get('rol/serviciosmes/servicio/{servicio}/profile/{profile}/mes/{mes}/anno/{anno}', 'RolAnualEnfermerasController@distribucionAnual');
+//DISTRIBUCION MENSUAL DE ROLES POR ENFERMERO
+Route::get('rol/enfermerasmes', ['as' => 'rol.enfermerasmes', 'uses' => 'RolAnualEnfermerasController@mostrarrolanualenfermera']);
+Route::get('rol/enfermerasmes/enfermera/{enfermera}/mes/{mes}/anno/{anno}', 'RolAnualEnfermerasController@distribucionAnualEnfermera');
