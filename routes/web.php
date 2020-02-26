@@ -93,6 +93,18 @@ Route::post('rol_anual/update/{id}', [
     'as'  =>'rol_anual.update'
 ]);
 
+
+Route::resource('/rol_mensual','RolMensualController');
+Route::post('rol_mensual/{id}/destroy', [
+    'uses'=> 'RolMensualController@destroy',
+    'as'  =>'rol_mensual.destroy'
+]);
+Route::post('rol_mensual/update/{id}', [
+    'uses'=> 'RolMensualController@update',
+    'as'  =>'rol_anual.update'
+]);
+
+
 //fullcalender
 Route::get('vacaciones/days/{id}','VacacionesController@index2');
 
@@ -109,8 +121,8 @@ Route::get('reporte/perfiles', ['as' => 'reporte.mostrarreporteperfiles', 'uses'
 Route::get('reporte/perfiles/profile/{profile}/servicio/{servicio}', 'ProfilesController@reportePerfiles');
 
 //DISTRIBUCION MENSUAL DE ROLES POR SERVICIO
-Route::get('rol/serviciosmes', ['as' => 'rol.serviciosmes', 'uses' => 'RolAnualEnfermerasController@mostrardistribucionAnual']);
-Route::get('rol/serviciosmes/servicio/{servicio}/profile/{profile}/mes/{mes}/anno/{anno}', 'RolAnualEnfermerasController@distribucionAnual');
+Route::get('rol/serviciosmes', ['as' => 'rol.serviciosmes', 'uses' => 'RolMensualController@mostrardistribucionAnual']);
+Route::get('rol/serviciosmes/servicio/{servicio}/profile/{profile}/mes/{mes}/anno/{anno}', 'RolMensualController@distribucionAnual');
 //DISTRIBUCION MENSUAL DE ROLES POR ENFERMERO
-Route::get('rol/enfermerasmes', ['as' => 'rol.enfermerasmes', 'uses' => 'RolAnualEnfermerasController@mostrarrolanualenfermera']);
-Route::get('rol/enfermerasmes/enfermera/{enfermera}/mes/{mes}/anno/{anno}', 'RolAnualEnfermerasController@distribucionAnualEnfermera');
+Route::get('rol/enfermerasmes', ['as' => 'rol.enfermerasmes', 'uses' => 'RolMensualController@mostrarrolanualenfermera']);
+Route::get('rol/enfermerasmes/enfermera/{enfermera}/mes/{mes}/anno/{anno}', 'RolMensualController@distribucionAnualEnfermera');
