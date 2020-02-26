@@ -30,7 +30,7 @@
     @csrf
     <section class="content">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div class="box box-primary" style="text-align:center">
             <div class="box-header-success">
               <label for="exampleInputPassword3">Enfermera(o)</label>
@@ -47,6 +47,21 @@
                 <strong>{{ $message }}</strong>
               </span>
               @enderror
+            </div>
+          </div>
+        </div>
+        <div class= "col-md-3">
+          <div class="box box-primary">
+            <div class="box-header-success">
+              <label for="exampleInputPassword3">Mes</label>
+            </div>
+            <div class="box-body">
+              <select class="form-control selectpicker" id="mes" name="mes"  required>
+                <option value="">Seleccione un mes</option>
+                @foreach ($meses as $messanno)
+                <option value="{{$messanno['id']}}">{{$messanno['mes']}}</option>
+                @endforeach
+              </select>
             </div>
           </div>
         </div>
@@ -82,8 +97,8 @@
                 <label for="exampleInputPassword3">Tabla Rol Anual por Enfermera(o)</label>
               </div>
             </div>
-
           </div>
+
           <table class="display compact nowrap" id="RolAnualEnfermeras" style="width:100%">
             <thead>
               <tr>

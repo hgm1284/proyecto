@@ -11,7 +11,7 @@
   <ol class="breadcrumb">
     <li><a href="/home"><i class="fa fa-home"></i>Inicio</a></li>
     <i class="fa fa-arrow-right" aria-hidden="true"></i>
-    <li>Dist. Anual</li>
+    <li>Dist. Mensual</li>
   </ol>
 </section>
 <br>
@@ -26,7 +26,7 @@
     @csrf
     <section class="content">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-5">
           <div class="box box-success" style="text-align:center">
             <div class="box-header-success">
               <label for="exampleInputPassword3">Servicio</label>
@@ -41,7 +41,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-5">
           <div class="box box-primary" style="text-align:center">
             <div class="box-header-success">
               <label for="exampleInputPassword3">Perfil de Enfermera(o)</label>
@@ -61,31 +61,46 @@
             </div>
           </div>
         </div>
-        <div class= "col-md-3">
+        <div class="col-md-2">
+            <button id="btnFiltrarRolAnual" type="button" aling"left" class="btn btn-block btn-warning">Buscar</button>
+        </div>
+        <div class= "col-md-5">
           <div class="box box-primary">
             <div class="box-header-success">
-              <label for="exampleInputPassword3">Año</label>
+              <label for="exampleInputPassword3">Mes</label>
             </div>
             <div class="box-body">
-              <?php
-              $cont = date('Y');
-              $anno = 2018;
-              $cont   += 1;
-              $anno++;
-              ?>
-              <select class="form-control selectpicker" id="id_anno" name="anno"  required>
-                <option value="">Seleccione un año</option>
-                <?php while ($cont >= $anno) { ?>
-                  <option value="<?php echo($cont); ?>"><?php echo($cont); ?></option>
-                  <?php $cont = ($cont-1); } ?>
-                </select>
-              </div>
+              <select class="form-control selectpicker" id="mes" name="mes"  required>
+                <option value="">Seleccione un mes</option>
+                @foreach ($meses as $messanno)
+                <option value="{{$messanno['id']}}">{{$messanno['mes']}}</option>
+                @endforeach
+              </select>
             </div>
           </div>
+        </div>
 
-          <div class="col-md-2">
-            <button id="btnFiltrarRolAnual" type="button" aling"left" class="btn btn-block btn-warning">Buscar</button>
-          </div>
+          <div class= "col-md-5">
+            <div class="box box-primary">
+              <div class="box-header-success">
+                <label for="exampleInputPassword3">Año</label>
+              </div>
+              <div class="box-body">
+                <?php
+                $cont = date('Y');
+                $anno = 2018;
+                $cont   += 1;
+                $anno++;
+                ?>
+                <select class="form-control selectpicker" id="id_anno" name="anno"  required>
+                  <option value="">Seleccione un año</option>
+                  <?php while ($cont >= $anno) { ?>
+                    <option value="<?php echo($cont); ?>"><?php echo($cont); ?></option>
+                    <?php $cont = ($cont-1); } ?>
+                  </select>
+                </div>
+              </div>
+            </div>
 
           <div class="col-md-12">
             <div class="box box-success">

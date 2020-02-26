@@ -92,20 +92,20 @@ class RolMensualController extends Controller
         //
     }
 
-    public function mostrardistribucionAnual(){
+    public function mostrardistribucionMensual(){
       $meses = [
-        ['mes' => 'Ene','id'=>'1'],
-        ['mes' => 'Feb','id'=>'2'],
-        ['mes' => 'Mar','id'=>'3'],
-        ['mes' => 'Abr','id'=>'4'],
+        ['mes' => 'Enero','id'=>'1'],
+        ['mes' => 'Febrero','id'=>'2'],
+        ['mes' => 'Marzo','id'=>'3'],
+        ['mes' => 'Abril','id'=>'4'],
         ['mes' => 'Mayo','id'=>'5'],
         ['mes' => 'Junio','id'=>'6'],
         ['mes' => 'Julio','id'=>'7'],
-        ['mes' => 'Agos','id'=>'8'],
-        ['mes' => 'Sept','id'=>'9'],
-        ['mes' => 'Oct','id'=>'10'],
-        ['mes' => 'Nov','id'=>'11'],
-        ['mes' => 'Dic','id'=>'12'],
+        ['mes' => 'Agosto','id'=>'8'],
+        ['mes' => 'Septiembre','id'=>'9'],
+        ['mes' => 'Octubre','id'=>'10'],
+        ['mes' => 'Noviembre','id'=>'11'],
+        ['mes' => 'Diciembre','id'=>'12'],
       ];
       $enfermeras = Enfermera::all();
       $profiles = Profile::all();
@@ -114,7 +114,7 @@ class RolMensualController extends Controller
     }
 
 
-    public function distribucionAnual($servicio, $profile, $anno)
+    public function distribucionMensual($servicio, $profile, $mes, $anno)
     {
       return RolMensual::with(['meses.rol'])->
       with(['enfermero'])->
@@ -123,27 +123,26 @@ class RolMensualController extends Controller
       ->where('anno','=',$anno)->get();
     }
 
-    public function mostrarrolanualenfermera(){
+    public function mostrarrolMesEnfermera(){
       $meses = [
-        ['mes' => 'Ene','id'=>'1'],
-        ['mes' => 'Feb','id'=>'2'],
-        ['mes' => 'Mar','id'=>'3'],
-        ['mes' => 'Abr','id'=>'4'],
+        ['mes' => 'Enero','id'=>'1'],
+        ['mes' => 'Febrero','id'=>'2'],
+        ['mes' => 'Marzo','id'=>'3'],
+        ['mes' => 'Abril','id'=>'4'],
         ['mes' => 'Mayo','id'=>'5'],
         ['mes' => 'Junio','id'=>'6'],
         ['mes' => 'Julio','id'=>'7'],
-        ['mes' => 'Agos','id'=>'8'],
-        ['mes' => 'Sept','id'=>'9'],
-        ['mes' => 'Oct','id'=>'10'],
-        ['mes' => 'Nov','id'=>'11'],
-        ['mes' => 'Dic','id'=>'12'],
+        ['mes' => 'Agosto','id'=>'8'],
+        ['mes' => 'Septiembre','id'=>'9'],
+        ['mes' => 'Octubre','id'=>'10'],
+        ['mes' => 'Noviembre','id'=>'11'],
+        ['mes' => 'Diciembre','id'=>'12'],
       ];
-
       $enfermeras = Enfermera::all();
       return view('rol_mensual.ver_rolmes_enfermera', compact('enfermeras','meses'));
     }
 
-    public function distribucionAnualEnfermera($enfermera, $anno){
+    public function distribucionMesEnfermera($enfermera, $anno){
       return RolMensual::with(['meses.rol'])->
       with(['enfermero'])->
       where('id_enfermera','=',$enfermera)
