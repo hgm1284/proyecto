@@ -1,16 +1,16 @@
 @extends('layouts.app4')
-<title>Roles Anual por Enfermera(o) </title>
+<title>Roles Mensual por Enfermera(o) </title>
 
 @section('content')
 
 <section class="content-header" id="contentheader">
   <h1>
-    Módulo de Distribucion Anual por Enfermera(o)
+    Módulo de Distribucion Mensual por Enfermera(o)
   </h1>
   <ol class="breadcrumb">
     <li><a href="/home"><i class="fa fa-home"></i>Inicio</a></li>
     <i class="fa fa-arrow-right" aria-hidden="true"></i>
-    <li>Distribución Anual por Enfermera(o)</li>
+    <li>Distribución Mensual por Enfermera(o)</li>
   </ol>
 </section>
 <br>
@@ -23,14 +23,14 @@
   <div class="box box-primary" style="text-align:center">
     <div class="box-header with-border">
       <div class="row">
-        <div class="col-md-10"><h3 class="box-title">Buscar Distribución Anual por Enfermera(o)</h3></div>
+        <div class="col-md-10"><h3 class="box-title">Buscar Distribución Mensual por Enfermera(o)</h3></div>
       </div>
     </div>
     <br>
     @csrf
     <section class="content">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div class="box box-primary" style="text-align:center">
             <div class="box-header-success">
               <label for="exampleInputPassword3">Enfermera(o)</label>
@@ -47,6 +47,21 @@
                 <strong>{{ $message }}</strong>
               </span>
               @enderror
+            </div>
+          </div>
+        </div>
+        <div class= "col-md-3">
+          <div class="box box-primary">
+            <div class="box-header-success">
+              <label for="exampleInputPassword3">Mes</label>
+            </div>
+            <div class="box-body">
+              <select class="form-control selectpicker" id="mes" name="mes"  required>
+                <option value="">Seleccione un mes</option>
+                @foreach ($meses as $messanno)
+                <option value="{{$messanno['id']}}">{{$messanno['mes']}}</option>
+                @endforeach
+              </select>
             </div>
           </div>
         </div>
@@ -82,8 +97,8 @@
                 <label for="exampleInputPassword3">Tabla Rol Anual por Enfermera(o)</label>
               </div>
             </div>
-
           </div>
+
           <table class="display compact nowrap" id="RolAnualEnfermeras" style="width:100%">
             <thead>
               <tr>
