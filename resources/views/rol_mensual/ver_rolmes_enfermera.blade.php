@@ -73,7 +73,7 @@
             <div class="box-body">
               <?php
               $cont = date('Y');
-              $anno = 2018;
+              $anno = 2019;
               $cont   += 1;
               $anno++;
               ?>
@@ -94,11 +94,10 @@
           <div class="col-md-12">
             <div class="box box-success">
               <div class="box-header-success">
-                <label for="exampleInputPassword3">Tabla Rol Anual por Enfermera(o)</label>
+                <label for="exampleInputPassword3">Tabla Rol Mensual por Enfermera(o)</label>
               </div>
             </div>
           </div>
-
           <table class="display compact nowrap" id="RolAnualEnfermeras" style="width:100%">
             <thead>
               <tr>
@@ -137,9 +136,9 @@
             {{ method_field('put') }}-->
             <p>Seleccione el nuevo rol que desea asignar</p>
             <select class="form-control selectpicker" id="id_rolanual" name="id_rolanual" required>
-              <option value="1"><?php echo "I"; ?></option>
-              <option value="2"><?php echo "II"; ?></option>
-              <option value="3"><?php echo "III"; ?></option>
+              <option value="10081"><?php echo "I"; ?></option>
+              <option value="10083"><?php echo "II"; ?></option>
+              <option value="10085"><?php echo "III"; ?></option>
             </select>
             <input type="hidden" name="validar_retorno" value="regreso">
             <div class="modal-footer">
