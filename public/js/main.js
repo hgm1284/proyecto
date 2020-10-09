@@ -505,6 +505,7 @@ $("#btnFiltrarRolAnual").click(function() {
 
   $.getJSON("/rol/servicios/servicio/"+servicio+"/profile/"+perfil+"/anno/"+anno)
   .done(function(response) {
+    console.log(response);
     $.each(response, function(key, item) {
 
       options = "<tr><td><small>"+ item.enfermero[0].name+"<br>"+item.enfermero[0].lastname+ "</small></td>"
