@@ -113,8 +113,8 @@
             <thead class="thead-dark">
               <tr>
                 <th scope="col">Enfermero</th>
-                @foreach ($meses as $messanno)
-                <th scope="col">{{$messanno['mes']}}</th>
+                @foreach ($mesesmin as $mesmin)
+                <th scope="col">{{$mesmin['mes']}}</th>
                 @endforeach
               </thead>
               <tbody>

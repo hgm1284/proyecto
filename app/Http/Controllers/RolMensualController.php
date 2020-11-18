@@ -107,10 +107,24 @@ class RolMensualController extends Controller
         ['mes' => 'Noviembre','id'=>'11'],
         ['mes' => 'Diciembre','id'=>'12'],
       ];
+      $mesesmin = [
+        ['mes' => 'Ene','id'=>'1'],
+        ['mes' => 'Feb','id'=>'2'],
+        ['mes' => 'Mar','id'=>'3'],
+        ['mes' => 'Abr','id'=>'4'],
+        ['mes' => 'Mayo','id'=>'5'],
+        ['mes' => 'Junio','id'=>'6'],
+        ['mes' => 'Julio','id'=>'7'],
+        ['mes' => 'Agos','id'=>'8'],
+        ['mes' => 'Sept','id'=>'9'],
+        ['mes' => 'Oct','id'=>'10'],
+        ['mes' => 'Nov','id'=>'11'],
+        ['mes' => 'Dic','id'=>'12'],
+      ];
       $enfermeras = Enfermera::all();
       $profiles = Profile::all();
       $servicios = Servicio::all();
-      return view('rol_mensual.ver_rolmes_serv', compact('enfermeras','profiles','servicios','meses'));
+      return view('rol_mensual.ver_rolmes_serv', compact('enfermeras','profiles','servicios','meses','mesesmin'));
     }
 
 
@@ -138,8 +152,22 @@ class RolMensualController extends Controller
         ['mes' => 'Noviembre','id'=>'11'],
         ['mes' => 'Diciembre','id'=>'12'],
       ];
+      $mesesmin = [
+        ['mes' => 'Ene','id'=>'1'],
+        ['mes' => 'Feb','id'=>'2'],
+        ['mes' => 'Mar','id'=>'3'],
+        ['mes' => 'Abr','id'=>'4'],
+        ['mes' => 'Mayo','id'=>'5'],
+        ['mes' => 'Junio','id'=>'6'],
+        ['mes' => 'Julio','id'=>'7'],
+        ['mes' => 'Agos','id'=>'8'],
+        ['mes' => 'Sept','id'=>'9'],
+        ['mes' => 'Oct','id'=>'10'],
+        ['mes' => 'Nov','id'=>'11'],
+        ['mes' => 'Dic','id'=>'12'],
+      ];
       $enfermeras = Enfermera::all();
-      return view('rol_mensual.ver_rolmes_enfermera', compact('enfermeras','meses'));
+      return view('rol_mensual.ver_rolmes_enfermera', compact('enfermeras','meses','mesesmin'));
     }
 
     public function distribucionMesEnfermera($enfermera, $anno){
